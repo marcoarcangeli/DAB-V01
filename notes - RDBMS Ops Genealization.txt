@@ -160,7 +160,7 @@ selectAllUsrProfile() >> Nam must be: Profile->selectAllIdUsr()
 OBSERVATIONS:
 - it is quiet impossible to define a generalized standard for DAO Requests,
   cause they are so variuos.
-- It can be done only for basic Select Single-All, Insert, Update, Delete.
+- As far as I know, It can be done only for basic Select Single-All, Insert, Update, Delete.
 - Other requests cannot be limited by a rigid standard:
 	- Filters: they affect the OpNam;
 	- composed entities: they affect the EntityNam;
@@ -203,27 +203,34 @@ selectSingle()
 OBSERVATIONS:
 - general std select model:
     SELECT
-        [fields] 
+        [StdViewFields] 
     FROM
         [Entity]
     WHERE
         [Filter] 
     ORDER BY
-        [ordering fields]
+        [OrderingFields]
 
-- [Fields] are defined by: 
+- [StdViewFields] are defined by: 
     - All Foundamental entity fields (ex. pu.IdProfileUsr, pu.IdProfile, pu.IdUsr)
      +  
-    - Descriptive Entities fields related to Ids (ex. p.Nam as ProfileNam, u.UsrNam)
+    - Descriptive Entities fields related to Foreingn keys Ids (ex. p.Nam as ProfileNam, u.UsrNam)
 - [Entity] is always the same (look at the From Clause)
+    ex: ... 
     profile_usr pu
     LEFT OUTER JOIN profile p on pu.IdProfile=p.IdProfile
     LEFT OUTER JOIN usr u on pu.IdUsr=u.IdUsr   
-    - where - profile_usr is the foundamental entity
+    ...
+    generaliazed: ... 
+    [fundamental Entity] fe
+    LEFT OUTER JOIN [descriptive entity 1] de1 on fe.[Id[fundamental Entity]]=de1.[Id[descriptive entity 1]]
+    LEFT OUTER JOIN [descriptive entity 2] de2 on fe.[Id[fundamental Entity]]=de2.[Id[descriptive entity 2]]   
+    ...
+    - where - profile_usr is the fundamental entity
             - profile, usr entities become descriptive.
 - [Filter] WHERE or HAVING conditions, are the most complex part to generalize
 - [Ordering fields] a std could be:
-    - Descriptive Fields, if they exist
+    - Descriptive 'Nam' Fields, if they exist
     or
     - Foundamental Entity Id, if not
 
@@ -262,11 +269,9 @@ selectAllIdProfileIdUsrEx()
 ...
 -----------------------------------------------------
 
-
-
 -----------------------------------------------------
 CONCLUSIONS for SELECT
-- a Dao componet must be considerwed as a wrapper encapsulating a dataSourse Entity (ex. rdbms table or join of tables);
+- a Dao component must be considered as a wrapper encapsulating a dataSourse Entity (ex. rdbms table or join of tables);
 - a std adapter Dao can be defined setting up, with STD COMPOSITION RULES (see the hypothesis above):
     - Entity, Fields, Ordering fields, Filters 
 - STD COMPOSITION RULES can be introduced in order to have multiple options for Code composition.
@@ -275,7 +280,9 @@ CONCLUSIONS for SELECT
 -----------------------------------------------------
 OTHER OBSERVATIONS
 ? A greater problem is the reverse engineering of the Entity, starting from the Sql From clause
+    ? could be done with the Analyst interaction selecting fundamental and description assets
 
+----------------------------------------------------------
 ----------------------------------------------------------
 INSERT and UPDATE examples: 
 ----------------------------------------------------------
@@ -352,21 +359,21 @@ Multi rows syntax
 GENERALIZED INSERT/UPDATE
 ---------------------------------------------------------------
 - considering the 
-    - Comma Separated Fields List Without Id[Fundamental Entity] 
-        - [CSFLWI] = implode(', ', array_slice($array_keys(Matrix[0]), 1));
-    - Comma Separated Values List Without Id[Fundamental Entity] 
-        - [CSVLWI] = implode(', ', array_slice($array_values(Matrix[0]), 1));
-    - Comma Separated List for INSERT-UPDATE
+    - Comma Separated Fields List
+        - [CSFL] = implode(', ', array_slice($array_keys(Matrix[0]), 1));
+    - Comma Separated Values List
+        - [CSVL] = implode(', ', array_slice($array_values(Matrix[0]), 1));
+    - Comma Separated List for UPDATE
         - [CSKLIU] = implode(',',array_map(function ($v, $k) { return $k.'=VALUES('.$k.')'; }, Matrix[0], array_keys(Matrix[0]))),"<br>";
 
-    INSERT INTO [Fundamental Entity ]
-            ([CSFLWI])
+    INSERT INTO [Fundamental Entity]
+            ([CSFL])
     VALUES
         foreach ($Matrix as $Row){
-            ([CSVLWI]),
+            ([CSVL]),
         }
     ON DUPLICATE KEY UPDATE
-        [CSKLIU]
+        [CSLU]
     ;
 
 - SAMPLE in Test db:
@@ -392,9 +399,55 @@ Data Structure knowledge extraction
 - From Functional form: ex for Alg entity:
     - alg(idAlg,idAlgState,idAlgCat,nam,descr,fileRefProc,CatTag)
     - algcat(idAlgCat,idAlgCatPar,nam,descr)
+    - ...
+- it could be formatted as csv file:
+    - conventions:
+        - Descriptive Entities Id: '>' postfix or 'Par>' for recursive entities
+        - Fundamental Entity Id: 'Id'+[Fundamental Entity]
 
-- extract metadata and organize them as tables:
-- it correspond with rdbms metadata: ex. mysql db
+    -----------         ------------------------
+    Entity              Fields
+    -----------         ------------------------
+    alg                 idAlg,idAlgState>,idAlgCat>,nam,descr,fileRefProc,CatTag
+    algcat              idAlgCat,idAlgCatPar>,nam,descr
+    ...
+- could be usefull to extract metadata and organize them as csv or json or rdbms tables,
+    FROM:
+    - rdbms metadata of existing db: ex. mysql db
+    - rdbms SQL script
+    - text docs (to specify)
+
+----------------------------------------------------------
+----------------------------------------------------------
+DELETE examples: 
+----------------------------------------------------------
+    Delete			Delete		[Single]
+                    Clean		[Filter]
+                    Truncate	[All]
+----------------------------------------------------------
+Single row syntax
+    DELETE from Profile p
+        WHERE p.IdProfile = '" . $this->IdProfile . "'
+
+Multi row syntax
+    DELETE from Profile p
+        WHERE p.IdProfile IN ('1,3,6,9,22,456')
+
+Clean Tables
+    TRUNCATE TABLE Profile
+---------------------------------------------------------------
+GENERALIZED DELETE
+---------------------------------------------------------------
+- considering the 
+    - Comma Separated Delete IDS 
+        - [CSDI] = implode(', ', array_slice($array_keys(Matrix[0]), 1));
+
+    DELETE from [Fundamental Entity] fe
+        WHERE fe.[Fundamental Entity] IN ([CSDI])
+    
+    and
+    
+    TRUNCATE TABLE [Fundamental Entity]
 ---------------------------------------------------------------
 CONCLUSIONS
 ---------------------------------------------------------------

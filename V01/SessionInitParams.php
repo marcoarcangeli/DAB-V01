@@ -124,6 +124,7 @@ $_SESSION["HtmlFile"]   = ".html";
 $_SESSION["LogFile"]    = ".log";
 
 // nomi standard
+$_SESSION["DefaultSep"]         = ",";
 $_SESSION["EnumColStdName"]     = "_n";
 $_SESSION["StringParamsSep"]    = "|";
 $_SESSION["CSVDefaultSep"]      = ";";
@@ -131,6 +132,7 @@ $_SESSION["DecDefaultSep"]      = ",";
 $_SESSION["NamDefaultSep"]      = "_";
 $_SESSION["NamSpaceDefaultSep"] = ".";
 $_SESSION["PanelBtnsPostfix"]   = "Btns";
+$_SESSION["FKPostfix"]          ='>';
 // namespaces
 $_SESSION["RootNamSpace"]       = "DA";
 $_SESSION["JSRootNamSpace"]     = "da";
