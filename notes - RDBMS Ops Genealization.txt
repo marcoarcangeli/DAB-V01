@@ -1,0 +1,398 @@
+
+- DAO Standards: every DAO:
+    - must be related to 1 Entity > Entity can be composed by simpler Entities
+        - RDBMS: the Select From [Join] -> Entity(ies) + Descriptive Related other Entities
+    - exposes DAOps: DAOps types are: select
+
+    - DAOps standard: it depends on SourceType and [Entity] -> Result = [Entity].[DAOpsNam]([DAOpsParams])
+        - DaoSourceType: RDBMS, FS, Component, ExtService
+    ------------	--------	------------					-----------		-----------------
+    DAOps			RDBMS 								
+                    Op			OpType {2}							Result			FullNam
+    ------------	--------	------------					-----------		-----------------
+    view			Select		Std		Single					0..1 row		selectSingle {1}{4}
+                                        All						0..n row(s)		selectAll
+                                Spec	Single[FilterParamNams]	0..1 row		selectSingle[FilterParamNams] {1}
+                                        All[FilterParamNams]	0..n row(s)		selectAll[FilterParamNams]
+    Save			Insert		Std		One	{5}
+                                        Multi {3}		
+                    Update      Std		One	{5}
+                                        Multi {3}
+
+    Delete			Delete		[Single]
+                    Clean		[Filter]
+                    Truncate	[All]
+
+    [Spec]			[OpNam]		[OpNam][FilterParamNams]
+    ------------	--------	------------					-----------		-----------------
+    {1}: Single could be omitted, but it stays for sintax disambiguation with select commands;
+    {2}: think about generalization of Single/All+Filters ops -> only 1 Op Select[FilterParamNams] with 0..n row(s) result;
+    {3}: MULTI could a more precise and general alternative to All.
+    {4}: Single should be more precise as OneOrNone; All as MultiOrNone.
+         It means that what is determining the = or like clause is the maximum number of rows returned.
+    {5}: ONE could an alternative to Single.
+----------------------------------------------------------
+SELECT examples: 
+----------------------------------------------------------
+- Entity=Profile: simple entity
+----------------------------------------------------------
+selectAll()
+ 
+            SELECT
+                p.IdProfile,
+                p.Nam,
+                p.Descr
+            FROM
+                Profile p
+            ORDER BY
+                p.IdProfile
+----------------------------------------------------------
+selectSingle()
+            SELECT
+                p.IdProfile,
+                p.Nam,
+                p.Descr
+            FROM
+                Profile p
+            WHERE
+                IdProfile = " . $this->IdProfile."
+----------------------------------------------------------
+Generalization hypothesis:
+selectIdProfile()
+            SELECT
+                p.IdProfile,
+                p.Nam,
+                p.Descr
+            FROM
+                Profile p
+            WHERE
+                IdProfile like '" . $this->IdProfile."%'
+            ORDER BY
+                p.IdProfile
+----------------------------------------------------------
+OBSERVATONS:
+- to generalize js->Refresh and Dao.ctrl->DbRead methods must not execute Dao if emptyOrNull(IdProfile)
+----------------------------------------------------------
+-this must be placed in the ProfileFeatureAuth Dao
+
+selectAllFeatureAuth() 
+                SELECT
+                    p.IdProfile,
+                    p.Nam,
+                    p.Descr,
+                    fc.IdFeatureCat,
+                    fc.Nam as FeatureCatNam,
+                    f.IdFeature,
+                    f.Nam as FeatureNam,
+                    f.Descr as FeatureDescr,
+                    f.CodeParams as FeatureCodeParams,
+                    a.IdAuthLevel,
+                    a.Nam as AuthLevelNam,
+                    a.AuthLevel as AuthLevel
+                FROM
+                    Profile p
+                    LEFT OUTER JOIN profile_feature_auth pfa on pfa.IdProfile=p.IdProfile
+                    LEFT OUTER JOIN feature f on pfa.IdFeature=f.IdFeature    
+                    LEFT OUTER JOIN authLevel a on pfa.IdAuthLevel=a.IdAuthLevel    
+                    LEFT OUTER JOIN featureCat fc on f.IdFeatureCat=fc.IdFeatureCat    
+                WHERE
+                    p.IdProfile = " . $this->IdProfile."
+                ORDER BY
+                    fc.Nam, f.Nam
+----------------------------------------------------------
+-this must be placed in the ProfileFeatureAuth Dao
+
+selectAllUsrProfileFeatureAuth()
+                SELECT
+                    u.IdUsr,
+                    u.usrNam,
+                    count(p.IdProfile),
+                    fc.IdFeatureCat,
+                    fc.Nam as FeatureCatNam,
+                    f.IdFeature,
+                    f.Nam as FeatureNam,
+                    f.Descr as FeatureDescr,
+                    f.CodeParams as FeatureCodeParams,
+                    a.IdAuthLevel,
+                    a.Nam as AuthLevelNam,
+                    max(a.AuthLevel) as AuthLevel
+                FROM
+                    usr u
+                    LEFT OUTER JOIN profile_usr pu on pu.IdUsr=u.IdUsr
+                    LEFT OUTER JOIN Profile p on pu.IdProfile=p.IdProfile
+                    LEFT OUTER JOIN profile_feature_auth pfa on pfa.IdProfile=p.IdProfile
+                    LEFT OUTER JOIN feature f on pfa.IdFeature=f.IdFeature    
+                    LEFT OUTER JOIN authLevel a on pfa.IdAuthLevel=a.IdAuthLevel    
+                    LEFT OUTER JOIN featureCat fc on f.IdFeatureCat=fc.IdFeatureCat    
+                GROUP BY
+                    u.IdUsr,
+                    fc.IdFeatureCat,
+                    f.IdFeature
+                HAVING
+                    u.IdUsr = " . $this->IdUsr."
+                ORDER BY
+                    fc.IdFeatureCat,
+                    f.IdFeature
+----------------------------------------------------------
+- this must be placed in the ProfileUsr Dao
+
+selectAllUsrProfile() >> Nam must be: Profile->selectAllIdUsr()
+
+                SELECT
+                    u.IdUsr,
+                    u.usrNam,
+                    p.IdProfile,
+                    p.Nam,
+                    p.Descr
+                FROM
+                    usr u
+                    LEFT OUTER JOIN profile_usr pu on pu.IdUsr=u.IdUsr
+                    LEFT OUTER JOIN Profile p on pu.IdProfile=p.IdProfile
+                WHERE
+                    u.IdUsr = " . $this->IdUsr."
+                ORDER BY
+                    p.Nam
+
+- ProfileFeatureAuth: complex Entity
+
+
+-------------------------------------------------
+OBSERVATIONS:
+- it is quiet impossible to define a generalized standard for DAO Requests,
+  cause they are so variuos.
+- It can be done only for basic Select Single-All, Insert, Update, Delete.
+- Other requests cannot be limited by a rigid standard:
+	- Filters: they affect the OpNam;
+	- composed entities: they affect the EntityNam;
+
+- The only way I can see is to define a standard that consider a Composed Entity as a 
+  new and different entity from the composing ones.
+  ex. Profile, Feature, AuthLevel, Usr are different from any combynation of them: 
+	- ProfileFeature, ProfileFeatureAuthLevel, ProfileUsr
+? It seems that the order could be ignored: ex. ProfileUsr and UsrProfile can coexist in the same Dao.
+    - lets demonstrate it for ProfileUsr <> UsrProfile
+-------------------------------------------------
+selectAll()
+            SELECT
+                pu.IdProfileUsr,
+                pu.IdProfile,
+                p.Nam as ProfileNam,
+                pu.IdUsr,
+                u.UsrNam
+            FROM
+                profile_usr pu
+                LEFT OUTER JOIN profile p on pu.IdProfile=p.IdProfile
+                LEFT OUTER JOIN usr u on pu.IdUsr=u.IdUsr    
+            ORDER BY
+                p.Nam,u.Nam
+-------------------------------------------------
+selectSingle()
+            SELECT
+                pu.IdProfileUsr,
+                pu.IdProfile,
+                p.Nam as ProfileNam,
+                pu.IdUsr,
+                u.UsrNam
+            FROM
+                profile_usr pu
+                LEFT OUTER JOIN profile p on pu.IdProfile=p.IdProfile
+                LEFT OUTER JOIN usr u on pu.IdUsr=u.IdUsr   
+            WHERE
+                pu.IdProfileUsr = " . $this->IdProfileUsr." 
+-------------------------------------------------
+OBSERVATIONS:
+- general std select model:
+    SELECT
+        [fields] 
+    FROM
+        [Entity]
+    WHERE
+        [Filter] 
+    ORDER BY
+        [ordering fields]
+
+- [Fields] are defined by: 
+    - All Foundamental entity fields (ex. pu.IdProfileUsr, pu.IdProfile, pu.IdUsr)
+     +  
+    - Descriptive Entities fields related to Ids (ex. p.Nam as ProfileNam, u.UsrNam)
+- [Entity] is always the same (look at the From Clause)
+    profile_usr pu
+    LEFT OUTER JOIN profile p on pu.IdProfile=p.IdProfile
+    LEFT OUTER JOIN usr u on pu.IdUsr=u.IdUsr   
+    - where - profile_usr is the foundamental entity
+            - profile, usr entities become descriptive.
+- [Filter] WHERE or HAVING conditions, are the most complex part to generalize
+- [Ordering fields] a std could be:
+    - Descriptive Fields, if they exist
+    or
+    - Foundamental Entity Id, if not
+
+- The IdProfileUsr = IdUsrProfile and is unique;
+
+- Generalizations should be:
+-------------------------------------------------
+    Std generalization
+
+...    WHERE
+        pu.IdProfileUsr like '" . $this->IdProfileUsr."%' 
+...
+-------------------------------------------------
+    Relational generalizations
+
+selectAllIdProfileIdUsr()   
+...    WHERE
+        pu.IdProfile like '" . $this->IdProfile."%' and
+        pu.IdUsr like '" . $this->IdUsr."%'
+...
+-------------------------------------------------
+selectAllIdProfile()    
+...    WHERE
+        pu.IdProfile = " . $this->IdProfile." 
+...
+-------------------------------------------------
+selectAllIdUsr()
+...    WHERE
+        pu.IdUsr = " . $this->IdUsr." 
+...
+-------------------------------------------------
+selectAllIdProfileIdUsrEx()   
+...    WHERE
+        pu.IdProfile = " . $this->IdProfile." XOR
+        pu.IdUsr = " . $this->IdUsr."
+...
+-----------------------------------------------------
+
+
+
+-----------------------------------------------------
+CONCLUSIONS for SELECT
+- a Dao componet must be considerwed as a wrapper encapsulating a dataSourse Entity (ex. rdbms table or join of tables);
+- a std adapter Dao can be defined setting up, with STD COMPOSITION RULES (see the hypothesis above):
+    - Entity, Fields, Ordering fields, Filters 
+- STD COMPOSITION RULES can be introduced in order to have multiple options for Code composition.
+- a Code Builder should include a Composition Rule Editor.
+
+-----------------------------------------------------
+OTHER OBSERVATIONS
+? A greater problem is the reverse engineering of the Entity, starting from the Sql From clause
+
+----------------------------------------------------------
+INSERT and UPDATE examples: 
+----------------------------------------------------------
+    Save			Insert		Std		One	
+                                        Multi 		
+                    Update      Std		One	
+                                        Multi 
+
+OBSERVATIONS:
+- Insted of passing single row syntax of the INSERT,
+  One, Multi can be generalized considering passing a commun Matrix to the Insert method:
+    - One: passing a one row Matrix
+    - Multi: passing a multiple rows Matrix
+
+Single row syntax
+    INSERT INTO  Profile
+            (Nam,Descr)
+    VALUES
+        (" . VN($this->Nam)     . ",
+         " . VN($this->Descr)   . "
+        )"
+    ;
+
+Multi rows syntax
+    INSERT INTO Profile
+            (implode(', ', $array_keys(Matrix[0])))
+    VALUES
+        foreach ($Matrix as $Row){
+            (implode(', ', $array_values($Row))),
+        }
+    ;
+    
+Matrix: structure with key-value pairs, passed by JSON
+    ex. AlgCat
+    "Matrix":[
+    {"IdAlgCat":"1","IdAlgCatPar":null,"Nam":"Clean","Descr":"Clean Algs"},
+    {"IdAlgCat":"2","IdAlgCatPar":1,"Nam":"aaa","Descr":"aaa Algs"},
+    {"IdAlgCat":"3","IdAlgCatPar":null,"Nam":"bbb","Descr":"bbb Algs"},
+    {"IdAlgCat":"4","IdAlgCatPar":4,"Nam":"ccc","Descr":"ccc Algs"},
+    {"IdAlgCat":"5","IdAlgCatPar":null,"Nam":"ddd","Descr":"ddd Algs"},
+    {"IdAlgCat":"6","IdAlgCatPar":6,"Nam":"eee","Descr":"eee Algs"},
+    {"IdAlgCat":"7","IdAlgCatPar":null,"Nam":"fff","Descr":"fff Algs"}
+    ]
+
+
+----------------------------------------------------------
+UPDATE examples: 
+----------------------------------------------------------
+
+
+Single row syntax
+    UPDATE
+        Profile
+    SET
+        Nam="   .VN($this->Nam) . ",
+        Descr=" .VN($this->Descr) . "
+    WHERE
+        IdProfile='" . $this->IdProfile . "'
+
+Multi rows syntax
+    INSERT INTO Profile
+            (implode(', ', $array_keys(Matrix[0])))
+    VALUES
+        foreach ($Matrix as $Row){
+            (implode(', ', $array_values($Row))),
+        }
+    ON DUPLICATE KEY UPDATE
+        implode(', ', $array_keys(Matrix[0])
+    ;
+---------------------------------------------------------------
+!!! IMPORTANT: with this last syntax it is possible to generalize INSERT and UPDATE Ops
+
+---------------------------------------------------------------
+GENERALIZED INSERT/UPDATE
+---------------------------------------------------------------
+- considering the 
+    - Comma Separated Fields List Without Id[Fundamental Entity] 
+        - [CSFLWI] = implode(', ', array_slice($array_keys(Matrix[0]), 1));
+    - Comma Separated Values List Without Id[Fundamental Entity] 
+        - [CSVLWI] = implode(', ', array_slice($array_values(Matrix[0]), 1));
+    - Comma Separated List for INSERT-UPDATE
+        - [CSKLIU] = implode(',',array_map(function ($v, $k) { return $k.'=VALUES('.$k.')'; }, Matrix[0], array_keys(Matrix[0]))),"<br>";
+
+    INSERT INTO [Fundamental Entity ]
+            ([CSFLWI])
+    VALUES
+        foreach ($Matrix as $Row){
+            ([CSVLWI]),
+        }
+    ON DUPLICATE KEY UPDATE
+        [CSKLIU]
+    ;
+
+    SAMPLE in Test db:
+    - INSERTED rows have null idT1
+    - UPDATED rows have an existing idT1
+
+    INSERT INTO t1 (idT1, nam, descr) VALUES
+        (1, '-Linear regression', 'Linear regression'),
+        (null , 'nanomalies auto clean', 'alg with compulsory fields'),
+        (3, '-Clean', 'Clean'),
+        (null , 'nStruct', 'Struct'),
+        (null , 'nCompare Train Test', 'Compare Train Test '),
+        (6, '-Compare', 'Compare'),
+        (null , 'nPolinomial Regression', 'null'),
+        (8, '-Logistic Regression', 'Logistic Regression')
+    ON DUPLICATE KEY UPDATE
+        idT1=VALUES(idT1), nam=VALUES(nam), descr=VALUES(descr)
+;        
+
+---------------------------------------------------------------
+CONCLUSIONS
+---------------------------------------------------------------
+- With this generalization it is possible to have:
+    - 1 DAO component class with generalized code;
+    - a Knowledge base of:
+        - DB>Tables>Fields nanomalies;
+        - this Knowledge base could be extracted directly from the DB Script (ex- dadbv01.sql);
+    - DAO extensions ONLY if necessary, for special queries;
+    
