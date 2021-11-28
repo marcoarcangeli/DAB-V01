@@ -1,0 +1,97 @@
+- si decide di utilizzare nomi in Inglese.
+- name java capitalized standard (ex. firstSecondThird)
+- si decide di utilizzare le seguenti abbreviazioni:
+    - fp: fingerprint
+    - lev-Res: leverageVsScarti
+    - Rsq: Rsquared
+    - asim: asimmetry
+    - cntx: Cntx
+    - anov: an of variance
+    - scLoc: scLoc
+    - alg: alg
+    - stats: statistics
+    - graph: graphic
+    - pm: polinomial regr model
+    - or: order
+    - lm: linear regr model 
+    - glm: logistic regr model
+    - qtl: quantile
+    - dat: data
+    - params: parameters
+    - corr: correlation
+    - MAE: Mean Abs Error
+    - RMSE: Root Mean Squared Error
+    - Rsq: R-Squared
+    - q-qPlot: quantile-quantile plot graph
+    - Prj: project
+    - proc: process
+    - an: analysis
+    - vec: vector
+    - regr: regression
+    - comp: compare
+    - train: training
+    - rev: review
+    - rank: ranking
+    - var: variable
+    - stVar: statistical variable
+    - std: standardized
+    - fs: File System
+    - fun: function
+    - el: element
+    - cat: category
+    - vl: value (for syntax reserve)
+    - res: result
+    - par: parent
+    - op: operation
+    - exec: execution
+    - nam: name (for syntax reserve)
+    - cap: capability
+    - descr: description
+    - pred: predictive
+    - expl: explicative
+    - req: requisite
+    - norm: normalized
+    - struc: structure
+    - anom: anomaly
+    - err: error
+    - col: column
+    - variab: variability
+    - filtr: filter (for syntax reserve)
+    - arit: aritmethic
+    - geom: geometric
+    - quad: quadrathic
+    - harm: harmonic
+    - med: median
+    - rsd: residual
+    - ind: independence
+    - contg: contingency
+    - coef: coefficient
+    - mn: minimum
+    - Evnt: Evnt (for syntax reserve)
+    - usr: user (for syntax reserve)
+    - rnk: rank (for syntax reserve)
+    - repo: repository
+    - calc: calculation
+    - abs: Abs
+    - rel: Rel
+    - msg: message
+    - sep: separator
+    - prev: previous
+    - interp: interpolation
+    - pos: position
+    - dec: decimal
+    - ren: rename
+    - arr: array
+    - fn: filename
+    - conn: connection
+    - pwd: password
+    - doc: document
+    - obj: object
+    - PSV: Process State Vector
+    - perc: percentage
+    - mtx: matrix
+    - prfx: Prefix
+    - cpl: Compulsory
+
+    
+

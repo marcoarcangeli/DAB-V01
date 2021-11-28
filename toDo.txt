@@ -1,0 +1,265 @@
+/************************************
+/* conventions
+/* (=) to do priority
+/* (-) to do
+/* (v) completed
+/* (+) partially completed
+/* (*) major evolution
+/* (?) purposed evolution
+/************************************
+
+v datatables length param in navigation params.
+v log list in ordine cronologico inverso: complicato in PHP
+v compulsory fields: on read panels
+v FsManagerCntx: eliminate
+v Prj An folder methods: eliminate
+v DEBUG mode instrumentaton: all'occorrenza inserire linee
+v chiusura orizzontale pannelli: vedere collapse-horizontal
+v stato progetto su header.
+v css class da-line per identificare le linee
+v info su intestazinoe di grid, linea e pannello
+v tag di categorizzazione trasversale eventi e algoritmi
+v NewName nei pannelli di gestione struct dati e nel software di gestione.
+v pannello About
+v RColType: numeric, integer, double, factor, character...
+    v aggiornamento tabella db, menu, navigazione, 
+    v creazione pannelli
+    v aggiornamento pannelli EvntStruct e Clean
+    - verificare nel cleaning automatico: anomaliesAuto
+v dividere Variabili di sessione per    
+    v boot: inizio applicazione anche fuori logged out
+        + think about a Boot Component
+    v init: dopo log in
+v V0: compute struct 
+v delete in Analysis Context Stats File List
+v css text center vertical for select controls
+v move obsolete folder out of da folder
+v fsmanager: 
+    v remove obsolete methods An, prj
+    v remove obsolete methods csvtojson
++ percorsi relativi sito, db e fsbase
+    v htmlComponents
+    v database e tutte le dipendenze + namespace
+    v index
+    v master
+    v logmanager e tutte le dipendenze
+    v mySqlComponents
+    v procs
+    - rScriptController
++ project, algorithm, space processes
+    - add creation, ??? lastUpdate timestamps
+    + introduce multi-analysis per prj  
+        + 1: simple anTlist + ref panels Refresh
+            v spezzare stato progetto: 
+                v progetto: aggiornato su evnt, clean, cntx, An, Rnk
+                + analisi: aggiornato su An, AnCntx, Compute(Train, Test, compare), Rev
+                    v introduce AnState: 1: An; 2: AnContx; 3: Train, 4: Test, 5: compare; 6: Rev; n
+        ? 2: Nested Processes: ??? complex
+            - nested content builder
+            - change An method: nestContent(content, panel)
+                - call new contentBuilder child
+                - get Html: nest to parent Html???
+                - get JS: nest to parent JS ???
+- HtmlComponents`Repo verificare utilizzo > File system ?
+v techinfo btntool + at start
+- costruzione spazi degli eventi per categoria, tag, selezione di categorie e tag, tutti.
+    - costruisce csv fingerprint
+    - calcola distanza da un evento selezionato
+    - stila elenco eventi più vicini
++ Profiling: introduzinoe di profili utente diversi
+    - think about a separate and automonous sub-system for profiling, usrs and apps management
+        - SSO and Provisioning sub-system
+    + tipi profili principali
+        - admin: solo sysadmin
+        - guest: solo lettura
+        - da: tutti i processi e le funzionalità; no sysadmin
+        + dev: tutto
+        + superuser: tutto
+    v inserimento tabelle in rdbms:
+        v profile: id, nam, desc, 
+        v Feature (MainContextMenu) [recursive]: id, nam, dec
+        v featureCat: ex. sidebarmenu (process), menucontextmenu (functionality)
+        v authLevel: id, name, desc; ex. 0-Denied; 1-read, 2-modify, 3-full
+        v profile-feature: id, idprofile, idFeature, idAuthLevel
+        v organization: id, Nam, Descr, codeParams
+    v sviluppo dao> organization, feature, featureCat, authLevel, profile, profile-feature-auth, profile-usr
+    v sviluppo ui 
+        v organization > usr > index page > welcome page
+        v FeatureCat > Features
+        v AuthLevels
+        v profiles: 
+            v line 0: profiles > profile
+            v line 1: profile-feature-auths > profile-feature-auth  [select: feature, authLevel]
+                + next version: profile-feature-auths_all[multiple checks, left-right btns] > profile-feature-auths_profile [with select authLevel]
+            v line 2: profile-usrs > profile-usr [select: usr]
+                ?V [suspended: side effect on db ids] next version: profile-usrs_profile[left-right btns] > profile-usr [with select usr]
+                    + save test
+        v usrs: 
+            v line 0: usrs > usr
+            v line 1: usr-profiles > usr-profile [select: profile]
+                ? [suspended: side effect on db ids]next version: profile-usrs_profile[left-right btns] > profile-usr [with select usr]
+    - load 'usr profile union' at session start.
+        - reload procedure after any change: simulate the index Init session loading (? Boot ?).
+            - introduce 
+                - AppStatusVector: needReload: after change in: Profile, Usr, SysParams, Session params, ...
+                - php reloadApp method.
+                    - lending on welcome page
+    - profile sensible componets parametrization:
+        - sidebarMenu:
+        - mainMenu:
+        - toolBars:
+        - panels:
+            - read: 
++ generalize 
+    v create a common functions module php 
+        + verify where to include it
+        + apply to the entire app [see verifyNulls VN in ProfileFeatureAuth]
+    + found generalization for Read and Tlist Result_Arr (see Alg Dao.ctrl.php)
+        - apply to every Dao.ctrl
+    v menu RDBMS eliminato e sostituito con link di integrazione con phpMyAdmin nel menu Sys Admin
+        v eliminato file di configurazione MySqlConn.json > inserito in session variables
+    + multi language
+        v introduce debug levels: 
+         (-n): single method/function ex. -23: DA\FsComponents\FsManager::FolderFileList
+                - -n placed in the method signiture comments
+            0: none
+            1: call; only method entry point
+            2: vars; all vars no loops
+            3: loop; (full) all vars with loops
+        v return false standard on catching exceptions
+        + cleanSelectedRow on Refresh in tlist js.
+            + Refresh, Clean: with (data) 
+        + if id on refresh in read js
+        + customization panel in SysAdmin ???(JSON file edit or rdbms)
+            v parameterize custom logo, officename, ...
+            v organization table in rdbms: id, 
+            ? first sysadmin config: dbconnection, default admin user, ...
+        - session params panel in sysadmin
+        - delete functions for DB+FS entities
+        - clean function for Read panels: only clear\reset fields to defaults
+        v check refPanels on delete success
+        * generalize names with whyIAm, panelType, ctrlType, fieldName, <element>Name
+            ? think about a naming manager component
+            + panelTag = whoIAm + panelType + '_' > ex. Proc_FileTlist_
+                - JS: ex: text = [address, city, state, zip].filter(Boolean).join(", ");
+            - ctrlId = panelTag + ctrltype + fieldName - ex. Clean_btnRefresh
+            - <element>Id = panelTag + <element>Name - ex.
+        v standardize fileTlist Abs/RelPath variable names
+        v decoupling .proxy in .proxy+dao.ctrl 
+            v inserimento namespace per tutti i componenti in DA\MySqlComponents
+            v creazione classi dao.ctrl.php
+                + verifica ulteriore generalizzazione di tutti i Dao*
+                + verificare Tlist.proxy di Alg: OptionalParamNams (es. filtri)
+                    + rendere multipli: es. "SearchIds, Filter" 
+                        -> vedi Rev\DaoCtrl.TlistDb, checkCompulsoryParams
+                + studiare generalizzazione Dao.ctrl.ReadDB di Prj e An
+                +? checkCompulsoryParams: see Dao.ctrl.php of Rev
+                ? setParams
+            v semplificazione dei .proxy: solo post parametri e estrazione array parametri
+                + .proxy unico
+                    + js tutti post
+                    + revisione Tlist e Tree
+                v verificare possibilità di generalizzazione e refactoring .db.php: es. unica classe per entità (es. entità Evnt)
+                + extend generalization from Tlist.Proxy.php of ProfileFeatureAuth to UIProxy.php
+                + extend to 
+                    + Read.proxy of ProfileFeatureAuth
+                    - save proxy of ProfileFeatureAuth
+                    - delete proxy of ProfileFeatureAuth
+                    - ... proxy
+                + think about a single UI.proxy.php for GET POST capturing
+                    + see UI.proxy of ProfileFeatureAuth
+                    - add $Op (operation name) param to _GET/_POST
+                    + think about unifing GET and POST -> POST only
+                        + Tlist [see ProfileFeatureAuth]
+                        + Read [see ProfileFeatureAuth]
+    + content chunking
+        v inserted RevBaseText.txt in DA/Common
+        v toolBars
+        - ...
+    HTLM:
+        v create std ctrl name+icon+tooltip library: 
+            v btn: New, Delete, Refresh, Open, Print, Export, ...
+        v btn-tools icons, subtitute label and add tooltip
+            ex. <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-home"></i>
+                    Tooltip on top
+                </button>
+        v create a btnToolBox code chunck in DA/Common
+            v card-tools livello foglia
+            v read panels
+            v FileTlist panels
+            v Tlist: refresh
+            v Struct panels
+            + cat panel (AlgCat.tree)
+                - attenzione alla pulizia dei parametri di cambiamento parent e child.
+                - get and clear *CatParNam value 
+            v special buttons: open, compute, 
+    CSS:
+        - 
+    - js:
+        v decoupling SelectRow ->  CleanSelectedRow,SetSelectedRow, ToggleRow
+        v upgrade delete confirmation message 
+        v fileTList: 
+            v CleanSelectedRow,SetSelectedRow, ToggleRow
+            v btnController
+        v tList: 
+            v CleanSelectedRow,SetSelectedRow, ToggleRow
+        + uploadFiles
+            v correzione bug: drop non funzionante
+            v check and usrmsg for false success
+            v ristrutturazione area di drop
+            + generalizzazione uploadFiles
+                v parametri uploadFiles
+                + uploadFiles methods
+        v tlist: why 2 read
+    - PHP:
+        v strtolower on file filter ext in FileManager
+        v .read.php: move $num = $Results->num_rows; inside if(result)
+        - clean folder function in file manager e fileTlist panels
+        - tList and fileTlist
+            - multiselect in tList and fileTlist
+            - multiselect functions: delete
+    - R:
+        v evitare le elaborazioni e le persistenze su colonne enumerative eliminate dai set di dati.
+        + scomposizione in blocchi di codice R
+            v Generale: try catch, funz generali
+                v Gestione argomenti cmd: obbligatori e uguali per tutti
+                v gestione parametri script: 
+                    v Preload-Postload
+                    v compulsory-optional
+                    v common-specific
+                v persistenza csv: costruzione pathfilename, scrittura
+                v persistenza grafico: costruzione pathfilename, scrittura
+            - Specifico: elaborazione specifica.
+        + anomaliesAuto:
+            + rinomina colonne
+            + modifica tipi colonne
+            - rows filter: filter (range, selezione) ??? refine to simpler method
+                - rows select :             filter=_row:44+56+345
+                - rows range :              filter=_row:-20>30
+                - rows range from start:    filter=_row:inf>30
+                - rows range to end:        filter=_row:30>inf
+                - rows complex:             filter=_row:20>30+44+56>inf
+                - col value complex :       filter=DAX:1590.01>1610.56+1650+1700>inf
+                - negato (!):               filter=DAX:!1590>1610+!1650+!1700>inf
+
+* introduzione unità di misura e generalizzazione parametri
+- rename OpDat... to DatOp...
+- CodeMirror editor integration for direct files and code editing.
+    - extend with SAVE, DELETE files and folders functions
+- accesso alle linee in base allo stato. Varie ipotesi:
+    - controllo idPrjState su operazioni? 
+    - su collapse accordion ?
+    - ...
+
+? dimensione verticale massima pannello: esiste il parametro Col_H
+? posizionare modali sopra a pagine massimizzate. z-order.
+    ? verificare se è risolto nella nuova versione di adminlte
+? modal-spin introduction on long transactions
+? distribuzione dello spazio di linea col-sm-12 in proporzione alle col-sm configurate
+    - se col-sm non configurata, occupa lo spazio disponibile
+    oppure 
+    - inserisce btn-tool expand: appaiono sui card che rimangono aperti
+    - inserisce btn-tool su da-line distribute width.
+    - campo tag in Evnt e Alg table
+
+

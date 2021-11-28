@@ -1,0 +1,341 @@
+- about js>phpproxy>uiproxy>Daoctrl>Dao chain:
+	- compulsory params check: Op + Compulsoryfields
+		- responsibility: js + uiproxy + Daoctrl + Dao
+			- new chain:  js 
+
+	- on CompulsoryFields vs compulsoryParams
+		- CompulsoryFields: array of HTML UI control names that must have a valid value
+			- chain must be stopped in js client-side
+			- think about html ui controls validation
+		- CompulsoryParams: array of params for server side elaborations
+			- chain must be stopped in the elaboration component: ex. Dao.ctrl?, UIProxy?, xxx.proxy? Dao?
+				- deepest is Dao: it needs max available params
+				- Dao.ctrl must select data Access
+				- UiProxy must select operation
+				- xxx.proxy: catch Post and return json
+			- server side elaborations: select operation, select Data Access
+		- example for Entity: ProfileFeatureAuth
+	* $Params: {
+	*  SrvOpParams = { array of Server Operation Params
+	*     SrvOpNam: es.'Read'
+	*     CompulsoryFields: string list of UI field names that must be set and must have a value != ''
+	*     CompulsoryParamNams: string list of UI field names that must be passed for server ops,
+	*     ParamNams: string list of all UI field names,
+	*     SaveParamNams: string list of UI field names that must be passed for server save ops; they are data >> should be compulsory
+	* },
+	*  "data": array specific by entity and operation for ProfileFeatureAuth,
+			CompulsoryFields: "IdProfile", >> for Save op
+			CompulsoryParamNams = 
+				"IdProfileFeatureAuth", >> for Read, Delete op
+				"IdProfile", >> for Save op
+				none >> for Tlist
+            ParamNams: "SearchIds,IdProfile,IdFeature,IdAuthLevel", >> for ... op
+			SaveParamNams = "IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel" >> for Save op
+				- creating a Super-set:SearchIds,IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel
+		- looking from another point of view: SrvOp: [*: compulsory]
+			- Tlist, tree:
+				- request: SearchIds,IdProfile [Select params]
+				- response: T/F + Msg + Data[IdProfileFeatureAuth,IdProfile,ProfileNam,IdFeature,FeatureNam,IdAuthLevel,AuthLevelNam]
+			- Read:
+				- request: IdProfileFeatureAuth*
+				- response: T/F + Msg + Data[IdProfileFeatureAuth,IdProfile,ProfileNam,IdFeature,FeatureNam,IdAuthLevel,AuthLevelNam]
+			- Delete:
+				- request: IdProfileFeatureAuth*
+				- response: T/F + Msg
+			- Save:
+				- request: IdProfileFeatureAuth,IdProfile*,IdFeature*,IdAuthLevel* [db table fields]
+				- response: T/F + Msg
+					- insert: IdProfileFeatureAuth
+					- update: none
+	- Observations:
+		- COMPULSORY ONLY for REQUESTS
+		- ClientOps: they are related to ClientEvents like: btnTools, user interaction with ctrls (keyup, change)
+			- each ClientOp can (not must) launch 1 or more SrvOps.
+			ClientOps: 	BtnTools						| Other Events
+						------------------------------------------------
+						New, Save, Refresh, Delete, ...	| keyup	Change
+			SrvOps:      - , Save, Read   , Delete, ...	|   -      -
+						------------------------------------------------
+		- ClientOps are part of Panel Params
+		- a PANEL is defined by its parts:
+			- Panel PARTS are ctrls or ctrl collections
+			- ctrls are: containers (div heading-body-tech), inputs (various types: text, select, check), labels, buttons
+
+		- SYSTEM is composed by: UI chain + ClientSrv Chain
+			- UI CHAIN: ctrl > container > Panel > contents grid > Main Container > main grid
+				- Main Grid: responsible for fundamental layout > parts: heading, sides, footer, content
+				- Main Container: each part is into a container
+				- contents grid; like a cells matrix.
+					- each part could be splitted in sub-parts (ex. work area contents)
+					- each grid part contains a Panel;
+					- GridType: Horizontal, Vertical, 2DMatrix, ?3dMatrix?
+						- Line: horizontal multi-panel layout
+							- Layouts: cascading references
+								- List > detail 
+								- Cat > List > detail
+								- FileList > FileView
+
+					- each panel can be used in different ways called MODE: 
+						- Alone: no parent panel; no children panels;
+						- Tlist: Tlist Panel as parent > detail as child
+						- Tree: Tree Panel as parent > Tlist or detail as child
+						- FileList: FileTlist as parent > FileView/edit or detail as child
+					- each Panel can have :
+						- DetailPanels: "AlgRead", 
+						- ParentObj: means that 1 other Panel is parent (Tlist,Tree,FileList); ex. "AlgCatTree", 
+						- ParentObjType: "Tree", 
+						- RefPanels: Children references: means that other(s) panel(s) has(ve) a reference to the Panel Entity Id/Nam; ex."AlgParamTypeTlist"
+					+ This actual partition can be REFACTORED as follows:
+						-------------------------------------------------------------------
+							Mode			Has Parent	|	Has Child(ren)	|	Has Ref(s)
+						-------------------------------------------------------------------
+						- 	Alone: 				N		|	N 				|	YorN
+						- 	Parent: 			Y 		|	N				|	YorN
+						- 	Child: 				N  		|	Y				|	YorN
+						- 	Parent-Child: 		Y  		|	Y				|	YorN
+						-	Refs				YorN	|	YorN			|	Y
+						-------------------------------------------------------------------
+					+	This can be simplified considering eliminating Mode param,
+						and considering the combination of 3 detailed Params: Parent, Children, Refs.
+						This could be enough to build any cascading chain of relations among Panels.
+					+	All possible combinations are: 8 = 2^3
+						--------------------------------------------------------------------
+							Parent	|	Child(ren)	|	Ref(s)	|	Virtual Mode			
+						--------------------------------------------------------------------
+						-	N		|	N 			|	N		|	Alone			
+						-	N 		|	N			|	Y		|	Ref	
+						-	N  		|	Y			|	N		|	Child		
+						-	N  		|	Y			|	Y		|	Child-Ref
+						-	Y  		|	N			|	N		|	Parent		
+						-	Y  		|	N			|	Y		|	Parent-Ref
+						-	Y		|	Y			|	N		|	Parent-Child		
+						-	Y		|	Y			|	Y		|	Parent-Child-Ref		
+						--------------------------------------------------------------------
+						Of course: Parent can be only 0-1; Children and Refs can be 0-n;
+					+ this new model solves the choise of the intermediate eleborations.
+				- Panel: placed into a Grid part
+					- each panel is defined at a GRANULARITY compatible with the following conditions:
+						- 1 entity management; 
+						- 1 set of ClientOps
+						- 1 display mode (list table, field form, image/file viewer, button bar, menu bar, ...)
+
+			- COMM CHAIN: UI evnt > JS-Jquery > POST-Json comm > PHP Proxy > Mng Component > Worker Component > End-point	
+				- End-points: persistence, external service
+				- Workers Components: Dao, Fs Helper, R-script
+				- MngComponents: Dao.ctrl, Fs Mng, PHP-R integration mng, ...
+
+		----------------	----------------	------------		--------------------------------------------------
+		PanelType 	-->		ClientOps 	--> 	SrvOps 																													
+			|					| 					|		
+			V					V 					|		
+		ToolBarType --> 	ButtonType  			|		
+			|					| 					|		
+			V					V 					V		
+		PanelCtrls			JS btn Event ---	---------> 			Request Params 	-> 		Response Params		
+		----------------	----------------	------------		--------------------------------------------------
+		Tree				Refresh				Read				SearchIds				T/F + Msg + [UI Tree Cols]=[UI Tlist Cols] 	<-	[dbView[Entity] flds]
+		----------------	----------------	------------		--------------------------------------------------
+		Tlist				Refresh				Read				SearchIds				T/F + Msg + [UI Tlist Cols] 				<-	[dbView[Entity] flds]
+							Order(Col)			---					---						---			
+							Filter				---					---						---			
+		----------------	----------------	------------		--------------------------------------------------
+		FileTlist			Refresh				Read				PathFolderNam*			T/F + Msg + [UI FileTlist Cols]	
+							Delete				Delete 				PathFileNam*			T/F + Msg 
+							Clean				Clean 				PathFolderNam			T/F + Msg
+							Upload				Upload				PathFileNam*,file*		T/F + Msg
+							Order				---					---						---				
+							Filter				---					---						---				
+		----------------	----------------	------------		--------------------------------------------------
+		Struct				Refresh				Read				Id[Entity]*				T/F + Msg + [UI panel Ctrls]				<-	[dbView[Entity] flds]
+							Save				Save				[db[Entity] flds]		T/F + Msg + Id[Entity]	
+		----------------	----------------	------------		--------------------------------------------------
+		Read				Refresh				Read				Id[Entity]*				T/F + Msg + [UI panel Ctrls]				<-	[dbView[Entity] flds]
+							Delete				Delete				Id[Entity]*				T/F + Msg 
+							Save				Save				[db[Entity] flds]		T/F + Msg + Id[Entity]
+							New					---					---						---			
+		----------------	----------------	------------		--------------------------------------------------
+		CatRead				Refresh				Read				Id[Entity]*				T/F + Msg + [UI panel Ctrls]				<-	[dbView[Entity] flds]
+							Delete				Delete				Id[Entity]*				T/F + Msg 
+							Save				Save				[db[Entity] flds]		T/F + Msg + Id[Entity]
+							New					---					---						---			
+							ChangeParent		---					---						---			
+							NewChild			---					---						---			
+		----------------	----------------	------------		--------------------------------------------------
+		FileView			Refresh				Read				PathFileNam*			T/F + Msg + [UI panel Ctrls]				<-	[dbView[Entity] flds]
+							Delete				Delete 				PathFileNam*			T/F + Msg 
+		----------------	----------------	------------		--------------------------------------------------
+		FileEdit			Refresh				Read				PathFileNam*			T/F + Msg + [UI panel Ctrls]				<-	[dbView[Entity] flds]
+							Delete				Delete				PathFileNam*			T/F + Msg 
+							Save				Save				PathFileNam*,[file]*	T/F + Msg 	
+		----------------	----------------	------------		--------------------------------------------------
+		[additional ops] 	[R-Script]Compute	[R-Script]Compute	[R-StdParams]			T/F + Msg + VerboseLog
+							...
+		----------------	----------------	------------		--------------------------------------------------
+			- [R-Integration]: PhpR.proxy >> PhpR.Ctrl -> mainControl()
+			- [R-StdParams]: ProcAbsPath; OutputAbsPath; ProcNam; ProcParams;
+
+			- [dbView[Entity] flds]: structure of the DbView related to (PanelType & SrvOp & Entity)
+			- [db[Entity] flds]: Structure of the Db[Entity] table(s) affected
+			- [UI panel Ctrls]: array of ctrls
+
+	- Relation among ...
+		----------------------------------------------------------------------------------------------
+		PanelType 	-->	PanelCtrls				<--	Structure Source
+		----------------------------------------------------------------------------------------------
+		Tree			daTree						dbView
+		----------------------------------------------------------------------------------------------
+		Tlist			daTable(DataTable)			dbView
+		----------------------------------------------------------------------------------------------
+		FileTlist		daTable(DataTable)			fsView
+		----------------------------------------------------------------------------------------------
+		Struct			daTable(DataTable)			csvView
+		----------------------------------------------------------------------------------------------
+		Read			daForm						dbView
+		----------------------------------------------------------------------------------------------
+		CatRead			daForm						dbView
+		----------------------------------------------------------------------------------------------
+		FileView		daFrame						---
+		----------------------------------------------------------------------------------------------
+		FileEdit		daEditor					---
+		----------------------------------------------------------------------------------------------
+	- DAO Standards: every DAO:
+		- must be related to 1 Entity > Entity can be composed by simpler Entities
+			- RDBMS: the Select From [Join] -> Entity(ies) + Descriptive Related other Entities
+		- exposes DAOps: DAOps types are: select
+
+		- DAOps standard: it depends on SourceType and [Entity] -> Result = [Entity].[DAOpsNam]([DAOpsParams])
+			- DaoSourceType: RDBMS, FS, Component, ExtService
+		------------	--------	------------					-----------		-----------------
+		DAOps			RDBMS 								
+						Op			OpType {2}							Result			FullNam
+		------------	--------	------------					-----------		-----------------
+		view			Select		Std		Single					0..1 row		selectSingle {1}
+											All						0..n row(s)		selectAll
+									Spec	Single[FilterParamNams]	0..1 row		selectSingle[FilterParamNams] {1}
+											All[FilterParamNams]	0..n row(s)		selectAll[FilterParamNams]
+		Save			Insert		{2}
+						Update
+
+		Delete			Delete		[Single]
+						Clean		[Filter]
+						Truncate	[All]
+
+		[Spec]			[OpNam]		[OpNam][FilterParamNams]
+		------------	--------	------------					-----------		-----------------
+		{1}: Single could be omitted, but it stays for sintax disambiguation with select commands;
+		{2}: think about generalization of Single/All+Filters ops -> only 1 Op Select[FilterParamNams] with 0..n row(s) result;
+				ex: Profile: simple entity
+					ProfileFeatureAuth: complex Entity
+			See the 'Notes - RDBMS Ops Generalization.txt'
+
+		------------	----------------	---------------------
+		FS 				Component 			ExtService
+		Op				OpType					
+		------------	----------------	---------------------
+		ReadFile
+		DeleteFile
+		CopyFile 
+		RenameFile 
+		SaveFile 
+
+		FolderFiles
+		CreateFolder
+		RemoveFolder
+
+	- It is important to study a standard of the relation among ...
+		- std chain: client js > srv proxy > ctrl > Dao > <Service>
+			- Dao: exposes methods and params for access request
+			- Ctrl: must understant what method and params to call in Dao (see a Tlist with cathegory parent)
+				- it must be standardized as much as possible, ex:
+					- 			ExtService			[Method]			!empty([params])
+
+		--------------------	----------------	----------------		------------------------------------------
+		SrvOps 		--> 		Service		-->		Data Access Ops			Condition
+		--------------------	----------------	----------------		------------------------------------------
+		Read					RDBMS				selectSingle()			!empty(Id[Entity])
+													selectAll()				---
+													selectAll[Filters]()	!empty([Filters])
+													select[Filters]()		!empty([Filters])
+								FS					[url]					!empty([url])
+								SrvComp				[getMethod(item)]		!empty([itemId])
+		--------------------	----------------	----------------		------------------------------------------
+		Delete					RDBMS				Delete					!empty(Id[Entity])
+								FS					DeleteFile				!empty(PathFileNam)
+								SrvComp				Delete[item]			!empty([itemId])
+		--------------------	----------------	----------------		------------------------------------------
+		Save					RDBMS				Insert					empty(Id[Entity])
+													Update					!empty(Id[Entity])
+								FS					SaveFile([file])		!empty(PathFileNam) & !empty(File)
+								SrvComp				Save[item]				!empty([itemId]) & !empty(item)
+		--------------------	----------------	----------------		------------------------------------------
+		Clean 
+		Upload
+		[R-Script]Compute
+
+	- new model generalization: 
+		? bit map table for request and response.
+		- arrays of field nams
+			- superset: T/F + Msg
+									- 			SearchIds,IdProfileFeatureAuth,IdProfile,ProfileNam,IdFeature,FeatureNam,IdAuthLevel,AuthLevelNam
+			- RequestParamsByOp:
+				Tlist: [Select params]:				1
+				Tree: [Select params]:				1
+				Read: Id[Entity]*:								1*
+				Delete: Id[Entity]*:							1*
+				Save: [db table fields]:						1				1*						1*					1*
+				...:
+			- ResponseParamsByOp: T/F + Msg +
+				Tlist: [UI table Fields]:		xN				1				1*			1			1*		1			1*			1
+				Tree: [UI tree Fields]:			xN				1				1*			1			1*		1			1*			1
+				Read: [UI panel Fields]:						1				1*			1			1*		1			1*			1
+				Delete: none:
+				Save: Id[Entity] || none :						1
+				...:
+/****************************************************************************************
+/* final model for middle layers comments
+/****************************************************************************************
+		- (2 x n.SrvOp) sets -> but only 4 structures
+			- Select params: 							SearchIds
+			- Id[Entity]:								IdProfileFeatureAuth -> Id + [EntityNam]
+			- db table fields:							IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel
+			- db view > UI Fields [panel/table/tree]	IdProfileFeatureAuth,IdProfile,ProfileNam,IdFeature,FeatureNam,IdAuthLevel,AuthLevelNam
+		- they are modulated according to:
+			- SrvOp: Tlist,tree,read,delete,tree, ...
+			- CommDirection: request, response
+				- [*: compulsory] only for request
+/**************************************************************************************
+a new project for a CODE BUILDER in PHP.
+This is because every sw system should have a code maintenance system associated.
+No code building at run-time, or only in limited cases.
+Criteria must be related to: parallel and independent blocks and operations.
+But automatic code building according to your own standards is cost effective and very powerfull.
+
+It means that it is necessary to define:
+	- standard nam for persistences:
+		- RDBMS: basic nams >> queries >> Tables, 	ex. IdProfileFeatureAuth,IdProfile,ProfileNam,IdFeature,FeatureNam,IdAuthLevel,AuthLevelNam
+		- FS: basic nams >> from CSV, ...
+	- standard Nam for UI:
+		- NamSep: '_'
+		- NamSpaceSep: '.'
+		- ParentNamSpace: 'da'
+
+		- Entity	: <Entity>													ex. Alg
+		- UIPanelNam: <Entity><PanelType> 										ex. AlgRead
+		- UICtrlNam	: <UIPanelNam> + sep + <fieldNam> 							ex. AlgRead_IdAlg
+		- UIPanelJS	: <ParentNamSpace> + <NamSpaceSep> + <UIPanelNam>			ex. da.AlgRead
+
+	- standard CODE CHUNCKS for 
+		- CLIENT SIDE
+			- layout: disposition of standardParts.ex. Adminlte
+			- standardParts: headings, menubars, toolbars, sidebars, contents
+			- navigation: structure of menus and bars
+			- containers ex. main,  grids (contentType), panels (panelTypes),
+			- panel contents:  ctrls (fields, tables, tree, editors, graphs, ...), 
+		- SERVER SIDE	
+			- Proxy: AJAX-POST request array >> JSON response
+			- OpCtrl: web of OpCtrls
+			- Dao: persistence access
+			- Persistence: RDBMS, FS
+
+
+

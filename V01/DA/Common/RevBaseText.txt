@@ -1,0 +1,1 @@
+Valutazione di\nMAE:\nRMSE:\nR2:\n ----------------------------------------------\n Valutazione della qualità di previsione\n Outcome:\n rispetto alla variabile:\n Var1:\n Var2:\n Var3:

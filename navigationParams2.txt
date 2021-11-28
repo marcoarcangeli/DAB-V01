@@ -1,0 +1,57 @@
+$("#ContentClass").val("DA\\HtmlComponents\\gridAccordion2D");
+
+ContentHeaderParams = "Progetto: " + $("#progetto_idProgetto").val() + " - " + $("#progetto_nome").val();
+$("#ContentHeaderParams").val(ContentHeaderParams);
+
+// livelli di accordion2D
+var ContentHeaders1matrix = ["Progetto", "Evento", "Pulizia", "Contesto"];
+// alert(JSON.stringify(ContentHeaders1matrix));
+$("#ContentHeaders1matrix").val(JSON.stringify(ContentHeaders1matrix));
+
+// Intestazioni per livello di Accordion2D
+var ContentHeaders2matrix = [];
+ContentHeaders2matrix[0] = ["Progetto"];
+ContentHeaders2matrix[1] = ["Repo Eventi", "Evento", "Dati Evento"];
+ContentHeaders2matrix[2] = ["Pulizia", "Operazioni Dati", "Operazione Dati", "Dimensioni Evento", "Dati Puliti Evento"];
+// alert(JSON.stringify(ContentHeaders2matrix));
+$("#ContentHeaders2matrix").val(JSON.stringify(ContentHeaders2matrix));
+
+// classi per ciascun livello di accordion2D
+var ContentClass2matrix = [];
+ContentClass2matrix[0] = ["DA\\HtmlComponents\\progetto\\read"];
+ContentClass2matrix[1] = ["DA\\HtmlComponents\\repo\\dataEventFilesTlist", "DA\\HtmlComponents\\evento\\read", "DA\\HtmlComponents\\evento\\datiTlist"];
+ContentClass2matrix[2] = ["DA\\HtmlComponents\\pulizia\\read", "DA\\HtmlComponents\\operazioneDati\\tlist", "DA\\HtmlComponents\\operazioneDati\\read", "DA\\HtmlComponents\\evento\\dimensioni", "DA\\HtmlComponents\\evento\\datiPulitiTlist"];
+// alert(JSON.stringify(ContentClass2matrix));operazioneDatiTlist
+$("#ContentClass2matrix").val(JSON.stringify(ContentClass2matrix));
+
+// altri parametri per livello di dettaglio accordion2D
+var ContentParams2matrix = {};
+ContentParams2matrix["Progetto"] = {
+	header: "Progetto", Mode: "alone", HtmlFn: "progetto.read.html.php", JsFn: "progetto.read.js.php", idProgetto: $("#progetto_idProgetto").val(), idStatoProgetto: $("#progetto_idStatoProgetto").val(),
+};
+ContentParams2matrix["Repo Eventi"] = {
+	header: "Repo Eventi", Col_Lg: "2", Mode: "tlist", HtmlFn: "repo.data.event.files.tlist.html.php", JsFn: "repo.data.event.files.tlist.js.php", };
+ContentParams2matrix["Evento"] = {
+	header: "Evento", Mode: "alone", HtmlFn: "evento.read.html.php", JsFn: "evento.read.js.php", idProgetto: $("#progetto_idProgetto").val(), };
+ContentParams2matrix["Dati Evento"] = {
+	header: "Dati Evento", Col_Lg: "4", Mode: "alone", HtmlFn: "evento.dati.tlist.html.php", JsFn: "evento.dati.tlist.js.php", idProgetto: $("#progetto_idProgetto").val(),
+};
+ContentParams2matrix["Pulizia"] = {
+	header: "Pulizia", Col_Lg: "2",	Mode: "alone", HtmlFn: "pulizia.read.html.php", JsFn: "pulizia.read.js.php", idEvento: $("#evento_idEvento").val()
+};
+ContentParams2matrix["Operazioni Dati"] = {
+	header: "Operazioni", Mode: "alone", HtmlFn: "operazioneDati.tlist.html.php", JsFn: "operazioneDati.tlist.js.php", idPulizia: $("#progetto_idPulizia").val(), idProgetto: $("#progetto_idProgetto").val(),
+};
+ContentParams2matrix["Operazione Dati"] = {
+	header: "Operazione", Mode: "alone", HtmlFn: "operazioneDati.read.html.php", JsFn: "operazioneDati.read.js.php", idPulizia: $("#progetto_idPulizia").val(), idProgetto: $("#progetto_idProgetto").val(),
+};
+ContentParams2matrix["Dimensioni Evento"] = {
+	header: "Dimensioni Evento", Col_Lg: "1", Mode: "alone", HtmlFn: "evento.dimensioni.html.php", JsFn: "evento.dimensioni.js.php", idProgetto: $("#progetto_idProgetto").val(),
+};
+ContentParams2matrix["Dati Puliti Evento"] = {
+	header: "Dati Puliti Evento", Mode: "alone", HtmlFn: "evento.datiPuliti.tlist.html.php", JsFn: "evento.datiPuliti.tlist.js.php", idProgetto: $("#progetto_idProgetto").val(),
+};
+
+
+// alert(JSON.stringify(ContentParams2matrix));
+$("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));

@@ -1,0 +1,136 @@
+dist/js/da.navigation..js
+// classe contenitore
+$("#ContentClass").val("DA\\HtmlComponents\\GridVertical");
+
+	// altri parametri per livello 2
+	var ContentParamsmatrix = {};
+	ContentParams2matrix["Progetti"] = {
+		header: "Progetti",
+		Col_Lg: "12",
+		Mode: "Tlist",
+		HtmlFn: "progetto.Tlist.html.php",
+		JsFn: "progetto.Tlist.js.php",
+		class: ""DA\\HtmlComponents\\progetto\\Tlist""
+	};
+	ContentParamsmatrix["Progetto"] = {
+		header: "Progetto",
+		Col_Lg: "12",
+		Mode: "Tlist",
+		HtmlFn: "progetto.read.html.php",
+		JsFn: "progetto.read.js.php",
+		idStatoProgetto: "1",
+		class: "DA\\HtmlComponents\\progetto\\read"
+	};
+
+// classe contenitore
+$("#ContentClass").val("DA\\HtmlComponents\\GridVertical");
+
+	// altri parametri per livello 2
+	var ContentParams2matrix = {};
+	ContentParams2matrix["Stati Progetto"] = {
+		header: "Stati Progetto",
+		Mode: "Tlist",
+		HtmlFn: "statoProgetto.Tlist.html.php",
+		JsFn: "statoProgetto.Tlist.js.php",
+		class: "DA\\HtmlComponents\\statoProgetto\\Tlist"
+	};
+	ContentParams2matrix["Stato Progetto"] = {
+		header: "Stato Progetto",
+		Mode: "Tlist",
+		HtmlFn: "statoProgetto.read.html.php",
+		JsFn: "statoProgetto.read.js.php",
+		class: "DA\\HtmlComponents\\statoProgetto\\read"
+	};
+
+$("#ContentClass").val("DA\\HtmlComponents\\gridAccordion2D");
+
+	ContentHeaderParams = "Progetto: " + $("#progetto_idProgetto").val() + " - " + $("#progetto_nome").val();
+
+	// livelli di accordion2D
+	var ContentHeaders1matrix = ["Progetto", "Evento", "Pulizia", "Contesto"];
+
+		// altri parametri per livello di dettaglio accordion2D
+		var ContentParams2matrix = {};
+		ContentParams2matrix["Progetto"] = {
+			header: "Progetto",
+			Mode: "alone",
+			HtmlFn: "progetto.read.html.php",
+			JsFn: "progetto.read.js.php",
+			idProgetto: $("#progetto_idProgetto").val(),
+			idStatoProgetto: $("#progetto_idStatoProgetto").val(),
+			class: "DA\\HtmlComponents\\progetto\\read"
+		};
+		// eventi 
+		ContentParams2matrix["Repo Eventi"] = {
+			header: "Repo Eventi",
+			Col_Lg: "2",
+			Mode: "Tlist",
+			HtmlFn: "repo.data.event.files.Tlist.html.php",
+			JsFn: "repo.data.event.files.Tlist.js.php",
+			class: "DA\\HtmlComponents\\repo\\dataEventFilesTlist"
+		};
+		ContentParams2matrix["Evento"] = {
+			header: "Evento",
+			Mode: "alone",
+			HtmlFn: "evento.read.html.php",
+			JsFn: "evento.read.js.php",
+			idProgetto: $("#progetto_idProgetto").val(),
+			class: "DA\\HtmlComponents\\evento\\read"
+		};
+		ContentParams2matrix["Dati Evento"] = {
+			header: "Dati Evento",
+			Col_Lg: "4",
+			Mode: "alone",
+			HtmlFn: "evento.dati.Tlist.html.php",
+			JsFn: "evento.dati.Tlist.js.php",
+			idProgetto: $("#progetto_idProgetto").val(),
+			class: "DA\\HtmlComponents\\evento\\datiTlist"
+		};
+		// pulizia 
+		ContentParams2matrix["Pulizia"] = {
+			header: "Pulizia",
+			Col_Lg: "2",
+			Mode: "alone",
+			HtmlFn: "pulizia.read.html.php",
+			JsFn: "pulizia.read.js.php",
+			idEvento: $("#evento_idEvento").val(),
+			class: "DA\\HtmlComponents\\pulizia\\read"
+		};
+		ContentParams2matrix["Operazioni Dati"] = {
+			header: "Operazioni",
+			Mode: "alone",
+			HtmlFn: "operazioneDati.Tlist.html.php",
+			JsFn: "operazioneDati.Tlist.js.php",
+			idPulizia: $("#progetto_idPulizia").val(),
+			idProgetto: $("#progetto_idProgetto").val(),
+			class: "DA\\HtmlComponents\\operazioneDati\\Tlist"
+		};
+		ContentParams2matrix["Operazione Dati"] = {
+			header: "Operazione",
+			Mode: "alone",
+			HtmlFn: "operazioneDati.read.html.php",
+			JsFn: "operazioneDati.read.js.php",
+			idPulizia: $("#progetto_idPulizia").val(),
+			idProgetto: $("#progetto_idProgetto").val(),
+			class: "DA\\HtmlComponents\\operazioneDati\\read"
+		};
+		ContentParams2matrix["Dimensioni Evento"] = {
+			header: "Dimensioni Evento",
+			Col_Lg: "1",
+			Mode: "alone",
+			HtmlFn: "evento.dimensioni.html.php",
+			JsFn: "evento.dimensioni.js.php",
+			idProgetto: $("#progetto_idProgetto").val(),
+			class: "DA\\HtmlComponents\\evento\\dimensioni"
+		};
+		ContentParams2matrix["Dati Puliti Evento"] = {
+			header: "Dati Puliti Evento",
+			Mode: "alone",
+			HtmlFn: "evento.datiPuliti.Tlist.html.php",
+			JsFn: "evento.datiPuliti.Tlist.js.php",
+			idProgetto: $("#progetto_idProgetto").val(),
+			class: "DA\\HtmlComponents\\evento\\datiPulitiTlist"
+		};
+		
+		
+		

@@ -369,7 +369,7 @@ GENERALIZED INSERT/UPDATE
         [CSKLIU]
     ;
 
-    SAMPLE in Test db:
+- SAMPLE in Test db:
     - INSERTED rows have null idT1
     - UPDATED rows have an existing idT1
 
@@ -387,6 +387,15 @@ GENERALIZED INSERT/UPDATE
 ;        
 
 ---------------------------------------------------------------
+Data Structure knowledge extraction
+---------------------------------------------------------------
+- From Functional form: ex for Alg entity:
+    - alg(idAlg,idAlgState,idAlgCat,nam,descr,fileRefProc,CatTag)
+    - algcat(idAlgCat,idAlgCatPar,nam,descr)
+
+- extract metadata and organize them as tables:
+- it correspond with rdbms metadata: ex. mysql db
+---------------------------------------------------------------
 CONCLUSIONS
 ---------------------------------------------------------------
 - With this generalization it is possible to have:
@@ -395,4 +404,34 @@ CONCLUSIONS
         - DB>Tables>Fields nanomalies;
         - this Knowledge base could be extracted directly from the DB Script (ex- dadbv01.sql);
     - DAO extensions ONLY if necessary, for special queries;
+- Dev Process changes accordingly:
+    - REQUISITES: knowledge definition:
+        - define App basic attributes: 
+            - Name, title, descr, url, logo, ...
+            - frameworks for 
+                - UI: ex. Adminlte, bootstrap, JS, JQuery; 
+                - comms: Ajax, Json, Post;
+                - websrv: PHP
+                - persistence: 
+                    - RDBMS(MariaDb MySql) 
+                    - FS(folder tree; file std nams and types)
+            - UIExperience:
+                - main layout, ex. 
+                - std l&f, 
+                - std UI components (ex. label, input, select, check, DataTable, ...)
+        - define Process Lines/panels: ex. da.navigation.js >> Algs
+            - for each panel, 
+                - attributes: ex. type, mode, parentPanels, DetailPanels, Refs , ...
+                - define Entities functional form:
+                    - Fundamental: ex. Alg 
+                    - Descriptive: ex. Algcat, AlgState 
+        - Save them all in a prj file and/or in RDBMS structure.
+    - CODING: automatic code generation:
+        - Generate final code for each architecture level, choosing: code generalization level (none: no generalization; entity functional form; ...)
+        - Deploy in a testing env, Test and recycle.
+        - deploy in prodution env, final test and recycle.
+
+        
+       
+        
     

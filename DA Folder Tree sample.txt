@@ -1,0 +1,3209 @@
+C:\xampp\htdocs\DAB\V01\DA>tree
+Elenco del percorso delle cartelle per il volume Windows
+Numero di serie del volume: CA06-387C
+DA
+├───Common
+├───FsComponents
+├───HtmlComponents
+│   ├───Alg
+│   ├───AlgCat
+│   ├───AlgParamType
+│   ├───AlgState
+│   ├───An
+│   ├───AnCntx
+│   ├───Clean
+│   ├───Cntx
+│   ├───Common
+│   ├───Dat_Evnt
+│   ├───Evnt
+│   ├───EvntAnom
+│   ├───EvntCat
+│   ├───EvntStats
+│   ├───Log
+│   ├───OpDat
+│   ├───OpDatCat
+│   ├───ParamType
+│   ├───ParamTypeCat
+│   ├───Prj
+│   ├───PrjState
+│   ├───Proc
+│   ├───RColType
+│   ├───Repo
+│   ├───Rev
+│   ├───SplitCat
+│   ├───SplitType
+│   ├───StVarCat
+│   ├───Usr
+│   ├───_Html
+│   └───_obsoleti
+├───Logs
+├───MySqlComponents
+├───PhpRComponents
+│   ├───NaN
+│   ├───output
+│   └───rScripts
+├───RPackages
+│   ├───da
+│   │   ├───man
+│   │   └───R
+│   ├───da.logManager
+│   │   ├───man
+│   │   └───R
+│   ├───da.logManager.Rcheck
+│   │   └───00_pkg_src
+│   │       └───da.logManager
+│   │           ├───man
+│   │           └───R
+│   ├───da.mySqlComponents
+│   │   ├───man
+│   │   └───R
+│   ├───da.mySqlComponents.Rcheck
+│   │   └───00_pkg_src
+│   │       └───da.mySqlComponents
+│   │           ├───man
+│   │           └───R
+│   └───da.visualize
+│       └───R
+└───_FsBase
+    ├───Dat
+    │   └───Evnt
+    ├───Doc
+    ├───Download
+    │   └───Prerequisiti
+    ├───Prj
+    │   ├───Usr_1_Prj_1
+    │   │   ├───An_1
+    │   │   │   ├───AirPassengers_autoclean_train.csv_da_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───AirPassengers_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_1
+    │   │   │   ├───AirPassengers_Asimmetria_x_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_Density_x_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_Fingerprint_x_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───AirPassengers_Fingerprint_x_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───AirPassengers_Quantile_x_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_1
+    │   │   └───Rev_4
+    │   ├───Usr_1_Prj_10
+    │   ├───Usr_1_Prj_11
+    │   ├───Usr_1_Prj_12
+    │   ├───Usr_1_Prj_13
+    │   ├───Usr_1_Prj_14
+    │   │   ├───An_16
+    │   │   │   ├───BJsales_autoclean__lm_compare_daEnum_x_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───BJsales_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_19
+    │   │   │   ├───BJsales_Asimmetria_x_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_Density_x_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_Fingerprint_x_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───BJsales_Fingerprint_x_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───BJsales_Quantile_x_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_23
+    │   │   └───Rev_10
+    │   ├───Usr_1_Prj_15
+    │   │   ├───An_5
+    │   │   │   ├───adults2_autoclean__lm_compare_age_fnlwgt_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_compare_capital_gain_fnlwgt_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_compare_capital_loss_fnlwgt_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_compare_education_num_fnlwgt_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_compare_fnlwgt_fnlwgt_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_compare_hours_per_week_fnlwgt_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───adults2_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_4
+    │   │   │   ├───adults2_Asimmetria_age_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Asimmetria_education_num_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Asimmetria_fnlwgt_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Density_age_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Density_education_num_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Density_fnlwgt_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Fingerprint_age_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Fingerprint_age_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Fingerprint_education_num_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Fingerprint_education_num_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Fingerprint_fnlwgt_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Fingerprint_fnlwgt_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Quantile_age_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───adults2_Quantile_education_num_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───adults2_Quantile_fnlwgt_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_17
+    │   │   └───Rev_2
+    │   ├───Usr_1_Prj_16
+    │   ├───Usr_1_Prj_17
+    │   ├───Usr_1_Prj_18
+    │   ├───Usr_1_Prj_19
+    │   ├───Usr_1_Prj_2
+    │   │   ├───An_4
+    │   │   │   ├───airquality_autoclean_train.csv_da_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_compare_Day_Ozone_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_compare_Month_Ozone_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_compare_Temp_Ozone_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_compare_Wind_Ozone_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───airquality_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_5
+    │   │   │   ├───airquality_Asimmetria_Ozone_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Asimmetria_Temp_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Asimmetria_Wind_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Density_Ozone_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Density_Temp_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Density_Wind_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Fingerprint_Ozone_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Fingerprint_Ozone_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Fingerprint_Temp_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Fingerprint_Temp_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Fingerprint_Wind_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Fingerprint_Wind_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Quantile_Ozone_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airquality_Quantile_Temp_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───airquality_Quantile_Wind_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_8
+    │   │   └───Rev_3
+    │   ├───Usr_1_Prj_20
+    │   ├───Usr_1_Prj_21
+    │   ├───Usr_1_Prj_23
+    │   │   ├───An_3
+    │   │   │   ├───airmiles_autoclean_train.csv_da_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───Regr
+    │   │   ├───Cntx_3
+    │   │   │   ├───airmiles_Asimmetria_X_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_Density_X_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_Fingerprint_X_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───airmiles_Fingerprint_X_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───airmiles_Quantile_X_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   └───Evnt_15
+    │   ├───Usr_1_Prj_3
+    │   │   ├───An_6
+    │   │   ├───Cntx_6
+    │   │   │   ├───anscombe_Asimmetria_x1_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───anscombe_Asimmetria_y1_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───anscombe_Density_x1_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───anscombe_Density_y1_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───anscombe_Fingerprint_x1_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───anscombe_Fingerprint_x1_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───anscombe_Fingerprint_y1_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───anscombe_Fingerprint_y1_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───anscombe_Quantile_x1_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───anscombe_Quantile_y1_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   └───Evnt_14
+    │   ├───Usr_1_Prj_33
+    │   │   ├───An_18
+    │   │   │   ├───discoveries_autoclean__lm_compare_daEnum_x_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───discoveries_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_21
+    │   │   │   ├───discoveries_Asimmetria_x_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_Density_x_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_Fingerprint_x_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───discoveries_Fingerprint_x_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───discoveries_Quantile_x_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_30
+    │   │   └───Rev_12
+    │   ├───Usr_1_Prj_34
+    │   ├───Usr_1_Prj_4
+    │   │   ├───An_17
+    │   │   │   ├───austres_autoclean__lm_compare_daEnum_x_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───austres_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───austres_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───austres_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───austres_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───austres_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───austres_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───austres_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───austres_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───austres_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_20
+    │   │   ├───Evnt_21
+    │   │   └───Rev_11
+    │   ├───Usr_1_Prj_5
+    │   ├───Usr_8_Prj_24
+    │   │   ├───An_7
+    │   │   │   ├───attenu_autoclean__lm_compare_accel_event_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_compare_dist_event_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_compare_mag_event_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───attenu_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_8
+    │   │   │   ├───attenu_Asimmetria_accel_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Asimmetria_dist_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Asimmetria_event_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Asimmetria_mag_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Density_accel_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Density_dist_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Density_event_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Density_mag_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Fingerprint_accel_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Fingerprint_accel_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Fingerprint_dist_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Fingerprint_dist_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Fingerprint_event_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Fingerprint_event_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Fingerprint_mag_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Fingerprint_mag_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Quantile_accel_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Quantile_dist_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attenu_Quantile_event_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───attenu_Quantile_mag_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_18
+    │   │   └───Rev_6
+    │   ├───Usr_8_Prj_25
+    │   │   ├───An_13
+    │   │   │   ├───attitude_autoclean__lm_compare_daEnum_x_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_compare_learning_complaints_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_compare_raises_complaints_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───attitude_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_7
+    │   │   │   ├───attitude_Asimmetria_complaints_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Asimmetria_learning_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Asimmetria_raises_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Density_complaints_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Density_learning_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Density_raises_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Fingerprint_complaints_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Fingerprint_complaints_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Fingerprint_learning_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Fingerprint_learning_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Fingerprint_raises_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Fingerprint_raises_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Quantile_complaints_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───attitude_Quantile_learning_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───attitude_Quantile_raises_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_19
+    │   │   └───Rev_9
+    │   ├───Usr_8_Prj_26
+    │   │   ├───An_8
+    │   │   │   ├───diabetes_autoclean__lm_compare_Age_Outcome_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_compare_Pregnancies_Outcome_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_compare_SkinThickness_Outcome_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───diabetes_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_9
+    │   │   │   ├───diabetes_Asimmetria_Age_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Asimmetria_Outcome_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Asimmetria_Pregnancies_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Asimmetria_SkinThickness_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Density_Age_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Density_Outcome_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Density_Pregnancies_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Density_SkinThickness_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Fingerprint_Age_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Fingerprint_Age_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Fingerprint_Outcome_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Fingerprint_Outcome_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Fingerprint_Pregnancies_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Fingerprint_Pregnancies_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Fingerprint_SkinThickness_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Fingerprint_SkinThickness_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Quantile_Age_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Quantile_Outcome_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───diabetes_Quantile_Pregnancies_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───diabetes_Quantile_SkinThickness_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_20
+    │   │   └───Rev_5
+    │   ├───Usr_8_Prj_27
+    │   │   ├───An_10
+    │   │   ├───Cntx_14
+    │   │   └───Evnt_24
+    │   ├───Usr_8_Prj_28
+    │   │   ├───An_11
+    │   │   │   ├───cars_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_autoclean__lm_compare_speed_dist_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───cars_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_15
+    │   │   │   ├───cars_Asimmetria_dist_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_Asimmetria_speed_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_Density_dist_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_Density_speed_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_Fingerprint_dist_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_Fingerprint_dist_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_Fingerprint_speed_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_Fingerprint_speed_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───cars_Quantile_dist_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───cars_Quantile_speed_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_25
+    │   │   └───Rev_8
+    │   ├───Usr_8_Prj_29
+    │   │   ├───An_
+    │   │   │   ├───ChickWeight_autoclean__lm_compare_Diet_weight_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───ChickWeight_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───ChickWeight_autoclean__lm_compare_Time_weight_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───ChickWeight_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───ChickWeight_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───ChickWeight_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───ChickWeight_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───ChickWeight_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───ChickWeight_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───ChickWeight_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───ChickWeight_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───An_12
+    │   │   ├───Cntx_16
+    │   │   └───Evnt_26
+    │   ├───Usr_8_Prj_30
+    │   │   ├───An_9
+    │   │   │   ├───CO2_autoclean__lm_compare_daEnum_x_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───CO2_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_13
+    │   │   │   ├───CO2_Asimmetria_x_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_Density_x_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_Fingerprint_x_Box_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───CO2_Fingerprint_x_Violino_Graph_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───CO2_Quantile_x_Graph_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Evnt_27
+    │   │   └───Rev_7
+    │   ├───Usr_8_Prj_31
+    │   │   ├───An_14
+    │   │   │   ├───Nile_autoclean__lm_compare_daEnum_x_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───Nile_autoclean__lm_compare_Graph_k-fold_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───Nile_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───Nile_autoclean__lm_test_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───Nile_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───Nile_autoclean__lm_test_Graph_ScaleLocation_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───Nile_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───Nile_autoclean__lm_train_Graph_Q-QPlot_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   ├───Nile_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │   │   │   │   ├───crosstalk-1.1.1
+    │   │   │   │   │   ├───css
+    │   │   │   │   │   └───js
+    │   │   │   │   ├───htmlwidgets-1.5.3
+    │   │   │   │   ├───jquery-3.5.1
+    │   │   │   │   ├───plotly-binding-4.9.4.1
+    │   │   │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │   │   ├───plotly-main-1.57.1
+    │   │   │   │   └───typedarray-0.1
+    │   │   │   └───Nile_autoclean__lm_train_Graph_ScaleLocation_files
+    │   │   │       ├───crosstalk-1.1.1
+    │   │   │       │   ├───css
+    │   │   │       │   └───js
+    │   │   │       ├───htmlwidgets-1.5.3
+    │   │   │       ├───jquery-3.5.1
+    │   │   │       ├───plotly-binding-4.9.4.1
+    │   │   │       ├───plotly-htmlwidgets-css-1.57.1
+    │   │   │       ├───plotly-main-1.57.1
+    │   │   │       └───typedarray-0.1
+    │   │   ├───Cntx_17
+    │   │   └───Evnt_28
+    │   └───Usr_8_Prj_32
+    │       ├───An_15
+    │       │   ├───Orange_autoclean__lm_compare_age_circumference_Graph_k-fold_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_autoclean__lm_compare_Graph_k-fold_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_autoclean__lm_test_Graph_LeverageVsResiduals_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_autoclean__lm_test_Graph_Q-QPlot_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_autoclean__lm_test_Graph_ResidualsVsPrediction_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_autoclean__lm_test_Graph_ScaleLocation_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_autoclean__lm_train_Graph_LeverageVsResiduals_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_autoclean__lm_train_Graph_Q-QPlot_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_autoclean__lm_train_Graph_ResidualsVsPrediction_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   └───Orange_autoclean__lm_train_Graph_ScaleLocation_files
+    │       │       ├───crosstalk-1.1.1
+    │       │       │   ├───css
+    │       │       │   └───js
+    │       │       ├───htmlwidgets-1.5.3
+    │       │       ├───jquery-3.5.1
+    │       │       ├───plotly-binding-4.9.4.1
+    │       │       ├───plotly-htmlwidgets-css-1.57.1
+    │       │       ├───plotly-main-1.57.1
+    │       │       └───typedarray-0.1
+    │       ├───Cntx_18
+    │       │   ├───Orange_Asimmetria_age_Graph_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_Asimmetria_circumference_Graph_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_Density_age_Graph_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_Density_circumference_Graph_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_Fingerprint_age_Box_Graph_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_Fingerprint_age_Violino_Graph_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_Fingerprint_circumference_Box_Graph_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_Fingerprint_circumference_Violino_Graph_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   ├───Orange_Quantile_age_Graph_files
+    │       │   │   ├───crosstalk-1.1.1
+    │       │   │   │   ├───css
+    │       │   │   │   └───js
+    │       │   │   ├───htmlwidgets-1.5.3
+    │       │   │   ├───jquery-3.5.1
+    │       │   │   ├───plotly-binding-4.9.4.1
+    │       │   │   ├───plotly-htmlwidgets-css-1.57.1
+    │       │   │   ├───plotly-main-1.57.1
+    │       │   │   └───typedarray-0.1
+    │       │   └───Orange_Quantile_circumference_Graph_files
+    │       │       ├───crosstalk-1.1.1
+    │       │       │   ├───css
+    │       │       │   └───js
+    │       │       ├───htmlwidgets-1.5.3
+    │       │       ├───jquery-3.5.1
+    │       │       ├───plotly-binding-4.9.4.1
+    │       │       ├───plotly-htmlwidgets-css-1.57.1
+    │       │       ├───plotly-main-1.57.1
+    │       │       └───typedarray-0.1
+    │       └───Evnt_29
+    ├───Proc
+    │   └───common
+    └───Space

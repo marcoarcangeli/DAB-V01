@@ -1,0 +1,35 @@
+a new project for a code builder in PHP for the DA App.
+This is because every sw system should have a code maintenance system associated.
+No code building at run-time, or only in limited cases.
+Criteria must be related to: parallel and independent blocks and operations.
+But automatic code building according to your own standards is cost effective and very powerfull.
+
+It means that it is necessary to define:
+	- standard nam for persistences:
+		- RDBMS: basic nams >> queries >> Tables, 	ex. IdProfileFeatureAuth,IdProfile,ProfileNam,IdFeature,FeatureNam,IdAuthLevel,AuthLevelNam
+		- FS: basic nams >> from CSV, ...
+	- standard Nam for UI:
+		- NamSep: '_'
+		- NamSpaceSep: '.'
+		- ParentNamSpace: 'da'
+
+		- Entity	: <Entity>													ex. Alg
+		- UIPanelNam: <Entity><PanelType> 										ex. AlgRead
+		- UICtrlNam	: <UIPanelNam> + NamSep + <fieldNam> 							ex. AlgRead_IdAlg
+		- UIPanelJS	: <ParentNamSpace> + <NamSpaceSep> + <UIPanelNam>			ex. da.AlgRead
+
+	- standard code chuncks for 
+		- CLIENT SIDE
+			- layout: disposition of standardParts.ex. Adminlte
+			- standardParts: headings, menubars, toolbars, sidebars, contents
+			- navigation: structure of menus and bars
+			- containers ex. main,  grids (contentType), panels (panelTypes),
+			- panel contents:  ctrls (fields, tables, tree, editors, graphs, ...), 
+		- SERVER SIDE	
+			- Proxy: AJAX-POST request array >> JSON response
+			- OpCtrl: web of OpCtrls
+			- Dao: percistence access
+			- Persistence: RDBMS, FS
+
+
+

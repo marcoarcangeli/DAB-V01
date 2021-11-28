@@ -1,0 +1,2 @@
+ProcNam;ProcAbsPath;OutputAbsPath;ProcParams
+regressioneLineare.R;/xampp/htdocs/TesiTerzoAnno/DAB/DA/_FsBase/Proc/;NaN;"CSVDataPath=/xampp/htdocs/TesiTerzoAnno/DAB/DA/_FsBase/Prj/Usr_1_Prj_23/Evnt_15/&CSVDataFilename=airmiles_autoclean.csv_da&decSep=;&csvSep=;&csvHeader=TRUE&Outcome=&CtrlMethod=undefined&ModelMethods=undefined"
