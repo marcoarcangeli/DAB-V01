@@ -229,6 +229,20 @@ OBSERVATIONS:
     - where - profile_usr is the fundamental entity
             - profile, usr entities become descriptive.
 - [Filter] WHERE or HAVING conditions, are the most complex part to generalize
+    It can be done adding Filter Types when necessary. For ex. :
+    Filter Type: 
+        NoN: None on Null       > '=' (Single or Multiple Values);  Precise match
+        AoN: All on Null        > 'LIKE %' (Single Value);           Partial match
+        Min: Minimum            > >= (Single Value);
+        Max: Maximum            > <= (Single Value);
+        Rng: Range              > BETWEEN min an max (Multiple Values);
+     Type modificators:    
+        X: exclude              > NOT
+        C(dt): Cast as Datatype > CAST($var AS $dt)
+    ******************
+     examples
+     NoNX; AoNX;0
+     
 - [Ordering fields] a std could be:
     - Descriptive 'Nam' Fields, if they exist
     or

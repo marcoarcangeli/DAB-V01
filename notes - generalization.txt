@@ -1,3 +1,30 @@
+- methods of generalization: as far as I know, I can see the following methods:
+	First level: 
+	- Design time:
+		- Objectify: OOP inheritance and extention techniques
+			- identifies basic core classes and extended ones
+		- Low responsibilities Functions/Methods
+		- Parameterize as much as it is convenient
+	- Run time:
+		- Chunck code in small pieces and compose them at runtime;
+
+	Second level: think about a CODE BUILDER after analysis, during desing time, before runtime.
+	- Build Time: 
+		- Build code chuncks with parameters;
+			- parameters are:
+				- data: app flow comining from requests and going to responses;
+				- options: code chuncks have different implementation options according to requisites;
+					- requisites specify logic and goals
+					- language specific options: they are compulsory to obtain a certain logic or goal
+- Best practice:
+	- use arrays to pass parameters; minimize primitive params;
+	- pass arrays as JSON Strings among system layers;
+	- use implode/explode PHP tranformations to pass params into the same system layer;
+	- use mapping and avoid loops to handle arrays;
+	- use type string for elementary params >> cast only when you need to use a different type;
+	- ...
+
+LET apply this methods to ...
 - about js>phpproxy>uiproxy>Daoctrl>Dao chain:
 	- compulsory params check: Op + Compulsoryfields
 		- responsibility: js + uiproxy + Daoctrl + Dao
