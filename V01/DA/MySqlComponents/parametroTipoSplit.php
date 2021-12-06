@@ -119,7 +119,7 @@ ParametroSplitCat(idParametroSplitCat, idSplitCat, Nam, descr, unit, timestamp, 
                          " . VN($this->descr) . ",
                          " . VN($this->unit) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -149,7 +149,7 @@ ParametroSplitCat(idParametroSplitCat, idSplitCat, Nam, descr, unit, timestamp, 
                     unit=" .             VN($this->unit) . "
                 WHERE
                     idParametroSplitCat = " . $this->idParametroSplitCat;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

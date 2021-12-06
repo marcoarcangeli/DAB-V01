@@ -112,7 +112,7 @@ StatDatiTest(idStatDatiTest, idTest, note, nDimensioni, nMisure
                          " . VN($this->nDimensioni) . ",
                          " . VN($this->nMisure) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -142,7 +142,7 @@ StatDatiTest(idStatDatiTest, idTest, note, nDimensioni, nMisure
                     nMisure=" .     VN($this->nMisure) . ",
                 WHERE
                     idStatDatiTest = " . $this->idStatDatiTest;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

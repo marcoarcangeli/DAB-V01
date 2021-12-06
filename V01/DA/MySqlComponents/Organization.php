@@ -144,7 +144,7 @@ class Organization
                          " . VN($this->CodeParams) . "
                          )";
             if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","query: ".$query); }
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -174,7 +174,7 @@ class Organization
                     CodeParams=" .VN($this->CodeParams) . "
                 WHERE
                     IdOrganization = " . $this->IdOrganization;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

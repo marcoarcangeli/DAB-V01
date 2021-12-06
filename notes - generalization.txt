@@ -16,12 +16,15 @@
 				- options: code chuncks have different implementation options according to requisites;
 					- requisites specify logic and goals
 					- language specific options: they are compulsory to obtain a certain logic or goal
-- Best practice:
+- Best practices:
 	- use arrays to pass parameters; minimize primitive params;
 	- pass arrays as JSON Strings among system layers;
-	- use implode/explode PHP tranformations to pass params into the same system layer;
+	- use implode/explode PHP tranformations to pass params as strings, into the same system layer;
 	- use mapping and avoid loops to handle arrays;
 	- use type string for elementary params >> cast only when you need to use a different type;
+	- LOW PRIORITY: function should include a 
+		- Help (-?): complete help TEXT [?HTML?]
+		- Params Structure (-p): return params array structure of compulsory/optional params and defaults;
 	- ...
 
 LET apply this methods to ...
@@ -279,25 +282,35 @@ LET apply this methods to ...
 		--------------------	----------------	----------------		------------------------------------------
 		SrvOps 		--> 		Service		-->		Data Access Ops			Condition
 		--------------------	----------------	----------------		------------------------------------------
-		Read					RDBMS				selectSingle()			!empty(Id[Entity])
-													selectAll()				---
-													selectAll[Filters]()	!empty([Filters])
-													select[Filters]()		!empty([Filters])
+		Read					RDBMS				selectSingle()			!empty(Id[Entity]) & NoN(Id[Entity])
+													selectAll()				---					
+													selectAll[Filters]()	!empty([Filters]) & {NoN([Filters]) | AoN([Filters])}
+												   *select[Filters]()		[Filters] & {NoN([Filters]) | AoN([Filters])}
 								FS					[url]					!empty([url])
 								SrvComp				[getMethod(item)]		!empty([itemId])
 		--------------------	----------------	----------------		------------------------------------------
-		Delete					RDBMS				Delete					!empty(Id[Entity])
+		Delete					RDBMS			   *Delete					!empty(Id[Entity])
 								FS					DeleteFile				!empty(PathFileNam)
 								SrvComp				Delete[item]			!empty([itemId])
 		--------------------	----------------	----------------		------------------------------------------
 		Save					RDBMS				Insert					empty(Id[Entity])
 													Update					!empty(Id[Entity])
+												   *Save					[Id[Entity]]
 								FS					SaveFile([file])		!empty(PathFileNam) & !empty(File)
 								SrvComp				Save[item]				!empty([itemId]) & !empty(item)
 		--------------------	----------------	----------------		------------------------------------------
-		Clean 
-		Upload
-		[R-Script]Compute
+		Clean					RDBMS			   *Truncate Table			!empty([Entity])
+								FS					CleanFolder				!empty(PathFolderNam) & !empty(Folder)
+								SrvComp				Clean[item]				!empty([itemId]) & !empty(item)
+		--------------------	----------------	----------------		------------------------------------------
+		Upload					RDBMS			   	---						---
+								FS					SaveFile([file])		!empty(PathFileNam) & !empty(File)
+								SrvComp				Save[item]				!empty([itemId]) & !empty(item)
+		--------------------	----------------	----------------		------------------------------------------
+		[R-Script]Compute		RDBMS			   	---						---
+								FS					[inside RScript]		---
+								SrvComp				RScript					!empty(RParams[itemId])
+		--------------------	----------------	----------------		------------------------------------------
 
 	- new model generalization: 
 		? bit map table for request and response.

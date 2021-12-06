@@ -108,7 +108,7 @@ StVar(idStVar, Nam, descr, unit
                          " . VN($this->descr) . ",
                          " . VN($this->unit) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -137,7 +137,7 @@ StVar(idStVar, Nam, descr, unit
                     unit="      .VN($this->unit) . ",
                 WHERE
                     idStVar = " . $this->idStVar;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

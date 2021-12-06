@@ -93,7 +93,7 @@ class Evnt
                 // . $this->IdPrj
                 . "'";
             // echo $query."\n";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
             //throw new exception("righe trovate ".$Stmt->num_rows."\n");
@@ -125,7 +125,7 @@ class Evnt
                          " . VN($this->fileRefRepoDat) . ",
                          " . VN($this->CatTag) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -157,7 +157,7 @@ class Evnt
                     CatTag="            .VN($this->CatTag) . "
                 WHERE
                     IdEvnt = " . $this->IdEvnt;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

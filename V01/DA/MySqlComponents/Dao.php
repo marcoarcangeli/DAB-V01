@@ -21,7 +21,8 @@ class Dao
     public $FE; // Fundamental Entity
     public $FEFs; // Fundamental Entity Fields
     public $VM; // Values Matrix 
-    public $OFs; // Ordering  Fields
+    public $FM; // Filters Matrix (only Ids in this version)
+    public $OFs; // Ordering Fields
     // derived params strings
     public $DEs; // Descriptive Entities
     public $EFs; //  Entity Fields
@@ -48,10 +49,10 @@ class Dao
             $query = "
             SELECT ".$this->EFs."
             FROM ".getEntitySql($FE, $FEFs)."
-            WHERE ".getIdFilterSql($FE, $FilterIds,$FilterType)."
+            WHERE ".getFilterIdsSql($FE, $FM)."
             ORDER BY ".$this->OFs."
             ";
-            //throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -78,7 +79,7 @@ class Dao
             ON DUPLICATE KEY UPDATE
             ".getLUSql($FEFs)."
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -178,7 +179,6 @@ class Dao
      */
     // get Descriptive Entities comma separated list 
     public function getDEs(string $FEFs)
-    {
         try {
             // query to insert record
             $DEs=array();
@@ -207,25 +207,21 @@ class Dao
     public function getEntitySql(string $FE, string $FEFs)
     {
         try {
-            // query to insert record
-            $FEAlias='fe';
-            $DEAliasPrefix='de';
-            $EntitySql=$FE.' '.$FEAlias;
-            if(!EN($DEs=getDEs($FEFs))){
-                $DesArr=explode(',',$DEs);
-                $EntitySql .= implode(' ',
-                        array_map( 
-                            function($v, $k) { 
-                                // conventionally Entity Nam is associated to an Alias 
-                                //  fe: fundamental entity
-                                //  de<k>: descriptive entity <k> (k: 0-n integer)
-                                $DEAliases[$k]: array($v,$DEAliasPrefix.$k);
-                                return ' LEFT OUTER JOIN '.$v.' '.$DEAliases[$k].' ON '.$DEAliases[$k].'.'.$v.'='.$FEAlias.'.'.$v; 
-                            }, 
-                            $DesArr,
-                            array_keys($DesArr)
-                        )
-                );
+            $EntitySql=$FE.' '.$_SESSION["FEAlias"];
+            // $mapped = array_map('func', $values, array_keys($values));
+            if(!is_null($DEs=getDEs($FEFs))){
+              $DesArr=explode(',',$DEs);
+              $EntitySql .= implode(' ',
+                array_map( 
+                  function($v, $k) { 
+                    return ' LEFT OUTER JOIN '.$v.' '.$_SESSION["DEAlias"].$k.' ON '.$_SESSION["DEAlias"].$k.'.'.$v.'='.$_SESSION["FEAlias"].'.'.$v; 
+    
+                    // return ' LEFT OUTER JOIN '.$v.' de'.$k.' ON de'.$k.'.'.$v.'='.'fe'.'.'.$v; 
+                  }, 
+                  $DesArr,
+                  array_keys($DesArr)
+                )
+              );
             }
             return $EntitySql;
         } catch (Exception $e) {
@@ -234,29 +230,63 @@ class Dao
         }
     }
 
-    // get Filter sql 
-    /**
-     * Type: none on null (NoN > '='), all on null (AoN > 'like')
-     */
-    public function getIdFilterSql(string $FE, string $FilterIds,string $Type='NoN')
+    // get List for Insert/Update sql 
+    public function getVMSql(string $FEFs, array $VM)
     {
         try {
             // query to insert record
-            // IdProfile = " . $this->IdProfile."
-
-            if(!EN($FE)){
-                switch($Type) {
-                    case 'NoN': // None on Null > '=' (Single or Multiple)
-                        $FilterSql = 'fe.Id'.$FE.' IN ('.$FilterIds.')';
-                        break;
-                    case 'AoN': // All on Null > 'LIKE %' (Single)
-                        $FilterSql = 'fe.Id'.$FE." LIKE '".$FilterIds."%'";
-                        break;
-                        default:
-                        LM::LogMessage("WARNING", "FilterSql Type (".$Type.") is not correct!");
-                        break;
+            $FEFsArr=explode(',',$FEFs);
+            $VMSql = '';
+            if(!EN($VM)){
+                // echo 'count($VM): ', count($VM),'<br>';
+                if(count($VM)>0){
+                    // echo 'count($VM[0]): ', count($VM[0]),'<br>';
+                    // echo 'count($FEFsArr): ', count($FEFsArr),'<br>';
+                    if(count($FEFsArr)==count($VM[0])){
+                        foreach ($VM as $VMRow) {
+                            // echo 'VMRow: ', implode(',',$VMRow),'<br>';
+                            if(!EN($FEFs)){
+                                $VMSql .= '('. implode(',',$VMRow ) .'),';
+                            }
+                        }
+                    }
                 }
-                
+            }
+
+            return substr($VMSql,0, -1);
+        } catch (Exception $e) {
+            LM::LogMessage("ERROR", $e);
+            return false;
+        }
+    }
+    // get Filter sql 
+    /**
+     * ex:
+     * $FMIds = array("filterType" => 'NoN', "filterValues" => '1,6,16');
+     * $FMIds = array("filterValues" => '1,6,16');
+     */
+    public function getFilterIdsSql(string $FE, array $FMIds)
+    {
+        try {
+            // query to insert record
+            $FilterSql='';
+            if(!EN($FE) 
+                && !EN($FMIds)
+            ){
+                $Type=(isset($FMIds['filterType']))? $FMIds['filterType'] : $_SESSION["FilterTypeStrict"];
+                if(!EN($FMIds['filterValues'])){
+                    switch($Type) {
+                        case $_SESSION["FilterTypeStrict"]: // None on Null > '=' (Single or Multiple)
+                            $FilterSql = 'fe.Id'.$FE.' IN ('.$FMIds['filterValues'].')';
+                            break;
+                        case $_SESSION["FilterTypeApprox"]: // All on Null > 'LIKE %' (Single)
+                            $FilterSql = 'fe.Id'.$FE." LIKE '".$FMIds['filterValues']."%'";
+                            break;
+                        default:
+                            LM::LogMessage("WARNING", "FilterSql Type (".$Type.") is not correct!");
+                            break;
+                    }
+                } // else continue filter values are empty
             }
             return $FilterSql;
         } catch (Exception $e) {
@@ -265,6 +295,32 @@ class Dao
         }
     }
 
+    // get List for Update sql 
+    public function getLUSql(string $FEFs)
+    {
+        try {
+            // query to insert record
+            // idT1=VALUES(idT1), nam=VALUES(nam), descr=VALUES(descr)
+            $LUSql = '';
+            if(!EN($FEFs)){
+                $LUSql = implode(',',
+                    array_map( 
+                        function($v) { 
+                            return $v.' = VALUES('.$v.')'; 
+                        }, 
+                        explode(',',str_replace($_SESSION["FKPostfix"],'',$FEFs))
+                    )
+                );
+            }
+            return $LUSql;
+        } catch (Exception $e) {
+            LM::LogMessage("ERROR", $e);
+            return false;
+        }
+    }
+    // *****************
+    // CODE BUILDER could be the destination of this function
+    // *****************
     // - FilterType: 
     //  NoN: None on Null       > '=' (Single or Multiple Values);  Precise match
     //  AoN: All on Null        > 'LIKE %' (Single Value);           Partial match
@@ -331,60 +387,5 @@ class Dao
         }
     }
 
-    // get List for Update sql 
-    public function getLUSql(string $FEFs)
-    {
-        try {
-            // query to insert record
-            // idT1=VALUES(idT1), nam=VALUES(nam), descr=VALUES(descr)
-            $LUSql = '';
-            if(!EN($FEFs)){
-                $LUSql = implode(',',
-                    array_map( 
-                        function($v) { 
-                            return $v.' = VALUES('.$v.')'; 
-                        }, 
-                        explode(',',str_replace($_SESSION["FKPostfix"],'',$FEFs))
-                    )
-                );
-            }
-            return $LUSql;
-        } catch (Exception $e) {
-            LM::LogMessage("ERROR", $e);
-            return false;
-        }
-    }
     
-    // get List for Update sql 
-    public function getVMSql(string $FEFs, array $VM)
-    {
-        try {
-            // query to insert record
-            $FEFsArr=explode(',',$FEFs);
-            $VMSql = '';
-            if(!EN($VM)){
-                // echo 'count($VM): ', count($VM),'<br>';
-                if(count($VM)>0){
-                    // echo 'count($VM[0]): ', count($VM[0]),'<br>';
-                    // echo 'count($FEFsArr): ', count($FEFsArr),'<br>';
-                    if(count($FEFsArr)==count($VM[0])){
-                    foreach ($VM as $VMRow) {
-                        // echo 'VMRow: ', implode(',',$VMRow),'<br>';
-                        if(!EN($FEFs)){
-                            $VMSql .= '('. implode(',',$VMRow ) .'),';
-                        }
-                    }
-                    }
-                }
-            }
-
-            return substr($VMSql,0, -1);
-        } catch (Exception $e) {
-            LM::LogMessage("ERROR", $e);
-            return false;
-        }
-    }
-    
-    
-
 }

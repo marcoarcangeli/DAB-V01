@@ -117,7 +117,7 @@ rev(IdRev, IdAn, Note, timestamp, IdUsr)
                          " . VN($this->IdAn) . ",
                          " . VN($this->Note) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -145,7 +145,7 @@ rev(IdRev, IdAn, Note, timestamp, IdUsr)
                     Note=" . VN($this->Note) . "
                 WHERE
                     IdRev = " . $this->IdRev;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

@@ -56,7 +56,7 @@ class Usr
                 order by 
                     u.UsrNam
                 ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -89,7 +89,7 @@ class Usr
                 order by 
                     u.UsrNam
                 ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -153,7 +153,7 @@ class Usr
                          " . VN($this->EMail). ",
                          " . VN($this->IdOrganization). "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 

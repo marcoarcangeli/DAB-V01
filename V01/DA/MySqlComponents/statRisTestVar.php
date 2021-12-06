@@ -133,7 +133,7 @@ statRisTestVar(idStatRisTestVar, idStatRisTest, note, minimum, maximum
                          " . VN($this->variance) . ",
                          " . VN($this->varCoeff) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -168,7 +168,7 @@ statRisTestVar(idStatRisTestVar, idStatRisTest, note, minimum, maximum
                     varCoeff=" .        VN($this->varCoeff) . ",
                 WHERE
                     idStatRisTestVar = " . $this->idStatRisTestVar;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

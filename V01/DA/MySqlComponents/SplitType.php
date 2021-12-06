@@ -59,7 +59,7 @@ splittype (idSplitType, idSplitCat, nam, descr, perc)
             ORDER BY
                 e.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -90,7 +90,7 @@ splittype (idSplitType, idSplitCat, nam, descr, perc)
             ORDER BY
                 e.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -121,7 +121,7 @@ splittype (idSplitType, idSplitCat, nam, descr, perc)
             ORDER BY
                 e.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -154,7 +154,7 @@ splittype (idSplitType, idSplitCat, nam, descr, perc)
                 . $this->IdSplitType
                 . "'";
             // echo $query."\n";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
             //throw new exception("righe trovate ".$Stmt->num_rows."\n");
@@ -184,7 +184,7 @@ splittype (idSplitType, idSplitCat, nam, descr, perc)
                          " . VN($this->Descr) . ",
                          " . VN($this->Perc) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -214,7 +214,7 @@ splittype (idSplitType, idSplitCat, nam, descr, perc)
                     Perc="          .VN($this->Perc) . "
                 WHERE
                     IdSplitType = " . $this->IdSplitType;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

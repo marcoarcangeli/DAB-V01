@@ -123,7 +123,7 @@ parametroAlgTest(idParametroAlgTest, idParametroAlgCat, idTest, valore, timestam
                          " . VN($this->idTest) . ",
                          " . VN($this->valore) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -152,7 +152,7 @@ parametroAlgTest(idParametroAlgTest, idParametroAlgCat, idTest, valore, timestam
                     valore=" .                      VN($this->valore) . "
                 WHERE
                     idParametroAlgTest = " . $this->idParametroAlgTest;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

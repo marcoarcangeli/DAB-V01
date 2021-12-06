@@ -101,7 +101,7 @@ class An
                 . $this->IdPrj
             . "'";
             // echo $query."\n";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
             //throw new exception("righe trovate ".$Stmt->num_rows."\n");
@@ -299,7 +299,7 @@ class An
                          " . VN($this->Descr) . ",
                          " . VN($this->Dttm) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -331,7 +331,7 @@ class An
                     Dttm="      . VN($this->Dttm) . "
                 WHERE
                     IdAn = " . $this->IdAn;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

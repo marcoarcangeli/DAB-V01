@@ -94,7 +94,7 @@ clean (IdClean, idPrj, Note)
                 . $this->IdClean
                 ."'";
             // echo $query."\n";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
             //throw new exception("righe trovate ".$Stmt->num_rows."\n");
@@ -126,7 +126,7 @@ clean (IdClean, idPrj, Note)
                          " . VN($this->filters) . ",
                          " . VN($this->Note) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -158,7 +158,7 @@ clean (IdClean, idPrj, Note)
                     filters="   . VN($this->filters) . "
                     WHERE
                     IdClean = " . $this->IdClean;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

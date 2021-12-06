@@ -137,7 +137,7 @@ statDatiCntxVar(idStatDatiCntxVar, idStatDatiCntx, note, minimum, maximum
                          " . VN($this->varCoef) . ",
                          " . VN($this->Filter) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -173,7 +173,7 @@ statDatiCntxVar(idStatDatiCntxVar, idStatDatiCntx, note, minimum, maximum
                     Filter=" .              VN($this->Filter) . ",
                 WHERE
                     idStatDatiCntxVar = " . $this->idStatDatiCntxVar;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

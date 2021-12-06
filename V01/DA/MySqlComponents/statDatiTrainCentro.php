@@ -133,7 +133,7 @@ statDatiTrainCentro(idstatDatiTrainCentro, idStatDatiTrain, note, aritmetica, ge
                          " . VN($this->moda) . ",
                          " . VN($this->mediana) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -168,7 +168,7 @@ statDatiTrainCentro(idstatDatiTrainCentro, idStatDatiTrain, note, aritmetica, ge
                     mediana=" .     VN($this->mediana) . ",
                 WHERE
                     idstatDatiTrainCentro = " . $this->idstatDatiTrainCentro;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

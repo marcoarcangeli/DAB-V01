@@ -98,7 +98,7 @@ alg(idAlg, idAlgState, idalgcat, nam, descr, fileRefProc)
             ORDER BY
                 t.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -133,7 +133,7 @@ alg(idAlg, idAlgState, idalgcat, nam, descr, fileRefProc)
             ORDER BY
                 t.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -202,7 +202,7 @@ alg(idAlg, idAlgState, idalgcat, nam, descr, fileRefProc)
                          " . VN($this->fileRefProc) . ",
                          " . VN($this->CatTag) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -234,7 +234,7 @@ alg(idAlg, idAlgState, idalgcat, nam, descr, fileRefProc)
                     CatTag=" .VN($this->CatTag) . "
                 WHERE
                     IdAlg = " . $this->IdAlg;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

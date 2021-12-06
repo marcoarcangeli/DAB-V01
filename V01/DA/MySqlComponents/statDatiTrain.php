@@ -112,7 +112,7 @@ statDatiTrain(idStatDatiTrain, IdTrain, note, nDimensioni, nMisure
                          " . VN($this->nDimensioni) . ",
                          " . VN($this->nMisure) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -142,7 +142,7 @@ statDatiTrain(idStatDatiTrain, IdTrain, note, nDimensioni, nMisure
                     nMisure=" .     VN($this->nMisure) . ",
                 WHERE
                     idStatDatiTrain = " . $this->idStatDatiTrain;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

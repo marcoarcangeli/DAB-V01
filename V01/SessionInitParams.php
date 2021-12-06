@@ -136,6 +136,10 @@ $_SESSION["FKPostfix"]          ='>';
 // namespaces
 $_SESSION["RootNamSpace"]       = "DA";
 $_SESSION["JSRootNamSpace"]     = "da";
+$_SESSION["FEAlias"]            ='fe';
+$_SESSION["DEAlias"]            ='de';
+$_SESSION["FilterTypeStrict"]   ='NoN'; // None On Null filter
+$_SESSION["FilterTypeApprox"]   ='AoN'; // All On Null filter
 
 // RelPaths
 //    $dir  = '/xampp/htdocs/tesiTerzoAnno/DAB/DA/_FsBase/Procs/';

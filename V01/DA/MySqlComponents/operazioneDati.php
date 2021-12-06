@@ -130,7 +130,7 @@ opDat(idopDat, IdClean, idOpDatCat, execOr, descr, timestamp, IdUsr)
                          " . VN($this->execOr) . ",
                          " . VN($this->descr) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -161,7 +161,7 @@ opDat(idopDat, IdClean, idOpDatCat, execOr, descr, timestamp, IdUsr)
                     descr="                 .VN($this->descr) . ",
                 WHERE
                     idopDat = " . $this->idopDat;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

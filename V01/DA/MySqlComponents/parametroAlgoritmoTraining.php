@@ -123,7 +123,7 @@ ParametroAlgTrain(idParametroAlgTrain, idParametroAlgCat, IdTrain, valore, times
                          " . VN($this->IdTrain) . ",
                          " . VN($this->valore) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -152,7 +152,7 @@ ParametroAlgTrain(idParametroAlgTrain, idParametroAlgCat, IdTrain, valore, times
                     valore=" .                      VN($this->valore) . "
                 WHERE
                     idParametroAlgTrain = " . $this->idParametroAlgTrain;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

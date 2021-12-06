@@ -61,7 +61,7 @@ ParamType(IdParamType, IdParamTypeCat, Nam, Descr, Unit, timestamp, IdUsr)
             ORDER BY
                 e.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -93,7 +93,7 @@ ParamType(IdParamType, IdParamTypeCat, Nam, Descr, Unit, timestamp, IdUsr)
             ORDER BY
                 e.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -125,7 +125,7 @@ ParamType(IdParamType, IdParamTypeCat, Nam, Descr, Unit, timestamp, IdUsr)
             ORDER BY
                 e.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -159,7 +159,7 @@ ParamType(IdParamType, IdParamTypeCat, Nam, Descr, Unit, timestamp, IdUsr)
                 . $this->IdParamType
                 . "'";
             // echo $query."\n";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
             //throw new exception("righe trovate ".$Stmt->num_rows."\n");
@@ -190,7 +190,7 @@ ParamType(IdParamType, IdParamTypeCat, Nam, Descr, Unit, timestamp, IdUsr)
                          " . VN($this->Unit) . ",
                          " . VN($this->vlDefault) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -221,7 +221,7 @@ ParamType(IdParamType, IdParamTypeCat, Nam, Descr, Unit, timestamp, IdUsr)
                     vlDefault="          .VN($this->vlDefault) . "
                 WHERE
                     IdParamType = " . $this->IdParamType;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

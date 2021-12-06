@@ -171,7 +171,7 @@ AnCntx (IdAnCntx, IdAn, IdCntx, IdSplitType, nam, Descr, fileRefTrainDat, fileRe
                          " . VN($this->Regr_CtrlMethod) . ",
                          " . VN($this->Regr_ModelMethods) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -209,7 +209,7 @@ AnCntx (IdAnCntx, IdAn, IdCntx, IdSplitType, nam, Descr, fileRefTrainDat, fileRe
                     Regr_ModelMethods=" . VN($this->Regr_ModelMethods) . "
                 WHERE
                     IdAnCntx = " . $this->IdAnCntx;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

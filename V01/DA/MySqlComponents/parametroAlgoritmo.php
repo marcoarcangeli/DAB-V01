@@ -122,7 +122,7 @@ ParametroAlg(idParametroAlg, valore, idParametroAlgCat, timestamp, IdUsr)
                          " . VN($this->idParametroAlgCat) . ",
                          " . VN($this->idAlg) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -151,7 +151,7 @@ ParametroAlg(idParametroAlg, valore, idParametroAlgCat, timestamp, IdUsr)
                     idParametroAlgCat=" .    VN($this->idParametroAlgCat) . "
                 WHERE
                     idParametroAlg = " . $this->idParametroAlg;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

@@ -118,7 +118,7 @@ rnk(idRnk, IdPrj, note, timestamp, IdUsr)
                         (" . VN($this->IdPrj) . ",
                          " . VN($this->note) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -146,7 +146,7 @@ rnk(idRnk, IdPrj, note, timestamp, IdUsr)
                     note=" .        VN($this->note) . "
                 WHERE
                     idRnk = " . $this->idRnk;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

@@ -133,7 +133,7 @@ statDatiEvntVar(idStatDatiEvntVar, idStatDatiEvnt, note, minimum, maximum
                          " . VN($this->variance) . ",
                          " . VN($this->varCoef) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -168,7 +168,7 @@ statDatiEvntVar(idStatDatiEvntVar, idStatDatiEvnt, note, minimum, maximum
                     varCoef=" .     VN($this->varCoef) . ",
                 WHERE
                     idStatDatiEvntVar = " . $this->idStatDatiEvntVar;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

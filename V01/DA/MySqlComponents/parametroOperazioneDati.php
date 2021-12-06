@@ -122,7 +122,7 @@ ParametroopDat(idParametroopDat, idopDat, idParametroOpDatCat, valore, timestamp
                          " . VN($this->idopDat) . ",
                          " . VN($this->valore) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -151,7 +151,7 @@ ParametroopDat(idParametroopDat, idopDat, idParametroOpDatCat, valore, timestamp
                     valore=" .                          VN($this->valore) . ",
                 WHERE
                     idParametroopDat = " . $this->idParametroopDat;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

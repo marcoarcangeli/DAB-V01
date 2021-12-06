@@ -104,7 +104,7 @@ OpDatCat(IdOpDatCat, Nam, Descr, timestamp, IdUsr)
                          " . VN($this->Nam) . ",
                          " . VN($this->Descr) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -133,7 +133,7 @@ OpDatCat(IdOpDatCat, Nam, Descr, timestamp, IdUsr)
                     Descr="         .VN($this->Descr) . "
                 WHERE
                     IdOpDatCat='" . $this->IdOpDatCat . "'";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

@@ -65,7 +65,7 @@ AlgParamType (IdAlgParamType, idAlg, IdParamType, Nam, Descr, vlDefault)
             ORDER BY
                 e.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -101,7 +101,7 @@ AlgParamType (IdAlgParamType, idAlg, IdParamType, Nam, Descr, vlDefault)
             ORDER BY
                 e.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -136,7 +136,7 @@ AlgParamType (IdAlgParamType, idAlg, IdParamType, Nam, Descr, vlDefault)
             ORDER BY
                 e.Nam
             ";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -173,7 +173,7 @@ AlgParamType (IdAlgParamType, idAlg, IdParamType, Nam, Descr, vlDefault)
                 . $this->IdAlgParamType
                 . "'";
             // echo $query."\n";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
             $Stmt = mysqli_query($this->conn, $query);
             //throw new exception("righe trovate ".$Stmt->num_rows."\n");
@@ -204,7 +204,7 @@ AlgParamType (IdAlgParamType, idAlg, IdParamType, Nam, Descr, vlDefault)
                          " . VN($this->Descr) . ",
                          " . VN($this->vlDefault) . "
                         )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -235,7 +235,7 @@ AlgParamType (IdAlgParamType, idAlg, IdParamType, Nam, Descr, vlDefault)
                     vlDefault ="    .VN($this->vlDefault) . "
                 WHERE
                     IdAlgParamType = " . $this->IdAlgParamType;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

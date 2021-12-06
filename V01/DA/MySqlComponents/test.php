@@ -113,7 +113,7 @@ Test(idTest, idStatisticaDatiTest, idStatisticaRisultatiTest, fileRefTestDat, fi
                          " . VN($this->fileRefTestResDat) . ",
                          " . VN($this->note) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -143,7 +143,7 @@ Test(idTest, idStatisticaDatiTest, idStatisticaRisultatiTest, fileRefTestDat, fi
                     note=" .                        VN($this->note) . ",
                 WHERE
                     idTest = " . $this->idTest;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

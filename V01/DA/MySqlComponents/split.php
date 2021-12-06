@@ -124,7 +124,7 @@ Split(idSplit, idSplitCat, IdAnCntx, note, timestamp, IdUsr)
                          " . VN($this->IdAnCntx) . ",
                          " . VN($this->note) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -153,7 +153,7 @@ Split(idSplit, idSplitCat, IdAnCntx, note, timestamp, IdUsr)
                     note="          .VN($this->note) . "
                 WHERE
                     idSplit = " . $this->idSplit;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

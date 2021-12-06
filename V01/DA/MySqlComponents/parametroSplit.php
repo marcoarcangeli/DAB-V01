@@ -118,7 +118,7 @@ ParametroSplit(idParametroSplit, idSplit, idParametroSplitCat, valore, timestamp
                          " . VN($this->idParametroSplitCat) . ",
                          " . VN($this->idSplit) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -147,7 +147,7 @@ ParametroSplit(idParametroSplit, idSplit, idParametroSplitCat, valore, timestamp
                     idParametroSplitCat=" .    VN($this->idParametroSplitCat) . "
                 WHERE
                     idParametroSplit = " . $this->idParametroSplit;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

@@ -121,7 +121,7 @@ StatRisTestAsim(idStatRisTestAsim, idStatRisTest, note, mediaModa, coefPearson1
                          " . VN($this->coefPearson1) . ",
                          " . VN($this->coefPearson2) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -153,7 +153,7 @@ StatRisTestAsim(idStatRisTestAsim, idStatRisTest, note, mediaModa, coefPearson1
                     coefPearson2=" .     VN($this->coefPearson2) . ",
                 WHERE
                     idStatRisTestAsim = " . $this->idStatRisTestAsim;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

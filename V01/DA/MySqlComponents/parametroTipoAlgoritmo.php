@@ -119,7 +119,7 @@ ParametroAlgCat(idParametroAlgCat, IdAlgCat, Nam, descr, unit, timestamp, IdUsr)
                          " . VN($this->descr) . ",
                          " . VN($this->unit) . "
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -149,7 +149,7 @@ ParametroAlgCat(idParametroAlgCat, IdAlgCat, Nam, descr, unit, timestamp, IdUsr)
                     unit=" .             VN($this->unit) . "
                 WHERE
                     idParametroAlgCat = " . $this->idParametroAlgCat;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);

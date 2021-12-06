@@ -115,7 +115,7 @@ statDatiCntx(idStatDatiCntx, IdCntx, note, nDimensioni, nMisure, proiezioneEvnt
                          " . VN($this->nMisure) . ",
                          " . VN($this->proiezioneEvnt) . ",
                          )";
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
 
@@ -146,7 +146,7 @@ statDatiCntx(idStatDatiCntx, IdCntx, note, nDimensioni, nMisure, proiezioneEvnt
                     proiezioneEvnt=" .     VN($this->proiezioneEvnt) . ",
                 WHERE
                     idStatDatiCntx = " . $this->idStatDatiCntx;
-            // throw new exception($query."\n");
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
 
             // prepare query
             $Stmt = mysqli_query($this->conn, $query);
