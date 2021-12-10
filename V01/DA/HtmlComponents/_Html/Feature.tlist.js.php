@@ -92,7 +92,13 @@ da.FeatureTlist = {
             "ajax": {
                 "url": "DA/HtmlComponents/Feature/Tlist.proxy.php" + $params,
                 "type": "GET",
-                "dataSrc": "data"
+                // "dataSrc": "data"
+                "dataSrc": function ( json ) {
+                    // alert("State! "+json.State);
+                    // alert("Msg! "+json.Msg);
+                    // alert("FirstId! "+json.FirstId);
+                    return json.data;
+                }    
             },
             "columns": [{
                     "data": "IdFeature"

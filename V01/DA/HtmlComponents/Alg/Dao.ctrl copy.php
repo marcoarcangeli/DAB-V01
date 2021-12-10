@@ -1,26 +1,26 @@
 <?php
-namespace DA\HtmlComponents\Feature;
+namespace DA\HtmlComponents\Alg;
 
 $BFD=$_SESSION["BaseFolderDyn"];
 // include Database and object files 
 include_once($BFD.'DA/mySqlComponents/Database.php');
-include_once($BFD.'DA/mySqlComponents/Feature.php');
+include_once($BFD.'DA/mySqlComponents/Alg.php');
 include_once($BFD.'DA/Logs/LogManager.php');
 // include_once($BFD.'DA/FsComponents/FsManager.php');
 
 // use DA\FsComponents\FsManager as FSM;
 use DA\Logs\LogManager as LM;
 use DA\mySqlComponents\Database as DB;
-use DA\mySqlComponents\Feature as DAO;
+use DA\mySqlComponents\Alg as DAO;
 
 class DaoCtrl
 {
     // common params with deafaults;
-    public string $CompulsoryParamNams = 'IdFeature';
+    public string $CompulsoryParamNams = 'IdAlg';
     public string $OptionalParamNams = ''; //'SearchIds';
     // public string $ParamSource = 'PSV';
     // public string $ParamSource2 = 'ASV';
-    // public string $SaveParamNams = "IdFeature,IdFeatureState,IdFeatureCat,Nam,Descr,fileRefProc,CatTag";
+    // public string $SaveParamNams = "IdAlg,IdAlgState,IdAlgCat,Nam,Descr,fileRefProc,CatTag";
 
     public function __construct(string $Param = "OK")    {
         // $this->SetDefaults($Param);
@@ -38,7 +38,7 @@ class DaoCtrl
             // prepara Prj object
             $Dao = new DAO($Db);
 
-            if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","Params[".$CompulsoryParamNams."]: ".$Params[$CompulsoryParamNams]); }
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","Params[".$CompulsoryParamNams."]: ".$Params[$CompulsoryParamNams]); }
             if (
                 isset($Params[$CompulsoryParamNams])
                 && trim($Params[$CompulsoryParamNams]) != ''
@@ -46,27 +46,16 @@ class DaoCtrl
                 // set params
                 $Dao->{$CompulsoryParamNams} = $Params[$CompulsoryParamNams]; 
                 // seleziona la lista
-                $Results = $Dao->selectSingle();
+            // $Results = $Dao->selectSingle();
                 // se l'Prj esiste
                 $Result_arr = array();
-                if ($Results) {
-                    // conta le righe
-                    // $num = $Results->num_rows;
-                    $Fields=mysqli_fetch_fields($Results);
-                    // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","num records: ".$num); }
-                    while ($Row = mysqli_fetch_assoc($Results)) {
-                        // $Result_arr[] = $Row;
-                        $Data = array();
-                        // set Data: all fields
-                        foreach ($Fields as $Field) {
-                            $Data[$Field-> name] = $Row[$Field-> name];
-                        }
-                    }
-                    if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","Data[Nam]: ".$Data["Nam"]); }
+                if ($Results = $Dao->selectSingle()) {
+                    $Result_arr = $Results->fetch_all(MYSQLI_ASSOC);
                     $Result_arr = array(
                         "State" => true,
                         "Msg" => "Ok !",
-                        "Data" => $Data
+                        "Data" => $Result_arr
+                        // "Data" => $Data
                     );
                 } else {
                     $Result_arr = array(
@@ -81,7 +70,7 @@ class DaoCtrl
                 );
                 LM::LogMessage("WARNING", $Result_arr["Msg"]);
             }
-            if($_SESSION["Debug"]>=3){ LM::LogMessage("DEBUG","json_encode(Result_arr): ".json_encode($Result_arr)); }
+            // if($_SESSION["Debug"]>=3){ LM::LogMessage("DEBUG","json_encode(Result_arr): ".json_encode($Result_arr)); }
 
             return $Result_arr;
         } catch (Exception $e) {
@@ -92,7 +81,7 @@ class DaoCtrl
 
     public function DeleteDb(array $Params)
     {
-        $CompulsoryParamNams = $this->CompulsoryParamNams; //"IdFeature";
+        $CompulsoryParamNams = $this->CompulsoryParamNams; //"IdAlg";
         try {
             // get Database connection
             $Db = new DB();
@@ -106,7 +95,7 @@ class DaoCtrl
                 && trim($Params[$CompulsoryParamNams]) != ''
             ) {
                 $Dao->{$CompulsoryParamNams} = $Params[$CompulsoryParamNams]; 
-                if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","Params[".$CompulsoryParamNams."]: ".$Params[$CompulsoryParamNams]); }
+                // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","Params[".$CompulsoryParamNams."]: ".$Params[$CompulsoryParamNams]); }
                 // delete 
                 if ($Dao->delete()) {
                     $Result_arr = array(
@@ -153,7 +142,7 @@ class DaoCtrl
             foreach($Params as $Param => $value){
                 $Dao->{$Param} = $Params[$Param];
             }
-            if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","Params[Nam]: ".$Params["Nam"]); }
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","Params[Nam]: ".$Params["Nam"]); }
             // inizio transazione
             $Db->begin_transaction();
             $TransactionState=false;
@@ -173,7 +162,7 @@ class DaoCtrl
                 } 
             }
 
-            if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","TransactionState: ".$TransactionState); }
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","TransactionState: ".$TransactionState); }
             if($TransactionState){
                 $Db->commit();
                 $Result_arr = array(
@@ -196,9 +185,10 @@ class DaoCtrl
         }
     }
 
-    public function TlistDb(array $Params) // -1
+    public function TlistDb(array $Params)
     {
         $OptionalParamNams = $this->OptionalParamNams; //"SearchIds";
+        // $CompulsoryParamNams = $this->CompulsoryParamNams; //"SearchIds";
         try {
             // get Database connection
             $Db = new DB();
@@ -212,31 +202,23 @@ class DaoCtrl
             //     isset($Params[$OptionalParamNams])
             //     && trim($Params[$OptionalParamNams]) != ''
             // ) {
-                // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","Params[".$OptionalParamNams."]: ".$Params[$OptionalParamNams]); }
-                // set Params all params
+                // set params
                 if(trim($OptionalParamNams) != ''
                    && isset($Params)){
                     $Dao->{$OptionalParamNams} = $Params[$OptionalParamNams]; 
-                    // if($_SESSION["Debug"] == -1){ LM::LogMessage("DEBUG","Dao->{".$OptionalParamNams."}: ".$Dao->{$OptionalParamNams}); }
                 }
                 // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","length(Params)]: ".sizeof($Params)); }
                 // seleziona la lista
-                // if($_SESSION["Debug"] == -1){ LM::LogMessage("DEBUG","Params-[".$OptionalParamNams."]: ".$Params[$OptionalParamNams]); }
-                if($Params[$OptionalParamNams]==""){
+                if($Params[$OptionalParamNams] == ''){
+                // if(!isset($Params->{$OptionalParamNams})){
                     $Results = $Dao->selectAll();
                 }else{
-                    // if($_SESSION["Debug"] == -1){ LM::LogMessage("DEBUG","Params-[".$OptionalParamNams."]: ".$Params[$OptionalParamNams]); }
                     $Results = $Dao->selectSearchIds();
                 }
-            
                 // if result exists
                 $Result_arr = array();
                 if ($Results) {
-                    // conta le righe
-                    $num = $Results->num_rows;
-                    while($Row = mysqli_fetch_assoc($Results)) {
-                        $Result_arr[] = $Row;
-                    }
+                    $Result_arr = $Results->fetch_all(MYSQLI_ASSOC);
                 } else {
                     $Result_arr = array(
                         "State" => false,
@@ -246,14 +228,11 @@ class DaoCtrl
             // } else {
             //     $Result_arr = array(
             //         "State" => false,
-            //         "Msg" => $OptionalParamNams." is incorrect !"
+            //         "Msg" => $CompulsoryParamNams." is incorrect !"
             //     );
             //     LM::LogMessage("WARNING", $Result_arr["Msg"]);
             // }
             $Result_arr=array(
-                "State"         => true,
-                "Msg"           => "Test Message!",
-                "FirstId"       => '1',
                 "draw" => "1", 
                 "recordsTotal"=> $num,
                 "recordsFiltered"=> $num,
@@ -266,5 +245,4 @@ class DaoCtrl
             return false;
         }
     }
-
 }

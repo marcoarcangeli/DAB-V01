@@ -115,7 +115,8 @@ v techinfo btntool + at start
         + verify where to include it
         + apply to the entire app [see verifyNulls VN in ProfileFeatureAuth]
     + found generalization for Read and Tlist Result_Arr (see Alg Dao.ctrl.php)
-        - apply to every Dao.ctrl
+        + apply to every Dao.ctrl
+        ? apply to all the datatable ajax.dataSrc function in Feature.tlist.js  
     v menu RDBMS eliminato e sostituito con link di integrazione con phpMyAdmin nel menu Sys Admin
         v eliminato file di configurazione MySqlConn.json > inserito in session variables
     + multi language

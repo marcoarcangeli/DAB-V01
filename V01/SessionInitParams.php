@@ -132,12 +132,15 @@ $_SESSION["DecDefaultSep"]      = ",";
 $_SESSION["NamDefaultSep"]      = "_";
 $_SESSION["NamSpaceDefaultSep"] = ".";
 $_SESSION["PanelBtnsPostfix"]   = "Btns";
-$_SESSION["FKPostfix"]          ='>';
+$_SESSION["FKPostfix"]          ='&';
+$_SESSION["CompulsoryPostfix"]  ='*';
 // namespaces
 $_SESSION["RootNamSpace"]       = "DA";
 $_SESSION["JSRootNamSpace"]     = "da";
 $_SESSION["FEAlias"]            ='fe';
 $_SESSION["DEAlias"]            ='de';
+$_SESSION["DEFNam"]             ='Nam';
+
 $_SESSION["FilterTypeStrict"]   ='NoN'; // None On Null filter
 $_SESSION["FilterTypeApprox"]   ='AoN'; // All On Null filter
 
@@ -174,10 +177,14 @@ $_SESSION["RScriptAbsPath"] = $_SESSION["BaseFolderDyn"] . $_SESSION["RScriptRel
 $_SESSION["RScriptOutputAbsPath"] = $_SESSION["BaseFolderDyn"] . $_SESSION["RScriptOutputRelPath"];
 
 // standard Path Filenames
-$_SESSION["MySqlConnJsonAbsPathFilename"] = $_SESSION["BaseFolderDyn"]."MySqlConn.json";
+// $_SESSION["MySqlConnJsonAbsPathFilename"] = $_SESSION["BaseFolderDyn"]."MySqlConn.json";
 
-// standard classes and contents
+// standard classes 
 $_SESSION["toDoClass"]                  = "DA\\HtmlComponents\\Common\\toDo";
+$_SESSION["DaoRdbClass"]                = "DA\\MySqlComponents\\Dao";
+$_SESSION["DaoCtrlRdbClass"]            = "DA\\HtmlComponents\\DaoCtrl";
+$_SESSION["UIProxyClass"]               = "DA\\HtmlComponents\\UIProxy";
+// standard code chunks and contents
 $_SESSION["RevBaseTextFile"]            = "RevBaseText.txt";
 $_SESSION["cardToolsHtml"]              = "card-tools.html.php";
 $_SESSION["btnToolboxReadHtml"]         = "btnToolboxRead.html.php";

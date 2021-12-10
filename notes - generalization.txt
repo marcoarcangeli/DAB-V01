@@ -7,12 +7,23 @@
 		- Parameterize as much as it is convenient
 	- Run time:
 		- Chunck code in small pieces and compose them at runtime;
+	Second Level: methods own there info
+		- each method/function should supply parametrs list and types, with compulsory (without default) or optional attribute
+			- technique 1: std method/func structure	
+				- compulsory param array: $params
+				- optional param [$mode]:
+					- run: exec method code logic; this is the default
+					- par: return a string with the structure of the $Params array: ex. SrvOp,anotherParam*
+						[*]: optional param;
+					- hlp: return a string with the complete html info on method/func
+				- try...catch: capture all exceptions
+					- switch($mode) ... case: 
 
-	Second level: think about a CODE BUILDER after analysis, during desing time, before runtime.
+	Third level: think about a CODE BUILDER after analysis, during desing time, before runtime.
 	- Build Time: 
 		- Build code chuncks with parameters;
 			- parameters are:
-				- data: app flow comining from requests and going to responses;
+				- data: app flow coming from requests and going to responses;
 				- options: code chuncks have different implementation options according to requisites;
 					- requisites specify logic and goals
 					- language specific options: they are compulsory to obtain a certain logic or goal
@@ -79,6 +90,9 @@ LET apply this methods to ...
 					- update: none
 	- Observations:
 		- COMPULSORY ONLY for REQUESTS
+			- COMPULSORY params depends strictly from REQUEST CONTEXT. the same param can be compulsory or not, for the same SrvOp.
+			- NECESSARY PARAMS are important for Dao SrvOp, but could not overlap COMPULSORY ones.
+			- OPTIONAL params cannot be delivered by the request.
 		- ClientOps: they are related to ClientEvents like: btnTools, user interaction with ctrls (keyup, change)
 			- each ClientOp can (not must) launch 1 or more SrvOps.
 			ClientOps: 	BtnTools						| Other Events

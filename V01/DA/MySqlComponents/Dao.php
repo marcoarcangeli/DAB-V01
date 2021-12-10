@@ -3,9 +3,11 @@ namespace DA\MySqlComponents;
 
 $BFD=$_SESSION["BaseFolderDyn"];
 
+include_once($BFD.'DA/mySqlComponents/Database.php');
 include_once($BFD.'DA/Logs/LogManager.php');
 include_once($BFD.'DA/Common/Common.php');
 
+use DA\mySqlComponents\Database as DB;
 use DA\Logs\LogManager as LM;
 use function DA\Common\verifyNulls as VN;
 use function DA\Common\emptyOrNull as EN;
@@ -16,47 +18,77 @@ class Dao
     // database connection and table name
     private $Conn;
 
+    public $FirstId;         // first Id Inserted by a srvOp
+    public $AffectedRows;   // number of rows affected by a srvOp
+
     // object properties
     // basic params strings
-    public $FE; // Fundamental Entity
-    public $FEFs; // Fundamental Entity Fields
-    public $VM; // Values Matrix 
-    public $FM; // Filters Matrix (only Ids in this version)
-    public $OFs; // Ordering Fields
+    // public string $FE;     // string; Fundamental Entity
+    // public string $FEFs;   // CS string; Fundamental Entity Fields
+    // public array $VM;     // array; Values Matrix 
+    // public array $FM;     // array; Filters Matrix (only Ids in this version)
     // derived params strings
-    public $DEs; // Descriptive Entities
-    public $EFs; //  Entity Fields
-    public $EntitySql; // Entity
-    public $FilterSql; // Filter Sql 
-    public $LUSql; // List for Update Sql
-
-    public $IdFE;
-    public $Nam;
+    // public $DEs; // Descriptive Entities
+    // public $DEFs; // Descriptive Entities Fields: Nam
+    // public $EFs; //  Entity Fields
+    // public $EntitySql; // Entity
+    // public $FilterSql; // Filter Sql 
+    // public $LUSql; // List for Update Sql
+    // public $OFs; // Ordering Fields
+    
+    // DEPRECATED params
+    // public $IdFE;
+    // public $Nam;
     // public $IdProfile;
     // public $Descr;
 
     // constructor with $db as database connection
-    public function __construct($db)
+    // public function __construct($db)
+    public function __construct($Params='Ok')
     {
-        $this->conn = $db;
+        // get new rdb connection
+        $Db = new DB();
+        $this->conn = $Db->getConnection();
     }
 
     // read all testEntitys
-    public function select()
+    public function read(string $FE, string $FEFs, string $FM='')
     {
         try {
+            $query ='';
 
-            $query = "
-            SELECT ".$this->EFs."
-            FROM ".getEntitySql($FE, $FEFs)."
-            WHERE ".getFilterIdsSql($FE, $FM)."
-            ORDER BY ".$this->OFs."
-            ";
+            if(!EN($FE)){
+                if(!EN($FEFs)){
+                    if(!EN($EFsSql=getEFsSql($FE, $FEFs))
+                    && !EN($EntitySql=getEntitySql($FE, $FEFs))){
+                            $query .="
+                            SELECT ".$EFsSql."
+                            FROM ".$EntitySql;
+                            if(!EN($FilterIdsSql=getFilterIdsSql($FE, $FM))){
+                                $query .=" WHERE ".$FilterIdsSql;
+                            } // else continue: optional sql part
+                            $query .=" ORDER BY fe.Nam"; // Standard order fields is FE Nam Field.
+                        }else{
+                        LM::LogMessage("ERROR", 'Fundamental Entity SQL not built!');
+                        return false;
+                    }
+                }else{
+                    LM::LogMessage("ERROR", 'Fundamental Entity Fields not defined!');
+                    return false;
+                }
+            }else{
+                LM::LogMessage("ERROR", 'Fundamental Entity not defined!');
+                return false;
+            }
             // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
-            $Stmt = mysqli_query($this->conn, $query);
-
-            return $Stmt;
+            if ($Stmt = mysqli_query($this->conn, $query)) {
+                $this->FirstId      = '';
+                $this->AffectedRows = $this->conn->affected_rows;
+                return $Stmt;
+            }else{
+                return false;
+            }
         } catch (Exception $e) {
             LM::LogMessage("ERROR", $e);
             return false;
@@ -64,31 +96,51 @@ class Dao
     }
 
     // create testEntity
-    public function save()
+    public function save(string $FE, string $FEFs, string $VM)
     {
         try {
             //if ($this->alreadyExist()) {
             //    return false;
             //}
+            $query = '';
 
-            // query to insert record
-            $query = "
-            INSERT INTO ".$FE."
-            ".$FEFs."
-            VALUES " . getVMSql($FEFs, $VM) . "
-            ON DUPLICATE KEY UPDATE
-            ".getLUSql($FEFs)."
-            ";
-            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
-            // prepare query
-            $Stmt = mysqli_query($this->conn, $query);
-
-            // execute query
-            if ($Stmt) {
-                $this->IdProfile = $this->conn->insert_id;
-                return true;
+            if(!EN($FE)){
+                if(!EN($FEFs)){
+                    if(!EN($VM)){
+                        if(!EN($VMSql=getVMSql($FEFs, $VM))
+                        && !EN($LUSql=getLUSql($FEFs))){
+                            $query .= "
+                            INSERT INTO ".$FE."
+                            (".$FEFs.")
+                            VALUES " . $VMSql . "
+                            ON DUPLICATE KEY UPDATE
+                            ".$LUSql."
+                            ";
+                        }else{
+                            LM::LogMessage("ERROR", 'VMSql or LUSql not correct!');
+                            return false;
+                        }
+                    }else{
+                        LM::LogMessage("ERROR", 'Values Matrix not defined!');
+                        return false;
+                    }
+                }else{
+                    LM::LogMessage("ERROR", 'Fundamental Entity Fields not defined!');
+                    return false;
+                }
+            }else{
+                LM::LogMessage("ERROR", 'Fundamental Entity not defined!');
+                return false;
             }
-            return false;
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
+            // execute query
+            if ($Stmt = mysqli_query($this->conn, $query)) {
+                $this->FirstId      = $this->conn->insert_id;
+                $this->AffectedRows = $this->conn->affected_rows;
+                return true;
+            }else{
+                return false;
+            }
         } catch (Exception $e) {
             LM::LogMessage("ERROR", $e);
             return false;
@@ -97,47 +149,33 @@ class Dao
 
 
     // delete testEntity
-    public function delete()
+    public function delete(string $FE, string $FM='')
     {
         try {
-            // inizio transazione
-            $mysqli = $this->conn;
-            // $mysqli->begin_transaction();
-            // //update pp1_video flags
-            // $numPrenotazioni = $this->numPrenotazioni();
-            // $numNoleggi = $this->numNoleggi();
-            // if ($numNoleggi != '0' || $numPrenotazioni != '0') {
-            //     throw new exception("Cliente non cancellabile. Almeno una Prenotazione o un Noleggio effettuato.\n");
-            // } 
-            // query to delete record profilo 
-            // $query = "DELETE from profilo 
-            //     WHERE idProfilo = '" . $this->idProfilo . "'";
-            // //throw new exception($query."\n");
-            // // prepare query statement
-            // $Stmt = mysqli_query($this->conn, $query);
-            // //throw new exception("righe trovate ".$Stmt->num_rows."\n");
+            $query = '';
 
-            // query to delete record usr
-            $query = "
-            DELETE from ".$this->FE." fe 
-                WHERE ".getIdFilterSql($FE, $FilterIds,$FilterType);
-            //throw new exception($query."\n");
+            if(!EN($FE)){
+                $query .= "
+                DELETE from ".$FE." fe ";
+    
+                if(!EN($FM)){
+                    if(!EN($EFsSql=getFilterIdsSql($FE, $FM))){
+                        $query .=" WHERE ".$EFsSql;
+                    } // else continue: optional sql part
+                }
+            }else{
+                LM::LogMessage("ERROR", 'Fundamental Entity not defined!');
+                return false;
+            }
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
-            $Stmt = mysqli_query($this->conn, $query);
-            //throw new exception("righe trovate ".$Stmt->num_rows."\n");
-            // execute query
-            // $mysqli->rollback();
-            // $mysqli->commit();
-
-            if ($Stmt) {
+            if ($Stmt = mysqli_query($this->conn, $query)) {
+                $this->FirstId      = '';
+                $this->AffectedRows = $this->conn->affected_rows;
                 return true;
             } else {
                 return false;
             }
-        } catch (mysqli_sql_exception $e) {
-            // $mysqli->rollback();
-            LM::LogMessage("ERROR", $e);
-            return false;
         } catch (Exception $e) {
             LM::LogMessage("ERROR", $e);
             return false;
@@ -145,23 +183,27 @@ class Dao
     }
 
     // update testEntity 
-    public function clean()
+    public function clean(string $FE)
     {
         try {
-            // query to insert record
-            $query = "TRUNCATE TABLE  ".$FE."
-            ";
-            //throw new exception($query."\n");
+            $query = '';
 
-            // prepare query
-            $Stmt = mysqli_query($this->conn, $query);
-            //throw new exception($Stmt."\n");
-
-            // execute query
-            if ($Stmt) {
-                return true;
+            if(!EN($FE)){
+                // query to insert record
+                $query .= "
+                TRUNCATE TABLE  ".$FE."
+                ";
+            }else{
+                LM::LogMessage("ERROR", 'Fundamental Entity not defined!');
+                return false;
             }
-            return false;
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
+            // execute query
+            if ($Stmt = mysqli_query($this->conn, $query)) {
+                return true;
+            }else{
+                return false;
+            }
         } catch (Exception $e) {
             LM::LogMessage("ERROR", $e);
             return false;
@@ -230,30 +272,81 @@ class Dao
         }
     }
 
+    // get Complete Entity sql 
+    function getDEFsSql(string $FE, string $FEFs)
+    {
+        try {
+            $Sql='';
+            // $mapped = array_map('func', $values, array_keys($values));
+            if(!EN($DEs=getDEs($FEFs))){
+            $DesArr=explode(',',$DEs);
+                $Sql .= implode(',',
+                    array_map( 
+                    function($v, $k) { 
+                        return $_SESSION["DEAlias"].$k.'.Nam'; 
+                    }, 
+                    $DesArr,
+                    array_keys($DesArr)
+                    )
+                );
+            }
+
+            return $Sql;
+        } catch (Exception $e) {
+            LM::LogMessage("ERROR", $e);
+            return false;
+        }
+    }
+
+    // get Complete Entity sql 
+    function getEFsSql(string $FE, string $FEFs)
+    {
+        try {
+            $Sql='';
+            // $mapped = array_map('func', $values, array_keys($values));
+            if(!EN($DEFs=getDEFsSql($FE, $FEFs))){
+                $Sql .= $FEFs.','.$DEFs;
+            }
+            return $Sql;
+        } catch (Exception $e) {
+            LM::LogMessage("ERROR", $e);
+            return false;
+        }
+    }
+
     // get List for Insert/Update sql 
-    public function getVMSql(string $FEFs, array $VM)
+    public function getVMSql(string $FEFs, string $VM)
     {
         try {
             // query to insert record
-            $FEFsArr=explode(',',$FEFs);
             $VMSql = '';
-            if(!EN($VM)){
+            if(!EN($VM)
+                && !EN($FEFs)){
+                $VMArr=JSON_decode($VM, true);
+                $FEFsArr=explode(',',$FEFs);
                 // echo 'count($VM): ', count($VM),'<br>';
-                if(count($VM)>0){
+                if(count($VMArr)>0){
                     // echo 'count($VM[0]): ', count($VM[0]),'<br>';
                     // echo 'count($FEFsArr): ', count($FEFsArr),'<br>';
-                    if(count($FEFsArr)==count($VM[0])){
-                        foreach ($VM as $VMRow) {
+                    if(count($FEFsArr)==count($VMArr[0])){
+                        foreach ($VMArr as $VMRow) {
                             // echo 'VMRow: ', implode(',',$VMRow),'<br>';
-                            if(!EN($FEFs)){
-                                $VMSql .= '('. implode(',',$VMRow ) .'),';
-                            }
+                            $VMSql .= '('. implode(',',$VMRow ) .'),';
                         }
+                    }else{
+                        LM::LogMessage("ERROR", 'Values number not coherent with column number!');
+                        return false;
                     }
+                }else{
+                    LM::LogMessage("ERROR", 'No values to process!');
+                    return false;
                 }
+            }else{
+                LM::LogMessage("ERROR", 'Parameters Values Matrix and/or Fundamental Entity Fields not set!');
+                return false;
             }
 
-            return substr($VMSql,0, -1);
+            return substr($VMSql,0, -1); // cut last comma character
         } catch (Exception $e) {
             LM::LogMessage("ERROR", $e);
             return false;
@@ -262,31 +355,35 @@ class Dao
     // get Filter sql 
     /**
      * ex:
-     * $FMIds = array("filterType" => 'NoN', "filterValues" => '1,6,16');
-     * $FMIds = array("filterValues" => '1,6,16');
+     * $FMArr = array("filterType" => 'NoN', "filterValues" => '1,6,16');
+     * $FMArr = array("filterValues" => '1,6,16');
      */
-    public function getFilterIdsSql(string $FE, array $FMIds)
+    public function getFilterIdsSql(string $FE, string $FM)
     {
         try {
             // query to insert record
             $FilterSql='';
             if(!EN($FE) 
-                && !EN($FMIds)
+                && !EN($FM)
             ){
-                $Type=(isset($FMIds['filterType']))? $FMIds['filterType'] : $_SESSION["FilterTypeStrict"];
-                if(!EN($FMIds['filterValues'])){
+                $FMArr=json_decode($FM,true);
+                $Type=(isset($FMArr['filterType']))? $FMArr['filterType'] : $_SESSION["FilterTypeStrict"];
+                if(!EN($FMArr['filterValues'])){
                     switch($Type) {
                         case $_SESSION["FilterTypeStrict"]: // None on Null > '=' (Single or Multiple)
-                            $FilterSql = 'fe.Id'.$FE.' IN ('.$FMIds['filterValues'].')';
+                            $FilterSql = 'fe.Id'.$FE.' IN ('.$FMArr['filterValues'].')';
                             break;
                         case $_SESSION["FilterTypeApprox"]: // All on Null > 'LIKE %' (Single)
-                            $FilterSql = 'fe.Id'.$FE." LIKE '".$FMIds['filterValues']."%'";
+                            $FilterSql = 'fe.Id'.$FE." LIKE '".$FMArr['filterValues']."%'";
                             break;
                         default:
-                            LM::LogMessage("WARNING", "FilterSql Type (".$Type.") is not correct!");
+                            LM::LogMessage("ERROR", "FilterSql Type (".$Type.") is not correct!");
                             break;
                     }
                 } // else continue filter values are empty
+            }else{
+                LM::LogMessage("ERROR", 'Parameters Filters Matrix and/or Fundamental Entity Fields not set!');
+                return false;
             }
             return $FilterSql;
         } catch (Exception $e) {
@@ -311,6 +408,9 @@ class Dao
                         explode(',',str_replace($_SESSION["FKPostfix"],'',$FEFs))
                     )
                 );
+            }else{
+                LM::LogMessage("ERROR", 'Parameters Fundamental Entity Fields not set!');
+                return false;
             }
             return $LUSql;
         } catch (Exception $e) {

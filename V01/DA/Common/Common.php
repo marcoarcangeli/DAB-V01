@@ -54,7 +54,7 @@ function failResultArr(string $Msg)
     try {
         $Result_arr = array(
             "State" => false,
-            "Msg" => $Msg
+            "Msg"   => $Msg
         );
         LM::LogMessage("WARNING", $Msg);
 
@@ -64,3 +64,27 @@ function failResultArr(string $Msg)
         return false;
     }
 }
+
+function successResultArr(array $Result_arr,string $Msg='Ok', string $FirstId='', string $AffectedRows='')
+{
+    try {
+        $Result_arr=array(
+            "State"             => true,
+            "Msg"               => $Msg,
+            "FirstId"           => $FirstId,
+            // tlist params
+            "draw"              => "1", // constant for Datatables
+            "recordsTotal"      => $AffectedRows,
+            "recordsFiltered"   => $AffectedRows,
+            "data"              => $Result_arr
+        );
+
+        // LM::LogMessage("WARNING", $Msg);
+
+        return $Result_arr;
+    } catch (Exception $e) {
+        LM::LogMessage("ERROR", $e);
+        return false;
+    }
+}
+
