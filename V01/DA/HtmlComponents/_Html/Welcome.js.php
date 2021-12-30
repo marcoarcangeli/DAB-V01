@@ -1,6 +1,6 @@
 <script type="text/javascript" ref "da.Welcome">
         da.Welcome = {
-            // BaseFolderDyn: "?php echo $_SESSION["BaseFolderDyn"]; ?>",
+            // BaseFolderDyn: "<?php echo $_SESSION["BaseFolderDyn"]; ?>",
             // SrvDocRoot: "?php echo $_SESSION["SrvDocRoot"]; ?>",
             // RelBaseFolder: "?php echo $_SESSION["RelBaseFolder"]; ?>",
         }

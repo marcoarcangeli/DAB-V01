@@ -48,7 +48,7 @@ class Prj
                 p.Descr,
                 p.FolderRef, 
                 p.IdPrjState,
-                sp.Nam as PrjStateNam
+                sp.Nam as PrjStateNam,
                 p.IdUsr,
                 u.Nam as UsrNam,
             from prj p

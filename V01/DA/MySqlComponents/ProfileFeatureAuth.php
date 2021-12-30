@@ -53,7 +53,7 @@ class ProfileFeatureAuth
                 a.Nam as AuthLevelNam,
                 a.AuthLevel as AuthLevel
             FROM
-                profile_feature_auth pfa
+                profilefeatureauth pfa
                 LEFT OUTER JOIN profile p on pfa.IdProfile=p.IdProfile
                 LEFT OUTER JOIN feature f on pfa.IdFeature=f.IdFeature    
                 LEFT OUTER JOIN authLevel a on pfa.IdAuthLevel=a.IdAuthLevel    
@@ -90,7 +90,7 @@ class ProfileFeatureAuth
                 a.Nam as AuthLevelNam,
                 a.AuthLevel as AuthLevel
             FROM
-                profile_feature_auth pfa
+                profilefeatureauth pfa
                 LEFT OUTER JOIN profile p on pfa.IdProfile=p.IdProfile
                 LEFT OUTER JOIN feature f on pfa.IdFeature=f.IdFeature    
                 LEFT OUTER JOIN authLevel a on pfa.IdAuthLevel=a.IdAuthLevel    
@@ -129,7 +129,7 @@ class ProfileFeatureAuth
                     a.Nam as AuthLevelNam,
                     a.AuthLevel as AuthLevel
                 FROM
-                    profile_feature_auth pfa
+                    profilefeatureauth pfa
                     LEFT OUTER JOIN profile p on pfa.IdProfile=p.IdProfile
                     LEFT OUTER JOIN feature f on pfa.IdFeature=f.IdFeature    
                     LEFT OUTER JOIN authLevel a on pfa.IdAuthLevel=a.IdAuthLevel    
@@ -172,7 +172,7 @@ class ProfileFeatureAuth
                     a.Nam as AuthLevelNam,
                     a.AuthLevel as AuthLevel
                 FROM
-                    profile_feature_auth pfa
+                    profilefeatureauth pfa
                     LEFT OUTER JOIN profile p on pfa.IdProfile=p.IdProfile
                     LEFT OUTER JOIN feature f on pfa.IdFeature=f.IdFeature    
                     LEFT OUTER JOIN authLevel a on pfa.IdAuthLevel=a.IdAuthLevel    
@@ -222,7 +222,7 @@ class ProfileFeatureAuth
                         a.IdAuthLevel,
                         p.IdProfile AS Ck
                     FROM
-                        profile_feature_auth pfa
+                        profilefeatureauth pfa
                     JOIN feature f ON
                         f.IdFeature = pfa.IdFeature
                     JOIN PROFILE p ON
@@ -260,7 +260,7 @@ class ProfileFeatureAuth
 
             // query to insert record
             $query = "
-            INSERT INTO  profile_feature_auth
+            INSERT INTO  profilefeatureauth
                     (IdProfile,IdFeature,IdAuthLevel)
             VALUES (
                 " . VN($this->IdProfile) . ",
@@ -290,7 +290,7 @@ class ProfileFeatureAuth
             // query to insert record
             $query = "
             UPDATE
-                profile_feature_auth
+                profilefeatureauth
             SET
                 IdProfile="     . VN($this->IdProfile) . ",
                 IdFeature="     . VN($this->IdFeature) . ",
@@ -337,7 +337,7 @@ class ProfileFeatureAuth
             // //throw new exception("righe trovate ".$Stmt->num_rows."\n");
 
             // query to delete record usr
-            $query = "DELETE from profile_feature_auth 
+            $query = "DELETE from profilefeatureauth 
                 WHERE IdProfileFeatureAuth = '" . $this->IdProfileFeatureAuth . "'";
             // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement
@@ -374,7 +374,7 @@ class ProfileFeatureAuth
             if($this->deleteProfile($this->IdProfile)){
                 // query to insert record
                 $query = "
-                INSERT INTO  profile_feature_auth
+                INSERT INTO  profilefeatureauth
                         (IdProfile,IdFeature,IdAuthLevel)
                 VALUES ";
                 // per ogni riga di IdProfileFeatureAuths
@@ -442,7 +442,7 @@ class ProfileFeatureAuth
             // //throw new exception("righe trovate ".$Stmt->num_rows."\n");
 
             // query to delete record usr
-            $query = "DELETE from profile_feature_auth 
+            $query = "DELETE from profilefeatureauth 
                 WHERE IdProfile = '" . $this->IdProfile . "'";
             if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG", __CLASS__."->". __FUNCTION__." - query: ".$query); }
             // prepare query statement

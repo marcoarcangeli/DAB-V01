@@ -27,11 +27,17 @@ class FsManager
     public function MakeFolder(string $FolderPathNam)
     {
         try {
-            if (is_dir($FolderPathNam) === false) {
+            if (!is_dir($FolderPathNam)) {
                 // throw new Exception("MakeFolder: ".$FolderPathNam . "\n");
                 // echo dirNam(__FILE__);
-                mkdir($FolderPathNam, 0777, true);
-                return true;
+                mkdir($FolderPathNam, 0777, true); 
+
+                // if (mkdir($FolderPathNam, 0777, true)) {
+                //     return true;
+                // }else{
+                //     LM::LogMessage("WARNING", "The folder () cannot be created");
+                //     return false;
+                // }
             } 
             // se esiste comunque ritorna vero
             return true;
@@ -46,11 +52,11 @@ class FsManager
     {
         try {
             // echo (" - " . $FolderPathNam . " - ");
-            if (is_dir($FolderPathNam) === true) {
+            if (is_dir($FolderPathNam)) {
                 rmdir($FolderPathNam);
                 return true;
             } else {
-                // throw new Exception("Folder esistente !Creazione non eseguita !")
+                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - The folder (".$FolderPathNam.") cannot be removed!");
                 return false;
             }
         } catch (Exception $e) {
@@ -65,6 +71,7 @@ class FsManager
             if (!file_exists($DstPathFileNam) || (file_exists($DstPathFileNam) && $OverWrite == "true")) {
                 Copy($SrcPathFileNam, $DstPathFileNam);
             } else {
+                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - The folder (".$SrcPathFileNam.") cannot be copied!");
                 return false;
             }
             return true;
@@ -95,16 +102,25 @@ class FsManager
                 if ($OverWrite == "true") {
                     $this->DeleteFile($PathFileNam);
                 } else {
-                    return "The file already exists.";
+                    LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - The file (".$PathFileNam.") already exists.");
+                    return false;
                 }
             }
-            $File = fopen($PathFileNam, "w");
-            // a different way to write content into
-            fwrite($File, $FileContent);
-            // closes the file
-            fclose($File);
-
-            return true;
+            if ($File = fopen($PathFileNam, "w")) {
+                // a different way to write content into
+                ;
+                if (fwrite($File, $FileContent)) {
+                    fclose($File);
+                    return true;
+                } else {
+                    LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - Cannot write to file (".$PathFileNam.")!");
+                    return false;
+                }
+                // closes the file
+            }else{
+                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - Cannot open file (".$PathFileNam.")!");
+                return false;
+            }
         } catch (Exception $e) {
             LM::LogMessage("ERROR", $e);
             return false;
@@ -115,6 +131,7 @@ class FsManager
     {
         try {
             if (!file_exists($PathFileNam)) {
+                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - The file (".$PathFileNam.") do not exists!");
                 return false;
             } else {
                 // throw new exception($PathFileNam . "\n");
@@ -122,6 +139,7 @@ class FsManager
                 if (unlink($PathFileNam)) {
                     return true;
                 } else {
+                    LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - The file (".$PathFileNam.") cannot be deleted!");
                     return false;
                 }
             }
@@ -140,6 +158,7 @@ class FsManager
             if ($Result) {
                 return true;
             } else {
+                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - The file (".$PathFileNam.") cannot be removed!");
                 return false;
             }
         } catch (Exception $e) {
@@ -161,12 +180,13 @@ class FsManager
                     $Result = $this->DeleteFile($PathFileNam);
                     if (!$Result) {
                         $NotDeletedFiles .=$PathFileNam.",";
-                    return true;
+                        return true;
                     }
                 }
                 echo $NotDeletedFiles;
                 return true;
             }else{
+                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - FileNam is not set!");
                 return false;
             }
         } catch (Exception $e) {
@@ -179,6 +199,7 @@ class FsManager
     {
         try {
             if (!file_exists($PathFileNamOld)) {
+                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - The file (".$PathFileNamOld.") does not exist!");
                 return false;
             } else {
                 // throw new exception($PathFileNam . "\n");
@@ -186,6 +207,7 @@ class FsManager
                 if (renam($PathFileNamOld, $PathFileNamNew)) {
                     return true;
                 } else {
+                    LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - The file (".$PathFileNamOld.") cannot renamed as (".$PathFileNamNew.")!");
                     return false;
                 }
             }
@@ -205,6 +227,7 @@ class FsManager
             if ($Result) {
                 return true;
             } else {
+                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - Files cannot be renamed!");
                 return false;
             }
         } catch (Exception $e) {
@@ -218,8 +241,8 @@ class FsManager
         try {
             // throw new exception("MultiFileFilter:".$File ." - " . $FileFilter. "\n");
             // se esiste il filtro
-            if($File!=''){
-                if ($FileFilter!='') {
+            if($File != ''){
+                if ($FileFilter != '') {
                     // ---
                     $filter_arr=explode(",", $FileFilter);
                     $n=sizeof($filter_arr);
@@ -234,11 +257,13 @@ class FsManager
                             }
                         }
                     }
+                    // LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__." - No File Filter available!");
                     return false;
                 }else{
                     return true;
                 }
             }else{
+                LM::LogMessage("WARNING", "File is not set!");
                 return false;
             }
         } catch (Exception $e) {

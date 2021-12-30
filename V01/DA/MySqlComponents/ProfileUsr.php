@@ -45,7 +45,7 @@ class ProfileUsr
                 pu.IdUsr,
                 u.UsrNam
             FROM
-                profile_usr pu
+                profileusr pu
                 LEFT OUTER JOIN profile p on pu.IdProfile=p.IdProfile
                 LEFT OUTER JOIN usr u on pu.IdUsr=u.IdUsr    
             ORDER BY
@@ -75,7 +75,7 @@ class ProfileUsr
                 pu.IdUsr,
                 u.UsrNam
             FROM
-                profile_usr pu
+                profileusr pu
                 LEFT OUTER JOIN profile p on pu.IdProfile=p.IdProfile
                 LEFT OUTER JOIN usr u on pu.IdUsr=u.IdUsr   
             WHERE
@@ -109,7 +109,7 @@ class ProfileUsr
                     pu.IdUsr,
                     u.UsrNam
                 FROM
-                    profile_usr pu
+                    profileusr pu
                     LEFT OUTER JOIN profile p on pu.IdProfile=p.IdProfile
                     LEFT OUTER JOIN usr u on pu.IdUsr=u.IdUsr   
                 WHERE
@@ -144,7 +144,7 @@ class ProfileUsr
                     pu.IdUsr,
                     u.UsrNam
                 FROM
-                    profile_usr pu
+                    profileusr pu
                     LEFT OUTER JOIN profile p on pu.IdProfile=p.IdProfile
                     LEFT OUTER JOIN usr u on pu.IdUsr=u.IdUsr   
                 WHERE
@@ -178,7 +178,7 @@ class ProfileUsr
                     pu.IdUsr,
                     u.UsrNam
                 FROM
-                    profile_usr pu
+                    profileusr pu
                     LEFT OUTER JOIN profile p on pu.IdProfile=p.IdProfile
                     LEFT OUTER JOIN usr u on pu.IdUsr=u.IdUsr   
                 WHERE
@@ -209,7 +209,7 @@ class ProfileUsr
             //}
 
             // query to insert record
-            $query = "INSERT INTO  profile_usr
+            $query = "INSERT INTO  profileusr
                         (IdProfile,IdUsr)
                   VALUES
                         (" . VN($this->IdProfile) . ",
@@ -237,7 +237,7 @@ class ProfileUsr
         try {
             // query to insert record
             $query = "UPDATE
-                    profile_usr
+                    profileusr
                 SET
                     IdProfile ="    .VN($this->IdProfile)   . ",
                     IdUsr ="        .VN($this->IdUsr)       . "

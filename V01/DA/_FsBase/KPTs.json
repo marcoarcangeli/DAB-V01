@@ -1,0 +1,34 @@
+[
+    {
+        "PanelType":    "Tree",
+        "ClientOps":    "Refresh"
+    },
+    {
+        "PanelType":    "Tlist",
+        "ClientOps":    "Refresh"
+    },
+    {
+        "PanelType":    "FileTlist",
+        "ClientOps":    "Refresh,Delete,Clean,Upload"
+    },
+    {
+        "PanelType":    "Struct",
+        "ClientOps":    "Refresh,Save"
+    },
+    {
+        "PanelType":    "Read",
+        "ClientOps":    "New,Save,Refresh,Delete"
+    },
+    {
+        "PanelType":    "FileView",
+        "ClientOps":    "Refresh,Delete"
+    },
+    {
+        "PanelType":    "FileEdit",
+        "ClientOps":    "Refresh,Delete,Save"
+    },
+    {
+        "PanelType":    "CatRead",
+        "ClientOps":    "Refresh,Delete,Save,New,ChangeParent,NewChild"
+    }
+]

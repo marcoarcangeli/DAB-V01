@@ -14,6 +14,7 @@ use function DA\Common\emptyOrNull as EN;
 use function DA\Common\verifyEmptyOrNullArr as VENA;
 use function DA\Common\failResultArr as FRA;
 use function DA\Common\successResultArr as SRA;
+use \ReflectionMethod as RM;
 
 // MUST BE PARAMETERIZED
 // include_once($BFD.'DA/mySqlComponents/ProfileFeatureAuth.php');
@@ -23,7 +24,7 @@ use DA\mySqlComponents\Dao as DAO;
 
 class DaoCtrl
 {
-    $DAOClass= $_SESSION["DaoRdbClass"];
+    // public $DAOClass= $_SESSION["DaoRdbClass"];
     // generalized params into $Params array
     // public $FE; // Fundamental Entity
     // public $FEFs; // Fundamental Entity Fields
@@ -41,49 +42,49 @@ class DaoCtrl
         // $this->SetDefaults($Param);
     }
 
-    public function opCtrl(array $Params)
-    {
-        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - call."); }
-        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Params: ".json_encode($Params)); }
-        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - this->SrvOpParamsArrNam: ".$_SESSION["SrvOpParamsArrNam"]); }
-        try {
-            // if params 
-            $Result_arr=NULL;
-            if(isset($Params[$_SESSION["SrvOpParamsArrNam"]])){
-                // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Params[this->SrvOpParamsArrNam]: ".json_encode($Params[$_SESSION["SrvOpParamsArrNam"]])); }
-                $P=$Params[$_SESSION["SrvOpParamsArrNam"]];
-                if(isset($P[$_SESSION["SrvOpParamNam"]])){
-                    // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[this->SrvOpParamNam]: ".$P[$_SESSION["SrvOpParamNam"]]); }
-                    $SrvOpParamNam=$P[$_SESSION["SrvOpParamNam"]];
-                    if(
-                        // check allowed SrvOpParamNam
-                        str_contains($_SESSION["SrvOpNams"], $SrvOpParamNam)
-                        // && isset($P['data']) // could be NULL or empty
-                    ){
-                        // GENERALIZZATION Step 1
-                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - this->SrvOpNams: ".$_SESSION["SrvOpNams"]); }
-                        // $evalString='$Result_arr=$this->'.$SrvOpParamNam.'Db($Params);';
-                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - evalString: ".$evalString); }
-                        // eval($evalString);
-                        // GENERALIZZATION Step 2
-                        $Result_arr=$this->SrvOpDb($Params);
-                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Result_arr: ".json_encode($Result_arr)); }
+    // public function opCtrl(array $Params)
+    // {
+    //     // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - call."); }
+    //     // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Params: ".json_encode($Params)); }
+    //     // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - this->SrvOpParamsArrNam: ".$_SESSION["SrvOpParamsArrNam"]); }
+    //     try {
+    //         // if params 
+    //         $Result_arr=NULL;
+    //         if(isset($Params[$_SESSION["SrvOpParamsArrNam"]])){
+    //             // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Params[this->SrvOpParamsArrNam]: ".json_encode($Params[$_SESSION["SrvOpParamsArrNam"]])); }
+    //             $P=$Params[$_SESSION["SrvOpParamsArrNam"]];
+    //             if(isset($P[$_SESSION["SrvOpParamNam"]])){
+    //                 // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[this->SrvOpParamNam]: ".$P[$_SESSION["SrvOpParamNam"]]); }
+    //                 $SrvOpParamNam=$P[$_SESSION["SrvOpParamNam"]];
+    //                 if(
+    //                     // check allowed SrvOpParamNam
+    //                     str_contains($_SESSION["SrvOpNams"], $SrvOpParamNam)
+    //                     // && isset($P['data']) // could be NULL or empty
+    //                 ){
+    //                     // GENERALIZZATION Step 1
+    //                     // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - this->SrvOpNams: ".$_SESSION["SrvOpNams"]); }
+    //                     // $evalString='$Result_arr=$this->'.$SrvOpParamNam.'Db($Params);';
+    //                     // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - evalString: ".$evalString); }
+    //                     // eval($evalString);
+    //                     // GENERALIZZATION Step 2
+    //                     $Result_arr=$this->SrvOpDb($Params);
+    //                     // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Result_arr: ".json_encode($Result_arr)); }
 
-                    }else{
-                        $Result_arr = FRA($SrvOpParamNam." not allowed !");
-                    }
-                }else{
-                    $Result_arr = FRA($_SESSION["SrvOpParamNam"]." not set !");
-                }
-            }else{
-                $Result_arr = FRA("Params are not set !");
-            }
-            return $Result_arr;
-        } catch (Exception $e) {
-            LM::LogMessage("ERROR", $e);
-            return false;
-        }
-    }
+    //                 }else{
+    //                     $Result_arr = FRA($SrvOpParamNam." not allowed !");
+    //                 }
+    //             }else{
+    //                 $Result_arr = FRA($_SESSION["SrvOpParamNam"]." not set !");
+    //             }
+    //         }else{
+    //             $Result_arr = FRA("Params are not set !");
+    //         }
+    //         return $Result_arr;
+    //     } catch (Exception $e) {
+    //         LM::LogMessage("ERROR", $e);
+    //         return false;
+    //     }
+    // }
 
     // Request manager (usually JS-AJAX Client) builds the FM array
     // $Results = $Dao->selectSearchIds();          >> $FM = json_encode(array("filterValues" => SearchIds));
@@ -98,36 +99,50 @@ class DaoCtrl
     public function SrvOpDb(array $Params)
     {
         $Result_arr = array();
-        if (isset($P=$Params[$_SESSION["SrvOpParamsArrNam"]])) {
+        if (isset($Params[$_SESSION["SrvOpParamsArrNam"]])) {
+            $P=$Params[$_SESSION["SrvOpParamsArrNam"]];
+            if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - SrvOpParamsArr: ".json_encode($P)); }
             if(!EN($SrvOpNam=$P["SrvOpNam"])){  // Necessary . ex.'Read,Save,Delete, ...'
                 // check necessary params from Dao method
-                if(!EN($SrvOpParams=getSrvOpParams($_SESSION["DaoRdbClass"], $SrvOpNam)){
-                    if(!EN($SrvOpCompulsoryParams=getSrvOpCompulsoryParams(string $SrvOpParams)){
-                        if(!checkParams(string $SrvOpCompulsoryParams,array $P)){
-                            $Result_arr = FRA("Compulsory params (".$SrvOpCompulsoryParams.") are not set correctly !");
+                if(!EN($SrvOpParams=$this->getSrvOpParams($_SESSION["DaoRdbClass"], $SrvOpNam))){
+                    if(!EN($SrvOpCompulsoryParams=$this->getSrvOpCompulsoryParams($SrvOpParams))){
+                        if(!$this->checkParams($SrvOpCompulsoryParams,$P)){
+                            // $Result_arr = FRA("Compulsory params (".$SrvOpCompulsoryParams.") are not set correctly !");
+                            return FRA("Compulsory params (".$SrvOpCompulsoryParams.") are not set correctly !");
                         } // else the params are correct
                     } // else could be that there is no Compulsory param
                     if($Dao = new DAO('Ok')){   // ? could be passed the type of Dao: RDB, FS, Service
                         // if get result from query execution
-                        $evalString='$Results = $Dao->'.$SrvOpNam.'('.getParamsPHP($SrvOpParams).')';
-                        // $evalString='$Result_arr=$this->'.$SrvOpParamNam.'Proxy($Params);';
-                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - evalString: ".$evalString); }
+                        $Results=null;
+                        $evalString='$Results = $Dao->'.$SrvOpNam.'('.$this->getParamsPHP($SrvOpParams).');';
+                        if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - evalString: ".$evalString); }
+                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[FE]: ".$P['FE']); }
+                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[FEFs]: ".$P['FEFs']); }
+                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[DEs]: ".$P["DEs" ]); }
+                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[DEFs]: ".$P["DEFs"]); }
+                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[EFs]: ".$P["EFs" ]); }
+                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[FM]: ".$P["FM" ]); }
+                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[VM]: ".$P["VM" ]); }
                         eval($evalString);
                         // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Result_arr: ".json_encode($Result_arr)); }
                         if ($Results) {
                             switch($SrvOpNam){
                                 case 'Read':
                                 case 'Tlist':
+                                    if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - SrvOpNam: ".$SrvOpNam); }
                                     $Result_arr = SRA($Results->fetch_all(MYSQLI_ASSOC));
                                     break;
                                 case 'Delete':
                                 case 'Save':
-                                    $Result_arr = SRA('',$SrvOpNam.' Executed!',$Dao->FirstId,$Dao->AffectedRows);
+                                    if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - SrvOpNam: ".$SrvOpNam); }
+                                    $Result_arr = SRA([],$SrvOpNam.' Executed!',$Dao->FirstId,$Dao->AffectedRows);
                                     break;
                                 default:
+                                    if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - SrvOpNam: ".$SrvOpNam); }
                                     $Result_arr = FRA("SrvOpNam ('.$SrvOpNam.') is not correct!");
                                     break;
                             }
+
                         } else {
                             $Result_arr = FRA("No result!");
                         }
@@ -135,26 +150,30 @@ class DaoCtrl
                         $Result_arr = FRA("Dao is not set!");
                     }
                 } // else could be that there are no params
-                    $Result_arr = FRA("SrvOpParams are not set!");
-                }
+                //     $Result_arr = FRA("SrvOpParams are not set!");
+                // }
             } else {
                 $Result_arr = FRA("SrvOpNam is not set!");
             }
         } else {
             $Result_arr = FRA($_SESSION["SrvOpParamsArrNam"]." array is not set!");
         }
-
+        if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - SrvOpNam: ".json_encode($Result_arr)); }
+        return $Result_arr;
     }
 
     // utility funcs
     public function getSrvOpParams(string $SrvClass,string $SrvOp)    {
         try {
-            // $f = new ReflectionFunction($SrvOp);
-            $f = new ReflectionMethod($SrvClass,$SrvOp);
+            // ex: SrvClass     : DA\MySqlComponents\Dao
+            //     SrvOp        : Tlist
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - SrvClass: ".$SrvClass); }
+            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - SrvOp: ".$SrvOp); }
+            $f = new RM($SrvClass,$SrvOp);
             $argNams = implode(',',
                 array_map( 
                 function($v) { 
-                    $compulsory=($v->isDefaultValueAvailable())? $_SESSION["CompulsoryPostFix"] : '';
+                    $compulsory=($v->isDefaultValueAvailable())? $_SESSION["CompulsoryPostfix"] : '';
                     return $v->getName().$compulsory; 
                 }, 
                 $f->getParameters()
@@ -190,7 +209,8 @@ class DaoCtrl
             $ParamsPHP = implode(',',
                 array_map( 
                 function($v) { 
-                    return '$'.$v; 
+                    // return '$'.$v; 
+                    return '$P["'.$v.'"]'; 
                 }, 
                 explode(',',$SrvOpParams)
                 )
@@ -207,7 +227,8 @@ class DaoCtrl
     {
         try {
             $Result=true;
-            foreach($ParamNams as $ParamNam){
+            $ParamNams_Arr=explode(',',$ParamNams);
+            foreach($ParamNams_Arr as $ParamNam){
                 if (
                     !(
                         isset($Params[$ParamNam])

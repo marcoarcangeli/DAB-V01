@@ -18,8 +18,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="UsrProfile_UsrNam">UsrNam</label>
-                            <input type="text" class="form-control" id="UsrProfile_UsrNam" placeholder="UsrNam ..."
+                            <label for="UsrprofileusrNam">UsrNam</label>
+                            <input type="text" class="form-control" id="UsrprofileusrNam" placeholder="UsrNam ..."
                                 value="" readonly>
                         </div>
                     </div>

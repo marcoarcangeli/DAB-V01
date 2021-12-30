@@ -12,14 +12,14 @@
             <!-- general form elements -->
             <!-- form start -->
             <form role="form" method="POST">
-                <div id="ProfileFeatureAuthBtns" class="row">
-                    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxReadHtml"]); ?>
+                <div id="<?php echo $this->PanelBtnsNam; ?>" class="row">
+                    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxHtml"]); ?>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="ProfileFeatureAuth_ProfileNam">ProfileNam</label>
-                            <input type="text" class="form-control" id="ProfileFeatureAuth_ProfileNam" placeholder="ProfileNam ..."
+                            <label for="<?php echo $this->PanelTag; ?>ProfileNam">ProfileNam</label>
+                            <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>ProfileNam" placeholder="ProfileNam ..."
                                 value="" readonly>
                         </div>
                     </div>
@@ -27,8 +27,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group" id="IdFeatureselect">
-                            <label for="ProfileFeatureAuth_IdFeature">IdFeature</label>
-                            <select class="form-control" id="ProfileFeatureAuth_IdFeature" placeholder="IdFeature ..." value="">
+                            <label for="<?php echo $this->PanelTag; ?>IdFeature">IdFeature</label>
+                            <select class="form-control" id="<?php echo $this->PanelTag; ?>IdFeature" placeholder="IdFeature ..." value="">
                             </select>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
                 <div class="row">
                    <div class="col-md-12">
                         <div class="form-group" id="IdAuthLevelselect">
-                            <label for="ProfileFeatureAuth_IdAuthLevel">IdAuthLevel</label>
-                            <select class="form-control" id="ProfileFeatureAuth_IdAuthLevel" placeholder="IdAuthLevel ..." value="">
+                            <label for="<?php echo $this->PanelTag; ?>IdAuthLevel">IdAuthLevel</label>
+                            <select class="form-control" id="<?php echo $this->PanelTag; ?>IdAuthLevel" placeholder="IdAuthLevel ..." value="">
                             </select>
                         </div>
                     </div>
@@ -58,15 +58,15 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="ProfileFeatureAuth_IdProfileFeatureAuth">IdProfileFeatureAuth</label>
-                                    <input type="text" class="form-control" id="ProfileFeatureAuth_IdProfileFeatureAuth"
+                                    <label for="<?php echo $this->PanelTag; ?>IdProfileFeatureAuth">IdProfileFeatureAuth</label>
+                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>IdProfileFeatureAuth"
                                         placeholder="IdProfileFeatureAuth ..." value="" readonly>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="ProfileFeatureAuth_IdProfile">IdProfile</label>
-                                    <input type="text" class="form-control" id="ProfileFeatureAuth_IdProfile"
+                                    <label for="<?php echo $this->PanelTag; ?>IdProfile">IdProfile</label>
+                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>IdProfile"
                                         placeholder="IdProfile ..." value="" readonly>
                                 </div>
                             </div>

@@ -21,18 +21,19 @@ $_SESSION["License"]        = $License;
 $_SESSION["Author"]         = $Author;
 $_SESSION["Description"]    = $Description;
 // db connection
-$_SESSION["DbHost"] = "localhost";
-$_SESSION["DbNam"] = "dadbv01";
-$_SESSION["DbUsrNam"] = "DABUser";
-$_SESSION["DbPwd"] = "DABUser";
+$_SESSION["DbHost"]         = "localhost";
+$_SESSION["DbNam"]          = "dadbv01";
+$_SESSION["SchemaDbNam"]    = "information_schema";
+$_SESSION["DbUsrNam"]       = "DABUser";
+$_SESSION["DbPwd"]          = "DABUser";
 // conventional params
-$_SESSION["SrvOpParamNam"] = "SrvOpNam";
-$_SESSION["SrvOpParamsArrNam"] = "SrvOpParams";
-$_SESSION["SrvOpNams"] = "Tlist,Read,Delete,Save,Tree";
+$_SESSION["SrvOpParamNam"]      = "SrvOpNam";
+$_SESSION["SrvOpParamsArrNam"]  = "SrvOpParams";
+$_SESSION["SrvOpNams"]          = "Tlist,Read,Delete,Save,Tree";
 // messages
 
 // set Paths Relative
-$_SESSION["BaseFolderDyn"]  = explode(":",str_replace( '\\', '/', __DIR__))[1]."/";                     // BaseFolderDyn: /xampp/htdocs/tesiTerzoAnno/DAB/
+$_SESSION["BaseFolderDyn"]  = explode(":",str_replace( '\\', '/', __DIR__))[1]."/";                     // BaseFolderDyn: /xampp/htdocs/DAB/V01/
 $_SESSION["SrvDocRoot"]     = explode(":",str_replace( '\\', '/', $_SERVER['DOCUMENT_ROOT']))[1];       // SrvDocRoot: /xampp/htdocs
 $_SESSION["RelBaseFolder"]  = str_replace( $_SESSION["SrvDocRoot"], '', $_SESSION["BaseFolderDyn"]);    // RelBaseFolder: /tesiTerzoAnno/DAB/
 
@@ -80,7 +81,7 @@ $_SESSION["AnTypeStruct"]    = "_struct";
 
 //- panelType: Tlist, Details, View, FileView, ...
 
-// set  desinenze files 
+// files std postfix   
 $_SESSION["EvntDatFile"]                = "_evnt";
 $_SESSION["AutoCleanDatFile"]           = "_autoclean";
 $_SESSION["CleanDatFile"]               = "_clean";
@@ -105,6 +106,8 @@ $_SESSION["TestFolderPrfx"]             = "Test_";
 $_SESSION["CompareFolderPrfx"]          = "Compare_";
 $_SESSION["RevFolderPrfx"]              = "Rev_";
 $_SESSION["RnkFolderPrfx"]              = "Rnk_";
+$_SESSION["IdPrfx"]                     = 'Id';
+$_SESSION["DEFNam"]                     = 'Nam';
 
 //- filecontentType (fct): stats, graph, dat, params, log, output, el (omitted)
 $_SESSION["fctStats"]   = "_stats";
@@ -122,6 +125,7 @@ $_SESSION["SplitRFile"] = ".split.R";
 $_SESSION["OpRFile"]    = ".op.R";
 $_SESSION["HtmlFile"]   = ".html";
 $_SESSION["LogFile"]    = ".log";
+$_SESSION["JsonFile"]   = ".json";
 
 // nomi standard
 $_SESSION["DefaultSep"]         = ",";
@@ -137,12 +141,11 @@ $_SESSION["CompulsoryPostfix"]  ='*';
 // namespaces
 $_SESSION["RootNamSpace"]       = "DA";
 $_SESSION["JSRootNamSpace"]     = "da";
-$_SESSION["FEAlias"]            ='fe';
-$_SESSION["DEAlias"]            ='de';
-$_SESSION["DEFNam"]             ='Nam';
-
-$_SESSION["FilterTypeStrict"]   ='NoN'; // None On Null filter
-$_SESSION["FilterTypeApprox"]   ='AoN'; // All On Null filter
+$_SESSION["FEAlias"]            = 'fe';
+$_SESSION["DEAlias"]            = 'de';
+ 
+$_SESSION["FilterTypeStrict"]   = 'NoN'; // None On Null filter
+$_SESSION["FilterTypeApprox"]   = 'AoN'; // All On Null filter
 
 // RelPaths
 //    $dir  = '/xampp/htdocs/tesiTerzoAnno/DAB/DA/_FsBase/Procs/';
@@ -161,20 +164,20 @@ $_SESSION["MySqlComponentsRelPath"] = "DA/MySqlComponents/";
 $_SESSION["PhpRComponentsRelPath"]  = "DA/PhpRComponents/";
 $_SESSION["ContentCodePath"]        = $_SESSION["HtmlComponentsRelPath"] . "_Html/";
 
-$_SESSION["RScriptRelPath"] = "DA/PhpRComponents/RScripts/";
-$_SESSION["RScriptOutputRelPath"] = "DA/PhpRComponents/Output/";
+$_SESSION["RScriptRelPath"]         = "DA/PhpRComponents/RScripts/";
+$_SESSION["RScriptOutputRelPath"]   = "DA/PhpRComponents/Output/";
 
 // set Paths Absolute
-$_SESSION["FsAbsPath"]      = $_SESSION["BaseFolderDyn"] . $_SESSION["FsRelPath"];
-$_SESSION["LogAbsPath"]     = $_SESSION["BaseFolderDyn"] . $_SESSION["LogRelPath"];
+$_SESSION["FsAbsPath"]              = $_SESSION["BaseFolderDyn"] . $_SESSION["FsRelPath"];
+$_SESSION["LogAbsPath"]             = $_SESSION["BaseFolderDyn"] . $_SESSION["LogRelPath"];
 
-$_SESSION["PrjAbsPath"]     = $_SESSION["BaseFolderDyn"] . $_SESSION["PrjRelPath"]; 
-$_SESSION["EvntAbsPath"]    = $_SESSION["BaseFolderDyn"] . $_SESSION["EvntRelPath"];
-$_SESSION["ProcAbsPath"]    = $_SESSION["BaseFolderDyn"] . $_SESSION["ProcRelPath"];
-$_SESSION["SpaceAbsPath"]   = $_SESSION["BaseFolderDyn"] . $_SESSION["SpaceRelPath"];
+$_SESSION["PrjAbsPath"]             = $_SESSION["BaseFolderDyn"] . $_SESSION["PrjRelPath"]; 
+$_SESSION["EvntAbsPath"]            = $_SESSION["BaseFolderDyn"] . $_SESSION["EvntRelPath"];
+$_SESSION["ProcAbsPath"]            = $_SESSION["BaseFolderDyn"] . $_SESSION["ProcRelPath"];
+$_SESSION["SpaceAbsPath"]           = $_SESSION["BaseFolderDyn"] . $_SESSION["SpaceRelPath"];
 
-$_SESSION["RScriptAbsPath"] = $_SESSION["BaseFolderDyn"] . $_SESSION["RScriptRelPath"];
-$_SESSION["RScriptOutputAbsPath"] = $_SESSION["BaseFolderDyn"] . $_SESSION["RScriptOutputRelPath"];
+$_SESSION["RScriptAbsPath"]         = $_SESSION["BaseFolderDyn"] . $_SESSION["RScriptRelPath"];
+$_SESSION["RScriptOutputAbsPath"]   = $_SESSION["BaseFolderDyn"] . $_SESSION["RScriptOutputRelPath"];
 
 // standard Path Filenames
 // $_SESSION["MySqlConnJsonAbsPathFilename"] = $_SESSION["BaseFolderDyn"]."MySqlConn.json";
@@ -187,6 +190,7 @@ $_SESSION["UIProxyClass"]               = "DA\\HtmlComponents\\UIProxy";
 // standard code chunks and contents
 $_SESSION["RevBaseTextFile"]            = "RevBaseText.txt";
 $_SESSION["cardToolsHtml"]              = "card-tools.html.php";
+$_SESSION["btnToolboxHtml"]             = "btnToolbox.html.php";
 $_SESSION["btnToolboxReadHtml"]         = "btnToolboxRead.html.php";
 $_SESSION["btnToolboxCatReadHtml"]      = "btnToolboxCatRead.html.php";
 $_SESSION["btnToolboxFileTlistHtml"]    = "btnToolboxFileTlist.html.php";
@@ -194,3 +198,18 @@ $_SESSION["btnToolboxTlistHtml"]        = "btnToolboxTlist.html.php";
 $_SESSION["btnToolboxTlistReadHtml"]    = "btnToolboxTlistRead.html.php";
 $_SESSION["btnToolboxTreeHtml"]         = "btnToolboxTree.html.php";
 $_SESSION["btnToolboxStructHtml"]       = "btnToolboxStruct.html.php";
+$_SESSION["TlistRefreshJs"]             = "TlistRefresh.js.php";
+$_SESSION["ReadGetFEFsJs"]              = "ReadGetFEFs.js.php";
+$_SESSION["ReadSetFEFsJs"]              = "ReadSetFEFs.js.php";
+$_SESSION["ReadBtnControlJs"]           = "ReadBtnControl.js.php";
+$_SESSION["ReadNewJs"]                  = "ReadNew.js.php";
+$_SESSION["ReadRefreshJs"]              = "ReadRefresh.js.php";
+$_SESSION["ReadDeleteJs"]               = "ReadDelete.js.php";
+$_SESSION["ReadSaveJs"]                 = "ReadSave.js.php";
+$_SESSION["TlistToggleJs"]              = "TlistToggle.js.php";
+$_SESSION["SrvOpParamsJs"]              = "SrvOpParams.js.php";
+$_SESSION["InRefsJs"]                   = "InRefs.js.php";
+$_SESSION["LoadSelsJs"]                 = "LoadSels.js.php";
+$_SESSION["FSelsJs"]                    = "FSels.js.php";
+$_SESSION["ClientOpsEventsJs"]          = "ClientOpsEvents.js.php";
+$_SESSION["ReadChangeEventsJs"]         = "ReadChangeEvents.js.php";

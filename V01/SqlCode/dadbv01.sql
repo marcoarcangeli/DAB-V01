@@ -1791,11 +1791,11 @@ CREATE TABLE IF NOT EXISTS `authLevel` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `profile_feature_auth`
+-- Struttura della tabella `profilefeatureauth`
 --
 
-DROP TABLE IF EXISTS `profile_feature_auth`;
-CREATE TABLE IF NOT EXISTS `profile_feature_auth` (
+DROP TABLE IF EXISTS `profilefeatureauth`;
+CREATE TABLE IF NOT EXISTS `profilefeatureauth` (
   `IdProfileFeatureAuth` int(11) NOT NULL AUTO_INCREMENT,
   `IdProfile` int(11) DEFAULT NULL,
   `IdFeature` int(11) DEFAULT NULL,
@@ -1806,11 +1806,11 @@ CREATE TABLE IF NOT EXISTS `profile_feature_auth` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `profile_usr`
+-- Struttura della tabella `profileusr`
 --
 
-DROP TABLE IF EXISTS `profile_usr`;
-CREATE TABLE IF NOT EXISTS `profile_usr` (
+DROP TABLE IF EXISTS `profileusr`;
+CREATE TABLE IF NOT EXISTS `profileusr` (
   `IdProfileUsr` int(11) NOT NULL AUTO_INCREMENT,
   `IdProfile` int(11) DEFAULT NULL,
   `IdUsr` int(11) DEFAULT NULL,

@@ -10,7 +10,7 @@ include_once($BFD.'DA/HtmlComponents/UIProxy.php');
 
 use DA\Logs\LogManager as LM;
 use DA\HtmlComponents\ProfileFeatureAuth\DaoCtrl as DAO;
-use DA\HtmlComponents\UIProxy as UIP;
+use DA\HtmlComponents\ProfileFeatureAuth\UIProxy as UIP;
 
 // $CompulsoryParamSources = "_GET"; // next version
 $ParamNams = "SearchIds,IdProfile,IdFeature,IdAuthLevel";

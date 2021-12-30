@@ -175,10 +175,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             
                             // Password is correct, so start a new session
                             include_once("SessionInitParams.php");
-                            // \DA\LogMessage("INFO", "User [".$_SESSION["IdUsr"]."] Log-in.");
+                            // std log
                             LM::LogMessage("INFO", "User [".$_SESSION["IdUsr"]."] Log-in.");
+                            ////////////////////////////////////////////////////////////////
+                            // APP KNOWLEDGE LOAD
+                            // load dbms knowledge
+                            $JsonPathFn=$_SESSION["FsRelPath"].$_SESSION["DbNam"].$_SESSION["JsonFile"];
+                            $_SESSION["FEsA"] = $Db->GetArrayFromJsonFile($JsonPathFn);
+                            $_SESSION["FEsACSCols"]=array_column($_SESSION["FEsA"], 'CSCols');
 
-                            // set navigation
+                            // load PanelTypes knowledge
+                            $JsonPathFn=$_SESSION["FsRelPath"]."KPTs".$_SESSION["JsonFile"];
+                            // if($_SESSION["Debug"]>=2){ LM::LogMessage("INFO", "JsonPathFn: ".$JsonPathFn); }
+                            $_SESSION["KPTs"] = $Db->GetArrayFromJsonFile($JsonPathFn); // KPTs: Knowledge Panel Types
+                            $_SESSION["KPTsClientOps"]=array_column($_SESSION["KPTs"], 'ClientOps');
+                            // load ClientOps knowledge
+                            $JsonPathFn=$_SESSION["FsRelPath"]."KClientOps".$_SESSION["JsonFile"];
+                            // if($_SESSION["Debug"]>=2){ LM::LogMessage("INFO", "JsonPathFn: ".$JsonPathFn); }
+                            $_SESSION["KClientOps"] = $Db->GetArrayFromJsonFile($JsonPathFn); 
+                            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","FEsA[alg]: ".json_encode($_SESSION["FEsA"][0])); }
+                            /////////////////////////////////////////////////////////////////
+
+                            // set navigation into the app
                             $_SESSION["ContentClass"] = $ContentClass= "DA\HtmlComponents\App\Welcome";
                             header("location: Master.php");
                             // header("location: " . $_SESSION["baseFolder"] . "Master.php");

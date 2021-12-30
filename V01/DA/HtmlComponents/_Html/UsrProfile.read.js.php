@@ -40,7 +40,7 @@ da.UsrProfileRead = {
             IdProfile: $("#UsrProfile_IdProfile").val(),
             ProfileNam: $("#UsrProfile_ProfileNam").val(),
             IdUsr: $("#UsrProfile_IdUsr").val(),
-            UsrNam: $("#UsrProfile_UsrNam").val()
+            UsrNam: $("#UsrprofileusrNam").val()
         };
         return data;
     },
@@ -50,7 +50,7 @@ da.UsrProfileRead = {
         $("#UsrProfile_IdProfile").val(data["IdProfile"]);
         $("#UsrProfile_ProfileNam").val(data["ProfileNam"]);
         $("#UsrProfile_IdUsr").val(data["IdUsr"]);
-        $("#UsrProfile_UsrNam").val(data["UsrNam"]);
+        $("#UsrprofileusrNam").val(data["UsrNam"]);
 
         da.UsrProfileRead.btnControl();
     },
@@ -62,7 +62,7 @@ da.UsrProfileRead = {
             $("#UsrProfile_ProfileNam").val("");
         }
         $("#UsrProfile_IdUsr").val("");
-        $("#UsrProfile_UsrNam").val("");
+        $("#UsrprofileusrNam").val("");
 
         da.UsrProfileRead.btnControl();
 
@@ -70,7 +70,7 @@ da.UsrProfileRead = {
 
     SetUsr: function(data) {
         $("#UsrProfile_IdUsr").val(data["IdUsr"]);
-        $("#UsrProfile_UsrNam").val(data["Nam"]);
+        $("#UsrprofileusrNam").val(data["Nam"]);
         da.UsrProfileRead.IdUsr = data["IdUsr"];
 
         da.UsrProfileRead.btnControl();
@@ -78,7 +78,7 @@ da.UsrProfileRead = {
 
     CleanUsr: function() {
         $("#UsrProfile_IdUsr").val('');
-        $("#UsrProfile_UsrNam").val('');
+        $("#UsrprofileusrNam").val('');
         da.UsrProfileRead.IdUsr = '';
 
         da.UsrProfileRead.btnControl();
@@ -110,7 +110,7 @@ da.UsrProfileRead = {
     Delete: function() {
         try {
             Id = $("#UsrProfile_IdProfileUsr").val();
-            Nam = $("#UsrProfile_ProfileNam").val() + " - " + " - " + $("#UsrProfile_UsrNam").val();
+            Nam = $("#UsrProfile_ProfileNam").val() + " - " + " - " + $("#UsrprofileusrNam").val();
             if (confirm("Confirm Delete of (" + Id + " - " + Nam + ") ?")) {
                 return $.ajax({
                     type: "POST",

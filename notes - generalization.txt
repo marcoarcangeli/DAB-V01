@@ -385,11 +385,78 @@ It means that it is necessary to define:
 			- navigation: structure of menus and bars
 			- containers ex. main,  grids (contentType), panels (panelTypes),
 			- panel contents:  ctrls (fields, tables, tree, editors, graphs, ...), 
+				- fields: text, select, check
 		- SERVER SIDE	
 			- Proxy: AJAX-POST request array >> JSON response
 			- OpCtrl: web of OpCtrls
 			- Dao: persistence access
 			- Persistence: RDBMS, FS
+	- CLIENT PANEL parametrization: necessary to define UI composition standards:
+		- Each UI Panel is divided in parts: 
+			- Main: editable
+			- TechInfo: readonly
+		- Order is the listing one.
+		- layout is:
+			- parts: separator '|'
+			- Rows: generally, 1 field per row: seperator ';'
+			- fields in a row: seperator ','
+			- fields params: separator '&'
+        - Ids can be:
+			- [P]ar e [R]ef: placed in the main part as readonly.
+			- field: are placed in tech info part of the panel
+            - select: (references) placed in the main part
+        - others in the main part of the panel
+        - input fields are only that of the main part
+            - input can be: [t]ext (default), [s]elect, [c]heck
+	??? problem: the knowledge of EFs should be before the navigation
+		- could be usefull to generate, once and for all, the all $FE, $FEFs, $DEs, $DEFs, $EFs
+		- ex. array: ProfileFeatureAuth derived from ...
+			$EFs = 'IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel,ProfileNam,FeatureNam,AuthLevelNam';
+				main: [ProfileNam(ref);IdFeature(sel);IdAuthLevel(sel)],
+				tech: [IdProfileFeatureAuth;IdProfile],
+				ignored: FeatureNam,AuthLevelNam [cause of the select fileds in main]
+		- translated array: it should be placed into the navigation data, at the panel level:
+			[
+				[ProfileNam&r;IdFeature&s;IdAuthLevel&s]|
+				[IdProfileFeatureAuth;IdProfile]
+			]
+		- PANEL BUILDER: is a component needed to build the panel html and js.
+
+    - FM Filter Matrix 
+		return json string
+		this is specific for this Tlist panel of ProfileFeatureAuth
+		Filters are dependent from References, Parent entities, specific settings for the panel.
+		A FV (Filter vector) should be placed in the navigation data
+		FV should be composed, once and for all, out of run time.
+		FM is dependent from interaction data, so it canNOT be moved to the PHP content builder
+		code chunk could be field by the php Content Builder
+	- /*  SrvOpParams = { array of Server Operation Params
+     *      SrvOpNam: es.'Read'                         : from Client request method
+     *      FE; string // Fundamental Entity            : from navigation params
+     *      FEFs; CS string// Fundamental Entity Fields : from getFEFs(FE) -> rdbms Struct array
+     *      VM; JSON string// Values Matrix             : from Get(UIFields) <- UIFields=getUIFields(FEFs + )
+     *      FM; JSON string// Filters Matrix (only Ids in this version)
+     * },
+        $VMArr = array(
+            array("1",null ,3    ,"Clean" ,"Clean Algs"   ),
+            array("2",1    ,1    ,"aaa"   ,"aaa Algs"     ),
+            array("3",null ,null ,"bbb"   ,"bbb Algs"     ),
+            array("4",4    ,4    ,"ccc"   ,"ccc Algs"     ),
+            array("5",null ,4    ,"ddd"   ,"ddd Algs"     ),
+            array("6",6    ,6    ,"eee"   ,"eee Algs"     ),
+            array("7",null ,4    ,"fff"   ,"fff Algs"     )
+        );
+
+        $FMIdsArr =array("filterType" => 'NoN', "filterValues" => '1,6,16')
+        // next version
+        $FMArr = array(
+            "fe.IdAlg"   => array("filterRel" => ''    , "filterType" => 'NoN', "filterValues" => '1,6,16'),
+            "fe.Nam"     => array("filterRel" => 'AND' , "filterType" => 'AoN', "filterValues" => 'alg'),
+            "fd.Dt"      => array("filterRel" => 'OR'  , "filterType" => 'NoN', "filterValues" => '2021-11-20'),
+        );
+	    */
+
+
 
 
 

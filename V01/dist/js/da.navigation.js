@@ -68,7 +68,7 @@ da.navigation = {
             ContentParams2matrix["AlgRead"] = {
                 Header: "Algorithm", Col_Lg: "7", Mode: "Tlist", HtmlFn: "Alg.Read.html.php", JsFn: "Alg.Read.js.php",
                 ParentObj: "AlgList", CompulsoryFields: "Nam,IdAlgState,IdAlgCat",
-                Entity: "Alg", PanelType: "Read"
+                FE: "Alg", PanelType: "Read"
             };
             //[1]  = ["ProcsRepo", "ProcFileView", "ProcView"];
             ContentParams2matrix["ProcsRepo"] = {
@@ -1251,7 +1251,7 @@ da.navigation = {
             //[0]  = ["Profiles","ProfileRead"];
             ContentParams2matrix["Profiles"] = {
                 Header: "Profiles", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Profile.Tlist.html.php", JsFn: "Profile.Tlist.js.php",
-                DetailPanels: "ProfileRead", RefPanels: "ProfileFeatureAuthTlist,ProfileUsrTlist" //,ProfileFeatureAuthTlistRead
+                DetailPanels: "ProfileRead", RefPanels: "ProfileFeatureAuthTlist,ProfileUsrTlist,ProfileFeatureAuthRead,ProfileUsrRead" //,ProfileFeatureAuthTlistRead
             };
             ContentParams2matrix["ProfileRead"] = {
                 Header: "Profile", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Profile.Read.html.php", JsFn: "Profile.Read.js.php",
@@ -1260,12 +1260,14 @@ da.navigation = {
             // [1]  = ["DA\\HtmlComponents\\ProfileFeatureAuth\\Tlist", "DA\\HtmlComponents\\ProfileFeatureAuth\\Read"];
             ContentParams2matrix["ProfileFeatureAuths"] = {
                 Header: "ProfileFeatureAuths", Col_Lg: "8", Mode: "Tlist", HtmlFn: "ProfileFeatureAuth.Tlist.html.php", JsFn: "ProfileFeatureAuth.Tlist.js.php", 
-                DetailPanels: "ProfileFeatureAuthRead"
+                DetailPanels: "ProfileFeatureAuthRead", 
+                FE:"ProfileFeatureAuth", FV:"IdProfile", PanelType:"Tlist", InRefs: "Profile"
             };
+            //CompulsoryParamNams: "IdProfileFeatureAuth",// ParamNams: "SearchIds,IdProfile,IdFeature,IdAuthLevel", SaveParamNams: "IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel",
             ContentParams2matrix["ProfileFeatureAuthRead"] = {
                 Header: "ProfileFeatureAuth", Col_Lg: "4", Mode: "Tlist", HtmlFn: "ProfileFeatureAuth.Read.html.php", JsFn: "ProfileFeatureAuth.Read.js.php", 
-                ParentObj: "ProfileFeatureAuthTlist" , ParentObjType:"Refresh", CompulsoryFields: "IdProfile", CompulsoryParamNams: "IdProfileFeatureAuth",
-                ParamNams: "SearchIds,IdProfile,IdFeature,IdAuthLevel", SaveParamNams: "IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel"
+                ParentObj: "ProfileFeatureAuthTlist" , ParentObjType:"Refresh", CompulsoryFields: "IdProfile", 
+                FE:"ProfileFeatureAuth", PanelType:"Read", InRefs: "Profile", FSels:"Feature,AuthLevel"
             };
             //[suspended: next release][2]  = ["DA\\HtmlComponents\\ProfileFeatureAuth\\TlistRead"];
             // ContentParams2matrix["ProfileFeatureAuthTlistRead"] = { 

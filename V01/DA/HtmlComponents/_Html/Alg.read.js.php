@@ -1,27 +1,35 @@
 <script type="text/javascript" ref="<?php echo $this->JSPanelNamSpace; ?>">
 <?php echo $this->JSPanelNamSpace; ?> = {
-    // refs
-    IdAlg: '',
+    // generalization step 2
+    FE: '<?php echo $this->FE; ?>', // FE: Fundamental Entity
+    FEFs:   '<?php echo $this->FEFs; ?>',  
+    DEs:    '<?php echo $this->DEs; ?>',
+    DEFs:   '<?php echo $this->DEFs; ?>',  
+    EFs:    '<?php echo $this->EFs; ?>',  
+    // VM: '',
+    // FM: '',
+
+    // filters
+
+    // parent cat
     IdAlgCat: '',
-    // contentBuilder params
-    // Entity              : '<?php echo $this->Entity; ?>',
-    // PanelType           : '<?php echo $this->PanelType; ?>',
-    // WhoIAm              : '<?php echo $this->WhoIAm; ?>',
-    // PanelTag            : '<?php echo $this->PanelTag; ?>',
-    // PanelBtnsNam        : '<?php echo $this->PanelBtnsNam; ?>',
-    // JSPanelNamSpace     : '<?php echo $this->JSPanelNamSpace; ?>',
-    // Mode                : '<?php echo $this->Mode; ?>',
-    CompulsoryFields: '<?php echo $this->CompulsoryFields; ?>',
-    ParentObj: '<?php echo $this->ParentObj; ?>',
-    ParentObjType: '<?php echo $this->ParentObjType; ?>',
-    RefPanels: "<?php echo $this->RefPanels; ?>",
+    // std UI
+    IdAlg: '',
+    Mode                : '<?php echo $this->Mode; ?>',
+    CompulsoryFields    : '<?php echo $this->CompulsoryFields; ?>',
+    ParentObj           : '<?php echo $this->ParentObj; ?>',
+    ParentObjType       : '<?php echo $this->ParentObjType; ?>',
+    RefPanels           : "<?php echo $this->RefPanels; ?>",
     // session params
-    NamDefaultSep: '<?php echo $_SESSION["NamDefaultSep"]; ?>',
-    NamSpaceDefaultSep: '<?php echo $_SESSION["NamSpaceDefaultSep"]; ?>',
     SuccessMsg: '<?php echo $_SESSION["SuccessMsg"]; ?>',
     FailMsg: '<?php echo $_SESSION["FailMsg"]; ?>',
     // background knowledge params
     // ClientOps: 'Refresh,Delete,Save'; // cause it is a PanelType 'Read'
+    // OBSOLETE
+    // PanelTag: 'ProfileFeatureAuth_',
+    // CompulsoryParamNams: '?php echo $this->CompulsoryParamNams; ?>',
+    // ParamNams: '?php echo $this->ParamNams; ?>',
+    // SaveParamNams: '?php echo $this->SaveParamNams; ?>',
 
     btnControl: function() {
         // alert(this.Mode);
@@ -55,19 +63,18 @@
 
     Get: function() {
         data = {
-            IdAlg: $("#<?php echo $this->PanelTag; ?>IdAlg").val(),
-            IdAlgCat: $("#<?php echo $this->PanelTag; ?>IdAlgCat").val(),
-            AlgCatNam: $("#<?php echo $this->PanelTag; ?>AlgCatNam").val(),
+            IdAlg:      $("#<?php echo $this->PanelTag; ?>IdAlg").val(),
+            IdAlgCat:   $("#<?php echo $this->PanelTag; ?>IdAlgCat").val(),
+            AlgCatNam:  $("#<?php echo $this->PanelTag; ?>AlgCatNam").val(),
             IdAlgState: $("#<?php echo $this->PanelTag; ?>IdAlgState").val(),
-            // AlgStateNam : $("#<?php echo $this->PanelTag; ?>AlgStateNam").val(),
-            Nam: $("#<?php echo $this->PanelTag; ?>Nam").val(),
-            Descr: $("#<?php echo $this->PanelTag; ?>Descr").val(),
+            // AlgStateNam : $("#?php echo $this->PanelTag; ?>AlgStateNam").val(),
+            Nam:        $("#<?php echo $this->PanelTag; ?>Nam").val(),
+            Descr:      $("#<?php echo $this->PanelTag; ?>Descr").val(),
             fileRefProc: $("#<?php echo $this->PanelTag; ?>fileRefProc").val(),
-            CatTag: $("#<?php echo $this->PanelTag; ?>CatTag").val()
+            CatTag:     $("#<?php echo $this->PanelTag; ?>CatTag").val()
         };
         return data;
     },
-
 
     Set: function(data) {
         $("#<?php echo $this->PanelTag; ?>IdAlg").val(data["IdAlg"]);
@@ -85,7 +92,7 @@
 
     Clean: function() {
         $("#<?php echo $this->PanelTag; ?>IdAlg").val("");
-        if (this.IdAlgCat == '') {
+        if (<?php echo $this->JSPanelNamSpace; ?>.IdAlgCat == '') {
             $("#<?php echo $this->PanelTag; ?>IdAlgCat").val("");
             $("#<?php echo $this->PanelTag; ?>AlgCatNam").val("");
         }
@@ -102,6 +109,7 @@
     SetAlgCat: function(data) {
         $("#<?php echo $this->PanelTag; ?>IdAlgCat").val(data["IdAlgCat"]);
         $("#<?php echo $this->PanelTag; ?>AlgCatNam").val(data["AlgCatNam"]);
+        <?php echo $this->JSPanelNamSpace; ?>.IdAlgCat = data["IdAlgCat"];
 
         <?php echo $this->JSPanelNamSpace; ?>.btnControl();
     },
@@ -109,6 +117,7 @@
     CleanAlgCat: function() {
         $("#<?php echo $this->PanelTag; ?>IdAlgCat").val('');
         $("#<?php echo $this->PanelTag; ?>AlgCatNam").val('');
+        <?php echo $this->JSPanelNamSpace; ?>.IdAlgCat = '';
         <?php echo $this->JSPanelNamSpace; ?>.btnControl();
     },
 
@@ -126,16 +135,21 @@
         // alert(<?php echo $this->JSPanelNamSpace; ?>.IdAlg);
         SrvOp = 'Read';
         try {
-            if (<?php echo $this->JSPanelNamSpace; ?>.IdAlg && <?php echo $this->JSPanelNamSpace; ?>.IdAlg !=
+            if (<?php echo $this->JSPanelNamSpace; ?>.IdAlg 
+            && <?php echo $this->JSPanelNamSpace; ?>.IdAlg !=
                 '') {
                 Params = "?IdAlg=" + <?php echo $this->JSPanelNamSpace; ?>.IdAlg;
                 return $.ajax({
-                    type: "GET",
+                    type: "POST",
                     // url: "DA/HtmlComponents/Alg/Read.proxy.php?IdAlg=" + da.AlgRead.IdAlg,
-                    url: '<?php echo $_SESSION["HtmlComponentsRelPath"].$this->Entity; ?>' + '/' + SrvOp + ".proxy.php" + Params,
+                    url: '<?php echo $_SESSION["HtmlComponentsRelPath"].$this->FE; ?>' + '/' + SrvOp + ".proxy.php",
                     dataType: "json",
+                    data: {
+                        "SrvOpParams": <?php echo $this->JSPanelNamSpace; ?>.GetSrvOpParams(SrvOp),
+                        "IdProfileFeatureAuth": <?php echo $this->JSPanelNamSpace; ?>.IdProfileFeatureAuth,
+                    },
                     error: function(result) {
-                        da.UsrMsgShow('<?php echo $_SESSION["FailMsg"]; ?>', "Info");
+                        da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.FailMsg, "Info");
                     },
                     success: function(result) {
                         // alert("success: "+result["State"]);
@@ -158,7 +172,7 @@
                 return $.ajax({
                     type: "POST",
                     // url: "DA/HtmlComponents/Alg/delete.proxy.php",
-                    url: '<?php echo $_SESSION["HtmlComponentsRelPath"].$this->Entity; ?>' + '/' + SrvOp + ".proxy.php",
+                    url: '<?php echo $_SESSION["HtmlComponentsRelPath"].$this->FE; ?>' + '/' + SrvOp + ".proxy.php",
                     dataType: "json",
                     data: {
                         IdAlg: Id

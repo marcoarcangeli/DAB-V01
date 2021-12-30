@@ -64,10 +64,11 @@ function failResultArr(string $Msg)
         return false;
     }
 }
-
 function successResultArr(array $Result_arr,string $Msg='Ok', string $FirstId='', string $AffectedRows='')
 {
     try {
+        if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Msg: ".$Msg); }
+
         $Result_arr=array(
             "State"             => true,
             "Msg"               => $Msg,

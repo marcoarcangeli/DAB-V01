@@ -110,7 +110,7 @@ class Profile
                     a.AuthLevel as AuthLevel
                 FROM
                     Profile p
-                    LEFT OUTER JOIN profile_feature_auth pfa on pfa.IdProfile=p.IdProfile
+                    LEFT OUTER JOIN profilefeatureauth pfa on pfa.IdProfile=p.IdProfile
                     LEFT OUTER JOIN feature f on pfa.IdFeature=f.IdFeature    
                     LEFT OUTER JOIN authLevel a on pfa.IdAuthLevel=a.IdAuthLevel    
                     LEFT OUTER JOIN featureCat fc on f.IdFeatureCat=fc.IdFeatureCat    
@@ -153,9 +153,9 @@ class Profile
                     max(a.AuthLevel) as AuthLevel
                 FROM
                     usr u
-                    LEFT OUTER JOIN profile_usr pu on pu.IdUsr=u.IdUsr
+                    LEFT OUTER JOIN profileusr pu on pu.IdUsr=u.IdUsr
                     LEFT OUTER JOIN Profile p on pu.IdProfile=p.IdProfile
-                    LEFT OUTER JOIN profile_feature_auth pfa on pfa.IdProfile=p.IdProfile
+                    LEFT OUTER JOIN profilefeatureauth pfa on pfa.IdProfile=p.IdProfile
                     LEFT OUTER JOIN feature f on pfa.IdFeature=f.IdFeature    
                     LEFT OUTER JOIN authLevel a on pfa.IdAuthLevel=a.IdAuthLevel    
                     LEFT OUTER JOIN featureCat fc on f.IdFeatureCat=fc.IdFeatureCat    
@@ -196,7 +196,7 @@ class Profile
                     p.Descr
                 FROM
                     usr u
-                    LEFT OUTER JOIN profile_usr pu on pu.IdUsr=u.IdUsr
+                    LEFT OUTER JOIN profileusr pu on pu.IdUsr=u.IdUsr
                     LEFT OUTER JOIN Profile p on pu.IdProfile=p.IdProfile
                 WHERE
                     u.IdUsr = " . $this->IdUsr."

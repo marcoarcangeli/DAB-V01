@@ -60,13 +60,13 @@ class UIProxy
             // if params 
             $Result_arr=NULL;
             if(isset($Params[$_SESSION["SrvOpParamsArrNam"]])){
-                // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Params[this->SrvOpParamsArrNam]: ".json_encode($Params[$_SESSION["SrvOpParamsArrNam"]])); }
+                if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Params[this->SrvOpParamsArrNam]: ".json_encode($Params[$_SESSION["SrvOpParamsArrNam"]])); }
                 $P=$Params[$_SESSION["SrvOpParamsArrNam"]];
                 if(isset($P[$_SESSION["SrvOpParamNam"]])){
                     // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[this->SrvOpParamNam]: ".$P[$_SESSION["SrvOpParamNam"]]); }
                     $SrvOpParamNam=$P[$_SESSION["SrvOpParamNam"]];
+                    // check allowed SrvOpParamNam
                     if(
-                        // check allowed SrvOpParamNam
                         str_contains($_SESSION["SrvOpNams"], $SrvOpParamNam)
                         // && isset($P['data']) // could be NULL or empty
                     ){
@@ -75,12 +75,11 @@ class UIProxy
                         // GENERALIZED step 1
                         // $evalString='$Result_arr=$this->'.$SrvOpParamNam.'Proxy($Params);';
                         // eval($evalString);
-                        // GENERALIZED step 2
+                        // GENERALIZED step 2 and 3
                         $Dao = new DAO();
-                        $Result_arr=$Dao->opCtrl($Params);
-                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Result_arr: ".json_encode($Result_arr)); }
-
-
+                        // $Result_arr=$Dao->opCtrl($Params);
+                        $Result_arr=$Dao->SrvOpDb($Params);
+                        if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - Result_arr: ".json_encode($Result_arr)); }
                     }else{
                         $Result_arr = FRA($SrvOpParamNam." not allowed !");
                     }
@@ -97,7 +96,7 @@ class UIProxy
         }
     }
 
-        // DEPRECATED code
+    // DEPRECATED code
     //     public function TlistProxy(array $Params)
     // {
     //     try {
@@ -261,6 +260,6 @@ class UIProxy
     //         LM::LogMessage("ERROR", $e);
     //         return false;
     //     }
-    }
+    // }
 
 }

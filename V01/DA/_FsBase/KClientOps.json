@@ -1,0 +1,51 @@
+[
+    {
+        "ClientOp": "Refresh",
+        "Icon":     "fa fa-redo-alt",
+        "Label":    "Refresh",
+        "DflState": "",
+        "SrvOps":   "Read"
+    },
+    {
+        "ClientOp": "Delete",
+        "Icon":     "far fa-trash-alt",
+        "Label":    "Delete",
+        "DflState": "disabled",
+        "SrvOps":   "Delete"
+    },
+    {
+        "ClientOp": "Save",
+        "Icon":     "far fa-save",
+        "Label":    "Save",
+        "DflState": "disabled",
+        "SrvOps":   "Save"
+    },
+    {
+        "ClientOp": "New",
+        "Icon":     "far fa-star",
+        "Label":    "New",
+        "DflState": "",
+        "SrvOps":   ""
+    },
+    {
+        "ClientOp": "ChangeParent",
+        "Icon":     "fa fa-level-up-alt",
+        "Label":    "Change Parent",
+        "DflState": "disabled",
+        "SrvOps":   ""
+    },
+    {
+        "ClientOp": "NewChild",
+        "Icon":     "fa fa-child",
+        "Label":    "New Child",
+        "DflState": "disabled",
+        "SrvOps":   ""
+    },
+    {
+        "ClientOp": "Download",
+        "Icon":     "fas fa-download",
+        "Label":    "Download",
+        "DflState": "disabled",
+        "SrvOps":   ""
+    }
+]

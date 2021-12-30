@@ -1,0 +1,330 @@
+[
+    {
+        "TNam": "alg",
+        "CSCols": "idAlg,idAlgState,idAlgCat,nam,descr,fileRefProc,CatTag"
+    },
+    {
+        "TNam": "algcat",
+        "CSCols": "idAlgCat,idAlgCatPar,nam,descr"
+    },
+    {
+        "TNam": "algcntxrnk",
+        "CSCols": "idAlgCntxRnk,idAn,idDescrCapStat,idPredCapStat,idExplCapStat,idSpaceDAVl"
+    },
+    {
+        "TNam": "algcntxrnknorm",
+        "CSCols": "idAlgCntxRnkNorm,idAn,idDescrCapStat,idPredCapStat,idExplCapStat,idSpaceDAVl"
+    },
+    {
+        "TNam": "algdavl",
+        "CSCols": "idAlgDAVl,nam,descr,ordine"
+    },
+    {
+        "TNam": "algparam",
+        "CSCols": "idAlgParam,idAlgParamType,idAlg,vl"
+    },
+    {
+        "TNam": "algparamtest",
+        "CSCols": "idAlgParamtest,idAlgParam,idTrain,idAlgParamType,vl"
+    },
+    {
+        "TNam": "algparamtype",
+        "CSCols": "IdAlgParamType,IdParamType,idAlg,nam,descr,vlDefault"
+    },
+    {
+        "TNam": "algrnk",
+        "CSCols": "idAlgRnk,idAlg,nReq,idAlgDAVl"
+    },
+    {
+        "TNam": "algstate",
+        "CSCols": "idAlgState,nam,descr"
+    },
+    {
+        "TNam": "algtrainparam",
+        "CSCols": "idAlgTrainParam,idAlgParam,idTrain,idAlgParamType,vl"
+    },
+    {
+        "TNam": "algtypeparam",
+        "CSCols": "idAlgParamType,nam,descr,unit"
+    },
+    {
+        "TNam": "an",
+        "CSCols": "idAn,idPrj,idAlg,idAnState,nam,descr,dttm"
+    },
+    {
+        "TNam": "ancntx",
+        "CSCols": "IdAnCntx,IdAn,IdCntx,IdSplitType,nam,descr,fileRefTrainDat,fileRefTestDat,Regr_Outcome,Regr_Vars,Regr_CtrlMethod,Regr_ModelMethods"
+    },
+    {
+        "TNam": "ancntxstrucstat",
+        "CSCols": "idStatDatiAnCntx,IdAnCntx,note,nCols,nRows,colTypes,units,cntxProjection"
+    },
+    {
+        "TNam": "ancntxstvarfpstat",
+        "CSCols": "IdAnCntxStVarFpStat,IdAnCntx,idStVar,note,nMeasures,MODE,mn,mx,mean,sd,VARIANCE,varCoef,filtr"
+    },
+    {
+        "TNam": "anstate",
+        "CSCols": "idAnState,nam,descr"
+    },
+    {
+        "TNam": "authlevel",
+        "CSCols": "IdAuthLevel,Nam,Descr,AuthLevel"
+    },
+    {
+        "TNam": "clean",
+        "CSCols": "idClean,idPrj,Note,ctsd,cnsd,cusd,filters"
+    },
+    {
+        "TNam": "cntx",
+        "CSCols": "idCntx,idPrj,idEvnt,nam,descr,fileRefDat,ctsd,cnsd,cusd"
+    },
+    {
+        "TNam": "cntxstrucstat",
+        "CSCols": "idCntxStrucStat,idCntx,note,nCols,nRows,colTypes,units,evntProjection"
+    },
+    {
+        "TNam": "cntxstvarfpstat",
+        "CSCols": "idStatDaticntxVar,idCntx,idStVar,note,nMeasures,MODE,mn,mx,mean,sd,VARIANCE,varCoef,filtr"
+    },
+    {
+        "TNam": "comp2stvarscorrstat",
+        "CSCols": "idComp2StVarsCorrStat,idRev,idStVar1,idStVar2,note,r,95CI,t,Spearman,Pearson"
+    },
+    {
+        "TNam": "comp2stvarsindstat",
+        "CSCols": "idComp2StVarsIndStat,idRev,idStVar1,idStVar2,note,chi2,df,pval,phi,coefPartialContg,vCramer,verosimiglianza"
+    },
+    {
+        "TNam": "compare",
+        "CSCols": "idCompare,idAn,fileRefDat,fileRefRsdat,note"
+    },
+    {
+        "TNam": "compfpstat",
+        "CSCols": "idCompFpStat,idRev,note,modeRsd,minRsd,maxRsd,rmeanRsd,sdRsd,varRsd,varCoefRsd"
+    },
+    {
+        "TNam": "compres2stvarscorrstat",
+        "CSCols": "idCompRes2StVarsCorrStat,idRev,idStVar1,idStVar2,note,r,95CI,t,Spearman,Pearson"
+    },
+    {
+        "TNam": "compres2stvarsindstat",
+        "CSCols": "idCompRes2StVarsIndStat,idRev,idStVar1,idStVar2,note,chi2,df,pval,phi,coefPartialContg,vCramer,verosimiglianza"
+    },
+    {
+        "TNam": "compresfpstat",
+        "CSCols": "idCompResFpStat,idRev,note,modeRsd,minRsd,maxRsd,rmeanRsd,sdRsd,varRsd,varRsdCoef"
+    },
+    {
+        "TNam": "descrcapstat",
+        "CSCols": "idDescrCapStat,idTrainStVarFpStat,idTrainResStVarFpStat,note,dMin,dMax,dMean,dSd,dVar,dVarCoef"
+    },
+    {
+        "TNam": "evnt",
+        "CSCols": "idEvnt,idPrj,idEvntCat,nam,descr,fileRefRepoDat,fileRefEvntDat,CatTag"
+    },
+    {
+        "TNam": "evntanom",
+        "CSCols": "idEvntStVarAnom,idEvnt,nAnom,nNA,nErr,nOtherAnom,nCorrections"
+    },
+    {
+        "TNam": "evntcat",
+        "CSCols": "idEvntCat,idEvntCatPar,nam,descr"
+    },
+    {
+        "TNam": "evntstrucstat",
+        "CSCols": "idEvntStrucStat,idEvnt,note,nCols,nRows,colTypes,units"
+    },
+    {
+        "TNam": "evntstvaranom",
+        "CSCols": "idEvntStVarAnom,idStVar,idEvnt,nAnom,nNA,nErr,nOtherAnom,NaMap,errMap,errVlMap,otherAnomMap,nCorrections,correctionsMap"
+    },
+    {
+        "TNam": "explcapstat",
+        "CSCols": "idExplCapStat,idComp2StVarsCorrStat,idCompRes2StVarsCorrStat,note,dr,d95CI,dt,dSpearman,dPearson"
+    },
+    {
+        "TNam": "feature",
+        "CSCols": "IdFeature,Nam,Descr,IdFeatureCat,codeParams"
+    },
+    {
+        "TNam": "featurecat",
+        "CSCols": "IdFeatureCat,IdFeatureCatPar,Nam,Descr"
+    },
+    {
+        "TNam": "opdat",
+        "CSCols": "idOpDat,idClean,idOpDatCat,nam,descr,execOr"
+    },
+    {
+        "TNam": "opdatcat",
+        "CSCols": "idOpDatCat,idOpDatCatPar,nam,descr"
+    },
+    {
+        "TNam": "opdatparam",
+        "CSCols": "idTestParam,idOpDat,idParamType,vl"
+    },
+    {
+        "TNam": "opdatparamtype",
+        "CSCols": "idOpDatParamType,idOpDat,idParamType"
+    },
+    {
+        "TNam": "organization",
+        "CSCols": "IdOrganization,Nam,Descr,CodeParams,dttm"
+    },
+    {
+        "TNam": "paramtype",
+        "CSCols": "idParamType,idParamTypeCat,nam,descr,unit,vlDefault"
+    },
+    {
+        "TNam": "paramtypecat",
+        "CSCols": "idParamTypeCat,idParamTypeCatPar,nam,descr"
+    },
+    {
+        "TNam": "predcapstat",
+        "CSCols": "idPredCapStat,idTestStVarFpStat,idTestResStVarFpStat,note,dMin,dMax,dMean,dSd,dVar,dVarCoef"
+    },
+    {
+        "TNam": "prj",
+        "CSCols": "idPrj,idUsr,nam,descr,folderRef,idPrjState"
+    },
+    {
+        "TNam": "prjan",
+        "CSCols": "idPrj,idAn"
+    },
+    {
+        "TNam": "prjstate",
+        "CSCols": "idPrjState,nam,descr"
+    },
+    {
+        "TNam": "profile",
+        "CSCols": "IdProfile,Nam,Descr"
+    },
+    {
+        "TNam": "profilefeatureauth",
+        "CSCols": "IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel"
+    },
+    {
+        "TNam": "profileusr",
+        "CSCols": "IdProfileUsr,IdProfile,IdUsr"
+    },
+    {
+        "TNam": "rcoltype",
+        "CSCols": "idRColType,nam,descr"
+    },
+    {
+        "TNam": "rev",
+        "CSCols": "IdRev,IdAn,Note"
+    },
+    {
+        "TNam": "rnk",
+        "CSCols": "idRnk,idPrj,note"
+    },
+    {
+        "TNam": "spacedavl",
+        "CSCols": "idSpaceDAVl,nam,descr,ordine"
+    },
+    {
+        "TNam": "split",
+        "CSCols": "idSplit,idSplitType,idCntxAn,nam,descr,note"
+    },
+    {
+        "TNam": "splitcat",
+        "CSCols": "idSplitCat,idSplitCatPar,nam,descr"
+    },
+    {
+        "TNam": "splitparam",
+        "CSCols": "idSplitParam,idSplit,idParamType,vl"
+    },
+    {
+        "TNam": "splitparamtype",
+        "CSCols": "idSplitParamType,idSplit,idParamType"
+    },
+    {
+        "TNam": "splittype",
+        "CSCols": "IdSplitType,IdSplitCat,Nam,Descr,Perc"
+    },
+    {
+        "TNam": "stvar",
+        "CSCols": "idStVar,nam,descr,unit"
+    },
+    {
+        "TNam": "stvarcat",
+        "CSCols": "idStVarCat,idStVarCatPar,nam,descr"
+    },
+    {
+        "TNam": "test",
+        "CSCols": "idTest,idAn,fileRefTestDat,fileRefTestRsdat,note"
+    },
+    {
+        "TNam": "testparam",
+        "CSCols": "idTestParam,idAlgAn,idParamType,idTest,vl"
+    },
+    {
+        "TNam": "testresstrucstat",
+        "CSCols": "idTestResStrucStat,idTest,note,nCols,nRows,colTypes,units"
+    },
+    {
+        "TNam": "testresstvarasimstat",
+        "CSCols": "idTestResStVarAsimStat,idTest,idStVar,note,aritMode,coefPearson1,coefPearson2"
+    },
+    {
+        "TNam": "testresstvarcentresstat",
+        "CSCols": "idTestResStVarCentresStat,idTest,idStVar,note,arit,geom,quad,harm,MODE,med"
+    },
+    {
+        "TNam": "testresstvarfpstat",
+        "CSCols": "idTestResStVarFpStat,idTest,idStVar,note,nMeasures,MODE,mn,mx,mean,sd,VARIANCE,varCoef"
+    },
+    {
+        "TNam": "teststrucstat",
+        "CSCols": "idTestStrucStat,idTest,note,nCols,nRows,colTypes,units"
+    },
+    {
+        "TNam": "teststvarasimstat",
+        "CSCols": "idTestStVarAsimStat,idTest,idStVar,note,aritMode,coefPearson1,coefPearson2"
+    },
+    {
+        "TNam": "teststvarfpstat",
+        "CSCols": "idTestStVarFpStat,idTest,idStVar,note,nMeasures,MODE,mn,mx,mean,sd,VARIANCE,varCoef"
+    },
+    {
+        "TNam": "train",
+        "CSCols": "idTrain,idAn,fileRefTrainDat,fileRefTrainRsdat,note"
+    },
+    {
+        "TNam": "trainparam",
+        "CSCols": "idTrainParam,idAlgAn,idParamType,idTrain,vl"
+    },
+    {
+        "TNam": "trainresstrucstat",
+        "CSCols": "idTrainResStrucStat,idTrain,note,nCols,nRows,colTypes,units"
+    },
+    {
+        "TNam": "trainresstvarasimstat",
+        "CSCols": "idTrainResStVarAsimStat,idTrain,idStVar,note,aritMode,coefPearson1,coefPearson2"
+    },
+    {
+        "TNam": "trainresstvarcentresstat",
+        "CSCols": "idTrainResStVarCentresStat,idTrain,idStVar,note,arit,geom,quad,harm,MODE,med"
+    },
+    {
+        "TNam": "trainresstvarfpstat",
+        "CSCols": "idTrainResStVarFpStat,idTrain,idStVar,note,nMeasures,MODE,mn,mx,mean,sd,VARIANCE,varCoef"
+    },
+    {
+        "TNam": "trainstrucstat",
+        "CSCols": "idTrainStrucStat,idTrain,note,nCols,nRows,colTypes,units"
+    },
+    {
+        "TNam": "trainstvarasimstat",
+        "CSCols": "idTrainStVarAsimStat,idTrain,idStVar,note,aritMode,coefPearson1,coefPearson2"
+    },
+    {
+        "TNam": "trainstvarfpstat",
+        "CSCols": "idTrainStVarFpStat,idTrain,idStVar,note,nMeasures,MODE,mn,mx,mean,sd,VARIANCE,varCoef"
+    },
+    {
+        "TNam": "usr",
+        "CSCols": "idUsr,usrNam,pwd,firstnam,nam,eMail,IdOrganization"
+    }
+]

@@ -14,7 +14,7 @@
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <div id="ProfileFeatureAuthTlistBtns" class="row">
-                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxTlistHtml"]); ?>
+                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxHtml"]); ?>
                         </div>
                     </div>
                     <div class="row">
@@ -40,12 +40,12 @@
                                 <tr>
                                     <th>Id</th>
                                     <th>IdProfile</th>
-                                    <th>Profile</th>
-                                    <th>IdFeatureCat</th>
-                                    <th>FeatureCat</th>
+                                    <!-- <th>IdFeatureCat</th> -->
                                     <th>IdFeature</th>
-                                    <th>Feature</th>
                                     <th>IdAuth</th>
+                                    <th>Profile</th>
+                                    <!-- <th>FeatureCat</th> -->
+                                    <th>Feature</th>
                                     <th>Auth</th>
                                 </tr>
                             </thead>

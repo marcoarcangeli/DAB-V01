@@ -1295,11 +1295,11 @@ INSERT INTO `profile` (`IdProfile`, `Nam`, `Descr`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `profile_feature_auth`
+-- Struttura della tabella `profilefeatureauth`
 --
 
-DROP TABLE IF EXISTS `profile_feature_auth`;
-CREATE TABLE IF NOT EXISTS `profile_feature_auth` (
+DROP TABLE IF EXISTS `profilefeatureauth`;
+CREATE TABLE IF NOT EXISTS `profilefeatureauth` (
   `IdProfileFeatureAuth` int(11) NOT NULL AUTO_INCREMENT,
   `IdProfile` int(11) DEFAULT NULL,
   `IdFeature` int(11) DEFAULT NULL,
@@ -1308,10 +1308,10 @@ CREATE TABLE IF NOT EXISTS `profile_feature_auth` (
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `profile_feature_auth`
+-- Dump dei dati per la tabella `profilefeatureauth`
 --
 
-INSERT INTO `profile_feature_auth` (`IdProfileFeatureAuth`, `IdProfile`, `IdFeature`, `IdAuthLevel`) VALUES
+INSERT INTO `profilefeatureauth` (`IdProfileFeatureAuth`, `IdProfile`, `IdFeature`, `IdAuthLevel`) VALUES
 (1, 2, 31, 2),
 (2, 2, 32, 2),
 (3, 2, 33, 2),
@@ -1339,11 +1339,11 @@ INSERT INTO `profile_feature_auth` (`IdProfileFeatureAuth`, `IdProfile`, `IdFeat
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `profile_usr`
+-- Struttura della tabella `profileusr`
 --
 
-DROP TABLE IF EXISTS `profile_usr`;
-CREATE TABLE IF NOT EXISTS `profile_usr` (
+DROP TABLE IF EXISTS `profileusr`;
+CREATE TABLE IF NOT EXISTS `profileusr` (
   `IdProfileUsr` int(11) NOT NULL AUTO_INCREMENT,
   `IdProfile` int(11) DEFAULT NULL,
   `IdUsr` int(11) DEFAULT NULL,
@@ -1351,10 +1351,10 @@ CREATE TABLE IF NOT EXISTS `profile_usr` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dump dei dati per la tabella `profile_usr`
+-- Dump dei dati per la tabella `profileusr`
 --
 
-INSERT INTO `profile_usr` (`IdProfileUsr`, `IdProfile`, `IdUsr`) VALUES
+INSERT INTO `profileusr` (`IdProfileUsr`, `IdProfile`, `IdUsr`) VALUES
 (1, 2, 8),
 (2, 1, 1),
 (3, 3, 7),
