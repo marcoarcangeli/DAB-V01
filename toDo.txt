@@ -37,6 +37,14 @@ v move obsolete folder out of da folder
 v fsmanager: 
     v remove obsolete methods An, prj
     v remove obsolete methods csvtojson
+- ANOMALIES AND BUGS
+    - naming: in db and dadb json
+        - filters, filter -> filtr
+        - n<something> -> <somethig>num
+        - italian field names -> english: ex. verosimiglianza
+        - Vl<something> -> <something>Vl
+        - Level -> Lvl
+        - ...
 + percorsi relativi sito, db e fsbase
     v htmlComponents
     v database e tutte le dipendenze + namespace
@@ -251,7 +259,9 @@ v techinfo btntool + at start
     - controllo idPrjState su operazioni? 
     - su collapse accordion ?
     - ...
-
+- Parallel processing
+    - client side: parallel js (https://parallel.js.org/)
+    - Server side: php parallel run (https://www.php.net/manual/en/parallel.run.php)
 ? dimensione verticale massima pannello: esiste il parametro Col_H
 ? posizionare modali sopra a pagine massimizzate. z-order.
     ? verificare se è risolto nella nuova versione di adminlte

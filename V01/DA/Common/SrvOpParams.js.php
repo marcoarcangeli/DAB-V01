@@ -1,3 +1,5 @@
+<?php
+echo'
     // prepare the SrvOpParams
     // Dependencies: 
     //      - GetFMJson: if necessary or empty string
@@ -6,13 +8,13 @@
     GetSrvOpParams: function(SrvOpNam) {
         data = {
             "SrvOpNam"  : SrvOpNam, 
-            "FE"        : '<?php echo $this->FE; ?>', 
-            "FEFs"      : '<?php echo $this->FEFs; ?>',
-            "DEs"       : '<?php echo $this->DEs; ?>',
-            "DEFs"      : '<?php echo $this->DEFs; ?>',  
-            "EFs"       : '<?php echo $this->EFs; ?>',  
-            "FM"        : <?php echo $this->JSPanelNamSpace; ?>.GetFMJson(), 
-            "VM"        : (SrvOpNam=="Save")? <?php echo $this->JSPanelNamSpace; ?>.GetFEFsJson() : null,
+            "FE"        : "'.$this->FE.'", 
+            "FEFs"      : "'.$this->FEFs.'",
+            "DEs"       : "'.$this->DEs.'",
+            "DEFs"      : "'.$this->DEFs.'",  
+            "EFs"       : "'.$this->EFs.'",  
+            "FM"        : '.$this->JSPanelNamSpace.'.GetFMJson(), 
+            "VM"        : (SrvOpNam=="Save")? '.$this->JSPanelNamSpace.'.GetFEFsJson() : null,
         };
 
         return data;
@@ -28,18 +30,19 @@
     // code chunk could be field by the php Content Builder
     GetFMJson: function() {
         data = {
-            <?php 
-            if(isset($this->FV) && $this->FV !== ''){
-                $FVArr=explode(',',$this->FV); // FV: Filter Vector
+            '; //<?php 
+            if(isset($this->FV) && $this->FV !== ""){
+                $FVArr=explode(",",$this->FV); // FV: Filter Vector
                 foreach ($FVArr as $FF) { // FF: Filter Field
                     echo '"'.$this->FE.'.'.$FF.'": {"filterRel":"", "filterType" : "NoN", "filterValues" : "\'"+'.$this->JSPanelNamSpace.'.'.$FF.'+"\'"},';
                 }
             }else if($this->PanelType == 'Read'){
                 echo '"'.$this->FE.'.'.$this->FEIdNam.'": {"filterRel":"", "filterType" : "NoN", "filterValues" : "\'"+'.$this->JSPanelNamSpace.'.'.$this->FEIdNam.'+"\'"},';
             }
-            ?>
+            echo' //?>
         };
-        // alert(JSON.stringify(data));
         return JSON.stringify(data);
     },
-
+';
+?>
+    

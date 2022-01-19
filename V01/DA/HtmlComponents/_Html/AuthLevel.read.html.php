@@ -24,11 +24,10 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="AuthLevel_AuthLevel">Name</label>
+                            <label for="AuthLevel_AuthLevel">AuthLevel</label>
                             <input type="number" min=0 step=1 class="form-control" id="AuthLevel_AuthLevel" placeholder="AuthLevel ..." value="">
                         </div>
                     </div>
-
                 </div>
                 <div class="row">
                     <div class="col-md-12">

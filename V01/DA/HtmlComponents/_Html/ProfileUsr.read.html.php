@@ -12,27 +12,13 @@
             <!-- general form elements -->
             <!-- form start -->
             <form role="form" method="POST">
-                <div id="ProfileUsrBtns" class="row">
-                    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxReadHtml"]); ?>
+                <div id="<?php echo $this->PanelBtnsNam; ?>" class="row">
+                    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxHtml"]); ?>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="ProfileUsr_ProfileNam">ProfileNam</label>
-                            <input type="text" class="form-control" id="ProfileUsr_ProfileNam" placeholder="ProfileNam ..."
-                                value="" readonly>
-                        </div>
-                    </div>
+                    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsNamsHTML"]); ?>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group" id="IdUsrselect">
-                            <label for="ProfileUsr_IdUsr">IdUsr</label>
-                            <select class="form-control" id="ProfileUsr_IdUsr" placeholder="IdUsr ..." value="">
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["FSelsHTML"]); ?>
                 <!-- /.box-body -->
                 <!-- TECH INFO -->
                 <div class="card collapsed-card ">
@@ -47,18 +33,12 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsIdsHTML"]); ?>
+                            <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="ProfileUsr_IdProfileUsr">IdProfileUsr</label>
-                                    <input type="text" class="form-control" id="ProfileUsr_IdProfileUsr"
-                                        placeholder="IdProfileUsr ..." value="" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="ProfileUsr_IdProfile">IdProfile</label>
-                                    <input type="text" class="form-control" id="ProfileUsr_IdProfile"
-                                        placeholder="IdProfile ..." value="" readonly>
+                                    <label for="<?php echo $this->PanelTag; ?><?php echo $this->FEIdNam; ?>"><?php echo $this->FEIdNam; ?></label>
+                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?><?php echo $this->FEIdNam; ?>"
+                                        placeholder="<?php echo $this->FEIdNam; ?> ..." value="" readonly>
                                 </div>
                             </div>
                         </div>

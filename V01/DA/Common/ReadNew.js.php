@@ -1,11 +1,15 @@
+<?php
+echo'
     /**
     New function for Std Read panel
     */
     New: function() {
-        SrvOpNam = '';
+        SrvOpNam = "";
         try {
-            <?php echo $this->JSPanelNamSpace; ?>.Set();
+            '.$this->JSPanelNamSpace.'.Set();
         } catch (e) {
             da.UsrMsgShow(e.message, "Exception");
         }
     },
+';
+?>

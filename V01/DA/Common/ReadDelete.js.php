@@ -1,41 +1,48 @@
+<?php
+echo'
     /**
     Delete function for Std Read panel
     */
     Delete: function() {
-        SrvOpNam = 'Delete';
+        SrvOpNam = "Delete";
         try {
-            Id= <?php echo $this->JSPanelNamSpace; ?>.<?php echo $this->FEIdNam; ?> = $("#<?php echo $this->PanelTag; ?><?php echo $this->FEIdNam; ?>").val();
-            Nam = $("#<?php echo $this->PanelTag; ?>IdProfile").val() + " - " + $(
-                    "#<?php echo $this->PanelTag; ?>IdFeature")
-                .val() + " - " + $("#<?php echo $this->PanelTag; ?>IdAuthLevel").val();
-            if (confirm("Confirm Delete of (" + Id + " - " + Nam + ") ?")) {
+            Id= '.$this->JSPanelNamSpace.'.'.$this->FEIdNam.' = $("#'.$this->PanelTag.$this->FEIdNam.'").val();
+            // must be generalized with a function ex. getNam().
+            // or Nam MUST BE a panel field = Nam or a concatenation of other fields.
+            // or remove Nam from the msg.
+            // Nam = $("#'.$this->PanelTag.'IdProfile").val() + " - " + 
+            //       $("#'.$this->PanelTag.'IdFeature").val() + " - " + 
+            //       $("#'.$this->PanelTag.'IdAuthLevel").val();
+            // if (confirm("Confirm Delete of (" + Id + " - " + Nam + ") ?")) {
+            if (confirm("Confirm Delete of the item (" + Id + ") ?")) {
                 return $.ajax({
                     type: "POST",
-                    url: '<?php echo $_SESSION["HtmlComponentsRelPath"].$this->FE; ?>' + '/' + "UI.proxy.php",
+                    url: "'.$_SESSION["HtmlComponentsRelPath"].'/UI.proxy.php",
                     dataType: "json",
                     "data": {
-                        "SrvOpParams": <?php echo $this->JSPanelNamSpace; ?>.GetSrvOpParams(SrvOpNam),
+                        "SrvOpParams": '.$this->JSPanelNamSpace.'.GetSrvOpParams(SrvOpNam),
                     },
                     error: function(result) {
                         // alert("error: "+result["State"]);
-                        da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.FailMsg, "Info");
+                        da.UsrMsgShow('.$this->JSPanelNamSpace.'.FailMsg, "Error");
                     },
                     success: function(result) {
                         // alert("success: "+result["State"]);
                         if (result["State"]) {
-                            <?php echo $this->JSPanelNamSpace; ?>.Clean();
-                            // da.UsrTlist.RefreshObj();
-                            if (<?php echo $this->JSPanelNamSpace; ?>.ParentObj) {
-                                da.RefreshObj(<?php echo $this->JSPanelNamSpace; ?>.ParentObj);
+                            '.$this->JSPanelNamSpace.'.Set();
+                            if ('.$this->JSPanelNamSpace.'.ParentObj) {
+                                da.RefreshObj('.$this->JSPanelNamSpace.'.ParentObj);
                             }
-                            da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.SuccessMsg, "Info");
+                            da.UsrMsgShow('.$this->JSPanelNamSpace.'.SuccessMsg, "Info");
                         } else {
-                            da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.FailMsg, "Info");
+                            da.UsrMsgShow('.$this->JSPanelNamSpace.'.FailMsg, "Info");
                         }
                     }
                 })
             }
         } catch (e) {
-            da.UsrMsgShow(e.message, "Exception");
+            da.UsrMsgShow(e.stack, "Exception");
         }
     },
+';
+?>

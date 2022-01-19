@@ -115,7 +115,7 @@ class DaoCtrl
                         // if get result from query execution
                         $Results=null;
                         $evalString='$Results = $Dao->'.$SrvOpNam.'('.$this->getParamsPHP($SrvOpParams).');';
-                        if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - evalString: ".$evalString); }
+                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - evalString: ".$evalString); }
                         // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[FE]: ".$P['FE']); }
                         // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[FEFs]: ".$P['FEFs']); }
                         // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - P[DEs]: ".$P["DEs" ]); }

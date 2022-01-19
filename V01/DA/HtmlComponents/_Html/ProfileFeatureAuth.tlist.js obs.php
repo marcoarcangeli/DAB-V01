@@ -1,12 +1,6 @@
 <script type="text/javascript" ref="<?php echo $this->JSPanelNamSpace; ?>">
 <?php echo $this->JSPanelNamSpace; ?> = {
-    // SvrOpParams
-    FE      : '<?php echo $this->FE; ?>', // FE: Fundamental Entity
-    FEFs    : '<?php echo $this->FEFs; ?>',  
-    DEs     : '<?php echo $this->DEs; ?>',
-    DEFs    : '<?php echo $this->DEFs; ?>',  
-    EFs     : '<?php echo $this->EFs; ?>',  
-    FV      : '<?php echo $this->FV; ?>', // filter vector. CS list of fields and values to filter refresh and delete ops.
+    // generalization step 3
     // filters
     SearchIds: '',
     // InRefs + filters
@@ -39,22 +33,12 @@ $(document).ready(function() {
     <?php echo $this->JSPanelNamSpace; ?>.Refresh();
 
     // Tlist events
-    $("#<?php echo $this->FE; ?>List tbody").on("click", "tr", function() {
+    $("#<?php echo $this->TlistDataTblNam; ?> tbody").on("click", "tr", function() {
         <?php echo $this->JSPanelNamSpace; ?>.ToggleRow(this);
     });
     //btn events
     // can be generated server side having the info of ClientOps
-    <?php 
-    if(isset($this->ClientOps) && $this->ClientOps !== ''){
-        $ClientOpsArr=explode(',',$this->ClientOps);
-        foreach ($ClientOpsArr as $ClientOp) {
-            echo '
-            $("#'.$this->PanelBtnsNam.' #btn'.$ClientOp.'").click(function() {
-                '.$this->JSPanelNamSpace.'.'.$ClientOp.'();
-            });
-            ';
-        }
-    }
-    ?>
+    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["BtnEventsJs"]); ?>
+
 })
 </script>

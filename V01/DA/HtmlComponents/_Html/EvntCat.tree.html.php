@@ -15,11 +15,11 @@
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <div id="EvntCatTreeBtns" class="row">
-                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxTreeHtml"]); ?>
+                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxHtml"]); ?>
                         </div>
                     </div>
                     <div class="box-body">
-                        <div id="EvntCatTree">
+                        <div id="<?php echo $this->TreeObjNam; ?>">
                         </div>
                     </div>
                     <!-- /.box -->

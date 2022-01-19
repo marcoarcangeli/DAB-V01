@@ -83,6 +83,26 @@ da = {
         return (bytes / 1000).toFixed(2) + ' KB';
     }
     ,
+    // multiple Objs: string lists; 
+    // only 1 Function string, data array
+    NotifyObjs: function (Objs, Fun, data = null) {
+        if (Objs != "") {
+            var ObjsArr = Objs.split(',');
+            d = (data) ? "data" : "";
+
+            var strFunsArr = $.map( ObjsArr, function( Obj, index ) {
+                return "da." + Obj + "." + Fun + "("+d+")";
+            });
+            alert(JSON.stringify(strFunsArr));
+            // the following for could be parallel
+            for (const strFun of strFunsArr) {
+                // alert(strFun);
+                eval(strFun);
+            }
+        }
+    }
+    ,
+    // OBSOLETE
     RefreshDetailPanels: function (DetailPanels, fun, data = null) {
         if (DetailPanels != "") {
             var PanelArr = DetailPanels.split(',');
@@ -101,6 +121,7 @@ da = {
     }
     ,
     /**
+     * OBSOLETE
      * ObjType: Tlist, Tree, ...
      */
     RefreshObj: function (ObjsNam, ObjType = "Tlist", ObjFun = "reload", data = null) {

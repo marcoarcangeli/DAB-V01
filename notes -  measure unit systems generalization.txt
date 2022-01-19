@@ -1,0 +1,89 @@
+/************************************
+/* conventions
+/* (=) to do priority
+/* (-) to do
+/* (v) completed
+/* (+) partially completed
+/* (*) major evolution
+/* (?) purposed evolution
+/************************************
+
+* unit systems management generalization:
+- it should be implemented in the R language, for matrix and vector manipulations
+- services needed are direct convertions among different units and systems
+- it is necessary to collect info about:
+    - physical dimensions (PhDim) or Ph. Quantity (PhQ)
+        - base units: ex. m (meter), s (sec)
+        - derived units: name, description, symbol, base units equivalent (ex. m/s)
+
+    - unit systems US
+    - units for each US: name, description, symbols (ex. kg, Kg, ...)
+    - prefixes per US: factor (ex. 1,10,100, ...)
+    - units aliases
+    - convertion functions:
+        - convertion can be done:
+            - only for the same PhDim
+            - scale convertion (multiple/submultiple)
+            - system convertion (change of System) 
+            
+* Maths:
+- Uf : final Unit Vec
+- Ui : initial unit Vec
+- F  : factor of conversion scalar
+- Fm : multiple factor Vec -> prefixes ex. k = 10^3, m = 10^-3
+- Fs : system factor Vec -> energy > electronvolt > eV:	1 eV(...) = 1.602176634×10−19 J(SI)
+- Si : initial system symbol: SI, cgs, US, ...
+- Sf : final system symbol
+- Vf : final value scalar. it is the target dipendent variable
+- Vi : initial value scalar.
+
+- Vf [Uf(Sf)] = Vi f [Ui(Si)] = Vi Fm Fs [Ui(Si)]
+where:
+- F = Fm Fs > Fs = F/Fm = Vf/Vi 1/Fm [1/Ui(Si)]
+- Fs = 1 <- Sf = Si
+
+generalization: refering to a PhDim with derived unit:
+
+     [  Uf1 ... Ufj      ]    F1 ... Fj      [  Ui1 ... Uij       ]                     
+- Vf [---------------(Sf)] = -----------  Vi [----------------(Si)]  
+     [Uf(j+1) ... Ufk    ]   Fj+1 ... Fk     [Ui(j+1) ... Uik     ]                   
+
+      Fnum    F1 ... Fj 
+- F = ---- = -----------
+      Fden   Fj+1 ... Fk
+
+- Fj = Fmj Fsj = Vf/Vi [Ufj/Uij]
+
+CALCULUS LOGIC
+- Vf: target 
+- known data: PhQ, Vi, Si, Ui(j), Sf, Uf(j)
+ALGORITHM
+- check initial data coherence:
+    - existence and coherence
+        - PhQ
+        - Sf(PhQ), Si(PhQ)
+        - Uf(PhQ, Sf), Ui(PhQ, Si) 
+    - factor vector    
+        - Fj(Uf, Ui)
+    - compute 
+        - Fnum = F1 ... Fj
+        - Fden = Fj+1 ... Fk
+        - F = Fnum / Fden
+        - Vf = Vi F
+    - return Vf
+
+UTILITY functions
+- Vf  = ConvertMeasure(Vi, Uiv,Ufv)
+- Vf[]= ConvertMeasureVector(Vi[], Uiv,Ufv)
+
+KNOWLEDGE
+- PhQ: [Id, Nam, Descr, Symbol, Aliases] ; 
+    ex. distance, weight, time, ...
+- UnitSystem: [Id, Nam, Descr, acronim, Aliases]
+    ex. MKS, cgs, ...
+- MeasureUnit: [Id, IdPhQ, IdUnitSystem, Nam, Descr, Symbol, Aliases]
+    ex. meter, gram, second, ...
+- DecimalMeasureScale: [Id, Nam, Symbol, Aliases, ScaleFactor]
+    ex. kilogram, Kg, 10^3
+    
+

@@ -14,12 +14,12 @@
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <div id="AlgCatTreeBtns" class="row">
-                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxTreeHtml"]); ?>
+                        <div id="<?php echo $this->PanelBtnsNam; ?>" class="row">
+                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxHtml"]); ?>
                         </div>
                     </div>
                     <div class="box-body">
-                        <div id="AlgCatTree">
+                        <div id="<?php echo $this->TreeObjNam; ?>">
                         </div>
                     </div>
                     <!-- /.box -->

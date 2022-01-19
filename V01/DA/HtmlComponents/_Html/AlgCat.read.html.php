@@ -13,7 +13,7 @@
             <!-- general form elements -->
             <!-- form start -->
             <form role="form" method="POST">
-                <div id="AlgCatBtns" class="row">
+                <div id="<?php echo $this->PanelBtnsNam; ?>" class="row">
                     <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxCatReadHtml"]); ?>
                 </div>
                 <!-- /.box-header -->
@@ -22,15 +22,15 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="AlgCat_Nam">Name</label>
-                                    <input type="text" class="form-control" id="AlgCat_Nam" placeholder="AlgCat_Nam ..."
+                                    <label for="<?php echo $this->PanelTag; ?>Nam">Name</label>
+                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>Nam" placeholder="<?php echo $this->PanelTag; ?>Nam ..."
                                         value="">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="AlgCat_AlgCatParNam">AlgCatParNam</label>
-                                    <input type="text" class="form-control" id="AlgCat_AlgCatParNam"
+                                    <label for="<?php echo $this->PanelTag; ?>AlgCatParNam">AlgCatParNam</label>
+                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>AlgCatParNam"
                                         placeholder="AlgCatParNam ..." value="" readonly>
                                 </div>
                             </div>
@@ -38,9 +38,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group w-100">
-                                    <label for="AlgCat_Descr">Description</label>
-                                    <textarea class="form-control" rows="3" id="AlgCat_Descr"
-                                        placeholder="AlgCat_Descr ..." value=""></textarea>
+                                    <label for="<?php echo $this->PanelTag; ?>Descr">Description</label>
+                                    <textarea class="form-control" rows="3" id="<?php echo $this->PanelTag; ?>Descr"
+                                        placeholder="<?php echo $this->PanelTag; ?>Descr ..." value=""></textarea>
                                 </div>
                             </div>
                         </div>
@@ -62,16 +62,16 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="AlgCat_IdAlgCat">IdAlgCat</label>
-                                    <input type="text" class="form-control" id="AlgCat_IdAlgCat"
-                                        placeholder="AlgCat_IdAlgCat ..." value="" readonly>
+                                    <label for="<?php echo $this->PanelTag; ?>IdAlgCat">IdAlgCat</label>
+                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>IdAlgCat"
+                                        placeholder="<?php echo $this->PanelTag; ?>IdAlgCat ..." value="" readonly>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="AlgCat_IdAlgCatPar">IdAlgCatPar</label>
-                                    <input type="text" class="form-control" id="AlgCat_IdAlgCatPar"
-                                        placeholder="AlgCat_IdAlgCatPar ..." value="" readonly>
+                                    <label for="<?php echo $this->PanelTag; ?>IdAlgCatPar">IdAlgCatPar</label>
+                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>IdAlgCatPar"
+                                        placeholder="<?php echo $this->PanelTag; ?>IdAlgCatPar ..." value="" readonly>
                                 </div>
                             </div>
                         </div>

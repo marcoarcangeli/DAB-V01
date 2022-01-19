@@ -13,22 +13,23 @@
             <!-- form start -->
             <form role="form" method="POST">
                 <div id="ProfileBtns" class="row">
-                    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxReadHtml"]); ?>
+                    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxHtml"]); ?>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="Profile_Nam">Name</label>
-                            <input type="text" class="form-control" id="Profile_Nam" placeholder="Name ..." value="">
+                            <label for="<?php echo $this->PanelTag; ?>Nam">Name</label>
+                            <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>Nam"
+                                placeholder="Name ..." value="">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group w-100">
-                            <label for="Profile_Descr">Description</label>
-                            <textarea class="form-control" rows="3" id="Profile_Descr" placeholder="Description ..."
-                                value=""></textarea>
+                            <label for="<?php echo $this->PanelTag; ?>Descr">Description</label>
+                            <textarea class="form-control" rows="3" id="<?php echo $this->PanelTag; ?>Descr"
+                                placeholder="Description ..." value=""></textarea>
                         </div>
                     </div>
                 </div>
@@ -48,9 +49,9 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="Profile_IdProfile">IdProfile</label>
-                                    <input type="text" class="form-control" id="Profile_IdProfile"
-                                        placeholder="IdProfile ..." value="" readonly>
+                                    <label for="<?php echo $this->PanelTag; ?><?php echo $this->FEIdNam; ?>"><?php echo $this->FEIdNam; ?></label>
+                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?><?php echo $this->FEIdNam; ?>"
+                                        placeholder="<?php echo $this->FEIdNam; ?> ..." value="" readonly>
                                 </div>
                             </div>
                         </div>

@@ -86,7 +86,7 @@ class Dao
                 LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__.': Fundamental Entity not defined!');
                 return false;
             }
-            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__.": query: ".$query); }
+            if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__.": query: ".$query); }
             // prepare query statement
             if ($Stmt = mysqli_query($this->conn, $query)) {
                 $this->FirstId      = '';
@@ -321,21 +321,18 @@ class Dao
                 $EntitySql=$FE;
                 // $mapped = array_map('func', $values, array_keys($values));
                 if(!EN($DEs)){
-                $DesArr=explode(',',$DEs);
-                $EntitySql .= implode(' ',
+                    $DesArr=explode(',',$DEs);
+                    $EntitySql .= implode(' ',
                     array_map( 
                         function($v) { 
                             return ' LEFT OUTER JOIN '.$v.' ON '.$v.'.'.$_SESSION["IdPrfx"].$v.'='.$_SESSION['tmp_FE'].'.'.$_SESSION["IdPrfx"].$v; 
                         }, 
                         $DesArr
-                    )
-                );
-                }else{
-                    LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__.": DEs is not set!");
-                    return false;
-                }
+                        )
+                    );
+                } // else: it could not have DEs 
             }else{
-                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__.": DEs is not set!");
+                LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__.": FE is not set!");
                 return false;
             }
             $_SESSION['tmp_FE']=null;
@@ -403,6 +400,9 @@ class Dao
     // ex: PrjState.Nam as PrjStateNam,
     function getDEFsSql(string $DEs,string $DEFs)
     {
+        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - DEs: ".$DEs); }
+        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - DEFs: ".$DEFs); }
+
         try {
             $Sql='';
             if(!EN($DEFs)){
@@ -535,6 +535,11 @@ class Dao
     
     function getEFsSql(string $FE, string $DEs, string $FEFs, string $DEFs)
     {
+        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - FE: ".$FE); }
+        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - FEFs: ".$FEFs); }
+        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - DEs: ".$DEs); }
+        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - DEFs: ".$DEFs); }
+
         try {
             $Sql='';
             // $mapped = array_map('func', $values, array_keys($values));

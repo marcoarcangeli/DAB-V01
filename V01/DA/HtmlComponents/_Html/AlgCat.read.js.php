@@ -1,7 +1,7 @@
-<script type="text/javascript" ref="da.AlgCatRead">
-da.AlgCatRead = {
+<script type="text/javascript" ref="<?php echo $this->JSPanelNamSpace; ?>">
+<?php echo $this->JSPanelNamSpace; ?> = {
 
-    PanelTag: 'AlgCat_',
+    PanelTag: '<?php echo $this->PanelTag; ?>',
     CompulsoryFields: '<?php echo $this->CompulsoryFields; ?>',
     IdAlgCat: '',
     ChangePar: false,
@@ -12,117 +12,132 @@ da.AlgCatRead = {
     FailMsg: '<?php echo $_SESSION["FailMsg"]; ?>',
 
     btnControl: function() {
-        if (da.AlgCatRead.Mode == 'alone') {
-            $("#AlgCatBtns #btnNew").hide();
+        if (<?php echo $this->JSPanelNamSpace; ?>.Mode == 'alone') {
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnNew").hide();
         }
 
-        if ($("#AlgCat_IdAlgCat").val() == "") {
-            $("#AlgCatBtns #btnRefresh").attr("disabled", true);
-            $("#AlgCatBtns #btnDelete").attr("disabled", true);
-            $("#AlgCatBtns #btnNewChild").attr("disabled", true);
-            $("#AlgCatBtns #btnChangeParent").attr("disabled", true);
+        if ($("#<?php echo $this->PanelTag; ?>IdAlgCat").val() == "") {
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnRefresh").attr("disabled", true);
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnDelete").attr("disabled", true);
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnNewChild").attr("disabled", true);
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").attr("disabled", true);
         } else {
-            $("#AlgCatBtns #btnRefresh").attr("disabled", false);
-            $("#AlgCatBtns #btnDelete").attr("disabled", false);
-            $("#AlgCatBtns #btnNewChild").attr("disabled", false);
-            $("#AlgCatBtns #btnChangeParent").attr("disabled", false);
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnRefresh").attr("disabled", false);
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnDelete").attr("disabled", false);
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnNewChild").attr("disabled", false);
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").attr("disabled", false);
         }
 
         if (
-            $("#AlgCat_Nam").val() == "" &&
-            $("#AlgCat_Descr").val() == ""
+            $("#<?php echo $this->PanelTag; ?>Nam").val() == "" &&
+            $("#<?php echo $this->PanelTag; ?>Descr").val() == ""
         ) {
-            $("#AlgCatBtns #btnSave").attr("disabled", true);
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnSave").attr("disabled", true);
         } else {
-            $("#AlgCatBtns #btnSave").attr("disabled", false);
+            $("#<?php echo $this->PanelBtnsNam; ?> #btnSave").attr("disabled", false);
         }
     },
 
     Get: function() {
         data = {
-            IdAlgCat: $("#AlgCat_IdAlgCat").val(),
-            IdAlgCatPar: $("#AlgCat_IdAlgCatPar").val(),
-            Nam: $("#AlgCat_Nam").val(),
-            Descr: $("#AlgCat_Descr").val()
+            IdAlgCat: $("#<?php echo $this->PanelTag; ?>IdAlgCat").val(),
+            IdAlgCatPar: $("#<?php echo $this->PanelTag; ?>IdAlgCatPar").val(),
+            Nam: $("#<?php echo $this->PanelTag; ?>Nam").val(),
+            Descr: $("#<?php echo $this->PanelTag; ?>Descr").val()
         };
         return data;
     },
 
 
     Set: function(data) {
-        $("#AlgCat_IdAlgCat").val(data["IdAlgCat"]);
-        $("#AlgCat_IdAlgCatPar").val(data["IdAlgCatPar"]);
-        $("#AlgCat_AlgCatParNam").val(data["AlgCatParNam"]);
-        $("#AlgCat_Nam").val(data["Nam"]);
-        $("#AlgCat_Descr").val(data["Descr"]);
+        $("#<?php echo $this->PanelTag; ?>IdAlgCat").val(data["IdAlgCat"]);
+        $("#<?php echo $this->PanelTag; ?>IdAlgCatPar").val(data["IdAlgCatPar"]);
+        $("#<?php echo $this->PanelTag; ?>AlgCatParNam").val(data["AlgCatParNam"]);
+        $("#<?php echo $this->PanelTag; ?>Nam").val(data["Nam"]);
+        $("#<?php echo $this->PanelTag; ?>Descr").val(data["Descr"]);
 
-        da.AlgCatRead.btnControl();
+        <?php echo $this->JSPanelNamSpace; ?>.btnControl();
     },
 
     SetAlgCatPar: function(data) {
-        $("#AlgCat_IdAlgCatPar").val(data["IdAlgCat"]);
-        $("#AlgCat_AlgCatParNam").val(data["AlgCatNam"]);
+        $("#<?php echo $this->PanelTag; ?>IdAlgCatPar").val(data["IdAlgCat"]);
+        $("#<?php echo $this->PanelTag; ?>AlgCatParNam").val(data["AlgCatNam"]);
 
-        $("#AlgCatBtns #btnChangeParent").removeClass("btn-danger")
-        $("#AlgCatBtns #btnChangeParent").addClass("btn-outline-primary");
+        $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").removeClass("btn-danger")
+        $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").addClass("btn-outline-primary");
 
     },
 
     Clean: function() {
-        $("#AlgCat_IdAlgCat").val("");
-        $("#AlgCat_IdAlgCatPar").val("");
-        $("#AlgCat_AlgCatParNam").val("");
-        $("#AlgCat_Nam").val("");
-        $("#AlgCat_Descr").val("");
+        $("#<?php echo $this->PanelTag; ?>IdAlgCat").val("");
+        $("#<?php echo $this->PanelTag; ?>IdAlgCatPar").val("");
+        $("#<?php echo $this->PanelTag; ?>AlgCatParNam").val("");
+        $("#<?php echo $this->PanelTag; ?>Nam").val("");
+        $("#<?php echo $this->PanelTag; ?>Descr").val("");
 
-        da.AlgCatRead.btnControl();
+        <?php echo $this->JSPanelNamSpace; ?>.btnControl();
     },
 
     ChangeParent: function() {
-        if (da.AlgCatRead.ParentObj) {
+        if (<?php echo $this->JSPanelNamSpace; ?>.ParentObj) {
             // alert("ChangeParent")
             //change 
-            if (da.AlgCatRead.ChangePar) {
-                da.AlgCatRead.ChangePar = false;
-                $("#AlgCatBtns #btnChangeParent").removeClass("btn-danger")
-                $("#AlgCatBtns #btnChangeParent").addClass("btn-outline-primary");
+            if (<?php echo $this->JSPanelNamSpace; ?>.ChangePar) {
+                <?php echo $this->JSPanelNamSpace; ?>.ChangePar = false;
+                $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").removeClass("btn-danger")
+                $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").addClass("btn-outline-primary");
             } else {
-                da.AlgCatRead.ChangePar = true;
-                $("#AlgCatBtns #btnChangeParent").removeClass("btn-outline-primary")
-                $("#AlgCatBtns #btnChangeParent").addClass("btn-danger");
+                <?php echo $this->JSPanelNamSpace; ?>.ChangePar = true;
+                $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").removeClass("btn-outline-primary")
+                $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").addClass("btn-danger");
                 alert("Select a new Parent in the left tree.");
             }
-            da.RefreshObj(da.AlgCatRead.ParentObj, da.AlgCatRead.ParentObjType, "ChangeParent");
-            da.AlgCatRead.btnControl();
+            da.RefreshObj(<?php echo $this->JSPanelNamSpace; ?>.ParentObj, <?php echo $this->JSPanelNamSpace; ?>.ParentObjType, "ChangeParent");
+            <?php echo $this->JSPanelNamSpace; ?>.btnControl();
         }
     },
 
     CleanParent: function() {
-        $("#AlgCat_IdAlgCatPar").val($("#AlgCat_IdAlgCat").val());
-        $("#AlgCat_IdAlgCat").val("");
-        $("#AlgCat_Nam").val("");
-        $("#AlgCat_Descr").val("");
+        $("#<?php echo $this->PanelTag; ?>IdAlgCatPar").val($("#<?php echo $this->PanelTag; ?>IdAlgCat").val());
+        $("#<?php echo $this->PanelTag; ?>IdAlgCat").val("");
+        $("#<?php echo $this->PanelTag; ?>Nam").val("");
+        $("#<?php echo $this->PanelTag; ?>Descr").val("");
 
-        da.AlgCatRead.btnControl();
+        <?php echo $this->JSPanelNamSpace; ?>.btnControl();
     },
 
-    Refresh: function() {
+    Notify: function(data = null) {
+        if (<?php echo $this->JSPanelNamSpace; ?>.ParentObj) {
+            da.RefreshObj(<?php echo $this->JSPanelNamSpace; ?>.ParentObj, <?php echo $this->JSPanelNamSpace; ?>.ParentObjType,
+                "Refresh");
+        }
+
+    },
+
+    Refresh: function(data = null) {
         try {
+            if(data["<?php echo $this->FEIdNam; ?>"]){
+                <?php echo $this->JSPanelNamSpace; ?>.<?php echo $this->FEIdNam; ?>=data["<?php echo $this->FEIdNam; ?>"];
+            }
+            alert(<?php echo $this->JSPanelNamSpace; ?>.<?php echo $this->FEIdNam; ?>);
             return $.ajax({
                 type: "GET",
-                url: "DA/HtmlComponents/AlgCat/read.proxy.php?IdAlgCat=" + da.AlgCatRead.IdAlgCat,
+                url: "DA/HtmlComponents/AlgCat/read.proxy.php?IdAlgCat=" + <?php echo $this->JSPanelNamSpace; ?>.<?php echo $this->FEIdNam; ?>,
                 dataType: "json",
+                // "data": {
+                //     "SrvOpParams": '.$this->JSPanelNamSpace.'.GetSrvOpParams(SrvOpNam),
+                // },
                 error: function(result) {
                     // alert("success: "+result["State"]);
                     // alert("success: "+result["Msg"]);
-                    da.UsrMsgShow(da.AlgCatRead.FailMsg, "Info");
+                    da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.FailMsg, "Info");
                 },
                 success: function(result) {
-                    // alert("success: "+result["State"]);
+                    alert("success: "+result["State"]);
                     // alert("success: "+result["Msg"]);
                     data = result["Data"];
                     // alert("success: "+data["IdUsr"]);
-                    da.AlgCatRead.Set(data);
+                    <?php echo $this->JSPanelNamSpace; ?>.Set(data);
                     // da.UsrMsgShow(da.UsrRead.SuccessMsg, "Info");
                 },
             })
@@ -134,8 +149,8 @@ da.AlgCatRead = {
 
     Delete: function() {
         try {
-            Id = $("#AlgCat_IdAlgCat").val();
-            Nam = $("#AlgCat_Nam").val();
+            Id = $("#<?php echo $this->PanelTag; ?>IdAlgCat").val();
+            Nam = $("#<?php echo $this->PanelTag; ?>Nam").val();
             if (confirm("Confirm Delete of (" + Id + " - " + Nam + ") ?")) {
                 return $.ajax({
                     type: "POST",
@@ -151,15 +166,16 @@ da.AlgCatRead = {
                     success: function(result) {
                         // alert("success: "+result["State"]);
                         if (result["State"]) {
-                            da.AlgCatRead.Clean();
+                            <?php echo $this->JSPanelNamSpace; ?>.Clean();
+                            <?php echo $this->JSPanelNamSpace; ?>.Notify();
                             // da.UsrTlist.RefreshObj();
-                            if (da.AlgCatRead.ParentObj) {
-                                da.RefreshObj(da.AlgCatRead.ParentObj, da.AlgCatRead.ParentObjType,
-                                    "Refresh");
-                            }
-                            da.UsrMsgShow(da.AlgCatRead.SuccessMsg, "Info");
+                            // if (<?php echo $this->JSPanelNamSpace; ?>.ParentObj) {
+                            //     da.RefreshObj(<?php echo $this->JSPanelNamSpace; ?>.ParentObj, <?php echo $this->JSPanelNamSpace; ?>.ParentObjType,
+                            //         "Refresh");
+                            // }
+                            da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.SuccessMsg, "Info");
                         } else {
-                            da.UsrMsgShow(da.AlgCatRead.FailMsg, "Info");
+                            da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.FailMsg, "Info");
                         }
                     }
                 })
@@ -172,29 +188,30 @@ da.AlgCatRead = {
     Save: function() {
         try {
             // alert("#btnSavePrj");
-            if (da.verifyCompulsoryFields(da.AlgCatRead.CompulsoryFields, da.AlgCatRead.PanelTag)) {
+            if (da.verifyCompulsoryFields(<?php echo $this->JSPanelNamSpace; ?>.CompulsoryFields, <?php echo $this->JSPanelNamSpace; ?>.PanelTag)) {
                 return $.ajax({
                     type: "POST",
                     url: "DA/HtmlComponents/AlgCat/Save.proxy.php",
                     dataType: "json",
-                    data: da.AlgCatRead.Get(),
+                    data: <?php echo $this->JSPanelNamSpace; ?>.Get(),
                     error: function(result) {
-                        da.UsrMsgShow(da.AlgCatRead.FailMsg, "Error");
+                        da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.FailMsg, "Error");
                     },
                     success: function(result) {
                         // alert(result["Msg"]);
                         if (result["State"]) {
-                            $("#AlgCat_IdAlgCat").val(result["IdAlgCat"]);
-                            // alert(da.AlgCatRead.ParentObj);
-                            if (da.AlgCatRead.ParentObj) {
-                                //ParentObj: "AlgCatTree", ParentObjType: "Tree"
-                                //ObjNam, ObjType="Tlist", fun, data=null
-                                da.RefreshObj(da.AlgCatRead.ParentObj, da.AlgCatRead.ParentObjType,
-                                    "Refresh");
-                            }
-                            da.UsrMsgShow(da.AlgCatRead.SuccessMsg, "Info");
+                            $("#<?php echo $this->PanelTag; ?>IdAlgCat").val(result["IdAlgCat"]);
+                            // alert(<?php echo $this->JSPanelNamSpace; ?>.ParentObj);
+                            <?php echo $this->JSPanelNamSpace; ?>.Notify();
+                            // if (<?php echo $this->JSPanelNamSpace; ?>.ParentObj) {
+                            //     //ParentObj: "AlgCatTree", ParentObjType: "Tree"
+                            //     //ObjNam, ObjType="Tlist", fun, data=null
+                            //     da.RefreshObj(<?php echo $this->JSPanelNamSpace; ?>.ParentObj, <?php echo $this->JSPanelNamSpace; ?>.ParentObjType,
+                            //         "Refresh");
+                            // }
+                            da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.SuccessMsg, "Info");
                         } else {
-                            da.UsrMsgShow(da.AlgCatRead.FailMsg, "Info");
+                            da.UsrMsgShow(<?php echo $this->JSPanelNamSpace; ?>.FailMsg, "Info");
                         }
                     }
                 })
@@ -210,37 +227,37 @@ $(document).ready(function() {
     //popola select ...
 
     // set defaults
-    da.AlgCatRead.Clean();
+    <?php echo $this->JSPanelNamSpace; ?>.Clean();
 
-    $("#AlgCatBtns #btnSave").click(function() {
-        da.AlgCatRead.Save();
+    $("#<?php echo $this->PanelBtnsNam; ?> #btnSave").click(function() {
+        <?php echo $this->JSPanelNamSpace; ?>.Save();
     });
 
-    $("#AlgCatBtns #btnRefresh").click(function() {
-        da.AlgCatRead.Refresh();
+    $("#<?php echo $this->PanelBtnsNam; ?> #btnRefresh").click(function() {
+        <?php echo $this->JSPanelNamSpace; ?>.Refresh();
     });
 
-    $("#AlgCatBtns #btnDelete").click(function() {
-        da.AlgCatRead.Delete();
+    $("#<?php echo $this->PanelBtnsNam; ?> #btnDelete").click(function() {
+        <?php echo $this->JSPanelNamSpace; ?>.Delete();
     });
 
-    $("#AlgCatBtns #btnNew").click(function() {
-        da.AlgCatRead.Clean();
+    $("#<?php echo $this->PanelBtnsNam; ?> #btnNew").click(function() {
+        <?php echo $this->JSPanelNamSpace; ?>.Clean();
     });
 
-    $("#AlgCatBtns #btnNewChild").click(function() {
-        da.AlgCatRead.CleanParent();
+    $("#<?php echo $this->PanelBtnsNam; ?> #btnNewChild").click(function() {
+        <?php echo $this->JSPanelNamSpace; ?>.CleanParent();
     });
 
-    $("#AlgCatBtns #btnChangeParent").click(function() {
-        da.AlgCatRead.ChangeParent();
+    $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").click(function() {
+        <?php echo $this->JSPanelNamSpace; ?>.ChangeParent();
     });
 
-    $("#AlgCat_Nam").keyup(function(event) {
-        da.AlgCatRead.btnControl();
+    $("#<?php echo $this->PanelTag; ?>Nam").keyup(function(event) {
+        <?php echo $this->JSPanelNamSpace; ?>.btnControl();
     });
-    $("#AlgCat_Descr").keyup(function(event) {
-        da.AlgCatRead.btnControl();
+    $("#<?php echo $this->PanelTag; ?>Descr").keyup(function(event) {
+        <?php echo $this->JSPanelNamSpace; ?>.btnControl();
     });
 
 })

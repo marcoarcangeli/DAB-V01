@@ -17,11 +17,12 @@ try {
     $Params_arr = array();
     // optional params
     if (
-        isset($_GET[$OptionalParamNams])
+        isset($_POST[$OptionalParamNams])
+        // isset($_GET[$OptionalParamNams])
         // && trim($_GET[$OptionalParamNams]) != ''
     ) {
-        if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","_GET[".$OptionalParamNams."]: ".$_GET[$OptionalParamNams]); }
-        $Params_arr[$OptionalParamNams] = $_GET[$OptionalParamNams];
+        if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","_POST[".$OptionalParamNams."]: ".$_POST[$OptionalParamNams]); }
+        $Params_arr[$OptionalParamNams] = $_POST[$OptionalParamNams];
         $Dao->OptionalParamNams = $OptionalParamNams;
     } 
 

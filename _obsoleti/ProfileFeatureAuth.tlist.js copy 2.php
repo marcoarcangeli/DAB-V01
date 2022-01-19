@@ -46,7 +46,7 @@ $(document).ready(function() {
     <?php echo $this->JSPanelNamSpace; ?>.Refresh();
 
     // Tlist events
-    $("#<?php echo $this->FE; ?>List tbody").on("click", "tr", function() {
+    $("#<?php echo $this->TlistDataTblNam; ?> tbody").on("click", "tr", function() {
         <?php echo $this->JSPanelNamSpace; ?>.ToggleRow(this);
     });
     //btn events

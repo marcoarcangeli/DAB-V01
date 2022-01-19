@@ -16,32 +16,10 @@
                     <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxHtml"]); ?>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="<?php echo $this->PanelTag; ?>ProfileNam">ProfileNam</label>
-                            <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>ProfileNam" placeholder="ProfileNam ..."
-                                value="" readonly>
-                        </div>
-                    </div>
+                    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsNamsHTML"]); ?>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group" id="IdFeatureselect">
-                            <label for="<?php echo $this->PanelTag; ?>IdFeature">IdFeature</label>
-                            <select class="form-control" id="<?php echo $this->PanelTag; ?>IdFeature" placeholder="IdFeature ..." value="">
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                   <div class="col-md-12">
-                        <div class="form-group" id="IdAuthLevelselect">
-                            <label for="<?php echo $this->PanelTag; ?>IdAuthLevel">IdAuthLevel</label>
-                            <select class="form-control" id="<?php echo $this->PanelTag; ?>IdAuthLevel" placeholder="IdAuthLevel ..." value="">
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["FSelsHTML"]); ?>
+
                 <!-- /.box-body -->
                 <!-- TECH INFO -->
                 <div class="card collapsed-card ">
@@ -56,21 +34,14 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-3">
+                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsIdsHTML"]); ?>
+                            <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="<?php echo $this->PanelTag; ?>IdProfileFeatureAuth">IdProfileFeatureAuth</label>
-                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>IdProfileFeatureAuth"
-                                        placeholder="IdProfileFeatureAuth ..." value="" readonly>
+                                    <label for="<?php echo $this->PanelTag; ?><?php echo $this->FEIdNam; ?>"><?php echo $this->FEIdNam; ?></label>
+                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?><?php echo $this->FEIdNam; ?>"
+                                        placeholder="<?php echo $this->FEIdNam; ?> ..." value="" readonly>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="<?php echo $this->PanelTag; ?>IdProfile">IdProfile</label>
-                                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>IdProfile"
-                                        placeholder="IdProfile ..." value="" readonly>
-                                </div>
-                            </div>
-
                         </div>
                         <!-- /.row -->
                     </div>
@@ -79,7 +50,6 @@
                 <!--/.tech-info -->
             </form>
             <!-- /.box -->
-
         </div>
     </div>
 </div>

@@ -17,7 +17,7 @@
     },
     {
         "PanelType":    "Read",
-        "ClientOps":    "New,Save,Refresh,Delete"
+        "ClientOps":    "New,Refresh,Save,Delete"
     },
     {
         "PanelType":    "FileView",
@@ -29,6 +29,6 @@
     },
     {
         "PanelType":    "CatRead",
-        "ClientOps":    "Refresh,Delete,Save,New,ChangeParent,NewChild"
+        "ClientOps":    "New,Refresh,Save,Delete,ChangeParent,NewChild"
     }
 ]

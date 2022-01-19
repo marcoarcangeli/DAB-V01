@@ -16,10 +16,15 @@ da.ProfileUsrTlist = {
     FailMsg: '<?php echo $_SESSION["FailMsg"]; ?>',
 
     SetProfile: function(data) {
-        da.ProfileUsrTlist.IdProfile = data["IdProfile"];
-        $("#ProfileUsrTlist_IdProfile").val(data["IdProfile"]);
-        $("#ProfileUsrTlist_ProfileNam").val(data["Nam"]);
-        da.ProfileUsrTlist.SearchIds = (data["SearchIds"]) ? data["SearchIds"] : null;
+        if(data){
+            da.ProfileUsrTlist.IdProfile = data["IdProfile"];
+            $("#ProfileUsrTlist_IdProfile").val(data["IdProfile"]);
+            $("#ProfileUsrTlist_ProfileNam").val(data["Nam"]);
+            da.ProfileUsrTlist.SearchIds = (data["SearchIds"]) ? data["SearchIds"] : null;
+            
+        }else{
+            da.ProfileUsrTlist.CleanProfile; 
+        }
 
         da.ProfileUsrTlist.Refresh();
 

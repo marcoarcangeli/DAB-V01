@@ -1,5 +1,5 @@
 <div class="da-column col-sm-<?php echo $this->Col_Lg; ?>">
-    <div id="ProfileUsrTlist" class="card <?php echo $this->Col_H; ?>">
+    <div id="<?php echo $this->WhoIAm; ?>" class="card <?php echo $this->Col_H; ?>">
         <div class="card-header">
             <h6 class="card-title"><?php echo $this->Header; ?></h6>
             <div class="card-tools">
@@ -14,35 +14,19 @@
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <div id="ProfileUsrTlistBtns" class="row">
-                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxTlistHtml"]); ?>
+                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxHtml"]); ?>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="ProfileUsrTlist_IdProfile">IdProfile</label>
-                                <input type="text" class="form-control" id="ProfileUsrTlist_IdProfile" placeholder="IdProfile ..."
-                                    value="" readonly>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                <label for="ProfileUsrTlist_ProfileNam">ProfileNam</label>
-                                <input type="text" class="form-control" id="ProfileUsrTlist_ProfileNam" placeholder="ProfileNam ..."
-                                    value="" readonly>
-                            </div>
-                        </div>
+                        <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsNamsHTML"]); ?>
                     </div>
                     <!-- /.row -->
                     <div class="box-body">
-                        <table id="ProfileUsrList" class="table table-bordered table-hover display">
+                        <table id="<?php echo $this->TlistDataTblNam; ?>"
+                            class="table table-bordered table-hover display">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Id Profile</th>
-                                    <th>Profile</th>
-                                    <th>Id User</th>
-                                    <th>User Name</th>
+                                    <?php echo $this->TlistColumnsHTML; ?>
                                 </tr>
                             </thead>
                             <!-- <tfoot>
@@ -65,6 +49,26 @@
             <!-- /.col-md-8 -->
             <!-- </div> -->
             <!-- /.row -->
+            <!-- TECH INFO -->
+            <div class="card collapsed-card ">
+                <div class="card-header">
+                    <p class="card-title">Tech Info</p>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <div class="row">
+                        <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsIdsHTML"]); ?>
+                        <!-- /.row -->
+                    </div>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!--/.tech-info -->
 
         </div>
     </div>

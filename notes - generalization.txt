@@ -143,18 +143,26 @@ LET apply this methods to ...
 						and considering the combination of 3 detailed Params: Parent, Children, Refs.
 						This could be enough to build any cascading chain of relations among Panels.
 					+	All possible combinations are: 8 = 2^3
-						--------------------------------------------------------------------
-							Parent	|	Child(ren)	|	Ref(s)	|	Virtual Mode			
-						--------------------------------------------------------------------
-						-	N		|	N 			|	N		|	Alone			
-						-	N 		|	N			|	Y		|	Ref	
-						-	N  		|	Y			|	N		|	Child		
-						-	N  		|	Y			|	Y		|	Child-Ref
-						-	Y  		|	N			|	N		|	Parent		
-						-	Y  		|	N			|	Y		|	Parent-Ref
-						-	Y		|	Y			|	N		|	Parent-Child		
-						-	Y		|	Y			|	Y		|	Parent-Child-Ref		
-						--------------------------------------------------------------------
+					--------------------------------------------------------------------
+						
+---------------------------------------------------------------------------------------------------------------------------
+Relation	| 	Source					->				Dest.						|	Source	->	Dest.	|
+---------------------------------------------------------------------------------------------------------------------------
+Params :	|	hasChild(ren)						|	hasParent					|	hasRef(s)			|	Virtual Mode
+CurrentNam 	| 	DetailPanels	DetailPanelsType  	|	ParentObj	ParentObjType 	| 	RefPanels	InRefs	| 	Mode  				  		
+NewNam		| 	"				DetailPanelTypes  	| 	ParPanel	ParPanelType 	| 	"			"		|	...		
+Fun 		| 	Refresh[Clean]						|	Refresh						|	Set<FE>				|
+Events		|	[Row] Click							|	Save,New,Delete				|	[Row] Click			|					
+---------------------------------------------------------------------------------------------------------------------------
+			|	N									|			N					|	N					|	Alone			
+			|	N									|			N 					|	Y					|	Ref	
+			|	Y									|			N  					|	N					|	Child		
+			|	Y									|			N  					|	Y					|	Child-Ref
+			|	N									|			Y  					|	N					|	Parent		
+			|	N									|			Y  					|	Y					|	Parent-Ref
+			|	Y									|			Y					|	N					|	Parent-Child		
+			|	Y									|			Y					|	Y					|	Parent-Child-Ref		
+---------------------------------------------------------------------------------------------------------------------------
 						Of course: Parent can be only 0-1; Children and Refs can be 0-n;
 					+ this new model solves the choise of the intermediate eleborations.
 				- Panel: placed into a Grid part
@@ -242,6 +250,34 @@ LET apply this methods to ...
 		----------------------------------------------------------------------------------------------
 		FileEdit		daEditor					---
 		----------------------------------------------------------------------------------------------
+	- Relation among ...
+		---------------------------------------------------------------------------------------------------------------
+		PanelType |	ParentObj	ParentObjType | DetailPanels	DetailPanelsType  | (Virtual)Mode 	  | RefPanels	InRefs
+				  | ParPanels	ParPanelTypes | "				DetailPanelTypes  | 				  | 					
+		---------------------------------------------------------------------------------------------------------------
+		Tree	  | 	N			N		  | 	N				N			  | Alone			  | N		N
+				  | 	N			N		  | 	N				N			  | Ref				  | Y		Y
+				  | 	N			N		  | 	Y				Y			  | Child			  | 					
+				  | 	N			N		  | 	N				N			  | Child-Ref		  | 					
+				  | 	N			N		  | 	N				N			  | Parent			  | 					
+				  | 	N			N		  | 	N				N			  | Parent-Ref		  | 					
+				  | 	N			N		  | 	N				N			  | Parent-Child	  | 						
+				  | 	N			N		  | 	N				N			  | Parent-Child-Ref  | 					
+		---------------------------------------------------------------------------------------------------------------
+		Tlist		
+		---------------------------------------------------------------------------------------------------------------
+		FileTlist	
+		---------------------------------------------------------------------------------------------------------------
+		Struct		
+		---------------------------------------------------------------------------------------------------------------
+		Read		
+		---------------------------------------------------------------------------------------------------------------
+		CatRead		
+		---------------------------------------------------------------------------------------------------------------
+		FileView	
+		---------------------------------------------------------------------------------------------------------------
+		FileEdit	
+		---------------------------------------------------------------------------------------------------------------
 	- DAO Standards: every DAO:
 		- must be related to 1 Entity > Entity can be composed by simpler Entities
 			- RDBMS: the Select From [Join] -> Entity(ies) + Descriptive Related other Entities
@@ -385,7 +421,7 @@ It means that it is necessary to define:
 			- navigation: structure of menus and bars
 			- containers ex. main,  grids (contentType), panels (panelTypes),
 			- panel contents:  ctrls (fields, tables, tree, editors, graphs, ...), 
-				- fields: text, select, check
+				- fields: text, select, check (possibly avoid checks)
 		- SERVER SIDE	
 			- Proxy: AJAX-POST request array >> JSON response
 			- OpCtrl: web of OpCtrls
@@ -408,6 +444,7 @@ It means that it is necessary to define:
         - others in the main part of the panel
         - input fields are only that of the main part
             - input can be: [t]ext (default), [s]elect, [c]heck
+				- text could be: singleline <input>, multiline <textarea> 
 	??? problem: the knowledge of EFs should be before the navigation
 		- could be usefull to generate, once and for all, the all $FE, $FEFs, $DEs, $DEFs, $EFs
 		- ex. array: ProfileFeatureAuth derived from ...
@@ -421,7 +458,109 @@ It means that it is necessary to define:
 				[IdProfileFeatureAuth;IdProfile]
 			]
 		- PANEL BUILDER: is a component needed to build the panel html and js.
+		- ALTERNATIVE SOLUTION: identify fields, by convention, for:
+				Panel part							Convention
+				--------------------------------	-------------------------------------
+				Main, 								default, not Tech fields		= UIMs = UIFTs + UIFCs + FSelIdss
+					- Sels: dropdown, 				Ids + not FEId + not InRefs		= FSels)
+					- Checks: booleans				bool, prefix 'bl' or 'is'		= UIFCs
+					- Text: default 				all the others					= (UIFs - UIFCs - FSels) = UIFTs
+						- InRefs > Nams: , 			readonly						= Ids(InRefs)
+				Tech: Ids, ... 						Ids - Ids(FSels) +- ...			= UITs
+						- Ids(InRefs): , 											= Ids(InRefs)
+				Ignored: 							Nam(FSels) + ...,				= UIIs = EFs - UITs - UIMs
+						- Nam(FSels)
+				--------------------------------	-------------------------------------
+			- field lists concepts examples:
+			-----------------------------------------------------------
+				PanelType: Tlist
+				- ENTITIES
+					FE     	: Profile
+					DEs		:
+					InRefs 	: 
+					FSels  	: 
+				- FIELDS	
+					FEIdNam	: IdProfile
+					FV     	: 
+					FEFs   	: IdProfile,Nam,Descr
+					DEFs   	: 
+					EFs    	: IdProfile,Nam,Descr
+					SetFs  	: IdProfile,Nam,Descr
+					UIFs   	: Nam,Descr
+			-----------------------------------------------------------
+				PanelType: Read
+				FE     : Profile
+				FEIdNam: IdProfile
+				InRefs : 
+				FSels  : 
+				FV     : 
+				FEFs   : IdProfile,Nam,Descr
+				DEFs   : 
+				EFs    : IdProfile,Nam,Descr
+				SetFs  : IdProfile,Nam,Descr
+				UIFs   : Nam,Descr
+			-----------------------------------------------------------
+				PanelType: Tlist
+				FE     : ProfileFeatureAuth
+				FEIdNam: IdProfileFeatureAuth
+				InRefs : Profile
+				FSels  : 
+				FV     : IdProfile
+				FEFs   : IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel
+				DEFs   : ProfileNam,FeatureNam,AuthLevelNam
+				EFs    : IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel,ProfileNam,FeatureNam,AuthLevelNam
+				SetFs  : IdProfileFeatureAuth,IdFeature,IdAuthLevel
+				UIFs   : IdFeature,IdAuthLevel
+			-----------------------------------------------------------
+				PanelType: Read
+				FE     : ProfileFeatureAuth
+				FEIdNam: IdProfileFeatureAuth
+				InRefs : Profile
+				FSels  : Feature,AuthLevel
+				FV     : 
+				FEFs   : IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel
+				DEFs   : ProfileNam,FeatureNam,AuthLevelNam
+				EFs    : IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel,ProfileNam,FeatureNam,AuthLevelNam
+				SetFs  : IdProfileFeatureAuth,IdFeature,IdAuthLevel
+				UIFs   : IdFeature,IdAuthLevel
+			-----------------------------------------------------------
+		- Calc Sequence:
+			INPUTS:
+			- session: idPrfx, DescrPofx
+			- PanelType: Tree, TList, Read, ...
+			- [ParPanTypes]: ex. TList, Tree, ...
+				- substitute ParentObjTypes
+			- [ParPans]: substitute ParentObj
+					ex. ProfileFeatureAuthRead	-> ProfileFeatureAuth(TList)  
+						ProfileUsrRead 			-> ProfileUsr(TList) 
+						ProfileRead 			-> Profile(TList) 	
+			- [InRefEs]: substitute InRefs
+				ex. Profile -> ProfileFeatureAuthTList,ProfileFeatureAuthRead,,ProfileUsrTList,ProfileUsrRead
+			- FE:	from Navigation config
+			- FEFs: from Knowledge
 
+			CALCULUS:
+			- FEId(FE) = idPrfx + FE
+			- Ids(FEFs,FE) = FEId(FE) [+ DEIds]
+				- [DEIds(FEFs,FE)]
+				- [DEs(DEIds)]
+				- [DEFs(DEs)] = [DEIds] [+ DENams(DEs)]
+			- EFs(FEFs,DEFs) = FEFs [+ DENams(DEs)]
+			- [InRefFs(DEFs,InRefEs)] = [InRefFsIds(DEIds,InRefEs)] [+ InRefFsNams(DENams,InRefEs)]
+			- [FSelFs(Ids,FEId,[InRefFsIds])] = [FSelIds(Ids,FEId,[InRefFsIds])] + [FSelNams(FSelFs)]
+				- [FSelIds(Ids,FEId,[InRefFsIds]) = Ids - FEId [- InRefFsIds]]
+					- [FSelFs] = FSelIds - idPrfx
+				- [FSelNams(FSelFs)]
+			- SetFs = FEFs [- InRefFsIds]
+			- UITs = Ids(FEFs,FE) - [FSelIds]
+			- [UIFTs] = EFs - UITs - [UIFCs] - [FSelNams] = [InRefFsNams] + [OtherFTs]
+				- [OtherFTs] = [UIFTs] - [InRefFsNams]
+		???	- [UIFCs(FEFs)]
+			- [UIMs] = [UIFTs] + [FSelIds] + [UIFCs] = [InRefFsNams] + [OtherFTs] + [FSelIds] + [UIFCs]
+			- [UIIs] = EFs - UITs - [UIMs] = [FSelNams(FSels)] + [OIFs]
+			- UIFs = [UIMs] + UITs
+
+=============================================================================================================================
     - FM Filter Matrix 
 		return json string
 		this is specific for this Tlist panel of ProfileFeatureAuth
@@ -455,6 +594,40 @@ It means that it is necessary to define:
             "fd.Dt"      => array("filterRel" => 'OR'  , "filterType" => 'NoN', "filterValues" => '2021-11-20'),
         );
 	    */
+
+=========================================================================================================================
+- UIFs: it is the list used to build the editable part of the Read Panels.
+	- it is necessary to define a standard naming convention, that can be enough to define the UI field type and parameters.
+	ex.
+	    <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="<?php echo $this->PanelTag; ?>Nam">Name</label>
+                    <input type="text" class="form-control" id="<?php echo $this->PanelTag; ?>Nam"
+                        placeholder="Name ..." value="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group w-100">
+                    <label for="<?php echo $this->PanelTag; ?>Descr">Description</label>
+                    <textarea class="form-control" rows="3" id="<?php echo $this->PanelTag; ?>Descr"
+                        placeholder="Description ..." value=""></textarea>
+                </div>
+            </div>
+        </div>
+- Parametrs could be:
+	- sessions for postfixes ex. <entity>Nam [single line], <entity>Descr [multi line]
+    - if rowStart -> <div class="row"></div>
+    - if fieldWidth -> <div class="col-md-[fieldWidth]">
+    - if readOnly -> <... value="" readonly>
+	- if rowsNum -> <textarea class="form-control" rows="[rowsNum]"
+
+
+IdFeature,IdAuthLevel, Nam, Descr
+
+
 
 
 

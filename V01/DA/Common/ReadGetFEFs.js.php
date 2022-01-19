@@ -1,25 +1,22 @@
+<?php
+echo'
     // Get FEFs UI fields values and return a json array
-    // Dependencies: 
-    //      - btnControl
+    // Dependencies: btnControl
     GetFEFsJson: function() {
-        FEFs='<?php echo $this->FEFs; ?>';
+        FEFs="'.$this->FEFs.'";
         if (FEFs) {
-            //alert('EFsArr : '+EFs);
-            FEFsArr = FEFs.split(',');
-            //alert('EFsArr length: '+EFsArr.length);
+            FEFsArr = FEFs.split(",");
             data = jQuery.map(
                 FEFsArr,
                 function (vl, idx) {
-                    //alert('vl: ' + vl);
-                    v=eval('$("#<?php echo $this->PanelTag; ?>'+vl+'").val()');
-                    
-                    return ((v) ? v : 'null');
+                    // alert(\'$("#'.$this->PanelTag.'\'+vl+\'").val()\');
+                    v=eval(\'$("#'.$this->PanelTag.'\'+vl+\'").val()\');
+                    return ((v) ? v : "null");
                 }
             );
             data=[data];
-            // alert('data : '+ data);
         }
-
         return JSON.stringify(data);
     },
-
+';
+?>

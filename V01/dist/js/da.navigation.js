@@ -131,12 +131,14 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["AlgCats"] = {
-                Header: "AlgCats", Col_Lg: "3", Mode: "Tlist", HtmlFn: "AlgCat.Tree.html.php", JsFn: "AlgCat.Tree.js.php",
-                DetailPanels: "AlgCatRead"
+                Header: "AlgCats", Col_Lg: "4", Mode: "Tlist", HtmlFn: "AlgCat.Tree.html.php", JsFn: "AlgCat.Tree.js.php",
+                DetailPanels: "AlgCatRead",
+                FE:"AlgCat", FV:"", PanelType:"Tree", InRefs: ""
             };
             ContentParams2matrix["AlgCatRead"] = {
-                Header: "AlgCat", Col_Lg: "9", Mode: "Tlist", HtmlFn: "AlgCat.Read.html.php", JsFn: "AlgCat.Read.js.php",
-                ParentObj: "AlgCatTree", ParentObjType: "Tree"
+                Header: "AlgCat", Col_Lg: "8", Mode: "Tlist", HtmlFn: "AlgCat.Read.html.php", JsFn: "AlgCat.Read.js.php",
+                ParentObj: "AlgCatTree", ParentObjType: "Tree", CompulsoryFields: "Nam",
+                FE:"AlgCat", PanelType:"Read", InRefs: "", FSels:""
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -211,12 +213,14 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["AlgStates"] = {
-                Header: "AlgStates", Col_Lg: "4", Mode: "Tlist", HtmlFn: "AlgState.Tlist.html.php", JsFn: "AlgState.Tlist.js.php",
-                DetailPanels: "AlgStateRead"
+                Header: "AlgStates", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
+                DetailPanels: "AlgStateRead",
+                FE:"AlgState", FV:"", PanelType:"Tlist", InRefs: ""
             };
             ContentParams2matrix["AlgStateRead"] = {
-                Header: "AlgState", Col_Lg: "8", Mode: "Tlist", HtmlFn: "AlgState.Read.html.php", JsFn: "AlgState.Read.js.php",
-                ParentObj: "AlgStateList"
+                Header: "AlgState", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php",
+                ParentObj: "AlgStateList",
+                FE:"AlgState", PanelType:"Read", InRefs: "", FSels:""
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -251,12 +255,14 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["AnStates"] = {
-                Header: "Analysis States", Col_Lg: "4", Mode: "Tlist", HtmlFn: "AnState.Tlist.html.php", JsFn: "AnState.Tlist.js.php",
-                DetailPanels: "AnStateRead"
+                Header: "Analysis States", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
+                DetailPanels: "AnStateRead",
+                FE:"AnState", FV:"", PanelType:"Tlist", InRefs: ""
             };
             ContentParams2matrix["AnStateRead"] = {
-                Header: "Analysis State", Col_Lg: "8",  Mode: "Tlist", HtmlFn: "AnState.Read.html.php", JsFn: "AnState.Read.js.php", 
-                ParentObj: "AnStateList"
+                Header: "Analysis State", Col_Lg: "8",  Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
+                ParentObj: "AnStateList",
+                FE:"AnState", PanelType:"Read", InRefs: "", FSels:""
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -291,12 +297,14 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["AuthLevels"] = {
-                Header: "AuthLevels", Col_Lg: "4", Mode: "Tlist", HtmlFn: "AuthLevel.Tlist.html.php", JsFn: "AuthLevel.Tlist.js.php",
-                DetailPanels: "AuthLevelRead"
+                Header: "AuthLevels", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
+                DetailPanels: "AuthLevelRead",
+                FE:"AuthLevel", FV:"", PanelType:"Tlist", InRefs: ""
             };
             ContentParams2matrix["AuthLevelRead"] = {
-                Header: "AuthLevel", Col_Lg: "8", Mode: "Tlist", HtmlFn: "AuthLevel.Read.html.php", JsFn: "AuthLevel.Read.js.php",
-                ParentObj: "AuthLevelList"
+                Header: "AuthLevel", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php",
+                ParentObj: "AuthLevelList",
+                FE:"AuthLevel", PanelType:"Read", InRefs: "", FSels:""
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -537,11 +545,13 @@ da.navigation = {
             var ContentParams2matrix = {};
             ContentParams2matrix["OpDatCats"] = {
                 Header: "OpDatCats", Col_Lg: "3", Mode: "Tlist", HtmlFn: "OpDatCat.Tree.html.php", JsFn: "OpDatCat.Tree.js.php",
-                DetailPanels: "OpDatCatRead"
+                DetailPanels: "OpDatCatRead",
+                FE:"OpDatCat", FV:"", PanelType:"Tlist", InRefs: ""
             };
             ContentParams2matrix["OpDatCatRead"] = {
                 Header: "OpDatCat", Col_Lg: "9", Mode: "Tlist", HtmlFn: "OpDatCat.Read.html.php", JsFn: "OpDatCat.Read.js.php",
-                ParentObj: "OpDatCatTree", ParentObjType: "Tree"
+                ParentObj: "OpDatCatTree", ParentObjType: "Tree",
+                FE:"Profile", PanelType:"Read", InRefs: "", FSels:""
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -576,12 +586,14 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["Organizations"] = {
-                Header: "Organizations", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Organization.Tlist.html.php", JsFn: "Organization.Tlist.js.php",
-                DetailPanels: "OrganizationRead"
+                Header: "Organizations", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
+                DetailPanels: "OrganizationRead",
+                FE:"Organization", FV:"", PanelType:"Tlist", InRefs: ""
             };
             ContentParams2matrix["OrganizationRead"] = {
-                Header: "Organization", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Organization.Read.html.php", JsFn: "Organization.Read.js.php",
-                ParentObj: "OrganizationsList"
+                Header: "Organization", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php",
+                ParentObj: "OrganizationsList",
+                FE:"Organization", PanelType:"Read", InRefs: "", FSels:""
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -1159,12 +1171,14 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["PrjStates"] = {
-                Header: "Project States", Col_Lg: "4", Mode: "Tlist", HtmlFn: "PrjState.Tlist.html.php", JsFn: "PrjState.Tlist.js.php",
-                DetailPanels: "PrjStateRead"
+                Header: "Project States", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
+                DetailPanels: "PrjStateRead",
+                FE:"PrjState", FV:"", PanelType:"Tlist", InRefs: ""
             };
             ContentParams2matrix["PrjStateRead"] = {
-                Header: "Project State", Col_Lg: "8",  Mode: "Tlist", HtmlFn: "PrjState.Read.html.php", JsFn: "PrjState.Read.js.php", 
-                ParentObj: "PrjStateList"
+                Header: "Project State", Col_Lg: "8",  Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
+                ParentObj: "PrjStateList",
+                FE:"PrjState", PanelType:"Read", InRefs: "", FSels:""
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -1250,23 +1264,25 @@ da.navigation = {
             var ContentParams2matrix = {};
             //[0]  = ["Profiles","ProfileRead"];
             ContentParams2matrix["Profiles"] = {
-                Header: "Profiles", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Profile.Tlist.html.php", JsFn: "Profile.Tlist.js.php",
-                DetailPanels: "ProfileRead", RefPanels: "ProfileFeatureAuthTlist,ProfileUsrTlist,ProfileFeatureAuthRead,ProfileUsrRead" //,ProfileFeatureAuthTlistRead
+                Header: "Profiles", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php", // Profile.Tlist.js.php
+                DetailPanels: "ProfileRead", RefPanels: "ProfileFeatureAuthTlist,ProfileUsrTlist,ProfileFeatureAuthRead,ProfileUsrRead", //,ProfileFeatureAuthTlistRead
+                FE:"Profile", FV:"", PanelType:"Tlist", InRefs: ""
             };
             ContentParams2matrix["ProfileRead"] = {
-                Header: "Profile", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Profile.Read.html.php", JsFn: "Profile.Read.js.php",
-                ParentObj: "ProfilesTlist" , ParentObjType:"Refresh", CompulsoryFields: "Nam"
+                Header: "Profile", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", // Profile.Read.js.php
+                ParentObj: "ProfilesTlist" , ParentObjType:"Tlist", CompulsoryFields: "Nam",
+                FE:"Profile", PanelType:"Read", InRefs: "", FSels:""
             };
             // [1]  = ["DA\\HtmlComponents\\ProfileFeatureAuth\\Tlist", "DA\\HtmlComponents\\ProfileFeatureAuth\\Read"];
             ContentParams2matrix["ProfileFeatureAuths"] = {
-                Header: "ProfileFeatureAuths", Col_Lg: "8", Mode: "Tlist", HtmlFn: "ProfileFeatureAuth.Tlist.html.php", JsFn: "ProfileFeatureAuth.Tlist.js.php", 
+                Header: "ProfileFeatureAuths", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php", 
                 DetailPanels: "ProfileFeatureAuthRead", 
                 FE:"ProfileFeatureAuth", FV:"IdProfile", PanelType:"Tlist", InRefs: "Profile"
             };
             //CompulsoryParamNams: "IdProfileFeatureAuth",// ParamNams: "SearchIds,IdProfile,IdFeature,IdAuthLevel", SaveParamNams: "IdProfileFeatureAuth,IdProfile,IdFeature,IdAuthLevel",
             ContentParams2matrix["ProfileFeatureAuthRead"] = {
-                Header: "ProfileFeatureAuth", Col_Lg: "4", Mode: "Tlist", HtmlFn: "ProfileFeatureAuth.Read.html.php", JsFn: "ProfileFeatureAuth.Read.js.php", 
-                ParentObj: "ProfileFeatureAuthTlist" , ParentObjType:"Refresh", CompulsoryFields: "IdProfile", 
+                Header: "ProfileFeatureAuth", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
+                ParentObj: "ProfileFeatureAuthTlist" , ParentObjType:"Tlist", CompulsoryFields: "IdProfile", 
                 FE:"ProfileFeatureAuth", PanelType:"Read", InRefs: "Profile", FSels:"Feature,AuthLevel"
             };
             //[suspended: next release][2]  = ["DA\\HtmlComponents\\ProfileFeatureAuth\\TlistRead"];
@@ -1276,12 +1292,15 @@ da.navigation = {
             // };
             //[2]  = ["DA\\HtmlComponents\\ProfileUsr\\Tlist","DA\\HtmlComponents\\ProfileUsr\\Read"];
             ContentParams2matrix["ProfileUsrs"] = {
-                Header: "ProfileUsrs", Col_Lg: "8", Mode: "Tlist", HtmlFn: "ProfileUsr.Tlist.html.php", JsFn: "ProfileUsr.Tlist.js.php", 
-                DetailPanels: "ProfileUsrRead"
+                Header: "ProfileUsrs", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php", 
+                DetailPanels: "ProfileUsrRead",
+                FE:"ProfileUsr", FV:"IdProfile", PanelType:"Tlist", InRefs: "Profile"
+
             };
             ContentParams2matrix["ProfileUsrRead"] = {
-                Header: "ProfileUsr", Col_Lg: "4", Mode: "Tlist", HtmlFn: "ProfileUsr.Read.html.php", JsFn: "ProfileUsr.Read.js.php", 
-                ParentObj: "ProfileUsrTlist" , ParentObjType:"Refresh", CompulsoryFields: "IdProfile"
+                Header: "ProfileUsr", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
+                ParentObj: "ProfileUsrTlist" , ParentObjType:"Refresh", CompulsoryFields: "IdProfile",
+                FE:"ProfileUsr", PanelType:"Read", InRefs: "Profile", FSels:"Usr"
             };
 
             // alert(JSON.stringify(ContentParams2matrix));
@@ -1318,12 +1337,14 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["RColTypes"] = {
-                Header: "R Column Types", Col_Lg: "4", Mode: "Tlist", HtmlFn: "RColType.Tlist.html.php", JsFn: "RColType.Tlist.js.php",
-                DetailPanels: "RColTypeRead"
+                Header: "R Column Types", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
+                DetailPanels: "RColTypeRead",
+                FE:"RColType", FV:"", PanelType:"Tlist", InRefs: ""
             };
             ContentParams2matrix["RColTypeRead"] = {
-                Header: "R Column Type", Col_Lg: "8",  Mode: "Tlist", HtmlFn: "RColType.Read.html.php", JsFn: "RColType.Read.js.php", 
-                ParentObj: "RColTypeList"
+                Header: "R Column Type", Col_Lg: "8",  Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
+                ParentObj: "RColTypeList",
+                FE:"RColType", PanelType:"Read", InRefs: "", FSels:""
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -1480,29 +1501,32 @@ da.navigation = {
             // Intestazioni per livello 2 
             var ContentHeaders2matrix = [];
             ContentHeaders2matrix[0] = ["Usrs", "UsrRead"];
-            ContentHeaders2matrix[1]  = ["UsrProfiles", "UsrProfileRead"];
+            ContentHeaders2matrix[1]  = ["ProfilesUsr", "ProfileUsrRead"];
             $("#ContentHeaders2matrix").val(JSON.stringify(ContentHeaders2matrix));
 
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             //[0] = ["DA\\HtmlComponents\\Usr\\Tlist", "DA\\HtmlComponents\\Usr\\Read"];
             ContentParams2matrix["Usrs"] = {
-                Header: "Users", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Usr.Tlist.html.php", JsFn: "Usr.Tlist.js.php",
-                DetailPanels: "UsrRead", RefPanels: "UsrProfileTlist"
+                Header: "Users", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
+                DetailPanels: "UsrRead", RefPanels: "ProfileUsrTlist,ProfileUsrRead",
+                FE:"Usr", FV:"", PanelType:"Tlist", InRefs: ""
             };
             ContentParams2matrix["UsrRead"] = {
-                Header: "User", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Usr.Read.html.php", JsFn: "Usr.Read.js.php", 
-                ParentObj: "UsrTlist" , ParentObjType:"Refresh", CompulsoryFields: "Nam"
-
+                Header: "User", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
+                ParentObj: "UsrTlist" , ParentObjType:"Refresh", CompulsoryFields: "Nam",
+                FE:"Usr", PanelType:"Read", InRefs: "", FSels:"Organization"
             };
-            //[1]  = ["UsrProfiles", "UsrProfileRead"];
-            ContentParams2matrix["UsrProfiles"] = {
-                Header: "User Profiles", Col_Lg: "6", Mode: "Tlist", HtmlFn: "UsrProfile.Tlist.html.php", JsFn: "UsrProfile.Tlist.js.php", 
-                DetailPanels: "UsrProfileRead"
+            //[1]  = ["ProfilesUsr", "ProfileUsrRead"];
+            ContentParams2matrix["ProfilesUsr"] = {
+                Header: "User Profiles", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php", 
+                DetailPanels: "ProfileUsrRead",
+                FE:"ProfileUsr", FV:"", PanelType:"Tlist", InRefs: "Usr"
             };
-            ContentParams2matrix["UsrProfileRead"] = {
-                Header: "User Profile", Col_Lg: "6", Mode: "Tlist", HtmlFn: "UsrProfile.Read.html.php", JsFn: "UsrProfile.Read.js.php", 
-                ParentObj: "UsrProfileTlist" , ParentObjType:"Refresh", CompulsoryFields: "IdUsr"
+            ContentParams2matrix["ProfileUsrRead"] = {
+                Header: "User Profile", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
+                ParentObj: "ProfileUsrTlist" , ParentObjType:"Refresh", CompulsoryFields: "IdUsr",
+                FE:"ProfileUsr", PanelType:"Read", InRefs: "Usr", FSels:"Profile"
             };
 
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));

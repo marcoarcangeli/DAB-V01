@@ -1,13 +1,6 @@
 <script type="text/javascript" ref="<?php echo $this->JSPanelNamSpace; ?>">
 <?php echo $this->JSPanelNamSpace; ?> = {
-    // generalization step 2
-    FE      : '<?php echo $this->FE; ?>', // FE: Fundamental Entity
-    FEFs    : '<?php echo $this->FEFs; ?>',  
-    DEs     : '<?php echo $this->DEs; ?>',
-    DEFs    : '<?php echo $this->DEFs; ?>',  
-    EFs     : '<?php echo $this->EFs; ?>',  
-    FV      : '<?php echo $this->FV; ?>', //'IdProfile', // filter vector. CS list of fields and values to filter refresh and delete ops.
-
+    // generalization step 3
     // filters + InRef
     IdProfile: '',
 
