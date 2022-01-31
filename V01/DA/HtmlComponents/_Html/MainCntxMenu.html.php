@@ -190,6 +190,13 @@
     </a>
     </div>
     <div class="dropdown-divider"></div>
+    <div id="sbiBootVars">
+    <a href="#" class="dropdown-item">
+      <i class="fas fa-cog mr-2"></i>Boot Vars
+      <span class="float-right text-muted text-sm">...</span>
+    </a>
+    </div>
+    <div class="dropdown-divider"></div>
     <div id="sbiSessionVars">
     <a href="#" class="dropdown-item">
       <i class="fas fa-cog mr-2"></i>Session Vars

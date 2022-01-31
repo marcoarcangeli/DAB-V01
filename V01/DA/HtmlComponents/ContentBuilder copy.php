@@ -38,7 +38,6 @@ class ContentBuilder implements IHJC
     protected string $InRefs                        = '';
     protected string $InRefsHTML                    = '';
     protected string $FSels                         = '';
-    protected array  $FSelsSrvOpParams              = array();
     protected string $SetFs                         = '';
     protected string $UIFs                          = '';
     // SrvOp params
@@ -179,7 +178,6 @@ class ContentBuilder implements IHJC
                 $this->InRefs               = isset($ContentParams[$Param]["InRefs"])               ? $ContentParams[$Param]["InRefs"]                  : $this->InRefs;
                 // FSels: Fields Select - UI Fields edited as select drop-down box
                 $this->FSels                = isset($ContentParams[$Param]["FSels"])                ? $ContentParams[$Param]["FSels"]                   : $this->FSels;
-                $this->FSelsSrvOpParams     = !EN($FSelsSrvOpParams=$this->setFSelsSrvOpParams($this->FSels))   ? $FSelsSrvOpParams                     : $this->FSelsSrvOpParams;
                 // SrvOp params
                 $this->FE                   = isset($ContentParams[$Param]["FE"])                   ? $ContentParams[$Param]["FE"]                      : $this->FE;
                 $this->FV                   = isset($ContentParams[$Param]["FV"])                   ? $ContentParams[$Param]["FV"]                      : $this->FV;
@@ -213,7 +211,7 @@ class ContentBuilder implements IHJC
                 // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - this->UIFs   : ".$this->UIFs); }
                 // panel type params
                 $this->setPanelSpecificParams($this->PanelType);
-                
+                $this->setFSelsSrvOpParams($this->FSels);
                 // OBSOLETE params Generalization step 1
                 $this->CompulsoryParamNams  = isset($ContentParams[$Param]["CompulsoryParamNams"])  ? $ContentParams[$Param]["CompulsoryParamNams"]     : $this->CompulsoryParamNams;
                 $this->ParamNams            = isset($ContentParams[$Param]["ParamNams"])            ? $ContentParams[$Param]["ParamNams"]               : $this->ParamNams;
@@ -542,7 +540,7 @@ class ContentBuilder implements IHJC
         try {
             $result=true;
             if(!EN($PanelType)){
-                // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - PanelType: ".$PanelType); }
+                if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - PanelType: ".$PanelType); }
                 switch($PanelType){
                     case 'Tlist':
                         //  Tlist
@@ -550,13 +548,13 @@ class ContentBuilder implements IHJC
                         $this->TlistColumnsJS       = !EN($TlistColumnsJS=$this->getTlistColumnsJS($this->EFs)) ? $TlistColumnsJS                             : $this->TlistColumnsJS;
                         $this->TlistColumnsHTML     = !EN($TlistColumnsHTML=$this->getTlistColumnsHTML($this->EFs)) ? $TlistColumnsHTML                             : $this->TlistColumnsHTML;
                         $this->TlistColumnDefsJS    = !EN($TlistColumnDefsJS=$this->getTlistColumnDefsJS($this->EFs)) ? $TlistColumnDefsJS                    : $this->TlistColumnDefsJS;
-                        // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - this->TlistColumnsHTML: ".$this->TlistColumnsHTML); }
+                        if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - this->TlistColumnsHTML: ".$this->TlistColumnsHTML); }
                         break;
                     case 'Tree':
-                        $this->TreeObjNam           = !EN($this->FE)                                            ? $this->FE.$_SESSION["TreeNamPsfx"]          : $this->TreeObjNam;
+                        $this->TreeObjNam           = !EN($this->FE)                                            ? $this->FE.$_SESSION["TreeNamPsfx"]       : $this->TreeObjNam;
                         break;
                     case 'FileTlist':
-                        $this->TlistDataTblNam      = !EN($this->FE)                                            ? $this->FE.$_SESSION["DataTblNamPsfx"]       : $this->TlistDataTblNam;
+
                         break;
                     case 'Struct':
 
@@ -583,42 +581,91 @@ class ContentBuilder implements IHJC
         }
     }
 
-    public function setFSelsSrvOpParams(string $FSels)
+    public function setPanelSpecificParams(string $PanelType)
     {
         try {
-            $FSelsSrvOpParams=null;
-            if(!EN($FSels)){
-                $FSelsArr=explode(',',$FSels);
-                $FSelsSrvOpParams =  array_combine($FSelsArr,
-                    array_map( 
-                        function($FSel) { 
-                            $FE   = isset($FSel)                        ? $FSel                 : "";
-                            $FEFs = !EN($FE)                            ? $this->getFEFs($FE)   : "";
-                            $DEs  = !EN($DEs=$this->getDEs($FEFs,$FE))  ? $DEs                  : "";
-                            $DEFs = !EN($DEFs=$this->getDEFs($DEs))     ? $DEFs                 : "";
-                            $EFs  = !EN($DEFs)                          ? $FEFs.','.$DEFs       : "";
+            $result=true;
+            if(!EN($PanelType)){
+                if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - PanelType: ".$PanelType); }
+                switch($PanelType){
+                    case 'Tlist':
+                        //  Tlist
+                        $this->TlistDataTblNam      = !EN($this->FE)                                            ? $this->FE.$_SESSION["DataTblNamPsfx"]       : $this->TlistDataTblNam;
+                        $this->TlistColumnsJS       = !EN($TlistColumnsJS=$this->getTlistColumnsJS($this->EFs)) ? $TlistColumnsJS                             : $this->TlistColumnsJS;
+                        $this->TlistColumnsHTML     = !EN($TlistColumnsHTML=$this->getTlistColumnsHTML($this->EFs)) ? $TlistColumnsHTML                             : $this->TlistColumnsHTML;
+                        $this->TlistColumnDefsJS    = !EN($TlistColumnDefsJS=$this->getTlistColumnDefsJS($this->EFs)) ? $TlistColumnDefsJS                    : $this->TlistColumnDefsJS;
+                        if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - this->TlistColumnsHTML: ".$this->TlistColumnsHTML); }
+                        break;
+                    case 'Tree':
+                        $this->TreeObjNam           = !EN($this->FE)                                            ? $this->FE.$_SESSION["TreeNamPsfx"]       : $this->TreeObjNam;
+                        break;
+                    case 'FileTlist':
 
-                            $FSelArr=array(
-                                "FE"      => $FE  ,
-                                "FEFs"    => $FEFs,
-                                "DEs"     => $DEs ,
-                                "DEFs"    => $DEFs,
-                                "EFs"     => $EFs 
-                            );
-                            return  $FSelArr; 
-                        }, 
-                        $FSelsArr
-                    )
-                )
-                ;
+                        break;
+                    case 'Struct':
+
+                        break;
+                    case 'Read':
+
+                        break;
+                    case 'CatRead':
+
+                        break;
+                    case 'FileView':
+
+                        break;
+                    default:
+
+                        break;
+                }
             }
-            if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG",__CLASS__."->". __FUNCTION__." - json_encode(FSelsSrvOpParams): ".json_encode($FSelsSrvOpParams)); }
-            return $FSelsSrvOpParams;
-            // return $result;
+            // echo $output; // Print everything.
+            return $result;
         } catch (Exception $e) {
             LM::LogMessage("ERROR", $e);
             return false;
         }
     }
+    // obsolete
+    // select Client ops according to PanelType: Tlist,FileTlist,Struct,Read,FileView,FileEdit		
+    // protected function getClientOps(string $PanelType)
+    // {
+    //     try {
+    //         $ClientOps='';
+    //         if(!EN($PanelType)){
+    //             switch($PanelType){
+    //                 case 'Tlist':
+    //                     $ClientOps='';
+    //                     break;
+    //                 case 'Tree':
+    //                     $ClientOps='';
+    //                     break;
+    //                 case 'FileTlist':
+    //                     $ClientOps='';
+    //                     break;
+    //                 case 'Struct':
+    //                     $ClientOps='';
+    //                     break;
+    //                 case 'Read':
+    //                     $ClientOps='';
+    //                     break;
+    //                 case 'CatRead':
+    //                     $ClientOps='';
+    //                     break;
+    //                 case 'FileView':
+    //                     $ClientOps='';
+    //                     break;
+    //                 default:
+    //                     $ClientOps='';
+    //                     break;
+    //             }
+    //         }
+    //         // echo $output; // Print everything.
+    //         return ClientOps;
+    //     } catch (Exception $e) {
+    //         LM::LogMessage("ERROR", $e);
+    //         return false;
+    //     }
+    // }
 
 }

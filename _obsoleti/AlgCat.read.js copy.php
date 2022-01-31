@@ -48,6 +48,14 @@ da.AlgCatRead = {
         return data;
     },
 
+    CleanParent: function() {
+        $("#AlgCat_IdAlgCatPar").val($("#AlgCat_IdAlgCat").val());
+        $("#AlgCat_IdAlgCat").val("");
+        $("#AlgCat_Nam").val("");
+        $("#AlgCat_Descr").val("");
+
+        da.AlgCatRead.btnControl();
+    },
 
     Set: function(data) {
         $("#AlgCat_IdAlgCat").val(data["IdAlgCat"]);
@@ -59,15 +67,6 @@ da.AlgCatRead = {
         da.AlgCatRead.btnControl();
     },
 
-    SetAlgCatPar: function(data) {
-        $("#AlgCat_IdAlgCatPar").val(data["IdAlgCat"]);
-        $("#AlgCat_AlgCatParNam").val(data["AlgCatNam"]);
-
-        $("#AlgCatBtns #btnChangeParent").removeClass("btn-danger")
-        $("#AlgCatBtns #btnChangeParent").addClass("btn-outline-primary");
-
-    },
-
     Clean: function() {
         $("#AlgCat_IdAlgCat").val("");
         $("#AlgCat_IdAlgCatPar").val("");
@@ -76,6 +75,15 @@ da.AlgCatRead = {
         $("#AlgCat_Descr").val("");
 
         da.AlgCatRead.btnControl();
+    },
+
+    SetAlgCatPar: function(data) {
+        $("#AlgCat_IdAlgCatPar").val(data["IdAlgCat"]);
+        $("#AlgCat_AlgCatParNam").val(data["AlgCatNam"]);
+
+        $("#AlgCatBtns #btnChangeParent").removeClass("btn-danger")
+        $("#AlgCatBtns #btnChangeParent").addClass("btn-outline-primary");
+
     },
 
     ChangeParent: function() {
@@ -95,15 +103,6 @@ da.AlgCatRead = {
             da.RefreshObj(da.AlgCatRead.ParentObj, da.AlgCatRead.ParentObjType, "ChangeParent");
             da.AlgCatRead.btnControl();
         }
-    },
-
-    CleanParent: function() {
-        $("#AlgCat_IdAlgCatPar").val($("#AlgCat_IdAlgCat").val());
-        $("#AlgCat_IdAlgCat").val("");
-        $("#AlgCat_Nam").val("");
-        $("#AlgCat_Descr").val("");
-
-        da.AlgCatRead.btnControl();
     },
 
     Refresh: function() {

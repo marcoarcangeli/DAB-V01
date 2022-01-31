@@ -11,9 +11,14 @@ echo'
         if ($("#'.$this->PanelTag.$this->FEIdNam.'").val() == "") {
             $("#'.$this->PanelBtnsNam.' #btnRefresh").attr("disabled", true);
             $("#'.$this->PanelBtnsNam.' #btnDelete").attr("disabled", true);
+            $("#'.$this->PanelBtnsNam.' #btnNewChild").attr("disabled", true);
+            $("#'.$this->PanelBtnsNam.' #btnChangeParent").attr("disabled", true);
+
         } else {
             $("#'.$this->PanelBtnsNam.' #btnRefresh").attr("disabled", false);
             $("#'.$this->PanelBtnsNam.' #btnDelete").attr("disabled", false);
+            $("#'.$this->PanelBtnsNam.' #btnNewChild").attr("disabled", false);
+            $("#'.$this->PanelBtnsNam.' #btnChangeParent").attr("disabled", false);
         }
         /**concept: when btnSave is enabled? */
         /**when input fields are changed

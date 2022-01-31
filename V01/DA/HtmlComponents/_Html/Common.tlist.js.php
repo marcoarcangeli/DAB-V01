@@ -3,9 +3,11 @@
     // filters
     SearchIds: '',
     // InRefs + filters
-    IdProfile: '',
+    <?php echo $this->FVJsDecl; ?>
+    // IdProfile: '',
     // Tlist std params
     Table: null,
+    SelectedRow: null,
     PageLength: "<?php echo $this->PageLength; ?>",
     // std UI params
     Mode: "<?php echo $this->Mode; ?>",
@@ -35,7 +37,8 @@ $(document).ready(function() {
 
     // Tlist events
     $("#<?php echo $this->TlistDataTblNam; ?> tbody").on("click", "tr", function() {
-        <?php echo $this->JSPanelNamSpace; ?>.ToggleRow(this);
+        <?php echo $this->JSPanelNamSpace; ?>.SelectedRow = this;
+        <?php echo $this->JSPanelNamSpace; ?>.ToggleRow();
     });
     // Btn Events
     <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["BtnEventsJs"]); ?>

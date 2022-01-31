@@ -21,9 +21,10 @@ echo'
                     success: function(result) {
                         if (result["State"]) {
                             $("#'.$this->PanelTag.$this->FEIdNam.'").val(result["'.$this->FEIdNam.'"]);
-                            if ('.$this->JSPanelNamSpace.'.ParentObj) {
-                                da.NotifyObjs('.$this->JSPanelNamSpace.'.ParentObj, "Refresh", null);
-                            }
+                            '.$this->JSPanelNamSpace.'.Notify(null, "Refresh");
+                            // if ('.$this->JSPanelNamSpace.'.ParentObj) {
+                            //     da.NotifyObjs('.$this->JSPanelNamSpace.'.ParentObj, "Refresh", null);
+                            // }
                             da.UsrMsgShow('.$this->JSPanelNamSpace.'.SuccessMsg, "Info");
                         } else {
                             da.UsrMsgShow('.$this->JSPanelNamSpace.'.FailMsg, "Info");

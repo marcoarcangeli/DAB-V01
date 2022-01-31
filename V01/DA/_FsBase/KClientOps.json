@@ -14,6 +14,13 @@
         "SrvOps":   "Delete"
     },
     {
+        "ClientOp": "Clean",
+        "Icon":     "fas fa-broom",
+        "Label":    "Clean",
+        "DflState": "",
+        "SrvOps":   "Clean"
+    },
+    {
         "ClientOp": "Save",
         "Icon":     "far fa-save",
         "Label":    "Save",

@@ -761,15 +761,19 @@ class Dao
                 if(count($VMArr) > 0){
                     if(count($FEFsArr) == count($VMArr[0])){
                         foreach ($VMArr as $VMRow) {
+                            $VMSql .= '('. implode(',',$VMRow ) .'),';
+                        }
+                        foreach ($VMArr as $VMRow) {
                             $VMSql .= '('. implode(',',
                                 array_map( 
                                     function($v) { 
-                                        return ($v == "null") ? $v : '"'.$v.'"'; 
+                                        return '"'.$v.'"'; 
                                     }, 
                                     $VMRow
                                 )
                             ).'),';
                         }
+
                     }else{
                         LM::LogMessage("WARNING", __CLASS__."->". __FUNCTION__.': Values number not coherent with column number!');
                         return false;

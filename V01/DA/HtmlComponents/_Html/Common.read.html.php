@@ -1,6 +1,6 @@
 <!-- <div class="col-lg-8"> -->
 <div class="da-column col-sm-<?php echo $this->Col_Lg; ?>">
-    <div class="card <?php echo $this->Col_H; ?>">
+    <div id="<?php echo $this->WhoIAm; ?>" class="card <?php echo $this->Col_H; ?>">
         <div class="card-header">
             <h6 class="card-title"><?php echo $this->Header; ?></h6>
             <div class="card-tools">

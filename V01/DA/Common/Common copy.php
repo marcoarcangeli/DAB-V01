@@ -37,15 +37,14 @@ function verifyEmptyOrNullArr(array $ValuesArr)
 
 }
 
-// spaces only strongs are consodered EMPTY
 function emptyOrNull($Obj=null)
 {
     try {
-        $isEmptyString=false;
+        $isEmpty=false;
         if(is_string($Obj)){
-            $isEmptyString = trim($Obj)==="";
+            $isEmpty = trim($Obj)==="";
         }
-        return (empty($Obj) || $isEmptyString);
+        return (!isset($Obj) || $isEmpty);
     } catch (Exception $e) {
         LM::LogMessage("ERROR", $e);
         return false;

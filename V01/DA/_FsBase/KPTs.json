@@ -9,7 +9,7 @@
     },
     {
         "PanelType":    "FileTlist",
-        "ClientOps":    "Refresh,Delete,Clean,Upload"
+        "ClientOps":    "Refresh,Delete,Download,Clean,Upload"
     },
     {
         "PanelType":    "Struct",
@@ -21,14 +21,14 @@
     },
     {
         "PanelType":    "FileView",
-        "ClientOps":    "Refresh,Delete"
+        "ClientOps":    "Refresh,Delete,Download"
     },
     {
         "PanelType":    "FileEdit",
         "ClientOps":    "Refresh,Delete,Save"
     },
     {
-        "PanelType":    "CatRead",
-        "ClientOps":    "New,Refresh,Save,Delete,ChangeParent,NewChild"
+        "PanelType":    "ReadTree",
+        "ClientOps":    "New,Refresh,Save,Delete,NewChild"
     }
 ]

@@ -12,9 +12,9 @@ echo'
             }
             if ('.$this->JSPanelNamSpace.'.'.$this->FEIdNam.' &&
                 '.$this->JSPanelNamSpace.'.'.$this->FEIdNam.' != "") {
-                return $.ajax({
+                $.ajax({
                     type: "POST",
-                    url: "'.$_SESSION["HtmlComponentsRelPath"].'/UI.proxy.php",
+                    url: "'.$_SESSION["HtmlComponentsRelPath"].'UI.proxy.php",
                     dataType: "json",
                     "data": {
                         "SrvOpParams": '.$this->JSPanelNamSpace.'.GetSrvOpParams(SrvOpNam),

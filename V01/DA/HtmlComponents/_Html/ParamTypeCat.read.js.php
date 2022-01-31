@@ -99,11 +99,15 @@ da.ParamTypeCatRead = {
         }
     },
 
-    CleanParent: function() {
-        $("#ParamTypeCat_IdParamTypeCatPar").val($("#ParamTypeCat_IdParamTypeCat").val());
-        $("#ParamTypeCat_IdParamTypeCat").val("");
-        $("#ParamTypeCat_Nam").val("");
-        $("#ParamTypeCat_Descr").val("");
+    NewChild: function() {
+        NewIdParamTypeCatPar=$("#ParamTypeCat_IdParamTypeCat").val();
+        NewParamTypeCatParNam=$("#ParamTypeCat_Nam").val();
+        da.ParamTypeCatRead.Clean();
+        $("#ParamTypeCat_IdParamTypeCatPar").val(NewIdParamTypeCatPar);
+        $("#ParamTypeCat_ParamTypeCatParNam").val(NewParamTypeCatParNam);
+        // $("#ParamTypeCat_IdParamTypeCat").val("");
+        // $("#ParamTypeCat_Nam").val("");
+        // $("#ParamTypeCat_Descr").val("");
 
         da.ParamTypeCatRead.btnControl();
     },
@@ -244,7 +248,7 @@ $(document).ready(function() {
     });
 
     $("#ParamTypeCatBtns #btnNewChild").click(function() {
-        da.ParamTypeCatRead.CleanParent();
+        da.ParamTypeCatRead.NewChild();
     });
 
     $("#ParamTypeCatBtns #btnChangeParent").click(function() {

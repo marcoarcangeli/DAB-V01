@@ -4,7 +4,6 @@
     PanelTag: '<?php echo $this->PanelTag; ?>',
     CompulsoryFields: '<?php echo $this->CompulsoryFields; ?>',
     IdAlgCat: '',
-    ChangePar: false,
     Mode: '<?php echo $this->Mode; ?>',
     ParentObj: '<?php echo $this->ParentObj; ?>',
     ParentObjType: '<?php echo $this->ParentObjType; ?>',
@@ -20,12 +19,10 @@
             $("#<?php echo $this->PanelBtnsNam; ?> #btnRefresh").attr("disabled", true);
             $("#<?php echo $this->PanelBtnsNam; ?> #btnDelete").attr("disabled", true);
             $("#<?php echo $this->PanelBtnsNam; ?> #btnNewChild").attr("disabled", true);
-            $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").attr("disabled", true);
         } else {
             $("#<?php echo $this->PanelBtnsNam; ?> #btnRefresh").attr("disabled", false);
             $("#<?php echo $this->PanelBtnsNam; ?> #btnDelete").attr("disabled", false);
             $("#<?php echo $this->PanelBtnsNam; ?> #btnNewChild").attr("disabled", false);
-            $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").attr("disabled", false);
         }
 
         if (
@@ -62,10 +59,6 @@
     SetAlgCatPar: function(data) {
         $("#<?php echo $this->PanelTag; ?>IdAlgCatPar").val(data["IdAlgCat"]);
         $("#<?php echo $this->PanelTag; ?>AlgCatParNam").val(data["AlgCatNam"]);
-
-        $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").removeClass("btn-danger")
-        $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").addClass("btn-outline-primary");
-
     },
 
     Clean: function() {
@@ -78,41 +71,32 @@
         <?php echo $this->JSPanelNamSpace; ?>.btnControl();
     },
 
-    ChangeParent: function() {
-        if (<?php echo $this->JSPanelNamSpace; ?>.ParentObj) {
-            // alert("ChangeParent")
-            //change 
-            if (<?php echo $this->JSPanelNamSpace; ?>.ChangePar) {
-                <?php echo $this->JSPanelNamSpace; ?>.ChangePar = false;
-                $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").removeClass("btn-danger")
-                $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").addClass("btn-outline-primary");
-            } else {
-                <?php echo $this->JSPanelNamSpace; ?>.ChangePar = true;
-                $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").removeClass("btn-outline-primary")
-                $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").addClass("btn-danger");
-                alert("Select a new Parent in the left tree.");
-            }
-            da.RefreshObj(<?php echo $this->JSPanelNamSpace; ?>.ParentObj, <?php echo $this->JSPanelNamSpace; ?>.ParentObjType, "ChangeParent");
-            <?php echo $this->JSPanelNamSpace; ?>.btnControl();
-        }
+    NewChild: function() {
+        NewIdAlgCat=$("#<?php echo $this->PanelTag; ?>IdAlgCat").val();
+        NewAlgCatParNam=$("#<?php echo $this->PanelTag; ?>Nam").val();
+        da.ParamTypeCatRead.Clean();
+        $("#<?php echo $this->PanelTag; ?>IdAlgCatPar").val(NewIdAlgCat);
+        $("#<?php echo $this->PanelTag; ?>AlgCatParNam").val(NewAlgCatParNam);
+
+        da.ParamTypeCatRead.btnControl();
     },
 
-    CleanParent: function() {
-        $("#<?php echo $this->PanelTag; ?>IdAlgCatPar").val($("#<?php echo $this->PanelTag; ?>IdAlgCat").val());
-        $("#<?php echo $this->PanelTag; ?>IdAlgCat").val("");
-        $("#<?php echo $this->PanelTag; ?>Nam").val("");
-        $("#<?php echo $this->PanelTag; ?>Descr").val("");
+    // CleanParent: function() {
+    //     $("#<?php echo $this->PanelTag; ?>IdAlgCatPar").val($("#<?php echo $this->PanelTag; ?>IdAlgCat").val());
+    //     $("#<?php echo $this->PanelTag; ?>IdAlgCat").val("");
+    //     $("#<?php echo $this->PanelTag; ?>Nam").val("");
+    //     $("#<?php echo $this->PanelTag; ?>Descr").val("");
 
-        <?php echo $this->JSPanelNamSpace; ?>.btnControl();
-    },
+    //     <?php echo $this->JSPanelNamSpace; ?>.btnControl();
+    // },
 
-    Notify: function(data = null) {
-        if (<?php echo $this->JSPanelNamSpace; ?>.ParentObj) {
-            da.RefreshObj(<?php echo $this->JSPanelNamSpace; ?>.ParentObj, <?php echo $this->JSPanelNamSpace; ?>.ParentObjType,
-                "Refresh");
-        }
-
-    },
+    // Notify: function(data = null) {
+    //     if (<?php echo $this->JSPanelNamSpace; ?>.ParentObj) {
+    //         da.RefreshObj(<?php echo $this->JSPanelNamSpace; ?>.ParentObj, <?php echo $this->JSPanelNamSpace; ?>.ParentObjType,
+    //             "Refresh");
+    //     }
+    // },
+    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["NotifyJs"]); ?>
 
     Refresh: function(data = null) {
         try {
@@ -246,11 +230,7 @@ $(document).ready(function() {
     });
 
     $("#<?php echo $this->PanelBtnsNam; ?> #btnNewChild").click(function() {
-        <?php echo $this->JSPanelNamSpace; ?>.CleanParent();
-    });
-
-    $("#<?php echo $this->PanelBtnsNam; ?> #btnChangeParent").click(function() {
-        <?php echo $this->JSPanelNamSpace; ?>.ChangeParent();
+        <?php echo $this->JSPanelNamSpace; ?>.NewChild();
     });
 
     $("#<?php echo $this->PanelTag; ?>Nam").keyup(function(event) {

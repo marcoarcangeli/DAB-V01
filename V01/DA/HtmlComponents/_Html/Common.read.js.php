@@ -2,12 +2,12 @@
 <?php echo $this->JSPanelNamSpace; ?> = {
     // generalization step 3
     // filters + InRef
-    IdProfile: '',
-
-    // panel specific params
+    // IdProfile: '',
+    <?php echo $this->FVJsDecl; ?>
+    // read std params
     StateData: null,
-    // std UI
     <?php echo $this->FEIdNam; ?>: '',
+    // std UI params
     Mode: '<?php echo $this->Mode; ?>',
     CompulsoryFields: '<?php echo $this->CompulsoryFields; ?>',
     ParentObj: '<?php echo $this->ParentObj; ?>',
@@ -27,6 +27,14 @@
     <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsJs"]); ?>
 
     <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["SrvOpParamsJs"]); ?>
+
+    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["NotifyJs"]); ?>
+
+    <?php 
+    if(isset($this->ParentObjType) && $this->ParentObjType !== "Tree"){
+        include($_SESSION["ContentCommonRelPath"].$_SESSION["ReadChangeParentJs"]);
+    }
+    ?>
 
     //btn events
     <?php 

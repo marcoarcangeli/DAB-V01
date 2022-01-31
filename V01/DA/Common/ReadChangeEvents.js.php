@@ -1,5 +1,5 @@
 <?php 
-    // Read panel Chenge Events 
+    // Read panel Change Events 
     // capture change events from UIFs
     // Dependencies: btnControl
     if(isset($this->UIFs) && $this->UIFs !== ''){

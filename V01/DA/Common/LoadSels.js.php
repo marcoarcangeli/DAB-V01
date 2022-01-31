@@ -7,7 +7,14 @@
     if(isset($this->FSels) && $this->FSels !== ''){
         $FSelsArr=explode(',',$this->FSels);
         foreach ($FSelsArr as $FSel) {
-            echo $this->JSPanelNamSpace.'.get'.$FSel.'select();';
+            // recursion case
+            if($FSel == $this->FE){
+                $FSelNam=$FSel.$_SESSION["DEFParent"];
+            }else{
+                $FSelNam=$FSel;
+            }
+            
+            echo $this->JSPanelNamSpace.'.get'.$FSelNam.'select();';
         }
     }
     ?>

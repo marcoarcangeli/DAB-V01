@@ -93,7 +93,7 @@ da = {
             var strFunsArr = $.map( ObjsArr, function( Obj, index ) {
                 return "da." + Obj + "." + Fun + "("+d+")";
             });
-            alert(JSON.stringify(strFunsArr));
+            // alert(JSON.stringify(strFunsArr));
             // the following for could be parallel
             for (const strFun of strFunsArr) {
                 // alert(strFun);
@@ -455,7 +455,7 @@ da = {
         $("#"+panelName+"_UploadFiles #dstFolder").val(data["DstFolder"]);
         $("#"+panelName+"_UploadFiles #uplName").val(data["UplName"]);
         $("#"+panelName+"_UploadFiles #AllowedUploadFileExt").val(data["AllowedUploadFileExt"]);
-        alert($("#"+panelName+"_UploadFiles #dstFolder").val());
+        // alert($("#"+panelName+"_UploadFiles #dstFolder").val());
     }
     ,
     CleanUploadfileParams: function (panelName) {

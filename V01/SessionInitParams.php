@@ -59,7 +59,8 @@ $_SESSION["UsrMsg"]                 = '';       // pulizia messaggio Usr
 $_SESSION["UploadFileBufferName"]   = 'upl';    // Buffer for Html to PHP Files Upload
 // standard user msgs
 $_SESSION["SuccessMsg"] = "Operation executed";
-$_SESSION["FailMsg"] = "Operation not executed";
+$_SESSION["FailMsg"]    = "Operation not executed";
+$_SESSION["ChangeParMsg"] ="Select a new Parent node in the parent tree!";
 
 //- elType: common, alg, Prj, Evnt, cntx, anCntx, train, test, comp, rev, rank, space, ...
 
@@ -101,6 +102,7 @@ $_SESSION["DEFNum"]                     = 'Num';           // Numeric integer Fi
 $_SESSION["DEFVal"]                     = 'Vl';           // Numeric Field Multi Line
 $_SESSION["DEFLevel"]                   = 'Level';           // Numeric Integer Field Multi Line
 $_SESSION["DEFParams"]                  = 'Params';           // Description Field Multi Line
+$_SESSION["DEFParent"]                  = 'Par';           // Description Field Multi Line
 $_SESSION["DEFPwd"]                     = 'Pwd';           // Password Field Multi Line
 
 // folder standard prefix
@@ -165,16 +167,17 @@ $_SESSION["ProcRelPath"]    = "DA/_FsBase/Proc/";
 $_SESSION["SpaceRelPath"]   = "DA/_FsBase/Space/";
 
 // site folders
-$_SESSION["LogRelPath"]             = "DA/Logs/";
-$_SESSION["ContentCommonRelPath"]   = "DA/Common/";
-$_SESSION["FsComponentsRelPath"]    = "DA/FsComponents/";
-$_SESSION["HtmlComponentsRelPath"]  = "DA/HtmlComponents/";
-$_SESSION["MySqlComponentsRelPath"] = "DA/MySqlComponents/";
-$_SESSION["PhpRComponentsRelPath"]  = "DA/PhpRComponents/";
-$_SESSION["ContentCodePath"]        = $_SESSION["HtmlComponentsRelPath"] . "_Html/";
+$_SESSION["LogRelPath"]                     = "DA/Logs/";
+$_SESSION["ContentCommonRelPath"]           = "DA/Common/";
+$_SESSION["FsComponentsRelPath"]            = "DA/FsComponents/";
+$_SESSION["HtmlComponentsRelPath"]          = "DA/HtmlComponents/";
+$_SESSION["HtmlComponentsCommonRelPath"]    = "DA/HtmlComponents/Common/";
+$_SESSION["MySqlComponentsRelPath"]         = "DA/MySqlComponents/";
+$_SESSION["PhpRComponentsRelPath"]          = "DA/PhpRComponents/";
+$_SESSION["ContentCodePath"]                = $_SESSION["HtmlComponentsRelPath"] . "_Html/";
 
-$_SESSION["RScriptRelPath"]         = "DA/PhpRComponents/RScripts/";
-$_SESSION["RScriptOutputRelPath"]   = "DA/PhpRComponents/Output/";
+$_SESSION["RScriptRelPath"]                 = "DA/PhpRComponents/RScripts/";
+$_SESSION["RScriptOutputRelPath"]           = "DA/PhpRComponents/Output/";
 
 // set Paths Absolute
 $_SESSION["FsAbsPath"]              = $_SESSION["BaseFolderDyn"] . $_SESSION["FsRelPath"];
@@ -196,6 +199,7 @@ $_SESSION["toDoClass"]                  = "DA\\HtmlComponents\\Common\\toDo";
 $_SESSION["DaoRdbClass"]                = "DA\\MySqlComponents\\Dao";
 $_SESSION["DaoCtrlRdbClass"]            = "DA\\HtmlComponents\\DaoCtrl";
 $_SESSION["UIProxyClass"]               = "DA\\HtmlComponents\\UIProxy";
+$_SESSION["UIProxyClass"]               = "DA\\HtmlComponents\\UIProxy";
 // standard code chunks and contents
 $_SESSION["RevBaseTextFile"]            = "RevBaseText.txt";
 $_SESSION["cardToolsHtml"]              = "card-tools.html.php";
@@ -204,13 +208,23 @@ $_SESSION["TlistRefreshJs"]             = "TlistRefresh.js.php";
 $_SESSION["ReadGetFEFsJs"]              = "ReadGetFEFs.js.php";
 $_SESSION["ReadSetFEFsJs"]              = "ReadSetFEFs.js.php";
 $_SESSION["ReadBtnControlJs"]           = "ReadBtnControl.js.php";
+$_SESSION["FileTlistBtnControlJs"]      = "FileTlistBtnControl.js.php";
 $_SESSION["ReadNewJs"]                  = "ReadNew.js.php";
+$_SESSION["ReadNewChildJs"]             = "ReadNewChild.js.php";
 $_SESSION["ReadRefreshJs"]              = "ReadRefresh.js.php";
 $_SESSION["ReadDeleteJs"]               = "ReadDelete.js.php";
 $_SESSION["ReadSaveJs"]                 = "ReadSave.js.php";
-$_SESSION["TlistToggleJs"]              = "TlistToggle.js.php";
+$_SESSION["ReadChangeEventsJs"]         = "ReadChangeEvents.js.php";
+$_SESSION["ReadChangeParentJs"]         = "ReadChangeParent.js.php";
 $_SESSION["NotifyJs"]                   = "Notify.js.php";
+$_SESSION["TlistToggleJs"]              = "TlistToggle.js.php";
+$_SESSION["FileTlistToggleJs"]          = "FileTlistToggle.js.php";
+$_SESSION["FileTlistRefreshJs"]         = "FileTlistRefresh.js.php";
+$_SESSION["FileTlistDeleteJs"]          = "FileTlistDelete.js.php";
+$_SESSION["FileTlistDownloadJs"]        = "FileTlistDownload.js.php";
+$_SESSION["FileViewRefreshJs"]          = "FileViewRefresh.js.php";
 $_SESSION["TreeToggleJs"]               = "TreeToggle.js.php";
+$_SESSION["TreeRefreshJs"]              = "TreeRefresh.js.php";
 $_SESSION["TreeToggleNodeJs"]           = "TreeToggleNode.js.php";
 $_SESSION["SrvOpParamsJs"]              = "SrvOpParams.js.php";
 $_SESSION["InRefsJs"]                   = "InRefs.js.php";
@@ -221,8 +235,17 @@ $_SESSION["FSelsJs"]                    = "FSels.js.php";
 $_SESSION["FSelsHTML"]                  = "FSels.html.php";
 $_SESSION["UIFsHTML"]                   = "UIFs.html.php";
 $_SESSION["ClientOpsEventsJs"]          = "ClientOpsEvents.js.php";
-$_SESSION["ReadChangeEventsJs"]         = "ReadChangeEvents.js.php";
 $_SESSION["BtnEventsJs"]                = "BtnEvents.js.php";
+$_SESSION["UploadFilesJs"]              = "UploadFiles.js.php";
+$_SESSION["SetUploadfileParamsJs"]      = "SetUploadfileParams.js.php";
+
+// standard components 
+$_SESSION["UploadFilesPhp"]             = "UploadFiles.php";
+$_SESSION["FsManagerProxyPhp"]          = "FsManager.proxy.php";
+// coding common building blocks
+$_SESSION["PHPEoL"]="\r\n";
+
+
 // obsolete
 $_SESSION["btnToolboxReadHtml"]         = "btnToolboxRead.html.php";
 $_SESSION["btnToolboxCatReadHtml"]      = "btnToolboxCatRead.html.php";
