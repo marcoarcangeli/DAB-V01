@@ -9,12 +9,14 @@ echo'
         }
         /**concept: when btnRefresh, btnDelete are enabled? */
         if ($("#'.$this->PanelTag.$this->FEIdNam.'").val() == "") {
+            $("#'.$this->PanelBtnsNam.' #btnOpen").attr("disabled", true);
             $("#'.$this->PanelBtnsNam.' #btnRefresh").attr("disabled", true);
             $("#'.$this->PanelBtnsNam.' #btnDelete").attr("disabled", true);
             $("#'.$this->PanelBtnsNam.' #btnNewChild").attr("disabled", true);
             $("#'.$this->PanelBtnsNam.' #btnChangeParent").attr("disabled", true);
 
         } else {
+            $("#'.$this->PanelBtnsNam.' #btnOpen").attr("disabled", false);
             $("#'.$this->PanelBtnsNam.' #btnRefresh").attr("disabled", false);
             $("#'.$this->PanelBtnsNam.' #btnDelete").attr("disabled", false);
             $("#'.$this->PanelBtnsNam.' #btnNewChild").attr("disabled", false);

@@ -2,7 +2,7 @@
     da.RColTypeTlist = {
 
         Mode: "<?php echo $this->Mode; ?>",
-        PageLength: "<?php echo $this->PageLength; ?>",
+     // PageLength: "<?php echo $this->PageLength; ?>",
         DetailPanels: "<?php echo $this->DetailPanels; ?>",
 
         Get: function(obj) {
@@ -22,7 +22,7 @@
             var table = $("#RColTypeList").DataTable({
                 "paging": true,
                 "lengthChange": false,
-                "pageLength": da.RColTypeTlist.PageLength,
+                "pageLength": <?php echo $this->PageLength; ?>,
                 "searching": true,
                 "ordering": true,
                 "info": true,

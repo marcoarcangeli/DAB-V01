@@ -35,9 +35,9 @@
         "SrvOps":   ""
     },
     {
-        "ClientOp": "ChangeParent",
-        "Icon":     "fa fa-level-up-alt",
-        "Label":    "Change Parent",
+        "ClientOp": "Open",
+        "Icon":     "far fa-folder-open",
+        "Label":    "Open",
         "DflState": "disabled",
         "SrvOps":   ""
     },

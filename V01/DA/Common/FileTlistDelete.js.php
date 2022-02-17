@@ -42,7 +42,7 @@ echo'
                         },
                         success: function(result) {
                             // alert(result["Msg"]);
-                            '.$this->JSPanelNamSpace.'.CleanSelectedRow();
+                            '.$this->JSPanelNamSpace.'.DeselectRow();
                             '.$this->JSPanelNamSpace.'.Refresh();
                             da.UsrMsgShow('.$this->JSPanelNamSpace.'.SuccessMsg, "Info");
                         }

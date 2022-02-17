@@ -7,7 +7,7 @@ da.ParamTypeCatTlist = {
     IdParamTypeCat: '',
     Table: null,
     Mode: "<?php echo $this->Mode; ?>",
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     DetailPanels: "<?php echo $this->DetailPanels; ?>",
     ParentObj: '<?php echo $this->ParentObj; ?>',
     ParentObjType: '<?php echo $this->ParentObjType; ?>',
@@ -30,7 +30,7 @@ da.ParamTypeCatTlist = {
         da.ParamTypeCatTlist.Table = $("#ParamTypeCatList").DataTable({
             "paging": true,
             "lengthChange": false,
-            "pageLength": da.ParamTypeCatTlist.PageLength,
+            "pageLength": <?php echo $this->PageLength; ?>,
             "searching": true,
             "ordering": true,
             "info": true,

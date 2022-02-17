@@ -6,7 +6,7 @@
         IdAnCntx: '', // '?php echo $_SESSION["ASV"]["IdAnCntx"]; ?>',
         IdAn: '<?php echo $_SESSION["PSV"]["IdAn"]; ?>',
         IdCntx: '<?php echo $_SESSION["PSV"]["IdCntx"]; ?>',
-        PrjEvntRelPath: '',
+        PrjDat_EvntRelPath: '',
         AnCntxFileRefDatNam: '',
         PrjAnAbsPath: '',
         TrainFileRefDatNam: '',
@@ -65,7 +65,7 @@
             da.AnCntxRead.IdAn= (prjState["IdAn"]? prjState["IdAn"] : '<?php echo $_SESSION["PSV"]["IdAn"]; ?>'); 
             da.AnCntxRead.IdCntx= (prjState["IdCntx"]? prjState["IdCntx"] : '<?php echo $_SESSION["PSV"]["IdCntx"]; ?>'); 
 
-            da.AnCntxRead.PrjEvntRelPath= '<?php echo $_SESSION["PrjRelPath"].$_SESSION["PSV"]["PrjFolderNam"].'/'; ?>' 
+            da.AnCntxRead.PrjDat_EvntRelPath= '<?php echo $_SESSION["PrjRelPath"].$_SESSION["PSV"]["PrjFolderNam"].'/'; ?>' 
                 + prjState["EvntFolderNam"] +'/';
             da.AnCntxRead.PrjAnAbsPath= '<?php echo $_SESSION["PrjAbsPath"].$_SESSION["PSV"]["PrjFolderNam"].'/'; ?>' 
                 + prjState["AnFolderNam"] + '/';
@@ -322,7 +322,7 @@
                 DecSep          = '<?php echo $_SESSION["DecDefaultSep"]; ?>';
                 CsvSep          = '<?php echo $_SESSION["CSVDefaultSep"]; ?>';
                 CsvHeader       = 'TRUE';
-                fileRefDat      = da.AnCntxRead.PrjEvntRelPath + da.AnCntxRead.AnCntxFileRefDatNam;
+                fileRefDat      = da.AnCntxRead.PrjDat_EvntRelPath + da.AnCntxRead.AnCntxFileRefDatNam;
 
                 splitType       = $("#AnCntx_IdSplitType option:selected").attr('SplitType'); //'percentage';
                 splitConditionVect = '1,'+ $("#AnCntx_IdSplitType option:selected").attr('Perc'); //'1,60'
@@ -364,7 +364,7 @@
                 DecSep              = '<?php echo $_SESSION["DecDefaultSep"]; ?>';
                 CsvSep              = '<?php echo $_SESSION["CSVDefaultSep"]; ?>';
                 CsvHeader           = 'TRUE';
-                // fileRefDat      = da.AnCntxRead.PrjEvntRelPath+da.AnCntxRead.AnCntxFileRefDatNam;
+                // fileRefDat      = da.AnCntxRead.PrjDat_EvntRelPath+da.AnCntxRead.AnCntxFileRefDatNam;
                 PrjAnAbsPath        = da.AnCntxRead.PrjAnAbsPath;
                 TrainFileRefDatNam  = da.AnCntxRead.TrainFileRefDatNam;
                 TestFileRefDatNam   = da.AnCntxRead.TestFileRefDatNam;

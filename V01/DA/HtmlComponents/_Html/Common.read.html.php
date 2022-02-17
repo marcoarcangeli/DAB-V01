@@ -16,7 +16,8 @@
                     <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["btnToolboxHtml"]); ?>
                 </div>
                 <div class="row">
-                    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsNamsHTML"]); ?>
+                    <!-- ?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsNamsHTML"]); ?> -->
+                    <?php echo $this->InRefsNamsHTML; ?>
                 </div>   
                 <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["UIFsHTML"]); ?>
                 <!-- obsolete ?php include($_SESSION["ContentCommonRelPath"].$_SESSION["FSelsHTML"]); ?> -->
@@ -35,7 +36,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
-                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsIdsHTML"]); ?>
+                            <?php echo $this->InRefsIdsHTML; ?>
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="<?php echo $this->PanelTag; ?><?php echo $this->FEIdNam; ?>"><?php echo $this->FEIdNam; ?></label>

@@ -30,6 +30,13 @@
 
     <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["NotifyJs"]); ?>
 
+    // OBSOLETE
+    // ?php 
+    // if(isset($this->ParentObjType) && $this->ParentObjType !== "Tree"){
+    //     include($_SESSION["ContentCommonRelPath"].$_SESSION["ReadChangeParentJs"]);
+    // }
+    // ?>
+
     //btn events
     <?php 
     if(isset($this->ClientOps) && $this->ClientOps !== ''){

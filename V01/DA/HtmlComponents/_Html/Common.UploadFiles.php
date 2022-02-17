@@ -9,7 +9,7 @@ try {
 	// A list of permitted file extensions
 	// $allowed = array('pdf','csv', 'txt');
 	$allowed = $_SESSION["allowedUploadFileExt"];
-	// $DstFolder = $_SESSION["EvntAbsPath"];
+	// $DstFolder = $_SESSION["Dat_EvntAbsPath"];
 	// $uplName = 'upl_repoDataEvntFilesTlist';
 
 	if (isset($_POST["uplName"])) {

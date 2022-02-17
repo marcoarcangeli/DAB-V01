@@ -188,6 +188,7 @@ da = {
         }
     }
     ,
+    // Tree HTML builder
     getLevel: function (arr, ParentNodeId, IdNam, ParIdNam, PanelTag = '') {
 
         var html = '';
@@ -237,10 +238,12 @@ da = {
         return returnArr;
     }
     ,
+    // get filename from pathfilename
     basename: function (path) {
         return path.replace(/.*\//, '');
     }
     ,
+    // get path from pathfilename
     dirname: function (path) {
         return path.match(/.*\//);
     }
@@ -468,6 +471,7 @@ da = {
 
 }
 
+// common events
 $(".da-collapse-horizontal").click(function (event) {
     //alert('collapse');
     da.CardCollapseHorizontal(event);

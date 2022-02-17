@@ -7,7 +7,7 @@ da.AlgCatTlist = {
     IdAlgCat: '',
     Table: null,
     Mode: "<?php echo $this->Mode; ?>",
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     DetailPanels: "<?php echo $this->DetailPanels; ?>",
     ParentObj: '<?php echo $this->ParentObj; ?>',
     ParentObjType: '<?php echo $this->ParentObjType; ?>',
@@ -30,7 +30,7 @@ da.AlgCatTlist = {
         da.AlgCatTlist.Table = $("#AlgCatList").DataTable({
             "paging": true,
             "lengthChange": false,
-            "pageLength": da.AlgCatTlist.PageLength,
+            "pageLength": <?php echo $this->PageLength; ?>,
             "searching": true,
             "ordering": true,
             "info": true,

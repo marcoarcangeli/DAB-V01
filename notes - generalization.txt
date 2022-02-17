@@ -37,13 +37,34 @@
 		- Help (-?): complete help TEXT [?HTML?]
 		- Params Structure (-p): return params array structure of compulsory/optional params and defaults;
 	- ...
-
-LET apply this methods to ...
-- about js>phpproxy>uiproxy>Daoctrl>Dao chain:
+- GENERALIZING ARCHITECTURE:
+	- Client Side: UI(mask(HTML), interaction(JS, JQuery,Json,Ajax(POST)))
+	- Server Side: 
+		- UI.Proxy(POST): technology dependent proxy among Client and Server sides
+			- Web: GET, POST
+			- RPC: 
+			- Local: 
+		- ParamsExpert(Json<->array): Channel Proxy
+			- verify channel choice params
+			- choose channel or return abort
+		- <Channel(DB,FS,WS)>Expert: controller; start of the specific channel; technology and vendor dependent.
+			- verify requested operation params
+			- return response
+		- <Channel>Worker: service technology dependent
+			- build and execute specific service requests
+			- returns the service response
+		- <Channel>DestService: end-point of the channel:it can be internal or external to the system
+	- Main Channels: after UI.Proxy
+		- DB: DBProxy > DBExpert > DBWorker
+		- FS: FSProxy > FSExpert > FSWorker
+		- WS:
+			- RScript:
+			- ...
+LET apply this methods to the Channel DB
+-  js>phpproxy>uiproxy>Daoctrl>Dao chain:
 	- compulsory params check: Op + Compulsoryfields
 		- responsibility: js + uiproxy + Daoctrl + Dao
 			- new chain:  js 
-
 	- on CompulsoryFields vs compulsoryParams
 		- CompulsoryFields: array of HTML UI control names that must have a valid value
 			- chain must be stopped in js client-side
@@ -246,9 +267,9 @@ Events		|	[Row] Click							|	Save,New,Delete				|	[Row] Click			|
 		----------------------------------------------------------------------------------------------
 		CatRead			daForm						dbView
 		----------------------------------------------------------------------------------------------
-		FileView		daFrame						---
+		FileView		daFrame						fsFile
 		----------------------------------------------------------------------------------------------
-		FileEdit		daEditor					---
+		FileEdit		daEditor					fsFile
 		----------------------------------------------------------------------------------------------
 	- Relation among ...
 		---------------------------------------------------------------------------------------------------------------
@@ -278,6 +299,11 @@ Events		|	[Row] Click							|	Save,New,Delete				|	[Row] Click			|
 		---------------------------------------------------------------------------------------------------------------
 		FileEdit	
 		---------------------------------------------------------------------------------------------------------------
+	- extending basic PanelTypes: ex. ReadOpen
+		- ReadOpen: Read detail panel that is able to open a new drill-down of the detail entity
+			- ex. Projects Tlist-ReadOpen: Open ClientOp passes from ProjectReadOpen to the PrjBoard
+				- it is necessary to introduce custom views of rdbms tables data. see RDBMS generalization
+	
 	- DAO Standards: every DAO:
 		- must be related to 1 Entity > Entity can be composed by simpler Entities
 			- RDBMS: the Select From [Join] -> Entity(ies) + Descriptive Related other Entities
@@ -594,6 +620,24 @@ It means that it is necessary to define:
             "fd.Dt"      => array("filterRel" => 'OR'  , "filterType" => 'NoN', "filterValues" => '2021-11-20'),
         );
 	    */
+- [Filter] WHERE or HAVING conditions, are the most complex part to generalize
+    It can be done adding Filter Types when necessary. For ex. :
+    Filter Type: 
+        NoN: None on Null       > '=' (Single or Multiple Values);  Precise match
+        AoN: All on Null        > 'LIKE %' (Single Value);           Partial match
+        Min: Minimum            > >= (Single Value);
+        Max: Maximum            > <= (Single Value);
+        Rng: Range              > BETWEEN min an max (Multiple Values);
+     Type modificators:    
+        -: exclude              > NOT
+        C(dt): Cast as Datatype > CAST($var AS $dt)
+    ******************
+     examples
+     -NoN; -AoN;0
+	 *****
+	 complete examples
+	 IdAlg;NoN AND Nam;AoN OR Dt;-NoN
+	 IdAlg;NoN & Nam;AoN | Dt;-NoN
 
 =========================================================================================================================
 - UIFs: it is the list used to build the editable part of the Read Panels.

@@ -185,7 +185,7 @@
     },
     {
         "TNam": "prj",
-        "CSCols": "IdPrj,IdUsr,Nam,Descr,folderRef,IdPrjState"
+        "CSCols": "IdPrj,IdUsr,IdPrjState,Nam,Descr,folderRef"
     },
     {
         "TNam": "prjan",

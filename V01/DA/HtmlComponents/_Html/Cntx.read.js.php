@@ -5,7 +5,7 @@ da.CntxRead = {
     PanelTag: this.whoIAm + '_',
     IdCntx: '<?php echo $_SESSION["PSV"]["IdCntx"]; ?>',
     IdEvnt: '<?php echo $_SESSION["PSV"]["IdEvnt"]; ?>',
-    PrjEvntRelPath: '',
+    PrjDat_EvntRelPath: '',
     CntxFileRefDatNam: '',
     PrjCntxAbsPath: '',
     CompulsoryFields: '<?php echo $this->CompulsoryFields; ?>',
@@ -59,7 +59,7 @@ da.CntxRead = {
         da.CntxRead.IdEvnt = (prjState["IdEvnt"] ? prjState["IdEvnt"] :
             '<?php echo $_SESSION["PSV"]["IdEvnt"]; ?>');
 
-        da.CntxRead.PrjEvntRelPath =
+        da.CntxRead.PrjDat_EvntRelPath =
             '<?php echo $_SESSION["PrjRelPath"].$_SESSION["PSV"]["PrjFolderNam"].'/'; ?>' +
             (prjState["EvntFolderNam"] ? prjState["EvntFolderNam"] :
                 '<?php echo $_SESSION["PSV"]["EvntFolderNam"]; ?>') + '/';
@@ -128,7 +128,7 @@ da.CntxRead = {
             $("#Cntx_cusd").val("");
         }
 
-        $("#Cntx_fileRefDat").val(da.CntxRead.PrjEvntRelPath + da.CntxRead.CntxFileRefDatNam);
+        $("#Cntx_fileRefDat").val(da.CntxRead.PrjDat_EvntRelPath + da.CntxRead.CntxFileRefDatNam);
         // alert($("#Cntx_fileRefDat").val());
         da.CntxRead.btnControl();
     },
@@ -256,7 +256,7 @@ da.CntxRead = {
             autoSave = false;
             // check Cntx_fileRefDat field
             fileRefDatOld = $("#Cntx_fileRefDat").val();
-            fileRefDatNew = da.CntxRead.PrjEvntRelPath + da.CntxRead.CntxFileRefDatNam;
+            fileRefDatNew = da.CntxRead.PrjDat_EvntRelPath + da.CntxRead.CntxFileRefDatNam;
             if (fileRefDatOld !== fileRefDatNew) {
                 $("#Cntx_fileRefDat").val(fileRefDatNew);
                 autoSave = true;

@@ -7,7 +7,7 @@
     IdProfile: '',
     // Tlist std params
     Table: null,
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     // std UI params
     Mode: "<?php echo $this->Mode; ?>",
     DetailPanels: "<?php echo $this->DetailPanels; ?>",

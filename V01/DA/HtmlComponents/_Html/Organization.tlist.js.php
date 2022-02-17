@@ -7,7 +7,7 @@ da.OrganizationTlist = {
     IdOrganization: '',
     Table: null,
     Mode: "<?php echo $this->Mode; ?>",
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     DetailPanels: "<?php echo $this->DetailPanels; ?>",
     ParentObj: '<?php echo $this->ParentObj; ?>',
     ParentObjType: '<?php echo $this->ParentObjType; ?>',
@@ -30,7 +30,7 @@ da.OrganizationTlist = {
         da.OrganizationTlist.Table = $("#OrganizationList").DataTable({
             "paging": true,
             "lengthChange": false,
-            "pageLength": da.OrganizationTlist.PageLength,
+            "pageLength": <?php echo $this->PageLength; ?>,
             "searching": true,
             "ordering": true,
             "info": true,

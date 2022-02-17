@@ -3,7 +3,7 @@ da.Proc_FileTlist = {
 
     whoIAm: "Proc_FileTlist", 
     Table: null,
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     FolderAbsPath: '<?php echo $_SESSION["ProcAbsPath"]; ?>',
     FolderRelPath: '<?php echo $_SESSION["ProcRelPath"]; ?>',
     AllowedUploadFileExt: "<?php echo $this->AllowedUploadFileExt; ?>",
@@ -147,7 +147,7 @@ $(document).ready(function() {
         "dom": "<'myfilter'f>t ip",
         "paging": true,
         "lengthChange": false,
-        "pageLength": da.Proc_FileTlist.PageLength,
+        "pageLength": <?php echo $this->PageLength; ?>,
         "searching": true,
         "ordering": true,
         "info": true,

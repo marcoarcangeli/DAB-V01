@@ -6,7 +6,7 @@
     <?php echo $this->FVJsDecl; ?>
     // FileTlist std params
     Table: null,
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     FolderAbsPath: '<?php echo $_SESSION["ProcAbsPath"]; ?>',
     FolderRelPath: '<?php echo $_SESSION["ProcRelPath"]; ?>',
     AllowedUploadFileExt: "<?php echo $this->AllowedUploadFileExt; ?>",

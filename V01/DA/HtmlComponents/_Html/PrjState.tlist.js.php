@@ -2,7 +2,7 @@
     da.PrjStateTlist = {
 
         Mode: "<?php echo $this->Mode; ?>",
-        PageLength: "<?php echo $this->PageLength; ?>",
+     // PageLength: "<?php echo $this->PageLength; ?>",
         DetailPanels: "<?php echo $this->DetailPanels; ?>",
 
         Get: function(obj) {
@@ -22,7 +22,7 @@
             var table = $("#PrjStateList").DataTable({
                 "paging": true,
                 "lengthChange": false,
-                "pageLength": da.PrjStateTlist.PageLength,
+                "pageLength": <?php echo $this->PageLength; ?>,
                 "searching": true,
                 "ordering": true,
                 "info": true,

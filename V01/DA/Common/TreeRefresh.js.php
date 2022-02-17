@@ -56,6 +56,7 @@ echo'
     GetRowData: function() {
         obj = '.$this->JSPanelNamSpace.'.SelectedRow;
         data = '.$this->JSPanelNamSpace.'.DataArr.find(x => x.'.$this->FEIdNam.' === $(obj).attr("val"));
+        data["SearchIds"] = $(obj).attr("searchIds");
         return data;
     },
 ';

@@ -20,6 +20,10 @@
         "ClientOps":    "New,Refresh,Save,Delete"
     },
     {
+        "PanelType":    "ReadOpen",
+        "ClientOps":    "Open,New,Refresh,Save,Delete"
+    },
+    {
         "PanelType":    "FileView",
         "ClientOps":    "Refresh,Delete,Download"
     },

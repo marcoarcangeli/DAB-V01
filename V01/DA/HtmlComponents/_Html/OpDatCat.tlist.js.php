@@ -6,7 +6,7 @@ da.OpDatCatTlist = {
     IdOpDatCat: '',
     Table: null,
     Mode: "<?php echo $this->Mode; ?>",
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     DetailPanels: "<?php echo $this->DetailPanels; ?>",
     ParentObj: '<?php echo $this->ParentObj; ?>',
     ParentObjType: '<?php echo $this->ParentObjType; ?>',
@@ -29,7 +29,7 @@ da.OpDatCatTlist = {
         da.OpDatCatTlist.Table = $("#OpDatCatList").DataTable({
             "paging": true,
             "lengthChange": false,
-            "pageLength": da.OpDatCatTlist.PageLength,
+            "pageLength": <?php echo $this->PageLength; ?>,
             "searching": true,
             "ordering": true,
             "info": true,

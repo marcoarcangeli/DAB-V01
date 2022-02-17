@@ -237,11 +237,11 @@ OBSERVATIONS:
         Max: Maximum            > <= (Single Value);
         Rng: Range              > BETWEEN min an max (Multiple Values);
      Type modificators:    
-        X: exclude              > NOT
+        -: exclude              > NOT
         C(dt): Cast as Datatype > CAST($var AS $dt)
     ******************
      examples
-     NoNX; AoNX;0
+     -NoN; -AoN;0
      
 - [Ordering fields] a std could be:
     - Descriptive 'Nam' Fields, if they exist
@@ -297,6 +297,276 @@ OTHER OBSERVATIONS
     ? could be done with the Analyst interaction selecting fundamental and description assets
 
 ----------------------------------------------------------
+----------------------------------------------------------
+SELECT CUSTOM VIEWS
+----------------------------------------------------------
+- a CUSTOM VIEW is composed by a whatever field, coming from any table or other view.
+    - starting ex.
+    ex. PrjStateCalcSingle
+            SELECT
+                p.IdPrj,
+                p.IdUsr,
+                p.Nam,
+                p.Descr,
+                p.FolderRef,
+                p.IdPrjState,
+                sp.Nam as PrjStateNam,
+                e.IdEvnt,
+                e.fileRefRepoDat,
+                cl.IdClean,
+                c.IdCntx,
+                MIN(a.IdAn) AS IdAn,
+                COUNT(a.IdAn) AS AnNum,
+                rn.IdRnk,
+                (not isnull(p.IdPrj)) + 
+                (not isnull(e.IdEvnt)) +
+                (not isnull(cl.IdClean)) +
+                (not isnull(c.IdCntx)) +
+                (not isnull(a.IdAn)) +
+                (not isnull(rn.IdRnk))
+                as IdPrjStateCalc
+            FROM
+                Prj p
+                LEFT JOIN PrjState   sp  ON p.IdPrjState = sp.IdPrjState
+                LEFT JOIN evnt       e   ON p.IdPrj      = e.IdPrj
+                LEFT JOIN cntx       c   ON p.IdPrj      = c.IdPrj
+                LEFT JOIN clean      cl  ON p.IdPrj      = cl.IdPrj
+                LEFT JOIN an         a   ON p.IdPrj      = a.IdPrj
+                LEFT JOIN rnk        rn  ON a.IdPrj      = rn.IdPrj
+            WHERE
+                p.IdPrj = " . $this->IdPrj."
+            GROUP BY
+                p.IdPrj
+
+- Fields could be calculated or composed fields
+- it is necessary to build custom SQL code and include it into the DAO (if it is defined)
+- or it should be condesed in a meta Sql language in which:
+    - it is distinguished: 
+        - ENTITY: From clause param, as a join of tables/views, 
+            - ex.
+                Prj p
+                LEFT JOIN PrjState   sp  ON p.IdPrjState = sp.IdPrjState
+                LEFT JOIN evnt       e   ON p.IdPrj      = e.IdPrj
+                LEFT JOIN cntx       c   ON p.IdPrj      = c.IdPrj
+                LEFT JOIN clean      cl  ON p.IdPrj      = cl.IdPrj
+                LEFT JOIN an         a   ON p.IdPrj      = a.IdPrj
+                LEFT JOIN rnk        rn  ON a.IdPrj      = rn.IdPrj
+            - condensed syntax: <FE>  <JEj>;L;Id<JEj> ... <JEj>;L;Id<FE> ... <JEj>;L;Id<JEi>
+            - sample decomposed
+                <FE>            <FE>            
+                <JE1>;L;<fn1>   <JE1>;L;Id<JE1> 
+                <JE2>;L;<fn2>   <JE2>;L;Id<FE>  
+                <JE3>;L;<fn3>   <JE3>;L;Id<FE>  
+                <JE4>;L;<fn4>   <JE4>;L;Id<FE>  
+                <JE5>;L;<fn5>   <JE5>;L;Id<FE>  
+                <JE6>;L;<fn6>   <JE6>;L;Id<JE5> 
+            - where
+                - join types: they should be declined in a more friendly way, during modelling fase
+                    [I]nner: values existing in both entities
+                    [C]ross or (, sep): cartesian product of values; any combination of values of both entities 
+                    [L]eft: all the first entity values and the second entity values only if they exists
+                    [R]ight: all the second entity values and the first entity values only if they exists
+                - inner entities (T/V):
+                <FE>:  Prj
+                <JE1>: PrjState
+                <JE2>: Evnt    
+                <JE3>: Cntx    
+                <JE4>: Clean   
+                <JE5>: An      
+                <JE6>: Rnk     
+            - Entity Condesed code could be: 
+                "Prj PrjState;L;IdPrjState Evnt;L;IdPrj Cntx;L;IdPrj Clean;L;IdPrj An;L;IdPrj Rnk;L;IdAn"
+        - FIELDS LIST: each field can be  
+            - simple: <t/v>.<fn>
+            - simple duplicated: <t/v>.<fn> as <t/v><fn>,
+            - computed: <expression> as <fn>
+                - <expression>: ex. 
+                    (not isnull(p.IdPrj)) + 
+                    (not isnull(e.IdEvnt)) +
+                    (not isnull(cl.IdClean)) +
+                    (not isnull(c.IdCntx)) +
+                    (not isnull(a.IdAn)) +
+                    (not isnull(rn.IdRnk)) 
+            - ex.
+                Prj.IdPrj,
+                Prj.IdUsr,
+                Prj.Nam,
+                Prj.Descr,
+                Prj.FolderRef,
+                Prj.IdPrjState,
+                PrjState.Nam as PrjStateNam,
+                Evnt.IdEvnt,
+                Evnt.fileRefRepoDat,
+                Clean.IdClean,
+                Cntx.IdCntx,
+                MIN(An.IdAn) AS IdAn,
+                COUNT(An.IdAn) AS AnNum,
+                Rnk.IdRnk,
+                (not isnull(Prj.IdPrj)) + 
+                (not isnull(Evnt.IdEvnt)) +
+                (not isnull(Clean.IdClean)) +
+                (not isnull(Cntx.IdCntx)) +
+                (not isnull(An.IdAn)) +
+                (not isnull(Rnk.IdRnk))
+                as IdPrjStateCalc    
+            - Syntax: 
+                - simple: <FE>.<fni> <JEj>.<fni>
+                - simple duplicated: <JEj>.<fni>
+                    - it can be only  a JE (not a field of the FE)
+                    - the <fni>(<JEj>) == <fni>(<FE>): 
+                        - ex. PrjState.Nam as PrjStateNam
+                            "Nam"(PrjState) == "Nam"(Prj)
+                - computed: must be written in a pseudo-code:
+                    - ex: 
+                        "Prj.IdPrj Evnt.IdEvnt:+ Clean.IdClean:+ Cntx.IdCntx:+ An.IdAn:+ Rnk.IdRnk:+"
+                        "An.IdAn;MIN"
+                        "An.IdAn;COUNT"
+                    - not isnull(...): it is a technical addiction to secure code from basic unusefull errors
+- COMPLETE CUSTOM VIEW string could be:
+[
+    {
+        "VNam": "PrjStateCalcSingle",
+        "Entity": "Prj PrjState;L;IdPrjState Evnt;L;IdPrj Cntx;L;IdPrj Clean;L;IdPrj An;L;IdPrj Rnk;L;IdAn"
+        "CSCols": "Prj.IdPrj,Prj.IdUsr,Prj.Nam,Prj.Descr,Prj.FolderRef,Prj.IdPrjState,
+                   PrjState.Nam,Evnt.IdEvnt,Evnt.fileRefRepoDat,Clean.IdClean,Cntx.IdCntx,
+                   An.IdAn;MIN,An.IdAn;COUNT,IdPrjStateCalc;Prj.IdPrj Evnt.IdEvnt:+ Clean.IdClean:+ Cntx.IdCntx:+ An.IdAn:+ Rnk.IdRnk:+"
+    },
+...
+]
+- so the basic sql builder in the DAO must be sophisticated in order to evolve the functions:
+    - getEFsSql($FE, $DEs, $FEFs, $DEFs)
+    - getEntitySql($FE, $DEs)
+    - Filters are managed distinguishing between WHERE and HAVING clauses.
+        - WHERE in the inner select, before the grouping, IS MORE EFFICIENT.
+- in this case (Prj), the standard SrvOpParams are that ones of the Prj entity:
+    "FE"        : "Prj", 
+    "FEFs"      : "IdPrj,IdUsr,Nam,Descr,folderRef,IdPrjState",
+    "DEs"       : "Usr,PrjState",
+    "DEFs"      : "UsrNam,PrjStateNam",  
+    "EFs"       : "IdPrj,IdUsr,Nam,Descr,folderRef,IdPrjState,UsrNam,PrjStateNam",  
+    "FM"        : da.PrjTlist.GetFMJson(), 
+    "SetFs"     : "IdPrj,IdUsr,Nam,Descr,folderRef,IdPrjState"
+    "UIFs"      : "IdUsr,Nam,Descr,folderRef,IdPrjState"
+    - OBSERVATIONS:
+    - FIRST OPTION: FULL
+        - a MATHS META LANGUAGE (MML) must be developped in order to define expressions in a language independent way
+        - MML must be 
+            - as simple and similary to the common expression definition 
+            - not limited by specific language capabilities 
+            - case insensitive
+        - IdUsr, UsrNam comes from the session; they are like a constant for the FE entity in the run-time UI;
+            - should be defined a standard to assign session values: ex. fromSession, toSession navigation params
+            - should be placed in the TECH INFO; 
+            - they are not an FSel;
+            - <JEj> should be included into the the Fields list with ID and Nam (if available )
+        - Prj,PrjState and Usr entities are included by defualt with their id and nam fields
+        - the FE entity is included by default with all its fields
+        - JOIN defaults: syntax <ENami>[;<JoinType>][;<FENami>]
+            - le LEFT JOIN could be defined as a default
+            - the FEId could be defines as a default for join
+        - parentesis ()[]{}, functions/operators (like min, max, +, / ) can be placed as single char with a leading and a following sophisticated
+        - GROUP BY clause is position dependent, so it could be set as a number defining the GFs according to the EFs order 
+            - ex.   GFs:"1" -> Prj.IdPrj 
+            - ex.   GFs:"2" -> Usr.IdUsr 
+            - ex.   GFs:"1,2" -> Prj.IdPrj,Usr.IdUsr
+            - ex.   GFs:"2,1" -> Usr.IdUsr,Prj.IdPrj
+                and so on.
+    - SO
+        - the CUSTOM VIEW could be simplified including only the additional information needed:
+        [
+            {
+                "VNam":   "PrjStateCalcSingle",
+                "VEs": "Evnt,Cntx,Clean,An,Rnk;IdAn"                                                             //<JEj>
+                "CSCols": "Evnt.fileRefRepoDat,                                                                     // additional specific fields
+                           IdAn=MIN&An.IdAn,IdAn=COUNT&An.IdAn,                                                     // computed fields
+                           IdPrjStateCalc=( !isnull&Prj.IdPrj + !isnull&Evnt.IdEvnt + !isnull&Clean.IdClean + 
+                                            !isnull&Cntx.IdCntx + !isnull&An.IdAn + !isnull&Rnk.IdRnk )"
+                "GroupBy":"1"
+            },
+        ...
+        ]
+        - completed params
+        [
+            {
+                "VNam":   "PrjStateCalcSingle",
+                "VEs": "Prj,Usr,PrjState,Evnt,Cntx,Clean,An,Rnk;IdAn"
+                "CSCols": "IdPrj,IdUsr,Nam,Descr,folderRef,IdPrjState,UsrNam,PrjStateNam,                           // all the EFs
+                           IdEvnt,EvntNam,IdCntx,CntxNam,IdClean,CleanNam,IdAn,AnNam,IdRnk,RnkNam                   // all ids and DEs of <JEj>
+                           Evnt.fileRefRepoDat,                                                                     // SFs: additional specific fields
+                           IdAn=MIN&An.IdAn,AnNum=COUNT&An.IdAn,                                                    // CFs: computed fields
+                           IdPrjStateCalc=( !isnull&Prj.IdPrj + !isnull&Evnt.IdEvnt + !isnull&Clean.IdClean + 
+                                            !isnull&Cntx.IdCntx + !isnull&An.IdAn + !isnull&Rnk.IdRnk )"
+                "GroupBy":"1"
+            },
+        ...
+        ]
+    - SECOND OPTION: SIMPLIFIED
+        - the same for VNam and Entity params
+        - the same for EFs and all ids and DEs of <JEj> and additional specific fields
+        - computed fields could be marked by the language used: 
+            ex  SQL:MIN(An.IdAn) AS IdAn
+                PHP:IdAn=min(IdAnArr);
+        - Advantages: no language expert needed, immediate if the language is the one that is needed
+            - usually code is defined with a specific responsibility, so it should be easier and efficient to define language specific params ?
+        - Disadvantages: changing language need redundancy; 
+    - THIRD OPTION: ALLOW TO INCLUDE A LANGUAGE SPECIFIC SCRIPT: Ex. a navigation param - SQLScript:PrjStateCalcSingle.sql
+        - it could be parameterized on filters (WHERE clause)
+    - LAST OPTION: ALLOW ALL OPTIONS
+    - FINAL OBSERVATIONS: 
+        - if the objective is not to write always the same code, the FIRST option is what I need:
+        It allows to elevate the information about the access to a part of the knowledge and it delegates the technical
+        code definition to a language specific code builder.
+        - if the objective is to limit the complexity of the code building the SECOND and the THIRD options are to be considered, 
+        in that increasing order of simplification.
+        - THIRD option could be considered as a last chance for cases that do not match the previous ones.
+        - The SECOND option is the best mean point, because 
+            - it doesn't need to develop a new meta language to map all the SQL functions and operators.
+            - single expressions can be tested in the language specific SDE.
+            - it should be good if entity could be implied starting from the field name.
+        - Language specification could be not necessary, considering that this is a RDBMS specific DAO layer and 
+            SQL is almost compulsory at this level.
+            But could be used any other DAO layer to access RDBMS.
+        - This could be a generalized approach to the variety integration: COMMUNICATE, DO NOT RE-MAP.
+    - BEST OPTION: as far as I know
+        - the CUSTOM VIEW STRUCTURE could be simplified including 
+            - only the additional information needed
+            - the SQL expression code 
+        [
+            {
+                "VNam":   "PrjStateCalcSingle",
+                "VEs":    "Evnt,Cntx,Clean,An,Rnk;IdAn",                                                             // VEs: View Entities; <JEj>
+                "VFs":    "Evnt.fileRefRepoDat,                                                                     // additional specific fields
+                           MIN(An.IdAn) AS IdAn,COUNT(An.IdAn) AS AnNum,                                           // CFs: computed fields
+                           (not isnull(p.IdPrj))+(not isnull(e.IdEvnt))+(not isnull(cl.IdClean))+
+                           (not isnull(c.IdCntx))+(not isnull(a.IdAn))+(not isnull(rn.IdRnk))
+                           as IdPrjStateCalc",
+                "GroupBy":"Prj.IdPrj"
+            },
+        ...
+        ]
+    - the complete SrvOpParams can be:
+        "FE"        : "Prj", 
+        "FEFs"      : "IdPrj,IdUsr,IdPrjState,Nam,Descr,folderRef",
+        "DEs"       : "Usr,PrjState,Evnt,Cntx,Clean,An,Rnk",
+        "DEFs"      : "UsrNam,PrjStateNam,EvntNam,CntxNam,CleanNam,AnNam,RnkNam",  
+        "EFs"       : "IdPrj,IdUsr,IdPrjState,Nam,Descr,folderRef,UsrNam,PrjStateNam,              // EFs=FEFs(FE)+DEFs+VEFs+VFs where VFs=SFs+CFs
+                       IdEvnt,IdCntx,IdClean,{IdAn},IdRnk,EvntNam,CntxNam,CleanNam,AnNam,RnkNam      // all ids and DEs of <JEj>
+                       Evnt.fileRefRepoDat,                                                        // SFs: additional specific fields [<Ei>.<Fj>, ...]
+                       MIN(An.IdAn) AS IdAn,COUNT(An.IdAn) AS AnNum,                                // CFs: computed fields
+                       (not isnull(Prj.IdPrj))+(not isnull(Evnt.IdEvnt))+(not isnull(Clean.IdClean))+
+                       (not isnull(Cntx.IdCntx))+(not isnull(An.IdAn))+(not isnull(Rnk.IdRnk))
+                       as IdPrjStateCalc",  
+        "FM"        : da.PrjTlist.GetFMJson(), 
+        "SetFs"     : "IdPrj,IdUsr,IdPrjState,Nam,Descr,folderRef"
+        "UIFs"      : "IdUsr,IdPrjState,Nam,Descr,folderRef"
+        "GFs"       : "Prj.IdPrj"                                                                           // GFs: Group Fields
+        "Entity"    : "Prj,Usr,PrjState,Evnt,Cntx,Clean,An,Rnk;IdAn"                                // Entity=FE+DEs+VEs  
+    - EFs=FEFs(FE)+DEFs+VEFs+VFs 
+        - VFs=SFs+CFs
+            - check if it substitute  
+        - VEFs= IDs(VEs)+DEFs(VEs)
+    - DEFAULT Fields order
+
 ----------------------------------------------------------
 INSERT and UPDATE examples: 
 ----------------------------------------------------------

@@ -16,7 +16,7 @@ echo'
             "dom": "<\'myfilter\'f>t ip",
             "paging": true,
             "lengthChange": false,
-            "pageLength": '.$this->JSPanelNamSpace.'.PageLength,
+            "pageLength": '.$this->PageLength.', 
             "searching": true,
             "ordering": true,
             "info": true,
@@ -40,6 +40,9 @@ echo'
             "columns": [{
                 "data": "FileNam"
             }],
+            "order": [
+                [0, "'.$this->TlistOrder.'"]
+            ],
         });
         '.$this->JSPanelNamSpace.'.Notify(null,"Refresh");
     },

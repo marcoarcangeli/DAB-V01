@@ -34,7 +34,7 @@ class DaoCtrl
             // set Prjproperty values
             // $Dat_Evnt->idPrj = $_POST['idPrj'];
             // get manager object
-            $Dir  = $_SESSION["EvntAbsPath"];
+            $Dir  = $_SESSION["Dat_EvntAbsPath"];
             $Ext  = $_SESSION["DatCSVFile"];
             $Files = array();
             $Fsm = new FSM();

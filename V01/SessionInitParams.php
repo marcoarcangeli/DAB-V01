@@ -119,6 +119,7 @@ $_SESSION["CompareFolderPrfx"]          = "Compare_";
 $_SESSION["RevFolderPrfx"]              = "Rev_";
 $_SESSION["RnkFolderPrfx"]              = "Rnk_";
 $_SESSION["IdPrfx"]                     = 'Id';
+$_SESSION["FileRefPrfx"]                = 'FileRef';
 
 //- filecontentType (fct): stats, graph, dat, params, log, output, el (omitted)
 $_SESSION["fctStats"]   = "_stats";
@@ -160,11 +161,11 @@ $_SESSION["FilterTypeApprox"]   = 'AoN'; // All On Null filter
 
 // RelPaths
 //    $dir  = '/xampp/htdocs/tesiTerzoAnno/DAB/DA/_FsBase/Procs/';
-$_SESSION["FsRelPath"]      = "DA/_FsBase/";
-$_SESSION["PrjRelPath"]     = "DA/_FsBase/Prj/";
-$_SESSION["EvntRelPath"]    = "DA/_FsBase/Dat/Evnt/";
-$_SESSION["ProcRelPath"]    = "DA/_FsBase/Proc/";
-$_SESSION["SpaceRelPath"]   = "DA/_FsBase/Space/";
+$_SESSION["FsRelPath"]          = "DA/_FsBase/";
+$_SESSION["PrjRelPath"]         = "DA/_FsBase/Prj/";
+$_SESSION["Dat_EvntRelPath"]    = "DA/_FsBase/Dat/Evnt/";
+$_SESSION["ProcRelPath"]        = "DA/_FsBase/Proc/";
+$_SESSION["SpaceRelPath"]       = "DA/_FsBase/Space/";
 
 // site folders
 $_SESSION["LogRelPath"]                     = "DA/Logs/";
@@ -184,7 +185,7 @@ $_SESSION["FsAbsPath"]              = $_SESSION["BaseFolderDyn"] . $_SESSION["Fs
 $_SESSION["LogAbsPath"]             = $_SESSION["BaseFolderDyn"] . $_SESSION["LogRelPath"];
 
 $_SESSION["PrjAbsPath"]             = $_SESSION["BaseFolderDyn"] . $_SESSION["PrjRelPath"]; 
-$_SESSION["EvntAbsPath"]            = $_SESSION["BaseFolderDyn"] . $_SESSION["EvntRelPath"];
+$_SESSION["Dat_EvntAbsPath"]        = $_SESSION["BaseFolderDyn"] . $_SESSION["Dat_EvntRelPath"];
 $_SESSION["ProcAbsPath"]            = $_SESSION["BaseFolderDyn"] . $_SESSION["ProcRelPath"];
 $_SESSION["SpaceAbsPath"]           = $_SESSION["BaseFolderDyn"] . $_SESSION["SpaceRelPath"];
 
@@ -209,6 +210,7 @@ $_SESSION["ReadGetFEFsJs"]              = "ReadGetFEFs.js.php";
 $_SESSION["ReadSetFEFsJs"]              = "ReadSetFEFs.js.php";
 $_SESSION["ReadBtnControlJs"]           = "ReadBtnControl.js.php";
 $_SESSION["FileTlistBtnControlJs"]      = "FileTlistBtnControl.js.php";
+$_SESSION["ReadOpenJs"]                 = "ReadOpen.js.php";
 $_SESSION["ReadNewJs"]                  = "ReadNew.js.php";
 $_SESSION["ReadNewChildJs"]             = "ReadNewChild.js.php";
 $_SESSION["ReadRefreshJs"]              = "ReadRefresh.js.php";

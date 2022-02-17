@@ -7,7 +7,7 @@ da.ProfileFeatureAuthTlistRead = {
     IdProfile: '',
     Table: null,
     Mode: "<?php echo $this->Mode; ?>",
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     DetailPanels: "<?php echo $this->DetailPanels; ?>",
     ParentObj: '<?php echo $this->ParentObj; ?>',
     ParentObjType: '<?php echo $this->ParentObjType; ?>',
@@ -104,7 +104,7 @@ da.ProfileFeatureAuthTlistRead = {
         da.ProfileFeatureAuthTlistRead.Table = $("#ProfileFeatureAuthListRead").DataTable({
             "paging": true,
             "lengthChange": false,
-            "pageLength": da.ProfileFeatureAuthTlistRead.PageLength,
+            "pageLength": <?php echo $this->PageLength; ?>,
             "searching": true,
             "ordering": true,
             "order": [[ 2, "asc" ], [ 4, "asc" ]],

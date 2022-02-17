@@ -77,7 +77,8 @@
                 <!-- /.card-header -->
                 <div class="card-body">
                     <div class="row">
-                        <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsIdsHTML"]); ?>
+                        <!-- <php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsIdsHTML"]); ?> -->
+                        <?php echo $this->InRefsIdsHTML; ?>
                         <!-- /.row -->
                     </div>
                 </div>

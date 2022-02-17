@@ -183,7 +183,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $JsonPathFn=$_SESSION["FsRelPath"].$_SESSION["DbNam"].$_SESSION["JsonFile"];
                             $_SESSION["FEsA"] = $Db->GetArrayFromJsonFile($JsonPathFn);
                             $_SESSION["FEsACSCols"]=array_column($_SESSION["FEsA"], 'CSCols');
-
+                            // load dbViews
+                            $JsonPathFn=$_SESSION["FsRelPath"].$_SESSION["DbNam"]."Views".$_SESSION["JsonFile"];
+                            $_SESSION["DbViews"] = $Db->GetArrayFromJsonFile($JsonPathFn);
+                            // if($_SESSION["Debug"]>=2){ LM::LogMessage("DEBUG","DbViews: ".json_encode($_SESSION["DbViews"])); }
                             // load PanelTypes knowledge
                             $JsonPathFn=$_SESSION["FsRelPath"]."KPTs".$_SESSION["JsonFile"];
                             // if($_SESSION["Debug"]>=2){ LM::LogMessage("INFO", "JsonPathFn: ".$JsonPathFn); }

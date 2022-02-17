@@ -10,8 +10,8 @@ class dataEvntFilesTlist extends ContentBuilder
 {
     // parametri specifici
     protected string $IdPrj;
-    protected string $EvntAbsPath;
-    protected string $EvntRelPath;
+    protected string $Dat_EvntAbsPath;
+    protected string $Dat_EvntRelPath;
     protected string $RelBaseFolder;
 
     public function __construct(string $Param = "OK")    {
@@ -22,9 +22,9 @@ class dataEvntFilesTlist extends ContentBuilder
     {
         try {
             // default parametri specifici
-            $this->EvntAbsPath=$_SESSION["EvntAbsPath"];
+            $this->Dat_EvntAbsPath=$_SESSION["Dat_EvntAbsPath"];
             $this->RelBaseFolder=$_SESSION["RelBaseFolder"];
-            $this->EvntRelPath=$_SESSION["EvntRelPath"];
+            $this->Dat_EvntRelPath=$_SESSION["Dat_EvntRelPath"];
 
             // set contentParams
             $this->SetBasicParams($Param);

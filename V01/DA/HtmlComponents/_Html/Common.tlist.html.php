@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsNamsHTML"]); ?>
+                        <?php echo $this->InRefsNamsHTML; ?>
                     </div>
 
                     <!-- /.row -->

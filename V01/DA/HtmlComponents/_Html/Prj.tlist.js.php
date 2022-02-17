@@ -6,7 +6,7 @@ da.PrjTlist = {
     SearchIds: '',
     Table: null,
     Mode: "<?php echo $this->Mode; ?>",
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     DetailPanels: "<?php echo $this->DetailPanels; ?>",
     ParentObj: '<?php echo $this->ParentObj; ?>',
     ParentObjType: '<?php echo $this->ParentObjType; ?>',
@@ -70,7 +70,7 @@ $(document).ready(function() {
     da.PrjTlist.Table = $("#PrjList").DataTable({
         "paging": true,
         "lengthChange": false,
-        "pageLength": da.PrjTlist.PageLength,
+        "pageLength": <?php echo $this->PageLength; ?>,
         "searching": true,
         "ordering": true,
         "info": true,

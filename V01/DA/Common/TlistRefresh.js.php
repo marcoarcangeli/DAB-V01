@@ -15,7 +15,7 @@ echo'
         '.$this->JSPanelNamSpace.'.Table = $("#'.$this->TlistDataTblNam.'").DataTable({
             "paging": true,
             "lengthChange": false,
-            "pageLength": '.$this->JSPanelNamSpace.'.PageLength,
+            "pageLength": '.$this->PageLength.', 
             "searching": true,
             "ordering": true,
             "info": true,
@@ -38,6 +38,9 @@ echo'
             },
             "columns": [
                 '.$this->TlistColumnsJS.'
+            ],
+            "order": [
+                [0, "'.$this->TlistOrder.'"]
             ],
         });
         '.$this->JSPanelNamSpace.'.Notify(null,"Set");

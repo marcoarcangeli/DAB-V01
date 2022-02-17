@@ -18,7 +18,7 @@
     SuccessMsg: '<?php echo $_SESSION["SuccessMsg"]; ?>',
     FailMsg: '<?php echo $_SESSION["FailMsg"]; ?>',
 
-    <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsJs"]); ?>
+    <?php echo $this->InRefsJs; ?>
 
     <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["SrvOpParamsJs"]); ?>
 

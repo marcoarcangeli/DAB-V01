@@ -7,7 +7,7 @@ da.UsrTlist = {
     IdProfile: '',
     Table: null,
     Mode: "<?php echo $this->Mode; ?>",
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     DetailPanels: "<?php echo $this->DetailPanels; ?>",
     ParentObj: '<?php echo $this->ParentObj; ?>',
     ParentObjType: '<?php echo $this->ParentObjType; ?>',
@@ -33,7 +33,7 @@ da.UsrTlist = {
         da.UsrTlist.Table = $("#UsrList").DataTable({
             "paging": true,
             "lengthChange": false,
-            "pageLength": da.UsrTlist.PageLength,
+            "pageLength": <?php echo $this->PageLength; ?>,
             "searching": true,
             "ordering": true,
             "info": true,

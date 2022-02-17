@@ -4,7 +4,7 @@ da.Log_FileTlist = {
     whoIAm: "Log_FileTlist",
     Table: null,
     Mode: "<?php echo $this->Mode; ?>",
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     FolderAbsPath: "<?php echo $_SESSION["LogAbsPath"]; ?>", //$_SESSION["LogAbsPath"]    = "DA/Logs/";
     FolderRelPath: "<?php echo $_SESSION["LogRelPath"]; ?>", //$_SESSION["LogRelPath"]    = "DA/Logs/";
     AllowedUploadFileExt: "<?php echo $this->AllowedUploadFileExt; ?>",
@@ -147,7 +147,7 @@ $(document).ready(function() {
         "dom": "<'myfilter'f>t ip",
         "paging": true,
         "lengthChange": false,
-        "pageLength": da.Log_FileTlist.PageLength,
+        "pageLength": <?php echo $this->PageLength; ?>,
         "searching": true,
         "ordering": true,
         "info": true,

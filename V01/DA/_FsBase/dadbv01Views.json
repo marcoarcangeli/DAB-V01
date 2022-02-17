@@ -1,0 +1,8 @@
+[
+    {
+        "VNam":   "PrjStateCalcSingle",
+        "VEs":    "Evnt,Cntx,Clean,An,Rnk;IdAn",                                                            
+        "VCSCols":"Evnt.fileRefRepoDat,MIN(An.IdAn) AS IdAn,COUNT(An.IdAn) AS AnNum,(not isnull(p.IdPrj))+(not isnull(e.IdEvnt))+(not isnull(cl.IdClean))+(not isnull(c.IdCntx))+(not isnull(a.IdAn))+(not isnull(rn.IdRnk))as IdPrjStateCalc",
+        "GroupBy":"1"
+    }
+]

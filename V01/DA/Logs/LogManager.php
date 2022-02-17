@@ -28,7 +28,7 @@ class LogManager
                 }else{
                     $_SESSION["UsrMsg"] = $UsrMsg = $Type." ". $Datetime.": ".$Msg;
                 }
-                error_log($UsrMsg."\n", 3, $_SESSION["LogAbsPath"] . $_SESSION["IdUsr"] . "-" . date("Y-m-d") . ".Log");
+                error_log($UsrMsg."\n", 3, $_SESSION["LogAbsPath"] . date("Y-m-d") . "-" . $_SESSION["IdUsr"] . ".Log");
             }else{
                 error_Log($Msg."\nExternal.Exception.User not logged in.\n", 3, $_SESSION["LogAbsPath"] . "Common.Log");
             }

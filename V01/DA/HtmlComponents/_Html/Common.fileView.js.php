@@ -6,7 +6,7 @@
     <?php echo $this->FVJsDecl; ?>
     // FileTlist std params
     Table: null,
-    PageLength: "<?php echo $this->PageLength; ?>",
+ // PageLength: "<?php echo $this->PageLength; ?>",
     FolderAbsPath: '<?php echo $_SESSION["ProcAbsPath"]; ?>',
     FolderRelPath: '<?php echo $_SESSION["ProcRelPath"]; ?>',
     AllowedUploadFileExt: "<?php echo $this->AllowedUploadFileExt; ?>",
@@ -22,18 +22,6 @@
     FailMsg: '<?php echo $_SESSION["FailMsg"]; ?>',
 
     <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["FileViewRefreshJs"]); ?>
-    // Refresh: function(data=null) {
-    //     SrvOpNam = "Read"; 
-    //     if(data){
-    //         $('#<?php echo $this->PanelTag; ?>FileNam').val(data["FileNam"]);
-    //         $('#<?php echo $this->PanelTag; ?>FileRef').val(data["FileRef"]);
-    //         $('#<?php echo $this->PanelTag; ?>FileViewer').attr('src', data["FileRef"]);
-    //     }else{
-    //         $('#<?php echo $this->PanelTag; ?>FileNam').val("");
-    //         $('#<?php echo $this->PanelTag; ?>FileRef').val("");
-    //         $('#<?php echo $this->PanelTag; ?>FileViewer').attr('src', "");
-    //     }
-    // },
 
 }
 $(document).ready(function() {

@@ -58,51 +58,43 @@ da.navigation = {
             var ContentParams2matrix = {};
             //[0]  = ["AlgCats", "Algs","AlgRead"];
             ContentParams2matrix["AlgCats"] = {
-                Header: "Algorithm Category", Col_Lg: "2", Mode: "Tlist", HtmlFn: "Common.Tree.html.php", JsFn: "Common.Tree.js.php",
-                DetailPanels: "", RefPanels: "AlgTlist",
-                FE:"AlgCat", FV:"", PanelType:"Tree", InRefs: ""
+                Header: "Algorithm Category", Col_Lg: "2", Mode: "TlistPar", HtmlFn: "AlgCat.Tree.html.php", JsFn: "AlgCat.Tree.js.php",
+                DetailPanels: "AlgTlist"
             };
             ContentParams2matrix["Algs"] = {
-                Header: "Algorithms", Col_Lg: "3", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
-                DetailPanels: "AlgRead", RefPanels: "AlgParamTypeTlist,AlgParamTypeRead",
-                FE:"Alg", FV:"SearchIds<IdAlgCat", PanelType:"Tlist", InRefs: "AlgCat"
+                Header: "Algorithms", Col_Lg: "3", Mode: "Tlist", HtmlFn: "Alg.Tlist.html.php", JsFn: "Alg.Tlist.js.php",
+                DetailPanels: "AlgRead", ParentObj: "AlgCatTree", ParentObjType: "Tree", RefPanels: "AlgParamTypeTlist"
             };
             ContentParams2matrix["AlgRead"] = {
-                Header: "Algorithm", Col_Lg: "7", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php",
-                ParentObj: "AlgList", ParentObjType: "Tlist", CompulsoryFields: "Nam",
-                FE:"Alg", PanelType:"Read", InRefs: "Proc;FileTlist", FSels:"AlgCat,AlgState"
+                Header: "Algorithm", Col_Lg: "7", Mode: "Tlist", HtmlFn: "Alg.Read.html.php", JsFn: "Alg.Read.js.php",
+                ParentObj: "AlgList", CompulsoryFields: "Nam,IdAlgState,IdAlgCat",
+                FE: "Alg", PanelType: "Read"
             };
             //[1]  = ["ProcsRepo", "ProcFileView", "ProcView"];
             ContentParams2matrix["ProcsRepo"] = {
-                Header: "Procedures Repository", Col_Lg: "4", Mode: "FileTlist", HtmlFn: "Common.FileTlist.html.php", JsFn: "Common.FileTlist.js.php", 
-                DetailPanels: "ProcFileView", AllowedUploadFileExt: "R", RefPanels: "AlgRead",
-                FE:"Proc", FV:"", PanelType:"FileTlist", InRefs: ""
+                Header: "Procedures Repository", Col_Lg: "4", Mode: "FileTlist", HtmlFn: "Proc.FileTlist.html.php", JsFn: "Proc.FileTlist.js.php", 
+                DetailPanels: "ProcFileView", DetailPanelsType: "FileView", RefPanels: "AlgRead"
             };
             ContentParams2matrix["ProcFileView"] = {
-                Header: "Procedure Viewer", Col_Lg: "8", Mode: "alone", HtmlFn: "Common.FileView.html.php", JsFn: "Common.FileView.js.php", 
-                ParentObj: "ProcsRepo",
-                FE:"Proc", PanelType:"FileView", InRefs: "", FSels:""
+                Header: "Procedure Viewer", Col_Lg: "8", Mode: "alone", HtmlFn: "Proc.FileView.html.php", JsFn: "Proc.FileView.js.php", 
+                ParentObj: "ProcsRepo", ParentObjType: "FileTlist"
             };
             //[2]  = ["ParamTypeCats","ParamTypes","AlgParamTypes", "AlgParamTypeRead"];
             ContentParams2matrix["ParamTypeCats"] = {
-                Header: "Param Type Categories", Col_Lg: "2", Mode: "Tlist", HtmlFn: "Common.Tree.html.php", JsFn: "Common.Tree.js.php",
-                DetailPanels: "", RefPanels: "ParamTypeTlist",
-                FE:"ParamTypeCat", FV:"", PanelType:"Tree", InRefs: ""
+                Header: "Param Type Categories", Col_Lg: "2", Mode: "TlistPar", HtmlFn: "ParamTypeCat.Tree.html.php", JsFn: "ParamTypeCat.Tree.js.php",
+                DetailPanels: "ParamTypeTlist", DetailPanelsType: "TlistPar"
             };
             ContentParams2matrix["ParamTypes"] = {
-                Header: "Param Types", Col_Lg: "3", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
-                DetailPanels: "", RefPanels: "AlgParamTypeTlist,AlgParamTypeRead", 
-                FE:"ParamType", FV:"SearchIds<IdParamTypeCat", PanelType:"Tlist", InRefs: "ParamTypeCat"
+                Header: "Param Types", Col_Lg: "3", Mode: "TlistPar", HtmlFn: "ParamType.Tlist.html.php", JsFn: "ParamType.Tlist.js.php",
+                DetailPanels: "AlgParamTypeTlist", DetailPanelsType: "TlistPar", RefPanels: "AlgParamTypeRead"
             };
             ContentParams2matrix["AlgParamTypes"] = {
-                Header: "Algorithm Param Types", Col_Lg: "3", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
-                DetailPanels: "AlgParamTypeRead", 
-                FE:"AlgParamType", FV:"IdParamType | IdAlg", PanelType:"Tlist", InRefs: "Alg,ParamType"
+                Header: "Algorithm Param Types", Col_Lg: "3", Mode: "Tlist", HtmlFn: "AlgParamType.Tlist.html.php", JsFn: "AlgParamType.Tlist.js.php",
+                DetailPanels: "AlgParamTypeRead", DetailPanelsType: "Tlist"
             };
             ContentParams2matrix["AlgParamTypeRead"] = {
-                Header: "Algorithm Param Type Detail", Col_Lg: "4",  Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
-                ParentObj: "AlgParamTypeList", ParentObjType: "Tlist", CompulsoryFields: "Nam",
-                FE:"AlgParamType", PanelType:"Read", InRefs: "Alg,ParamType", FSels:""
+                Header: "Algorithm Param Type Detail", Col_Lg: "4",  Mode: "Tlist", HtmlFn: "AlgParamType.Read.html.php", JsFn: "AlgParamType.Read.js.php", 
+                ParentObj: "AlgParamTypeList"
             };
 
             // alert(JSON.stringify(ContentParams2matrix));
@@ -138,6 +130,16 @@ da.navigation = {
 
             // altri parametri per livello 2
             var ContentParams2matrix = {};
+            // ContentParams2matrix["AlgCats"] = {
+            //     Header: "AlgCats", Col_Lg: "4", Mode: "TlistPar", HtmlFn: "AlgCat.Tree.html.php", JsFn: "AlgCat.Tree.js.php",
+            //     DetailPanels: "AlgCatRead", RefPanels: "AlgCatRead",
+            //     FE:"AlgCat", FV:"", PanelType:"Tree", InRefs: ""
+            // };
+            // ContentParams2matrix["AlgCatRead"] = {
+            //     Header: "AlgCat", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php",
+            //     ParentObj: "AlgCatTree", ParentObjType: "Tree", CompulsoryFields: "Nam",
+            //     FE:"AlgCat", PanelType:"Read", InRefs: "AlgCatPar", FSels:""
+            // };
             ContentParams2matrix["AlgCats"] = {
                 Header: "AlgCats", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Tree.html.php", JsFn: "Common.Tree.js.php",
                 DetailPanels: "AlgCatRead", RefPanels: "",
@@ -147,6 +149,47 @@ da.navigation = {
                 Header: "AlgCat", Col_Lg: "8", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php",
                 ParentObj: "AlgCatTree", ParentObjType: "Tree", CompulsoryFields: "Nam",
                 FE:"AlgCat", PanelType:"Read", InRefs: "", FSels:"AlgCat"
+            };
+            $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
+
+            document.contentInfo.submit();
+        } catch (e) {
+            da.UsrMsgShow(e.message, "Error");
+        }
+    }
+    ,
+    // NOT USED
+    AlgCatTlist: function () {
+        try {
+            da.cleanSessionNavigationParams;
+
+            // classe contenitore
+            $("#ContentClass").val("DA\\HtmlComponents\\GridVertical");
+            // $("#ContentHeaderParams").val("Progetti e Stati Prj 2D");
+
+            // // livelli di accordion2D
+            // var ContentHeaders1matrix = [];
+            // $("#ContentHeaders1matrix").val(JSON.stringify(ContentHeaders1matrix));
+
+            // classi per ciascun livello di accordion2D
+            var ContentClass2matrix = [];
+            ContentClass2matrix[0] = ["DA\\HtmlComponents\\AlgCat\\Tlist", "DA\\HtmlComponents\\AlgCat\\Read"];
+            $("#ContentClass2matrix").val(JSON.stringify(ContentClass2matrix));
+
+            // Intestazioni per livello 2 
+            var ContentHeaders2matrix = [];
+            ContentHeaders2matrix[0] = ["AlgCats", "AlgCatRead"];
+            $("#ContentHeaders2matrix").val(JSON.stringify(ContentHeaders2matrix));
+
+            // altri parametri per livello 2
+            var ContentParams2matrix = {};
+            ContentParams2matrix["AlgCats"] = {
+                Header: "AlgCats", Col_Lg: "12", Mode: "Tlist", HtmlFn: "AlgCat.Tlist.html.php", JsFn: "AlgCat.Tlist.js.php",
+                DetailPanels: "AlgCatRead"
+            };
+            ContentParams2matrix["AlgCatRead"] = {
+                Header: "AlgCat", Col_Lg: "12", Mode: "Tlist", HtmlFn: "AlgCat.Read.html.php", JsFn: "AlgCat.Read.js.php",
+                ParentObj: "AlgCatList"
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -306,6 +349,14 @@ da.navigation = {
 
             // altri parametri per livello 2
             var ContentParams2matrix = {};
+            // ContentParams2matrix["Dat_Evnts"] = {
+            //     Header: "Dat_Evnts", Col_Lg: "4", Mode: "FileTlist", HtmlFn: "Dat_Evnt.FileTlist.html.php", JsFn: "Dat_Evnt.FileTlist.js.php",
+            //     DetailPanels: "Dat_EvntView"
+            // };
+            // ContentParams2matrix["Dat_EvntView"] = {
+            //     Header: "Dat_EvntView", Col_Lg: "8", Mode: "FileTlist", HtmlFn: "Dat_Evnt.FileView.html.php", JsFn: "Dat_Evnt.FileView.js.php",
+            //     ParentObj: "Dat_EvntList"
+            // };
             ContentParams2matrix["Dat_Evnts"] = {
                 Header: "Dat_Evnts", Col_Lg: "4", Mode: "FileTlist", HtmlFn: "Common.FileTlist.html.php", JsFn: "Common.FileTlist.js.php",
                 DetailPanels: "Dat_EvntFileView", AllowedUploadFileExt: "csv_da",
@@ -349,6 +400,14 @@ da.navigation = {
 
             // altri parametri per livello 2
             var ContentParams2matrix = {};
+            // ContentParams2matrix["EvntCats"] = {
+            //     Header: "EvntCats", Col_Lg: "4", Mode: "Tlist", HtmlFn: "EvntCat.Tree.html.php", JsFn: "EvntCat.Tree.js.php",
+            //     DetailPanels: "EvntCatRead"
+            // };
+            // ContentParams2matrix["EvntCatRead"] = {
+            //     Header: "EvntCat", Col_Lg: "9", Mode: "Tlist", HtmlFn: "EvntCat.Read.html.php", JsFn: "EvntCat.Read.js.php",
+            //     ParentObj: "EvntCatTree", ParentObjType: "Tree"
+            // };
             ContentParams2matrix["EvntCats"] = {
                 Header: "EvntCats", Col_Lg: "4", Mode: "Tlist", HtmlFn: "Common.Tree.html.php", JsFn: "Common.Tree.js.php",
                 DetailPanels: "EvntCatRead", RefPanels: "",
@@ -434,19 +493,16 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["FeatureCats"] = {
-                Header: "FeatureCats", Col_Lg: "2", Mode: "Tlist", HtmlFn: "Common.Tree.html.php", JsFn: "Common.Tree.js.php",
-                DetailPanels: "", RefPanels: "FeatureTlist,FeatureRead",
-                FE:"FeatureCat", FV:"", PanelType:"Tree", InRefs: ""
+                Header: "FeatureCats", Col_Lg: "2", Mode: "TlistPar", HtmlFn: "FeatureCat.Tree.html.php", JsFn: "FeatureCat.Tree.js.php",
+                DetailPanels: "FeatureTlist"
             };
             ContentParams2matrix["Features"] = {
-                Header: "Features", Col_Lg: "5", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
-                DetailPanels: "FeatureRead", 
-                FE:"Feature", FV:"SearchIds<IdFeatureCat", PanelType:"Tlist", InRefs: "FeatureCat"
+                Header: "Features", Col_Lg: "5", Mode: "Tlist", HtmlFn: "Feature.Tlist.html.php", JsFn: "Feature.Tlist.js.php",
+                DetailPanels: "FeatureRead", ParentObj: "FeatureCatTree", ParentObjType: "Tree"
             };
             ContentParams2matrix["FeatureRead"] = {
-                Header: "Feature", Col_Lg: "5",  Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
-                ParentObj: "FeatureList", ParentObjType: "Tlist", CompulsoryFields: "Nam",
-                FE:"Feature", PanelType:"Read", InRefs: "FeatureCat", FSels:""
+                Header: "Feature", Col_Lg: "5",  Mode: "Tlist", HtmlFn: "Feature.Read.html.php", JsFn: "Feature.Read.js.php", 
+                ParentObj: "FeatureList"
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -480,6 +536,14 @@ da.navigation = {
 
             // altri parametri per livello 2
             var ContentParams2matrix = {};
+            // ContentParams2matrix["Logs"] = {
+            //     Header: "Logs", Col_Lg: "4", Mode: "FileTlist", HtmlFn: "Log.FileTlist.html.php", JsFn: "Log.FileTlist.js.php",
+            //     DetailPanels: "LogView", PageLength: "15", AllowedUploadFileExt: "log"
+            // };
+            // ContentParams2matrix["LogView"] = {
+            //     Header: "LogView", Col_Lg: "8", Mode: "FileTlist", HtmlFn: "Log.FileView.html.php", JsFn: "Log.FileView.js.php",
+            //     ParentObj: "LogList"
+            // };
             ContentParams2matrix["Logs"] = {
                 Header: "Logs", Col_Lg: "4", Mode: "FileTlist", HtmlFn: "Common.FileTlist.html.php", JsFn: "Common.FileTlist.js.php",
                 DetailPanels: "LogFileView", PageLength: "15", AllowedUploadFileExt: "log", TlistOrder: "desc",
@@ -607,19 +671,16 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["ParamTypeCats"] = {
-                Header: "ParamTypeCats", Col_Lg: "2", Mode: "Tlist", HtmlFn: "Common.Tree.html.php", JsFn: "Common.Tree.js.php",
-                DetailPanels: "", RefPanels: "ParamTypeTlist,ParamTypeRead",
-                FE:"ParamTypeCat", FV:"", PanelType:"Tree", InRefs: ""
+                Header: "ParamTypeCats", Col_Lg: "2", Mode: "TlistPar", HtmlFn: "ParamTypeCat.Tree.html.php", JsFn: "ParamTypeCat.Tree.js.php",
+                DetailPanels: "ParamTypeTlist"
             };
             ContentParams2matrix["ParamTypes"] = {
-                Header: "ParamTypes", Col_Lg: "5", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
-                DetailPanels: "ParamTypeRead", 
-                FE:"ParamType", FV:"SearchIds<IdParamTypeCat", PanelType:"Tlist", InRefs: "ParamTypeCat"
+                Header: "ParamTypes", Col_Lg: "5", Mode: "Tlist", HtmlFn: "ParamType.Tlist.html.php", JsFn: "ParamType.Tlist.js.php",
+                DetailPanels: "ParamTypeRead", ParentObj: "ParamTypeCatTree", ParentObjType: "Tree"
             };
             ContentParams2matrix["ParamTypeRead"] = {
-                Header: "ParamType", Col_Lg: "5",  Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
-                ParentObj: "ParamTypeList", ParentObjType: "Tlist", CompulsoryFields: "Nam",
-                FE:"ParamType", PanelType:"Read", InRefs: "ParamTypeCat", FSels:""
+                Header: "ParamType", Col_Lg: "5",  Mode: "Tlist", HtmlFn: "ParamType.Read.html.php", JsFn: "ParamType.Read.js.php", 
+                ParentObj: "ParamTypeList"
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 
@@ -968,6 +1029,128 @@ da.navigation = {
         }
     }
     ,
+    // predisposto per V.1
+    PrjCompleteBoardV2: function (UsrMsg, UsrMsgTitle) {
+        try {
+            da.cleanSessionNavigationParams;
+
+            // $("#ContentClass").val("DA\\HtmlComponents\\GridAccordion2D");
+            $("#ContentClass").val("DA\\HtmlComponents\\ContainerBuilder");
+
+            //  parametri per accordion2D
+            var ContainerParams = {};
+            ContainerParams["GridAccordion2D"] = {
+                containerClass: "DA\\HtmlComponents\\ContainerBuilder",
+                containerHtml: "GridAccordion2D.html.php",
+                containerJs: "_multiJs2D.js.php"
+            };
+            $("#ContainerParams").val(JSON.stringify(ContainerParams));
+
+            ContentHeaderParams = "Prj: " + $("#Prj_IdPrj").val() + " - " + $("#Prj_nam").val();
+            $("#ContentHeaderParams").val(ContentHeaderParams);
+
+            // livelli di accordion2D
+            var ContentHeaders1matrix = ["Prj", "Evnt", "Clean", "Cntx"];
+            // alert(JSON.stringify(ContentHeaders1matrix));
+            $("#ContentHeaders1matrix").val(JSON.stringify(ContentHeaders1matrix));
+
+            // Intestazioni per livello di Accordion2D
+            var ContentHeaders2matrix = [];
+            ContentHeaders2matrix[0] = ["Prj"];
+            ContentHeaders2matrix[1] = ["RepoEvents", "Evnt", "EvntDat"];
+            ContentHeaders2matrix[2] = ["Clean", "Ops Dat", "Op Dat", "Dimensioni Evnt", "Dat Puliti Evnt"];
+            // alert(JSON.stringify(ContentHeaders2matrix));
+            $("#ContentHeaders2matrix").val(JSON.stringify(ContentHeaders2matrix));
+
+            // classi per ciascun livello di accordion2D
+            var ContentClass2matrix = [];
+            ContentClass2matrix[0] = ["DA\\HtmlComponents\\Prj\\Read"];
+            ContentClass2matrix[1] = ["DA\\HtmlComponents\\repo\\DataEventFileTlist", "DA\\HtmlComponents\\Evnt\\Read", "DA\\HtmlComponents\\Evnt\\Common\\DatTlist"];
+            ContentClass2matrix[2] = ["DA\\HtmlComponents\\Clean\\Read", "DA\\HtmlComponents\\OpDat\\Tlist", "DA\\HtmlComponents\\OpDat\\Read", "DA\\HtmlComponents\\Evnt\\dimensioni", "DA\\HtmlComponents\\Evnt\\DatPulitiTlist"];
+            // alert(JSON.stringify(ContentClass2matrix));OpDatTlist
+            $("#ContentClass2matrix").val(JSON.stringify(ContentClass2matrix));
+            
+            // altri parametri per livello di Detail accordion2D
+            var ContentParams2matrix = {};
+            ContentParams2matrix["Prj"] = {
+                Header: "Prj",
+                Mode: "alone",
+                HtmlFn: "Prj.Read.html.php",
+                JsFn: "Prj.Read.js.php",
+                IdPrj: $("#Prj_IdPrj").val(),
+                IdPrjState: $("#Prj_IdPrjState").val(),
+            };
+            ContentParams2matrix["RepoEvents"] = {
+                Header: "RepoEvents",
+                Col_Lg: "2",
+                Mode: "Tlist",
+                HtmlFn: "repo.Data.event.Files.Tlist.html.php",
+                JsFn: "repo.Data.event.Files.Tlist.js.php",
+            };
+            ContentParams2matrix["Evnt"] = {
+                Header: "Evnt",
+                Mode: "alone",
+                HtmlFn: "Evnt.Read.html.php",
+                JsFn: "Evnt.Read.js.php",
+                IdPrj: $("#Prj_IdPrj").val(),
+            };
+            ContentParams2matrix["EvntDat"] = {
+                Header: "EvntDat",
+                Col_Lg: "4",
+                Mode: "alone",
+                HtmlFn: "Evnt.Dat.Tlist.html.php",
+                JsFn: "Evnt.Dat.Tlist.js.php",
+                IdPrj: $("#Prj_IdPrj").val(),
+            };
+            ContentParams2matrix["Clean"] = {
+                Header: "Clean",
+                Col_Lg: "2",
+                Mode: "alone",
+                HtmlFn: "Clean.Read.html.php",
+                JsFn: "Clean.Read.js.php",
+                IdEvnt: $("#Evnt_IdEvnt").val(),
+            };
+            ContentParams2matrix["Ops Dat"] = {
+                Header: "Ops",
+                Mode: "alone",
+                HtmlFn: "OpDat.Tlist.html.php",
+                JsFn: "OpDat.Tlist.js.php",
+                IdClean: $("#Prj_IdClean").val(),
+                IdPrj: $("#Prj_IdPrj").val(),
+            };
+            ContentParams2matrix["Op Dat"] = {
+                Header: "Op",
+                Mode: "alone",
+                HtmlFn: "OpDat.Read.html.php",
+                JsFn: "OpDat.Read.js.php",
+                IdClean: $("#Prj_IdClean").val(),
+                IdPrj: $("#Prj_IdPrj").val(),
+            };
+            ContentParams2matrix["Dimensioni Evnt"] = {
+                Header: "Dimensioni Evnt",
+                Col_Lg: "1",
+                Mode: "alone",
+                HtmlFn: "Evnt.dimensioni.html.php",
+                JsFn: "Evnt.dimensioni.js.php",
+                IdPrj: $("#Prj_IdPrj").val(),
+            };
+            ContentParams2matrix["Dat Puliti Evnt"] = {
+                Header: "Dat Puliti Evnt",
+                Mode: "alone",
+                HtmlFn: "Evnt.DatPuliti.Tlist.html.php",
+                JsFn: "Evnt.DatPuliti.Tlist.js.php",
+                IdPrj: $("#Prj_IdPrj").val(),
+            };
+
+            // alert(JSON.stringify(ContentParams2matrix));
+            $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
+
+            document.contentInfo.submit();
+        } catch (e) {
+            da.UsrMsgShow(e.message, "Error");
+        }
+    }
+    ,
     Prjs: function () {
         try {
             da.cleanSessionNavigationParams;
@@ -993,14 +1176,12 @@ da.navigation = {
             // altri parametri per livello 2
             var ContentParams2matrix = {};
             ContentParams2matrix["PrjTlist"] = {
-                Header: "Projects", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Common.Tlist.html.php", JsFn: "Common.Tlist.js.php",
-                DetailPanels: "PrjReadOpen",
-                FE:"Prj", FV:"", PanelType:"Tlist", InRefs: ""
+                Header: "Projects", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Prj.Tlist.html.php", JsFn: "Prj.Tlist.js.php",
+                DetailPanels: "PrjRead"
             };
             ContentParams2matrix["PrjRead"] = {
-                Header: "Project", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Common.Read.html.php", JsFn: "Common.Read.js.php", 
-                ParentObj: "PrjTlist", VNam: "PrjStateCalcSingle",
-                FE:"Prj", PanelType:"ReadOpen", InRefs: "", FSels:"PrjState"
+                Header: "Project", Col_Lg: "6", Mode: "Tlist", HtmlFn: "Prj.Read.html.php", JsFn: "Prj.Read.js.php", 
+                ParentObj: "PrjTlist", ParentObjType:"Tlist2", ParentObjFun:"RefreshObj"
             };
             $("#ContentParams2matrix").val(JSON.stringify(ContentParams2matrix));
 

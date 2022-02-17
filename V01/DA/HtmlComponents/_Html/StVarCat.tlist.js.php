@@ -2,7 +2,7 @@
     da.StVarCatTlist = {
 
         Mode: "<?php echo $this->Mode; ?>",
-        PageLength: "<?php echo $this->PageLength; ?>",
+     // PageLength: "<?php echo $this->PageLength; ?>",
         DetailPanels: "<?php echo $this->DetailPanels; ?>",
 
     }
@@ -12,7 +12,7 @@
             var table = $("#StVarCatList").DataTable({
                 "paging": true,
                 "lengthChange": false,
-                "pageLength": da.StVarCatTlist.PageLength,
+                "pageLength": <?php echo $this->PageLength; ?>,
                 "searching": true,
                 "ordering": true,
                 "info": true,

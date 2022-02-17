@@ -53,7 +53,7 @@
                     <!-- /.card-header -->
                     <div class="card-body">
                         <div class="row">
-                            <?php include($_SESSION["ContentCommonRelPath"].$_SESSION["InRefsIdsHTML"]); ?>
+                            <?php echo $this->InRefsIdsHTML; ?>
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label

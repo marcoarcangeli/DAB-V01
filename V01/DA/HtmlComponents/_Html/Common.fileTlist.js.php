@@ -7,9 +7,9 @@
     // FileTlist std params
     Table: null,
     SelectedRow: null,
-    PageLength: "<?php echo $this->PageLength; ?>",
-    FolderAbsPath: '<?php echo $_SESSION["ProcAbsPath"]; ?>',
-    FolderRelPath: '<?php echo $_SESSION["ProcRelPath"]; ?>',
+    // PageLength: "<?php echo $this->PageLength; ?>",
+    FolderAbsPath: '<?php echo $_SESSION[$this->FE."AbsPath"]; ?>',
+    FolderRelPath: '<?php echo $_SESSION[$this->FE."RelPath"]; ?>',
     AllowedUploadFileExt: "<?php echo $this->AllowedUploadFileExt; ?>",
     UplName: '<?php echo $_SESSION["UploadFileBufferName"]; ?>', //'upl'
     // std UI params
